@@ -130,7 +130,11 @@ trainer = train_on_responses_only(
     response_part="<|start_header_id|>assistant<|end_header_id|>\\n\\n")
 
 stats = trainer.train()
-final_eval = trainer.evaluate()
+# Not trainer.evaluate() here: eval_strategy="epoch" already ran eval each epoch, and
+# calling evaluate() again after train() crashes some transformers versions in notebooks
+# (NotebookProgressCallback: "on_train_begin must be called before on_evaluate").
+# The last epoch's eval metrics are already in log_history.
+final_eval = {"eval_loss": [h["eval_loss"] for h in trainer.state.log_history if "eval_loss" in h][-1]}
 print(stats.metrics, final_eval)
 """)
 

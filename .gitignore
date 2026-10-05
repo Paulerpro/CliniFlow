@@ -1,0 +1,11 @@
+docs
+.env
+.aws/
+*.pem
+*_credentials*
+registry/*.log
+registry/report/
+registry/adapters/
+*.safetensors
+*.bin
+*.gguf

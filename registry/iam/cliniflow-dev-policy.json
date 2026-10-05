@@ -1,0 +1,37 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "BucketListAndLocate",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:GetBucketLocation"],
+      "Resource": "arn:aws:s3:::cliniflow-adapters-paul-2026"
+    },
+    {
+      "Sid": "BucketObjects",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::cliniflow-adapters-paul-2026/*"
+    },
+    {
+      "Sid": "SageMakerProcessingJobs",
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateProcessingJob",
+        "sagemaker:DescribeProcessingJob",
+        "sagemaker:ListProcessingJobs",
+        "sagemaker:StopProcessingJob"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "PassOnlyTheExecutionRole",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::<ACCOUNT_ID>:role/cliniflow-sagemaker-exec",
+      "Condition": {
+        "StringEquals": { "iam:PassedToService": "sagemaker.amazonaws.com" }
+      }
+    }
+  ]
+}
