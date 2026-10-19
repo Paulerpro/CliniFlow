@@ -25,6 +25,12 @@
       "Resource": "*"
     },
     {
+      "Sid": "ReadJobLogs",
+      "Effect": "Allow",
+      "Action": ["logs:DescribeLogStreams", "logs:GetLogEvents"],
+      "Resource": "arn:aws:logs:eu-north-1:<ACCOUNT_ID>:log-group:/aws/sagemaker/*"
+    },
+    {
       "Sid": "PassOnlyTheExecutionRole",
       "Effect": "Allow",
       "Action": "iam:PassRole",
