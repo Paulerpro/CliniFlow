@@ -1,142 +1,120 @@
 # Serving with vLLM (Pillar 3)
 
-Status: the server, client, and load test are proven working end-to-end on a Colab T4. Nothing is deployed on AWS yet &mdash; blocked on GPU quota approval, and `launch_ec2.py`/`stop_ec2.py` have not been run against real AWS yet (written and syntax-checked only).
+Serves the fine-tuned LoRA adapter behind an OpenAI-compatible HTTP API, using vLLM's native multi-LoRA support: the base model loads once, and the adapter attaches per request.
 
-This is the learning guide for the serving layer. It explains what vLLM is, why CliniFlow uses it, and the steps to run it on AWS, in the order we'll do them.
+## What vLLM does
 
-## 1. What vLLM is, in plain terms
+vLLM runs a language model efficiently behind an HTTP API, built around two techniques:
 
-A language model is a large file of numbers. Running it, called **inference**, means feeding it text and getting text back. That's slow and memory-hungry, and doing it naively wastes most of the GPU.
+- **Continuous batching.** New requests join the batch already running on the GPU instead of waiting for it to finish, keeping the GPU busy.
+- **PagedAttention.** The per-token generation state (the KV cache) is managed in fixed-size blocks rather than allocated as one contiguous reservation, reducing wasted GPU memory.
 
-vLLM is an open-source program that runs a model efficiently behind an HTTP API. It does three things that matter for us:
+It exposes an OpenAI-compatible `/v1/chat/completions` endpoint, so any existing OpenAI-style client can point at it unchanged.
 
-- **Keeps the GPU busy.** Requests arrive at different times. vLLM adds new requests to the batch that's already running, instead of waiting for the batch to finish. This is called *continuous batching*.
-- **Uses memory carefully.** While generating, the model stores intermediate state (the KV cache) for every token. vLLM manages that cache in fixed-size blocks, like pages of memory, so less is wasted. This is called *PagedAttention*.
-- **Speaks the OpenAI API format.** Any client written for OpenAI's chat endpoint can call it by changing the URL. Our FastAPI gateway in Pillar 5 will do exactly that.
+## Why the adapter is served, not merged
 
-## 2. Why CliniFlow uses it, and what it replaces
-
-Our model is the base Llama 3.2 3B plus a small LoRA adapter. Two ways to serve that:
-
-| Approach | What it means | Problem |
-|---|---|---|
-| Merge the adapter into the base model, then serve | One full model file per adapter version | Re-upload several GB per change; one model per adapter |
-| **vLLM with LoRA support (chosen)** | One base model loaded once; adapters attached per request | Needs a GPU server, but one server can serve several adapters |
-
-The design doc chose the second option. Adapters stay small and separate, and the base model loads once.
-
-## 3. The core idea: base once, adapter per request
+| Approach | Result |
+|---|---|
+| Merge the adapter into the base model, then serve | A full model file per adapter version; re-upload several GB on every training change |
+| **LoRA attached at serve time (used here)** | One base model loaded once; the adapter is a few MB, swapped per request; multiple adapters can share one GPU |
 
 ```
             one running vLLM server
   ┌──────────────────────────────────────────┐
   │  base model (Llama 3.2 3B, fp16)  ~6 GB  │  loaded once
   │  ┌─────────────────────────────────────┐ │
-  │  │ adapter: clinical-json-extractor    │ │  small, swapped per request
+  │  │ adapter: clinical-json-extractor    │ │  swapped per request
   │  └─────────────────────────────────────┘ │
   └──────────────────────────────────────────┘
         ▲                         │
    request: model="clinical-      response: SOAP JSON
-   json-extractor", transcript    
+   json-extractor", transcript
 ```
 
-The `model` field in the request selects the adapter. A future adapter, such as `patient-summarizer` from the design doc, could be added to the same server without a second GPU.
+The `model` field in the request selects the adapter, so a second task-specific adapter (e.g. `patient-summarizer`) could be added to the same server without a second GPU.
 
-## 4. Hardware, and why this instance
+## Hardware requirements
 
-- **Instance:** g4dn.xlarge, EC2 Spot, eu-north-1.
-- **GPU:** one NVIDIA T4 with 16 GB of memory.
-- **Why it fits:** the 3B model in fp16 is about 6 GB of weights. The rest of the memory holds the KV cache and the adapter. This is the sizing reasoning from the design doc.
-- **Precision:** the T4 uses fp16, not bf16. vLLM is started with `--dtype half` for that reason.
-- **Cost:** check the live EC2 price for eu-north-1 before launching. Spot is much cheaper than on-demand, but it can be interrupted with a 2-minute warning. Stop the instance whenever you're not using it.
+- **Minimum:** an NVIDIA GPU with 16GB VRAM. The 3B model is ~6GB in fp16; the rest covers the KV cache and the adapter.
+- **Precision:** `--dtype half` (fp16). Confirmed working on a T4 (fp16-only, no bf16); also valid on Ampere-class cards with bf16 support.
+- **Validated on:** a free-tier T4 (Colab) and a T4 on Modal, both serving the trained adapter end-to-end over the real API (request in, schema-valid SOAP JSON out).
 
-## 5. The steps, in order
+## Deployment targets
 
-**Step 1. Get GPU quota.** Covered in the request steps above. Nothing else can launch until this is approved. Check status in Service Quotas &rarr; Quota request history.
+The serving layer is packaged as a single Docker image (`serving/Dockerfile`), so it's portable across hosts without code changes.
 
-**Step 2. One-time IAM setup (console, by hand).** `cliniflow-dev` doesn't have EC2 permissions by default, and an EC2 instance needs its own identity to read S3 — handing it your personal access key would be a bigger blast radius than it needs. Two things to create, each a deliberate human step (not scripted), so a least-privilege identity is never self-granted:
-
-1. **Attach the EC2 policy to `cliniflow-dev`.** IAM &rarr; Users &rarr; `cliniflow-dev` &rarr; Add permissions &rarr; Create inline policy &rarr; JSON &rarr; paste `registry/iam/cliniflow-dev-ec2-policy.json` (fill in `<ACCOUNT_ID>`) &rarr; name it `cliniflow-pillar3-ec2`.
-2. **Create the instance role.** IAM &rarr; Roles &rarr; Create role &rarr; trusted entity **EC2** &rarr; no policies yet &rarr; name it `cliniflow-ec2-serve` &rarr; create. Then open it &rarr; Add permissions &rarr; Create inline policy &rarr; JSON &rarr; paste `registry/iam/cliniflow-ec2-serve-policy.json` &rarr; name it `cliniflow-s3-read`. This role is read-only on the adapter prefix &mdash; narrower than `cliniflow-dev`, since the instance only ever needs to download, never upload.
-
-**Step 3. Find an AMI (Amazon Machine Image).** This is the pre-built OS image the instance boots from &mdash; we want one with the NVIDIA driver and Docker already installed, so we don't install them by hand. In the EC2 console &rarr; AMI Catalog &rarr; search **"Deep Learning"** &rarr; filter to a Ubuntu-based AWS Deep Learning AMI with NVIDIA driver + Docker &rarr; confirm the region is **eu-north-1** &rarr; copy its AMI ID (`ami-...`). AMI IDs are region-specific and change over time, which is why this is a lookup step rather than a hardcoded value in `launch_ec2.py`.
-
-**Step 4. Launch the instance.**
+### Modal (primary, live)
 
 ```bash
-export EC2_AMI_ID=ami-xxxxxxxxxxxxxxxxx   # from Step 3
+pip install modal
+python -m modal setup
+python -m modal deploy serving/modal_app.py
+```
+
+`serving/modal_app.py` builds `serving/Dockerfile` as the container image, bundles the trained adapter directly into the deployment, requests a T4 GPU on demand, and exposes the vLLM server over Modal's `web_server` networking. Deploy prints the public URL.
+
+Confirmed working end-to-end: a transcript sent to the deployed URL returns a schema-valid SOAP note with a suggested ICD code. Two details specific to building from a custom Dockerfile on Modal, both handled in `modal_app.py`:
+- The Dockerfile's own `ENTRYPOINT` is cleared (`.entrypoint([])`) so Modal's function invocation controls container startup instead of the image auto-launching the server on boot.
+- `PATH` is set explicitly in the launch command so `python3` resolves to the base image's interpreter (with vLLM installed), not the separate one `add_python` provisions for Modal's own runtime.
+
+### AWS EC2 (alternate)
+
+Fully scripted, gated on AWS GPU instance quota for the account:
+
+```bash
+export EC2_AMI_ID=ami-xxxxxxxxxxxxxxxxx   # a Deep Learning AMI (NVIDIA driver + Docker) in the target region
 python serving/launch_ec2.py
 ```
 
-`serving/launch_ec2.py` is new: it finds your default VPC/subnet, creates a security group open **only to your current public IP** on ports 22 (SSH) and 8000 (the API), creates an SSH key pair (saved to `~/.ssh/cliniflow-ec2-key.pem`, outside the repo and already gitignored), and requests one `g4dn.xlarge` Spot instance tagged `cliniflow-vllm` with the `cliniflow-ec2-serve` role attached. It prints the public IP and the exact SSH command when done. Re-running it is safe: it reuses the instance if one is already running instead of launching a second.
+`launch_ec2.py` provisions a `g4dn.xlarge` Spot instance: creates a security group scoped to the caller's IP, an SSH key pair, and attaches the `cliniflow-ec2-serve` instance role (S3 read-only, so the instance never needs a personal access key). `stop_ec2.py` stops or terminates it by tag.
 
-This script has not been run yet &mdash; it's written and syntax-checked, but the first real run is also its first real test, since quota approval was still pending.
+Required IAM setup (one-time, console): attach `registry/iam/cliniflow-dev-ec2-policy.json` to the deploying user, and create the `cliniflow-ec2-serve` role from `registry/iam/cliniflow-ec2-serve-policy.json`.
 
-**Step 5. Get the model and the adapter onto the instance.** SSH in with the command `launch_ec2.py` printed, then:
-- The base model: the full-precision Llama 3.2 3B Instruct from Hugging Face. The adapter was trained on the 4-bit Unsloth build, which is a different checkpoint. LoRA adapters generally work across these builds, but we'll confirm it by testing rather than assume it.
-- The adapter: `aws s3 sync s3://cliniflow-adapters-paul-2026/adapters/config_A/v1/ ./adapter/`. The instance's `cliniflow-ec2-serve` role already allows this read, with no key copying needed. vLLM loads adapters from local files, so the instance needs a copy first.
-
-**Step 6. Start the server.** The command, with each flag explained:
+Once the instance is running, sync the adapter and start the server:
 
 ```bash
-vllm serve <base-model-repo> \
-  --dtype half \                              # T4 uses fp16, not bf16
-  --max-model-len 4096 \                      # longest input+output in tokens; matches training
-  --enable-lora \                             # turn on adapter support
+aws s3 sync s3://<bucket>/adapters/config_A/v1/ ./adapter/
+docker build -t cliniflow-serve ./serving
+docker run --gpus all -p 8000:8000 -v $(pwd)/adapter:/adapter -e ADAPTER_DIR=/adapter cliniflow-serve
+```
+
+### Colab (validation)
+
+`serving/colab_serve_test.ipynb` runs the server directly (no Docker) on a free T4, used to validate the model, adapter, and client end-to-end before any paid deployment.
+
+## The server command
+
+```bash
+python3 -m vllm.entrypoints.openai.api_server \
+  --model <base-model-repo> \
+  --dtype half \                              # fp16; required on T4
+  --max-model-len 4096 \                      # matches training's max_seq_length
+  --enable-lora \
   --max-lora-rank 16 \                        # must be >= the adapter's rank (16)
-  --lora-modules clinical-json-extractor=./adapter \   # name the adapter for requests
-  --gpu-memory-utilization 0.90               # how much GPU memory vLLM may claim
+  --lora-modules clinical-json-extractor=<adapter-dir> \
+  --host 0.0.0.0 --port 8000
 ```
 
-There's no server-side setting for the system prompt. The client sends it with each request (see Step 7). Check flag names against the vLLM version we actually install before running this.
+The system prompt is not a server setting — it's sent by the client with every request, read from `system_prompt.txt` saved alongside the adapter (it must match training exactly).
 
-**Step 7. Send a request.** The OpenAI-style call:
+## Calling the server
 
 ```bash
-curl http://<instance-ip>:8000/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "clinical-json-extractor",
-    "messages": [
-      {"role": "system", "content": "<contents of system_prompt.txt>"},
-      {"role": "user", "content": "<transcript>"}
-    ],
-    "max_tokens": 1500,
-    "temperature": 0
-  }'
+export SERVER_URL=http://<host>:8000
+
+# one request, validated against the SOAP schema
+python serving/client.py --transcript-file path/to/transcript.txt
+
+# concurrent requests; reports TTFT, latency, throughput
+python serving/load_test.py --transcripts-file training/colab/val.jsonl --n 20 --concurrency 5
 ```
 
-Two details matter:
-- **The system prompt must match training exactly.** A changed character can change the output. That's why it's saved with the adapter.
-- **`temperature: 0`** makes output deterministic, which makes testing comparable across runs.
+Both scripts are host-agnostic — only `SERVER_URL` changes between Colab, Modal, and EC2.
 
-**Step 8. Check the output.** Run the same validator we used in Pillar 2 on the response. Is it valid JSON, and does it pass the schema?
+## Gotchas
 
-**Step 9. Load test.** Send 5–20 requests at once and record:
-- throughput (tokens per second)
-- time to first token (TTFT), which is how long the user waits before anything appears
-
-These are the numbers the design doc asks us to document as evidence of inference optimization.
-
-**Step 10. Protect the instance, then stop it.** Watch for the spot interruption notice (a 2-minute warning if AWS reclaims the capacity). When you're done demoing:
-
-```bash
-python serving/stop_ec2.py              # stop, can restart later
-python serving/stop_ec2.py --terminate  # delete it entirely
-```
-
-`stop_ec2.py` is new, alongside `launch_ec2.py`. Both find the instance by its `cliniflow-vllm` tag, so neither needs an instance ID typed in by hand.
-
-## 6. Gotchas to remember
-
-- `--max-lora-rank` must be at least the adapter's rank. Ours is 16.
-- The system prompt must be identical at training and serving.
-- The T4 needs `--dtype half`. bf16 won't run.
+- `--max-lora-rank` must be at least the adapter's rank (16 here).
+- The system prompt must be byte-identical between training and serving.
+- fp16 (`--dtype half`) is required on T4-class GPUs; bf16 will not run.
 - If the server runs out of memory, lower `--max-model-len` or `--gpu-memory-utilization`.
-- The base model in Hugging Face and the adapter's training base must be compatible. We'll check this in Step 6 before trusting results.
-
-## 7. Decisions already made
-
-- **Base repo:** `unsloth/Llama-3.2-3B-Instruct`, assumed but not yet confirmed accessible &mdash; verify on Hugging Face before Step 6.
-- **Colab rehearsal:** done. The full server, one real request, and a load test all ran successfully against the trained adapter on a free T4 before any AWS spend.
-- **Load test location:** runs from your laptop (via `serving/load_test.py`), not from the instance itself, so no GPU time is spent on the harness itself, only on serving the requests it sends.
+- The adapter was trained against a 4-bit Unsloth build of the base model; serving uses the full-precision release of the same model. LoRA adapters are generally portable across these, verified by testing rather than assumed.

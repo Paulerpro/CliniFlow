@@ -37,7 +37,7 @@ def build_request(transcript, system_prompt):
     }
 
 
-def generate(transcript, system_prompt, server_url=config.SERVER_URL, timeout=120):
+def generate(transcript, system_prompt, server_url=config.SERVER_URL, timeout=600):
     body = json.dumps(build_request(transcript, system_prompt)).encode("utf-8")
     req = urllib.request.Request(
         f"{server_url}/v1/chat/completions",

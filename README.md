@@ -10,7 +10,7 @@ An ambient clinical documentation assistant: it turns a clinical encounter trans
 |---|---|---|
 | 1 &mdash; Fine-tuning | QLoRA adapter (Llama 3.2 3B) on synthetic encounter data | ✅ Done &mdash; config A trained, pushed to a private Hugging Face repo |
 | 2 &mdash; AWS data & registry | SageMaker data validation + S3 adapter registry | ✅ Done &mdash; validated in the cloud, adapter registered with a manifest |
-| 3 &mdash; Serving (vLLM) | Base model + LoRA adapter served over an OpenAI-style API | 🚧 In progress &mdash; proven end-to-end on a free Colab T4; AWS deployment code is written but blocked on an EC2 GPU quota approval |
+| 3 &mdash; Serving (vLLM) | Base model + LoRA adapter served over an OpenAI-style API | ✅ Done &mdash; live on Modal (T4 GPU), returning schema-valid notes over the real API; AWS EC2 deployment also scripted |
 | 4 &mdash; Evaluation & telemetry | Base-vs-fine-tuned benchmark, Promptfoo/Ragas, Langfuse tracing | ⏳ Not started |
 | 5 &mdash; Software engineering | FastAPI gateway, validation + retry/repair, tests, CI | ⏳ Not started |
 | 6 &mdash; Agents & governance | MCP server, human-sign-off rules | ⏳ Not started |
@@ -63,7 +63,7 @@ The trained adapter matches the output **format** perfectly (20/20 valid JSON, 2
 dataset/    raw data + validation + noise injection + train/val/test split
 training/   Colab QLoRA fine-tuning notebook and its generator script
 registry/   AWS: dataset validation (SageMaker), S3 adapter registry, IAM policies
-serving/    vLLM serving: config, client, load test, Docker, EC2 launch/stop scripts
+serving/    vLLM serving: config, client, load test, Docker, Modal + EC2 deployment scripts
 agents/     (planned) MCP server + governance
 evals/      (planned) benchmark suite
 gateway/    (planned) FastAPI gateway
@@ -76,7 +76,7 @@ stt/        (planned, optional) speech-to-text
 # Validate the dataset locally
 python registry/validate_dataset.py --input-dir training/colab --output-dir registry/report
 
-# Send a transcript to a running vLLM server (local, Colab, or EC2)
+# Send a transcript to a running vLLM server (local, Colab, Modal, or EC2)
 export SERVER_URL=http://<server-ip>:8000
 python serving/client.py --transcript-file path/to/transcript.txt
 

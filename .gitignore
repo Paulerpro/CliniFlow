@@ -9,3 +9,8 @@ registry/adapters/
 *.safetensors
 *.bin
 *.gguf
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+*.log
