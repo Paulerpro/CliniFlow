@@ -36,6 +36,11 @@ app = modal.App("cliniflow-vllm", image=image)
     scaledown_window=60 * 10,  # shut the container down 10 min after the last request
     max_containers=1,  # single demo instance; avoids accumulating GPU allocations
 )
+# Without this, Modal forwards only 1 request at a time to the container and queues
+# the rest externally at its own gateway - vLLM's continuous batching never sees more
+# than one request, no matter the client's concurrency. 10 is within the measured KV
+# cache headroom (~11x concurrent full-length requests at max_model_len=4096).
+@modal.concurrent(max_inputs=10)
 @modal.web_server(port=8000, startup_timeout=600)
 def serve():
     # PATH prepended so `python3` resolves to the base image's interpreter (has vllm installed),

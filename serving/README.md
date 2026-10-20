@@ -111,6 +111,19 @@ python serving/load_test.py --transcripts-file training/colab/val.jsonl --n 20 -
 
 Both scripts are host-agnostic — only `SERVER_URL` changes between Colab, Modal, and EC2.
 
+## Benchmark (Modal, T4, 20 requests, concurrency 5)
+
+| Metric | Value |
+|---|---|
+| TTFT (time to first token), median | 2.11s |
+| TTFT, p95 | 4.00s |
+| Full-request latency, median | 45.91s |
+| Full-request latency, p95 | 65.12s |
+| Aggregate throughput | ~57.3 tokens/s |
+| Wall time, 20 requests | 162.7s |
+
+**A real finding, not just a number:** the first load test run measured a wall time of 1231.9s (TTFT median 197.5s, throughput 11.7 tokens/s) despite `concurrency=5` on the client. vLLM's own engine logs showed `Running: 1 reqs, Waiting: 0 reqs` throughout — the engine never received more than one request at a time. The cause: by default, a single Modal container handles one input at a time; everything else queues externally at Modal's gateway, invisible to the server's own batching. The fix is `@modal.concurrent(max_inputs=10)` on the function (`serving/modal_app.py`), which lets Modal actually forward concurrent requests into the container so vLLM's continuous batching can do its job. The numbers above are the clean, post-fix run.
+
 ## Gotchas
 
 - `--max-lora-rank` must be at least the adapter's rank (16 here).
