@@ -113,16 +113,20 @@ Both scripts are host-agnostic — only `SERVER_URL` changes between Colab, Moda
 
 ## Benchmark (Modal, T4, 20 requests, concurrency 5)
 
-| Metric | Value |
-|---|---|
-| TTFT (time to first token), median | 2.11s |
-| TTFT, p95 | 4.00s |
-| Full-request latency, median | 45.91s |
-| Full-request latency, p95 | 65.12s |
-| Aggregate throughput | ~57.3 tokens/s |
-| Wall time, 20 requests | 162.7s |
+**The bug, and the fix.** The first load test measured a wall time of 1231.9s (TTFT median 197.5s, throughput 11.7 tokens/s) despite `concurrency=5` on the client. vLLM's own engine logs showed `Running: 1 reqs, Waiting: 0 reqs` throughout — the engine never received more than one request at a time. Cause: by default, a single Modal container handles one input at a time; everything else queues externally at Modal's gateway, invisible to the server's own batching. Fix: `@modal.concurrent(max_inputs=10)` on the function (`serving/modal_app.py`), which lets Modal actually forward concurrent requests into the container so vLLM's continuous batching can do its job.
 
-**A real finding, not just a number:** the first load test run measured a wall time of 1231.9s (TTFT median 197.5s, throughput 11.7 tokens/s) despite `concurrency=5` on the client. vLLM's own engine logs showed `Running: 1 reqs, Waiting: 0 reqs` throughout — the engine never received more than one request at a time. The cause: by default, a single Modal container handles one input at a time; everything else queues externally at Modal's gateway, invisible to the server's own batching. The fix is `@modal.concurrent(max_inputs=10)` on the function (`serving/modal_app.py`), which lets Modal actually forward concurrent requests into the container so vLLM's continuous batching can do its job. The numbers above are the clean, post-fix run.
+**Post-fix, two scenarios** (both clean, fully-completed 20/20 runs; a third post-fix run was discarded as unverified after the result queue was cleared mid-run before it finished):
+
+| Metric | Cold start | Warm container |
+|---|---|---|
+| Wall time, 20 requests | 525.2s | 261.6s |
+| TTFT, median | 2.27s | 1.23s |
+| TTFT, p95 | 264.12s | 1.88s |
+| Full-request latency, median | 67.28s | 59.48s |
+| Full-request latency, p95 | 329.95s | 80.22s |
+| Aggregate throughput | ~27.1 tokens/s | ~55.2 tokens/s |
+
+Median TTFT lands in the same 1-2.3s range either way — that's the real, consistent effect of the fix. The large cold-start p95 isn't a regression: with zero active containers beforehand, one or more of the first concurrent requests arrive while the model is still loading, giving those specific requests a very long TTFT while the rest (once warm) go fast. A real user hitting a cold container will see this; a warm one won't. Worth keeping in mind for anything latency-sensitive built on top of this later.
 
 ## Gotchas
 
