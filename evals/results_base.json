@@ -1,0 +1,1360 @@
+{
+  "summary": {
+    "rows": 50,
+    "valid": 0,
+    "invalid": 50,
+    "lenient_valid": 48,
+    "code_hit_rate": 0.0,
+    "code_exact_rate": 0.0,
+    "code_precision": 0.0,
+    "code_recall": 0.0,
+    "code_f1": 0.0,
+    "avg_latency_s": 17.97
+  },
+  "results": [
+    {
+      "index": 1,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z20822"
+        ],
+        "pred_codes": [
+          "R000",
+          "R001",
+          "R002",
+          "R860",
+          "U070"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 5,
+        "n_gold": 1
+      },
+      "latency_s": 199.26,
+      "output": "```\n{\n  \"subjective\": \"Patient reports feeling under the weather with low-grade fever, dry cough, and fatigue. Patient is concerned about COVID-19 exposure due to job as a delivery driver.\",\n  \"objective\": \"Vital signs: BP 130/80 mmHg, temperature 99.5\u00b0F, HR 78 bpm, RR 18 breaths per minute, oxygen saturation 98% on room air. Physical exam: mild rhonchi bilaterally, normal heart sounds, soft and non-tender abdomen, no organomegaly, normal extremities, and alert and oriented neurologically.\",\n  \"assessment\": \"Patient likely has a viral upper respiratory infection, possibly COVID-19, given symptoms and job exposure. Patient has a history of hypertension and type 2 diabetes.\",\n  \"plan\": \"Order nasal swab PCR test for COVID-19, prescribe Acetaminophen 500mg tablets PRN for fever, stress importance of strict quarantine measures, and schedule telemedicine follow-up in one week.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"R86.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Common cold\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"U07.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"COVID-19\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R00.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Common cold\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"R00.1\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Common cold\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"R00.2\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Common cold\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 2,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "N809"
+        ],
+        "pred_codes": [
+          "G400",
+          "N170",
+          "O230",
+          "R500"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 12.52,
+      "output": "```\n{\n  \"subjective\": \"Patient reports severe chronic pelvic pain and dysmenorrhea, which worsens during periods, and experiences heavy menstrual bleeding, painful intercourse, and difficulty sleeping due to pain.\",\n  \"objective\": \"Vital signs: BP 120/80 mmHg, HR 76 bpm, RR 16 breaths per minute, Temp 98.6\u00b0F, BMI 23. Physical exam: tenderness in lower quadrants, tenderness in adnexa, nodularity in posterior cul-de-sac.\",\n  \"assessment\": \"Likely endometriosis, considering history of PCOS and current symptoms. May have endometriotic lesions and ovarian cysts.\",\n  \"plan\": \"Prescribe Naproxen 500 mg orally twice daily for pain, combined oral contraceptives to manage symptoms, and order pelvic ultrasound. Refer to Dr. Susan Miller for fertility counseling. Reassess in 3 months.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"R50.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Chronic pelvic pain\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"O23.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Dysmenorrhea\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"N17.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Endometriosis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"G40.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Polycystic ovary syndrome\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 3,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "N508"
+        ],
+        "pred_codes": [
+          "R620",
+          "R621",
+          "R622"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 13.5,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports severe pain and swelling in the scrotum, fever, nausea, and difficulty sleeping due to pain.\",\n  \"objective\": \"Vital signs: temperature 101.1\u00b0F, BP 130/85 mmHg, HR 95 bpm, RR 18 breaths per minute. Physical exam: mild tenderness in the lower abdomen, severe swelling and tenderness in the right scrotal area with significant erythema, increased testicular size, and highly sensitive to touch.\",\n  \"assessment\": \"Possible epididymitis, testicular torsion, or abscess formation. The patient's symptoms and physical exam findings are concerning for a possible scrotal infection or inflammation.\",\n  \"plan\": \"Prescribe Cefuroxime 500 mg, oral, twice daily for 10 days to treat any potential infection. Prescribe Acetaminophen 500 mg, oral, every 6 hours PRN for pain. Schedule a follow-up appointment in one week to review the results of the scrotal ultrasound, CBC, and urinalysis. Refer the patient to Urology for further evaluation and possible surgical intervention if needed.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"R62.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Acute epididymitis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R62.1\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Acute testicular torsion\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R62.2\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Acute abscess of the scrotum\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 4,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "K436"
+        ],
+        "pred_codes": [
+          "K220",
+          "N130",
+          "N170",
+          "N180",
+          "R950",
+          "R990"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 6,
+        "n_gold": 1
+      },
+      "latency_s": 16.13,
+      "output": "```\n{\n  \"subjective\": \"Patient reports constant, moderate to severe abdominal pain for 3 days, impacting daily activities, sleep, and job at factory. Also experiencing nausea, vomiting, and bloating.\",\n  \"objective\": \"Vital signs: temperature 98.6\u00b0F, blood pressure 145/90 mmHg, heart rate 78 bpm, respiratory rate 16 breaths per minute, oxygen saturation 98% on room air. Physical exam: regular heart rate and rhythm, clear lungs, tender abdomen with mass in central area, hypoactive bowel sounds.\",\n  \"assessment\": \"Patient likely has a ventral hernia with obstruction, confirmed by abdominal ultrasound. Need to manage weight, reduce high carbohydrate and high-fat foods, increase physical activity, and quit smoking.\",\n  \"plan\": \"Schedule abdominal ultrasound, complete blood count, and comprehensive metabolic panel. Refer patient to dietitian for weight management and diabetes/hypertension management. Perform surgical repair of ventral hernia after test results. Follow up two weeks after surgery.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"K22.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Ventral hernia with obstruction\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R99.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Abdominal pain\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"N18.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Nausea and vomiting\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"R95.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Bloating\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"N17.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Weight management\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"N13.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Smoking cessation\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 5,
+      "valid": false,
+      "problems": [
+        "request_failed: <urlopen error [Errno 11001] getaddrinfo failed>"
+      ],
+      "lenient_valid": false,
+      "lenient_problems": [
+        "request_failed: <urlopen error [Errno 11001] getaddrinfo failed>"
+      ],
+      "codes": null,
+      "latency_s": null,
+      "output": null
+    },
+    {
+      "index": 6,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "K868"
+        ],
+        "pred_codes": [
+          "G219",
+          "K219",
+          "K259"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 24.57,
+      "output": "```\n{\n  \"subjective\": \"Patient reports severe abdominal bloating, pale stools, and occasional sharp lower back pain; symptoms range from moderate to severe; impacts daily activities; tired; low appetite; poor sleep; diagnosed with Peptic Ulcer Disease and Hyperlipidemia\",\n  \"objective\": \"Vitals: BP 128/82 mmHg, HR 78 bpm, respiratory rate 16 bpm, temperature 98.6\u00b0F; BMI 24.5 kg/m2; mild tenderness in mid-epigastric region of abdomen; normal heart and lung sounds; fine skin without jaundice or rashes\",\n  \"assessment\": \"Possible chronic pancreatitis or exocrine pancreatic insufficiency; need further investigations\",\n  \"plan\": \"Prescribe Pancrelipase 40,000 units with meals and Omeprazole 20 mg once daily; order CT scan of abdomen with contrast; Comprehensive Metabolic Panel, CBC, and Vitamin B12 levels; refer to nutritionist Dr. Jane Wilson for tailored diet; follow-up visit in 3 months\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"K21.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Chronic pancreatitis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K25.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Exocrine pancreatic insufficiency\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"G21.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Chronic pancreatitis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K25.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Exocrine pancreatic insufficiency\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K21.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Chronic pancreatitis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K25.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Exocrine pancreatic insufficiency\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 7,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "E1122"
+        ],
+        "pred_codes": [
+          "CKD",
+          "EDEMA",
+          "HYPERTENSION",
+          "LISINOPRIL",
+          "T2DM"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 5,
+        "n_gold": 1
+      },
+      "latency_s": 14.65,
+      "output": "```\n{\n  \"subjective\": \"Patient reports feeling fatigued, dizzy, and urinating frequently, especially at night, with mild swelling in lower legs.\",\n  \"objective\": \"Vital signs: BP 142/85 mmHg, HR 78 beats per minute, RR 16 breaths per minute, temperature 98.6\u00b0F. Physical examination: mild swelling in lower extremities, regular cardiovascular system, clear respiratory system, soft and non-tender abdomen, mild pitting edema in lower limbs.\",\n  \"assessment\": \"Suspect T2DM mellitus with diabetic chronic kidney disease, hypertension, and mild pitting edema in lower limbs.\",\n  \"plan\": \"Continue Metformin 500 mg twice daily, introduce Lisinopril 10 mg once daily for renal protection, refer to nephrologist, order comprehensive metabolic panel, HbA1c, urine microalbumin, eGFR, and renal ultrasound.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"T2DM\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Type 2 Diabetes Mellitus\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"CKD\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Chronic Kidney Disease\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Hypertension\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hypertension\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"Edema\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Edema\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"Lisinopril\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Lisinopril\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 8,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "G40109"
+        ],
+        "pred_codes": [
+          "G400",
+          "L040",
+          "R430"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 11.3,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports experiencing muscle twitches and episodes of de\u0301ja\u0300 vu, which have been occurring once or twice a week for about six months. Episodes disrupt work and concentration, and patient feels unrested despite 6-7 hours of sleep per night. Patient is concerned about the possibility of epilepsy.\",\n  \"objective\": \"Normal cranial nerves, reflexes, strength, tone, and coordination. Patient's physical examination is unremarkable.\",\n  \"assessment\": \"Patient's symptoms are suggestive of simple partial seizures, possibly related to epilepsy. Normal physical examination findings do not support any other underlying conditions.\",\n  \"plan\": \"Order an MRI of the brain with and without contrast to rule out structural abnormalities. Prescribe Levetiracetam 500 mg twice daily. Refer patient to Dr. Susan Lee for further evaluation and possible medication adjustment. Patient to keep a seizure diary to track episode frequency, duration, and triggers.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"G40.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Simple partial seizures\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R43.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Epilepsy, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"L04.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Levetiracetam\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 9,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "R8290"
+        ],
+        "pred_codes": [
+          "HYPERTENSION",
+          "KIDNEYDISEASE",
+          "PROTEINURIA",
+          "UTI"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 13.31,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports mild lower abdominal pain, occasional discomfort, and cloudy urine with a strong smell. Patient is concerned about recurrent UTIs and recent symptoms.\",\n  \"objective\": \"Vital signs: BP 130/85 mmHg, HR 75 beats per minute, RR 16 breaths per minute, temperature 98.6\u00b0F, oxygen saturation 99% on room air. Urinalysis: cloudy urine, protein positive. Physical exam: mild tenderness in lower abdominal region, normal bowel sounds.\",\n  \"assessment\": \"Patient likely has an ongoing UTI with protein in the urine, which may indicate kidney involvement. Family history of kidney disease and hypertension. Patient is at risk for worsening infection if not properly managed.\",\n  \"plan\": \"Increase water intake, monitor symptoms, and seek immediate medical attention if worsening infection signs. Consider empirical antibiotic based on past sensitivity patterns. Continue managing hypertension with current medications and lifestyle modifications. Schedule follow-up visit to review test results and adjust treatment plan.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"UTI\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Urinary tract infection\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Proteinuria\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Protein in urine\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Hypertension\",\n      \"system\": \"SNOMED\",\n      \"description\": \"High blood pressure\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Kidney disease\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Kidney disease\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 10,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M349"
+        ],
+        "pred_codes": [
+          "M800",
+          "M801",
+          "NOS"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 16.04,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports worsening symptoms of systemic sclerosis, including severe fatigue, shortness of breath, difficulty swallowing, and painful ulcers on fingers. Patient feels extremely tired, has trouble breathing and swallowing, and needs help with daily activities.\",\n  \"objective\": \"Vital signs: BP 140/90 mmHg, HR 78 beats per minute, RR 18 breaths per minute, Temp 98.6\u00b0F. Physical exam: mild lower extremity edema, bilateral crackles at lung bases, severe tightening on hands and feet, digital ulcers, significant joint stiffness and tenderness.\",\n  \"assessment\": \"Patient has worsening symptoms of systemic sclerosis, including fatigue, shortness of breath, difficulty swallowing, and painful ulcers. Patient requires assistance with daily activities due to severe symptoms.\",\n  \"plan\": \"Prescribe Prednisone 15 mg orally once daily for 6 weeks and Cyclophosphamide 100 mg orally once daily for 4 weeks. Refer patient to pulmonologist for evaluation of interstitial lung disease and echocardiogram to check for pulmonary hypertension. Order blood work, including Comprehensive Metabolic Panel, Complete Blood Count with Differential, ANA Panel, and Anti-Scl-70 Antibody. Recommend lifestyle changes, including high-fiber diet, mild exercise, and avoiding caffeine and spicy foods.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"NOS\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Systemic sclerosis with pulmonary hypertension\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"M80.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Systemic sclerosis with pulmonary hypertension\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"NOS\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Systemic sclerosis with gastrointestinal symptoms\",\n      \"confidence\": \"Medium\"\n    },\n    {\n      \"code\": \"M80.1\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Systemic sclerosis with gastrointestinal symptoms\",\n      \"confidence\": \"Medium\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 11,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": false,
+      "lenient_problems": [
+        "suggested_code_malformed"
+      ],
+      "codes": {
+        "gold_codes": [
+          "Z96611"
+        ],
+        "pred_codes": [
+          "HYPERTENSION",
+          "LOOSENINGOFJOINTCOMPONENTS",
+          "OSTEOARTHRITIS",
+          "PARTIALDISLOCATIONOFJOINTCOMPONENTS",
+          "RHEUMATOIDARTHRITIS",
+          "TYPE2DIABETES"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 6,
+        "n_gold": 1
+      },
+      "latency_s": 15.96,
+      "output": "```\n{\n  \"subjective\": \"Patient reports mild to moderate pain in the right shoulder, which comes and goes, and is exacerbated by overhead activities. Patient is concerned about the potential for loosening or partial dislocation of the artificial joint.\",\n  \"objective\": \"Vital signs: BP 130/78 mmHg, HR 75 beats per minute, temperature 98.4\u00b0F, RR 16 breaths per minute. Physical exam: mild tenderness and limited range of motion in abduction and external rotation of the right shoulder.\",\n  \"assessment\": \"Possible wear and tear of the artificial joint or surrounding tissues, potential for loosening or partial dislocation of the joint components, or inflammation of the surrounding tissues.\",\n  \"plan\": \"Prescribe NSAIDs (Ibuprofen 400 mg) for pain management, recommend light exercise to keep the joint moving, and schedule a follow-up appointment in 6 months to evaluate joint function and review X-ray results.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Rheumatoid Arthritis\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Inflammation of the joints\",\n      \"confidence\": 0.5\n    },\n    {\n      \"code\": \"Osteoarthritis\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Degenerative joint disease\",\n      \"confidence\": 0.5\n    },\n    {\n      \"code\": \"Loosening of Joint Components\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Loosening of joint components\",\n      \"confidence\": 0.5\n    },\n    {\n      \"code\": \"Partial Dislocation of Joint Components\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Partial dislocation of joint components\",\n      \"confidence\": 0.5\n    },\n    {\n      \"code\": \"Hypertension\",\n      \"system\": \"SNOMED\",\n      \"description\": \"High blood pressure\",\n      \"confidence\": 1.0\n    },\n    {\n      \"code\": \"Type 2 Diabetes\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Type 2 diabetes mellitus\",\n      \"confidence\": 1.0\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 12,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z87440"
+        ],
+        "pred_codes": [
+          "A049",
+          "N400",
+          "R049"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 11.6,
+      "output": "```\n{\n  \"subjective\": \"Patient reports recurring urinary tract infections, painful urination, and pelvic discomfort. Symptoms have been present for 2 years, occurring every 2-4 months. Patient describes symptoms as moderate in severity.\",\n  \"objective\": \"Vital signs: temperature 98.6\u00b0F, blood pressure 120/78 mmHg, HR 72 bpm, respiratory rate 16 breaths per minute. Physical examination: mild tenderness on palpation of the bladder area, mild tenderness on pelvic exam.\",\n  \"assessment\": \"Patient diagnosed with recurrent urinary tract infections. Possible anatomical abnormalities contributing to UTIs recommended for referral to Gynecology.\",\n  \"plan\": \"Prescribe Ciprofloxacin 250 mg orally twice daily for 7 days. Increase water intake and urinate frequently. Schedule follow-up appointment in 2 weeks. Refer to Gynecology for evaluation of potential anatomical abnormalities.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"A04.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Recurrent urinary tract infection\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"N40.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Pelvic pain\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"R04.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Recurrent urinary tract infection\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 13,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "B181"
+        ],
+        "pred_codes": [
+          "ABDOMINALDISCOMFORT",
+          "FATIGUE",
+          "HEPATITISB",
+          "JAUNDICE"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 14.52,
+      "output": "```\n{\n  \"subjective\": \"Patient reports moderate fatigue (6/10) and occasional abdominal discomfort, which has been persistent for about a year. Patient also mentions mild jaundice, which has been noticed by family members but not by the patient themselves.\",\n  \"objective\": \"Vital signs: BP 135/85 mmHg, HR 78 bpm, respiratory rate 16 breaths per minute, temperature 98.6\u00b0F. BMI 24.5 kg/m2. Physical exam: alert and oriented, mild scleral icterus, mild tenderness in the right upper quadrant, mild jaundice on skin.\",\n  \"assessment\": \"Patient's symptoms and physical exam findings are consistent with chronic hepatitis B. The patient's fatigue and abdominal discomfort are likely related to the hepatitis B infection.\",\n  \"plan\": \"Continue Entecavir 0.5 mg daily. Monitor liver function and hepatitis B viral load every six months. Refer patient to Dr. Michael Green for specialized management of chronic hepatitis B. Order blood work, including hepatitis B viral load, liver function tests, alpha-fetoprotein, and CBC. Perform liver MRI to monitor for hepatocellular carcinoma.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Hepatitis B\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Chronic hepatitis B infection\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Jaundice\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Yellowing of the skin and eyes\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"Abdominal discomfort\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Pain or discomfort in the abdominal region\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"Fatigue\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Feeling tired or lacking energy\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 14,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "B372"
+        ],
+        "pred_codes": [
+          "CANDIDIASIS",
+          "CONTACTDERMATITIS",
+          "DIABETESMELLITUSTYPE2",
+          "METFORMIN",
+          "PSORIASIS",
+          "TINEACORPORIS"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 6,
+        "n_gold": 1
+      },
+      "latency_s": 15.83,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports moderate itching, redness, and mild pain in skin and toenails for the past 3 weeks, with symptoms worsening over time. Patient is uncomfortable with household chores due to symptoms.\",\n  \"objective\": \"Erythematous plaques with central clearing and peripheral scaling in intertriginous areas, thickened and discolored toenails, mild discomfort upon palpation.\",\n  \"assessment\": \"Candidiasis of the skin and nails is suspected, with other possibilities including Tinea corporis, Psoriasis, and Contact dermatitis.\",\n  \"plan\": \"Prescribe Topical Clotrimazole 1% cream to be applied twice daily for 2 weeks. Advise patient to keep affected areas dry and wear breathable fabrics to reduce moisture build-up. Emphasize importance of maintaining good blood sugar control and adhering to a balanced diet with reduced carbohydrate intake and moderate physical activity.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Candidiasis\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Fungal infection caused by a type of yeast\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Tinea corporis\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Ringworm of the body\",\n      \"confidence\": \"Low\"\n    },\n    {\n      \"code\": \"Psoriasis\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Chronic skin condition characterized by thickened, scaly skin\",\n      \"confidence\": \"Low\"\n    },\n    {\n      \"code\": \"Contact dermatitis\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Skin inflammation caused by contact with an allergen or irritant\",\n      \"confidence\": \"Low\"\n    },\n    {\n      \"code\": \"Diabetes Mellitus Type 2\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Type 2 diabetes mellitus\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Metformin\",\n      \"system\": \"RxNorm\",\n      \"description\": \"Medication for type 2 diabetes\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 15,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F1510"
+        ],
+        "pred_codes": [
+          "G920",
+          "V700",
+          "Z950"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 11.46,
+      "output": "```\n{\n  \"subjective\": \"Patient reports feeling tired, easily irritated, and having trouble sleeping, with symptoms worsening over the past six months.\",\n  \"objective\": \"Vital signs: BP 122/78, HR 72, RR 16, Temp 98.6\u00b0F. Physical exam: heart has regular rate and rhythm, lungs are clear, abdomen is non-tender, reflexes and sensation are normal. Mental state: cooperative, affect matches the situation.\",\n  \"assessment\": \"Symptoms are likely related to stimulant abuse, with fatigue, irritability, and sleep disturbances common in amphetamine use.\",\n  \"plan\": \"Stop using amphetamines, refer to addiction counseling services, perform routine blood work, develop healthy lifestyle habits (consistent sleep routine, regular exercise, reduce tobacco consumption, manage anxiety with non-pharmacological methods), schedule follow-up appointment in two weeks.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Z95.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Stimulant abuse\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"G92.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Anxiety disorder\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"V70.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Substance-induced sleep disorder\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 16,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I639"
+        ],
+        "pred_codes": [
+          "G450",
+          "I210",
+          "J400",
+          "K700"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 14.86,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports numbness on right side, feeling dizzy, and having trouble walking, which started 4 hours ago. Symptoms are moderate-to-severe and impacting daily activities. Patient is concerned about affording medications and accessing healthy foods.\",\n  \"objective\": \"Vital signs: BP 160/95 mmHg, HR 88 bpm, RR 20 breaths per minute, Temp 98.6\u00b0F, O2Sat 92% on room air. Physical exam: right-sided hemiparesis, coordination issues, dizziness, reduced breath sounds bilaterally, and moderate wheezing.\",\n  \"assessment\": \"Patient likely had a stroke, with symptoms consistent with right-sided hemiparesis and dizziness. Need to confirm with further tests, but treatment should be started immediately.\",\n  \"plan\": \"Start patient on Aspirin 325 mg once daily, Simvastatin 40 mg once daily, and Labetalol 100 mg twice daily to manage blood pressure. Recommend following a Mediterranean diet, quitting smoking, and starting physical therapy exercises. Follow up with neurologist in three weeks and refer to Dr. Jane Carter for psychological counseling.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"I21.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Acute ischemic stroke\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"G45.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Depressive disorder, not elsewhere classified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"J40.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Chronic obstructive pulmonary disease\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K70.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Smoking, not elsewhere classified\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 17,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "N951"
+        ],
+        "pred_codes": [
+          "E309",
+          "K929",
+          "T470"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 12.89,
+      "output": "```\n{\n  \"subjective\": \"Patient reports severe hot flashes, heart palpitations, mood swings, and exhaustion. Symptoms are impacting daily activities and relationships.\",\n  \"objective\": \"Vital signs: BP 125/85 mmHg, HR 80 bpm, temperature 98.4\u00b0F, RR 18 breaths per minute. Mildly overweight and fatigued.\",\n  \"assessment\": \"Menopausal and female climacteric states, exacerbation of anxiety disorder, and potential hyperthyroidism. Need to rule out hyperthyroidism with Basic Metabolic Panel.\",\n  \"plan\": \"Prescribe Tibolone 2.5 mg oral tablet once daily for six months. Continue Sertraline 50 mg daily for anxiety. Recommend cognitive-behavioral therapy sessions once weekly for managing mood swings and insomnia. Suggest Mediterranean diet and regular physical activity.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"K92.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hot flashes\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"T47.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Anxiety disorder\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"T47.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Anxiety disorder\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"E30.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hyperthyroidism\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 18,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F919"
+        ],
+        "pred_codes": [
+          "31481",
+          "31489"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 2,
+        "n_gold": 1
+      },
+      "latency_s": 10.34,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports experiencing severe behavioral issues, including aggression, defiance, skipping school, and stealing. Parents report difficulty with social, academic, and family life.\",\n  \"objective\": \"No specific physical findings noted during the consultation.\",\n  \"assessment\": \"Diagnosis of Conduct Disorder, Unspecified, with a history of ADHD. Patient displays uncooperative behavior, minimal eye contact, and disengagement.\",\n  \"plan\": \"Cognitive Behavioral Therapy (CBT) with Dr. Jane Smith, weekly sessions; Family Therapy bi-weekly; Referral to school counselor and social worker; Lifestyle changes: establish daily routine, limit video game time, improve sleep hygiene, and make dietary changes.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"314.81\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Conduct Disorder, Unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"314.89\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Attention Deficit Hyperactivity Disorder (ADHD) with Predominantly Inattentive Type\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 19,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "R17"
+        ],
+        "pred_codes": [
+          "K659"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 14.72,
+      "output": "```json\n{\n  \"subjective\": \"Patient is worried about yellowing of skin and eyes, experiencing discomfort, and itching, and has been getting only 5-6 hours of sleep each night.\",\n  \"objective\": \"Jaundice, dark urine, light-colored stools, itching, excoriation marks from scratching, mild tenderness in right upper quadrant, jaundiced appearance, scleral icterus, normal heart and lung sounds, CBC, LFTs, viral hepatitis panel, autoimmune markers.\",\n  \"assessment\": \"Patient has jaundice, mild tenderness in right upper quadrant, and itching, with possible causes including hepatobiliary obstruction, viral hepatitis, autoimmune hepatitis, drug-induced liver injury, or cholestatic liver disease.\",\n  \"plan\": \"Start patient on Ursodeoxycholic acid, 250 mg twice daily, refer to Dr. Emily Thompson, a hepatologist, for further evaluation, modify diet to reduce fatty foods and incorporate more vegetables, monitor for worsening symptoms.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"K65.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Jaundice, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K65.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Jaundice, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K65.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Jaundice, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K65.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Jaundice, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K65.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Jaundice, unspecified\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 20,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "S46011A"
+        ],
+        "pred_codes": [
+          "RROTATORCUFFSTRAIN",
+          "RSHOULDERMOBILITY",
+          "RSHOULDERPAIN",
+          "RSOFTTISSUEINJURY"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 14.55,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports severe and constant shoulder pain, which started 4 days ago. Pain is severe enough to limit daily activities such as working as a mechanic and dressing/bathing. Patient reports difficulty sleeping due to pain.\",\n  \"objective\": \"BP 130/80 mmHg, HR 72 bpm, RR 16 breaths per minute, temperature 98.6\u00b0F. Slight swelling in the right shoulder. Supraspinatus muscle tender to palpation. Limited range of motion in abduction and external rotation. Weakness in lifting the arm against resistance. Positive supraspinatus test and O'Brien's test.\",\n  \"assessment\": \"Shoulder pain and limited mobility due to rotator cuff strain. Possible soft tissue injury or tear. Need for conservative management and follow-up.\",\n  \"plan\": \"Prescribe Tylenol 325 mg for pain, to be taken every 6 hours as needed. Order MRI of the right shoulder to evaluate for soft tissue injury or possible tear. Recommend home exercises to maintain flexibility and strength. Apply ice to the shoulder for 20 minutes every 3-4 hours to reduce swelling and pain. Schedule follow-up appointment in 1 week to reassess.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"R shoulder pain\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Shoulder pain\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R rotator cuff strain\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Rotator cuff strain\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R soft tissue injury\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Soft tissue injury\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R shoulder mobility\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Shoulder mobility\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 21,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F429"
+        ],
+        "pred_codes": [
+          "F320",
+          "N06AJ",
+          "S0011"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 10.99,
+      "output": "```\n{\n  \"subjective\": \"Patient reports mild obsessive-compulsive behaviors and distressing thoughts, mainly checking locks and having intrusive thoughts, which interfere with daily life and cause anxiety and frustration.\",\n  \"objective\": \"Vital signs: BP 120/80 mmHg, HR regular, breath sounds clear, abdomen soft and non-tender, range of motion full, reflexes normal, no focal neurological deficits.\",\n  \"assessment\": \"Patient diagnosed with Obsessive-Compulsive Disorder, unspecified, with symptoms of compulsive checking and distressing thoughts.\",\n  \"plan\": \"Start Clomipramine 25 mg once daily for OCD symptoms, refer to Dr. Anna Roberts for behavioral therapy sessions, and schedule follow-up appointment in two weeks.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"F32.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Obsessive-compulsive disorder, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"N06AJ\",\n      \"system\": \"SNOMED-CT\",\n      \"description\": \"Selective serotonin reuptake inhibitor (SSRI) therapy\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"S0011\",\n      \"system\": \"SNOMED-CT\",\n      \"description\": \"Cognitive-behavioral therapy\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 22,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "L208"
+        ],
+        "pred_codes": [
+          "L020",
+          "L021",
+          "L022",
+          "L023",
+          "L024",
+          "L025",
+          "L026",
+          "L029"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 8,
+        "n_gold": 1
+      },
+      "latency_s": 18.32,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports moderate to severe itching and redness on the inside of elbows and knees, with dry, scaly patches on the neck. Symptoms have worsened over the past two weeks. Itching impacts daily life, causing sleep disturbances and difficulty concentrating at work.\",\n  \"objective\": \"Erythema and lichenification on the flexor surfaces of elbows and knees, dry and scaly patches on the neck, no signs of secondary infection.\",\n  \"assessment\": \"Patient likely has atopic dermatitis, exacerbated by scratching and possibly an allergic state. IgE levels to be checked.\",\n  \"plan\": \"Prescribe topical corticosteroid Hydrocortisone 2.5% cream (30g) to be applied twice daily for two weeks. Recommend moisturizer CeraVe for entire body once daily. Advise consistent moisturizing, avoidance of irritants, and reduction of processed foods. Schedule follow-up in 4 weeks.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"L02.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atopic dermatitis, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"L02.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atopic dermatitis, face\",\n      \"confidence\": \"Low\"\n    },\n    {\n      \"code\": \"L02.1\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atopic dermatitis, neck\",\n      \"confidence\": \"Low\"\n    },\n    {\n      \"code\": \"L02.2\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atopic dermatitis, trunk\",\n      \"confidence\": \"Low\"\n    },\n    {\n      \"code\": \"L02.3\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atopic dermatitis, limbs\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"L02.4\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atopic dermatitis, genital area\",\n      \"confidence\": \"Low\"\n    },\n    {\n      \"code\": \"L02.5\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atopic dermatitis, other specified sites\",\n      \"confidence\": \"Low\"\n    },\n    {\n      \"code\": \"L02.6\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atopic dermatitis, unspecified\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 23,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "G43009"
+        ],
+        "pred_codes": [
+          "MIGRAINE",
+          "MIGRAINEWITHOUTAURA",
+          "SUMATRIPTAN",
+          "TOPIRAMATE"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 12.24,
+      "output": "```\n{\n  \"subjective\": \"Patient reports severe headaches 3-4 times a month, lasting 4 hours to 3 days, accompanied by nausea, sensitivity to bright lights and loud noises, and neck muscle tenderness. Symptoms worsen with stress and lack of sleep.\",\n  \"objective\": \"Vital signs: BP 120/80 mmHg, pulse 72 bpm, respiratory rate 16/min, temperature 98.6\u00b0F. Physical exam: well-appearing, no acute distress, tenderness in neck muscles, normal neurological exam.\",\n  \"assessment\": \"Migraines without aura, not intractable, and not involving status migrainosus.\",\n  \"plan\": \"Prescribe Sumatriptan 50 mg tablets for acute migraine attacks and Topiramate 25 mg tablets for preventive therapy. Recommend lifestyle modifications: regular sleep routine, balanced diet, moderate exercise, and stress management.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Migraine\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Migraine\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Sumatriptan\",\n      \"system\": \"RxNorm\",\n      \"description\": \"Sumatriptan\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Topiramate\",\n      \"system\": \"RxNorm\",\n      \"description\": \"Topiramate\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Migraine without aura\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Migraine without aura\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 24,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I619"
+        ],
+        "pred_codes": [
+          "G510",
+          "K700",
+          "K920",
+          "R430",
+          "R470",
+          "T810"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 6,
+        "n_gold": 1
+      },
+      "latency_s": 20.6,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports severe headache, nausea, and weakness on the right side, which started 2 hours ago. Patient is alert but in pain, and has vomiting. Patient is concerned about the severity of the symptoms and is scared.\",\n  \"objective\": \"BP 190/100, HR 88 bpm with regular rhythm. Right-sided hemiparesis and diminished reflexes on the right side. Glasgow Coma Scale (GCS) score 13, indicating mild confusion. Patient is alert but slightly confused.\",\n  \"assessment\": \"Potential intracerebral hemorrhage, ischemic stroke, or brain tumor. Need to rule out other possibilities. Patient has a sedentary lifestyle, consumes a lot of processed foods, smokes 10 cigarettes a day, and has 2-3 alcoholic drinks a week.\",\n  \"plan\": \"Admit to the Emergency Department for close monitoring. Start Mannitol to reduce intracranial pressure. Order CT scan of the brain with and without contrast. Run blood tests to check hematology and coagulation profiles. Consult with neurosurgeon Dr. John Smith to determine if surgery is necessary.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"G51.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Headache, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R43.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hemiparesis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R47.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Diminished reflexes\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"T81.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Intracranial hemorrhage, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K70.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Ischemic stroke\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"K92.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Brain tumor, unspecified\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 25,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I82401"
+        ],
+        "pred_codes": [
+          "K359",
+          "K459",
+          "L659",
+          "R439"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 15.15,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports severe pain and swelling in the right leg, which started 3 days ago and has been constant. Patient is uncomfortable and has difficulty walking.\",\n  \"objective\": \"Vital signs: BP 135/85 mmHg, HR 82 bpm, RR 16 breaths per minute, Temp 98.6\u00b0F. Physical examination: Right lower extremity is swollen, discolored, and warm to touch. Positive Homan's sign, no pulses distal to the swelling. Significant tenderness on palpation of the right calf. Erythema and warmth over the affected area.\",\n  \"assessment\": \"Acute embolism and thrombosis of unspecified deep veins of the right lower extremity. Patient has a positive Homan's sign and significant tenderness on palpation of the right calf.\",\n  \"plan\": \"Prescribe Warfarin 5 mg orally once daily for 3 months. Advise patient to wear compression stockings to reduce swelling. Order duplex ultrasound of the right lower extremity as soon as possible. Schedule appointment with hematologist within 2 weeks. Follow up in 1 week for INR monitoring and possible medication adjustment.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"K35.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Acute embolism of unspecified deep veins of the lower extremity\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K45.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Thrombosis of unspecified deep veins of the lower extremity\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"L65.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Warfarin therapy\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R43.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Compression stockings\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 26,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z3200"
+        ],
+        "pred_codes": [
+          "PHYSICALEXAMABDOMENUNREMARKABLE",
+          "PHYSICALEXAMBREASTTENDERNESS",
+          "PHYSICALEXAMNORMALHEARTSOUNDS",
+          "PHYSICALEXAMNORMALLUNGSOUNDS",
+          "VITALSIGNBP12080MMHG",
+          "VITALSIGNHR72BPM",
+          "VITALSIGNRR16BREATHSMIN",
+          "VITALSIGNTEMP986F"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 8,
+        "n_gold": 1
+      },
+      "latency_s": 16.53,
+      "output": "```\n{\n  \"subjective\": \"Patient reports feeling anxious and experiencing missed period, nausea, breast tenderness, and fatigue.\",\n  \"objective\": \"Vital signs: BP 120/80 mmHg, HR 72 bpm, RR 16 breaths/min, Temp 98.6\u00b0F. Physical exam: abdomen unremarkable, tender breasts, normal heart and lung sounds.\",\n  \"assessment\": \"Patient presents with symptoms suggestive of early pregnancy, including missed period, nausea, breast tenderness, and fatigue. Physical exam is unremarkable, but breast tenderness is noted.\",\n  \"plan\": \"Order Beta-HCG blood test to confirm pregnancy status. If positive, start prenatal vitamins and discuss healthy diet. If negative, discuss contraceptive options.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Vital sign: BP 120/80 mmHg\",\n      \"system\": \"Vital Signs\",\n      \"description\": \"Blood pressure\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Vital sign: HR 72 bpm\",\n      \"system\": \"Vital Signs\",\n      \"description\": \"Heart rate\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Vital sign: RR 16 breaths/min\",\n      \"system\": \"Vital Signs\",\n      \"description\": \"Respiratory rate\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Vital sign: Temp 98.6\u00b0F\",\n      \"system\": \"Vital Signs\",\n      \"description\": \"Temperature\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Physical exam: Abdomen unremarkable\",\n      \"system\": \"Physical Exam\",\n      \"description\": \"Abdominal examination\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Physical exam: Breast tenderness\",\n      \"system\": \"Physical Exam\",\n      \"description\": \"Breast examination\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Physical exam: Normal heart sounds\",\n      \"system\": \"Physical Exam\",\n      \"description\": \"Cardiac examination\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Physical exam: Normal lung sounds\",\n      \"system\": \"Physical Exam\",\n      \"description\": \"Pulmonary examination\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 27,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z3403"
+        ],
+        "pred_codes": [
+          "G400",
+          "R950",
+          "R951",
+          "R952",
+          "R953",
+          "R954"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 6,
+        "n_gold": 1
+      },
+      "latency_s": 14.2,
+      "output": "```\n{\n  \"subjective\": \"Patient reports feeling tired, frustrated, and experiencing symptoms of gestational diabetes such as increased thirst, frequent urination, dizziness, blurry vision, and fatigue.\",\n  \"objective\": \"Vital signs: BP 130/85 mmHg, weight 170 lbs, fundal height consistent with gestational age, baby's heart rate 140 bpm. Urine dipstick test shows glucose but no protein.\",\n  \"assessment\": \"Patient is experiencing symptoms of gestational diabetes and is having trouble managing with dietary changes. Blood glucose levels are not well-controlled.\",\n  \"plan\": \"Prescribe insulin therapy (5 units subcutaneous injection before bedtime) and refer to a nutritionist for meal planning and dietary management. Continue to monitor blood glucose levels at home and engage in light physical activities like walking.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"G40.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Gestational diabetes mellitus without complications\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R95.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Increased thirst\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"R95.1\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Frequent urination\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"R95.2\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Dizziness\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"R95.3\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Blurred vision\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"R95.4\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Fatigue\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 28,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M2012"
+        ],
+        "pred_codes": [
+          "L050",
+          "M200",
+          "Q02AA",
+          "S0010"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 12.35,
+      "output": "```\n{\n  \"subjective\": \"Patient reports pain and swelling around the big toe, worsened by tight shoes and long walks, with a pain rating of 6-8 out of 10.\",\n  \"objective\": \"Enlarged bony prominence on the inside of the big toe, reduced range of motion in the toe joint, and a weight-bearing X-ray of the left foot ordered to assess the severity of hallux valgus.\",\n  \"assessment\": \"Moderate severity of hallux valgus, with symptoms consistent with this diagnosis.\",\n  \"plan\": \"Prescribe custom orthotics to alleviate pressure and improve foot alignment, Diclofenac 1% gel to be applied to the affected area three times daily, and refer to a physical therapist for gait training and strengthening exercises.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"M20.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hallux valgus\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"L05.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Bunions\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"S0010\",\n      \"system\": \"CPT\",\n      \"description\": \"Custom orthotics\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Q02AA\",\n      \"system\": \"CPT\",\n      \"description\": \"Diclofenac 1% gel\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 29,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "T1490"
+        ],
+        "pred_codes": [
+          "81300",
+          "R0470",
+          "R0471",
+          "R0472",
+          "R0473"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 5,
+        "n_gold": 1
+      },
+      "latency_s": 14.48,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports wrist pain that comes and goes, worse with movement, especially carrying heavy objects. Pain is rated 5/10. Mild swelling and bruising present.\",\n  \"objective\": \"Vital signs: BP 118/72 mmHg, HR 76 bpm, RR 16 breaths/min, Temp 98.6\u00b0F, O2 Sat 99% on room air. Physical exam: slight bruising over left wrist, tenderness to palpation, mild swelling, limited range of motion due to pain. Lungs clear to auscultation bilaterally, sensory and motor functions in left upper limb intact.\",\n  \"assessment\": \"Possible distal radius injury. Pain and swelling management, immobilization, and rest recommended.\",\n  \"plan\": \"Prescribe Ibuprofen 400 mg every 6 hours as needed for pain. Continue using wrist splint to immobilize wrist. Avoid activities that exacerbate pain. Rest wrist and use ice packs to reduce swelling. Follow up in one week to review X-ray results and reassess wrist function.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"81300\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Distal radius fracture\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R0470\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Wrist pain\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R0471\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Wrist swelling\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R0472\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Wrist bruising\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R0473\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Wrist immobilization\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 30,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "N400"
+        ],
+        "pred_codes": [
+          "BPH",
+          "HYPERTENSION",
+          "LISINOPRIL"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 11.85,
+      "output": "```\n{\n  \"subjective\": \"Patient reports feeling fine overall, no current symptoms or concerns.\",\n  \"objective\": \"Vital signs: BP 126/78 mmHg, HR 72 bpm, respiration 16, temperature 98.4\u00b0F. Physical exam: well-nourished and well-developed, regular rate and rhythm, normal respiratory and abdominal exams. Genitourinary exam: enlarged prostate, smooth and non-tender.\",\n  \"assessment\": \"Patient has Benign Prostatic Hyperplasia (BPH), which is common in men of this age group. Hypertension is well-controlled with Lisinopril 10 mg daily. No new urinary symptoms or concerns.\",\n  \"plan\": \"Follow-up in 6 months for progression assessment and review of Transrectal Ultrasound (TRUS) results. Maintain current hypertension management with Lisinopril 10 mg daily. Continue balanced diet and moderate exercise, such as daily walking. Limit red meat intake and maintain a heart-healthy diet.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"BPH\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Benign Prostatic Hyperplasia\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Hypertension\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hypertension\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Lisinopril\",\n      \"system\": \"RxNorm\",\n      \"description\": \"Lisinopril\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 31,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "H40003"
+        ],
+        "pred_codes": [
+          "GLAUCOMA",
+          "HYPERTENSION",
+          "OCULARHYPERTENSION",
+          "VISUALFIELDDEFECT"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 12.81,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports vision changes, including blind spots, blurry vision, and eye strain, as well as frequent headaches.\",\n  \"objective\": \"Visual acuity: 20/30 in right eye, 20/40 in left eye; Intraocular pressure: 23 mmHg in right eye, 24 mmHg in left eye; Confrontation visual field test shows marked reduction in peripheral vision in both eyes; OCT results show thinning of the retinal nerve fiber layer.\",\n  \"assessment\": \"Primary Open-Angle Glaucoma suspected based on visual symptoms and ocular examination findings.\",\n  \"plan\": \"Prescribe Brimonidine 0.15% eye drops to reduce intraocular pressure; Refer to Dr. Amelia Chang for further management; Conduct MRI of brain and orbits with and without contrast to rule out neurological causes; Lifestyle modifications recommended, including healthy dietary choices, increased physical activity, and smoking cessation.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Hypertension\",\n      \"system\": \"SNOMED\",\n      \"description\": \"High blood pressure\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Glaucoma\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Primary Open-Angle Glaucoma\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Visual field defect\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Reduced peripheral vision\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Ocular hypertension\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Increased intraocular pressure\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 32,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M1710"
+        ],
+        "pred_codes": [
+          "K100",
+          "M609",
+          "M809"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 13.28,
+      "output": "```\n{\n  \"subjective\": \"Patient reports severe pain in right knee, constant but worsens after sitting, impacts daily activities, stiffness, and clicking sound when moving knee. Patient has difficulty sleeping due to pain.\",\n  \"objective\": \"BP 128/82 mmHg, HR 76 beats per minute, RR 14 breaths per minute, temperature 98.6\u00b0F. Moderate swelling and significant tenderness in right knee. Limited range of motion. Crepitus (grinding sound) when moving knee.\",\n  \"assessment\": \"Unilateral primary osteoarthritis in right knee, possible patellofemoral pain syndrome, meniscal tear, or ligament injury. Kidney and liver function to be checked.\",\n  \"plan\": \"Prescribe Tramadol 50 mg tablets as needed for severe pain, up to 400 mg/day. Recommend aquatic therapy. Refer to pain management specialist for corticosteroid injection. Schedule follow-up appointment in 6 weeks.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"K10.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Unilateral primary osteoarthritis of knee\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"M80.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Patellofemoral pain syndrome\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"M60.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Meniscal tear\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"M80.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Ligament injury\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 33,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F902"
+        ],
+        "pred_codes": [
+          "F990",
+          "G298",
+          "R040",
+          "R059"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 11.75,
+      "output": "```\n{\n  \"subjective\": \"Patient reports difficulty focusing at school, trouble sitting still, and excessive fidgeting. Parent reports child's ADHD symptoms have been moderate to severe, affecting daily life.\",\n  \"objective\": \"Vitals: BP 105/70 mmHg, HR 88 bpm, RR 18 breaths/min, Temp 36.7\u00b0C. Physical exam: anxious and restless, hyperactive and restless.\",\n  \"assessment\": \"Moderate to severe ADHD symptoms affecting daily life. Need for medication and behavioral therapy.\",\n  \"plan\": \"Prescribe Methylphenidate 10 mg orally twice daily for 1 month. Refer to Dr. Rachel Green for behavioral therapy. Discuss sleep hygiene techniques, increase physical activity, and monitor response to medication.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"G29.8\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Attention deficit hyperactivity disorder, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"F99.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Attention deficit hyperactivity disorder, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R05.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Anxiety disorder, unspecified\",\n      \"confidence\": \"Medium\"\n    },\n    {\n      \"code\": \"R04.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hyperactivity\",\n      \"confidence\": \"Medium\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 34,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F0281"
+        ],
+        "pred_codes": [
+          "F020",
+          "G040",
+          "R430",
+          "R470"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 14.06,
+      "output": "```\n{\n  \"subjective\": \"Patient reports feeling more confused and forgetful, experiencing visual hallucinations, and having trouble with daily activities such as bathing, dressing, and eating. Patient feels tired and has a poor appetite. Patient also reports increased agitation during episodes of confusion.\",\n  \"objective\": \"BP 140/85 mmHg, neurological exam shows memory impairment and visual hallucinations, mild cogwheel rigidity, decreased muscle strength in lower limbs, and unsteady gait.\",\n  \"assessment\": \"Patient's Lewy Body Dementia symptoms are worsening, with increased confusion, forgetfulness, and visual hallucinations. Patient requires assistance with daily activities and is experiencing fatigue, poor appetite, and increased agitation.\",\n  \"plan\": \"Prescribe Quetiapine 12.5 mg at bedtime to manage agitation and hallucinations. Continue Donepezil 10 mg once daily. Add Metformin 500 mg twice daily for diabetes and Lisinopril 20 mg once daily for hypertension. Refer patient to physical therapy to improve mobility and reduce risk of falls. Refer patient to geriatrician Dr. Emily Hughes for comprehensive assessment and multidisciplinary care approach.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"G04.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Amnestic syndrome\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"F02.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Delirium\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R43.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Visual hallucinations\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R47.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Cognitive impairment\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 35,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "A419"
+        ],
+        "pred_codes": [
+          "HYPERTENSION",
+          "MEROPENEM",
+          "POLYCYSTICKIDNEYDISEASE",
+          "SEPSIS",
+          "URINARYTRACTINFECTION"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 5,
+        "n_gold": 1
+      },
+      "latency_s": 16.09,
+      "output": "```\n{\n  \"subjective\": \"Patient reports fever, severe pain on right side, tiredness, increased urinary frequency, and inability to sleep due to pain.\",\n  \"objective\": \"Vitals: temperature 101\u00b0F, BP 140/85 mmHg, heart rate 110 bpm, RR 18, oxygen saturation 98% on room air. Physical exam: moderately ill and febrile, tachycardic heart, clear breath sounds, right flank tenderness without rebound tenderness or guarding, warm extremities with normal capillary refill.\",\n  \"assessment\": \"Suspected sepsis due to Escherichia coli, likely secondary to recurrent urinary tract infections. Patient has a history of hypertension and polycystic kidney disease.\",\n  \"plan\": \"Initiate IV antibiotics with Meropenem 1g every 8 hours for 14 days. Continue current medications, Amlodipine and Allopurinol. Refer to urologist for evaluation of recurrent urinary tract infections. Follow up bi-weekly with blood cultures and renal function tests.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Sepsis\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Sepsis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Urinary Tract Infection\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Urinary Tract Infection\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Hypertension\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hypertension\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"Polycystic Kidney Disease\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Polycystic Kidney Disease\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"Meropenem\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Meropenem\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 36,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "E43"
+        ],
+        "pred_codes": [
+          "D509",
+          "E789",
+          "K209",
+          "NOS"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 15.0,
+      "output": "```\n{\n  \"subjective\": \"Patient reports severe weight loss, muscle wasting, chronic diarrhea, abdominal pain, fatigue, and anemia. Patient is concerned about their overall health and well-being.\",\n  \"objective\": \"Physical exam findings: cachectic appearance with significant muscle wasting and pallor; soft and non-tender abdomen with normal bowel sounds and slight distension; CBC and comprehensive metabolic panel results pending; serum albumin/protein levels pending; abdominal CT scan pending.\",\n  \"assessment\": \"Patient has a history of celiac disease and is experiencing symptoms consistent with malabsorption and malnutrition. Patient is at risk for complications such as osteoporosis, anemia, and electrolyte imbalances.\",\n  \"plan\": \"Initiate nutritional supplementation with high-protein, high-calorie diet plan; prescribe daily multivitamin supplement; refer patient to dietitian for detailed nutritional counseling and meal planning; schedule follow-up appointment in 4 weeks to assess weight gain and nutritional status.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"NOS\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Malabsorption syndrome\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"E78.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Malnutrition\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K20.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Osteoporosis\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"D50.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Anemia\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 37,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I491"
+        ],
+        "pred_codes": [
+          "A000",
+          "I119",
+          "R959",
+          "T459"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 15.67,
+      "output": "```\n{\n  \"subjective\": \"Patient reports intermittent palpitations and mild dizziness for the past two weeks, which are moderate in severity and occur multiple times a day, especially during physical activities. Symptoms have been interfering with daily activities, including sleep, and have been noticeable during jogging. Patient is concerned about the impact of these symptoms on their quality of life.\",\n  \"objective\": \"Vital signs: BP 138/82 mmHg, HR 85 bpm, RR 16 breaths/min, Temp 98.6\u00b0F, O2 Sat 98% on room air. Physical examination: irregular heart rhythm, no murmurs, S3, or S4 gallops, 2+ and symmetrical peripheral pulses, no jugular venous distention or peripheral edema.\",\n  \"assessment\": \"Atrial Premature Depolarizations (APD) likely causing palpitations and mild dizziness. Patient has a history of hypertension and hyperlipidemia, which may contribute to the development of APD.\",\n  \"plan\": \"Start Metoprolol 25 mg, oral, once daily for 30 days to control palpitations. Arrange for a 24-hour Holter monitor to assess frequency of APD and identify associated arrhythmias. Monitor patient for side effects of Metoprolol, such as fatigue and dizziness.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"A00.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atrial premature depolarizations\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"I11.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Other arrhythmias, unspecified\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"R95.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Other palpitations, unspecified\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"T45.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Other dizziness, unspecified\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 38,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "D229"
+        ],
+        "pred_codes": [
+          "N830",
+          "N831",
+          "N832",
+          "N833",
+          "N834"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 5,
+        "n_gold": 1
+      },
+      "latency_s": 17.86,
+      "output": "```\n{\n  \"subjective\": \"Patient is moderately concerned about a mole on her back that has been changing over the past three months, causing minor discomfort and itching. She is worried about the potential for melanoma.\",\n  \"objective\": \"Multiple nevi, some regular and some irregular, on the patient's skin, with one nevus on her back showing asymmetry, color variegation, and is about 7 mm in diameter. Blood pressure is 130/85 mmHg, heart rate is 72 bpm, RR is 16 breaths per minute, and temperature is 36.8\u00b0C.\",\n  \"assessment\": \"The patient's mole on her back is concerning due to its asymmetry, color variegation, and size. The patient's general well-being is good, but her sleep and concentration have been slightly impacted by her worry. The patient has a history of diabetes and hypertension, which are being managed with medication.\",\n  \"plan\": \"The patient will be referred to Dr. Jason White, a dermatologic surgeon, for consultation regarding the excision of the enlarging nevus on her back. The patient will continue to monitor her blood sugar levels regularly and adhere to her medication regimen. The patient will also be educated on the ABCDEs of melanoma and advised to avoid excessive sun exposure and use sunscreen regularly.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"N83.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Nevus, multiple, irregular\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"N83.1\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Nevus, multiple, regular\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"N83.2\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Nevus, multiple, irregular, changing\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"N83.3\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Nevus, multiple, irregular, changing, with melanoma suspected\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"N83.4\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Nevus, multiple, irregular, changing, with melanoma suspected, excised\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 39,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "L0501"
+        ],
+        "pred_codes": [
+          "ABSCESS",
+          "CEPHALEXIN",
+          "LUMBARPAIN",
+          "PILONIDALCYST"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 11.0,
+      "output": "```\n{\n  \"subjective\": \"Patient reports severe pain, swelling, and redness at the base of the spine for the past 3 days, constant pain, and difficulty sitting or walking.\",\n  \"objective\": \"Erythema and edema at the sacrococcygeal region, tender mass, and fluctuance indicating an abscess.\",\n  \"assessment\": \"Pilonidal cyst with an abscess, likely caused by hair and debris trapped under the skin leading to infection and abscess formation.\",\n  \"plan\": \"Incision and drainage with local anesthesia, followed by antibiotic treatment with Cephalexin for 7 days, and maintenance of proper hygiene and avoidance of prolonged sitting.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Lumbar pain\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Pain in the lumbar region\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Abscess\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Collection of pus\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Pilonidal cyst\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Cyst formed by hair and debris under the skin\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Cephalexin\",\n      \"system\": \"RxNorm\",\n      \"description\": \"Antibiotic\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 40,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "O200"
+        ],
+        "pred_codes": [
+          "O990",
+          "V370"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 2,
+        "n_gold": 1
+      },
+      "latency_s": 13.6,
+      "output": "```\n{\n  \"subjective\": \"Patient is worried about moderate vaginal bleeding and mild lower abdominal cramping, and has been experiencing constant spotting and mild cramps.\",\n  \"objective\": \"BP 110/70 mmHg, heart rate 80 bpm, RR 14 breaths/min, temperature 98.6\u00b0F, mild tenderness in lower abdomen, cervical os closed, mild vaginal bleeding, uterus feels appropriate for gestational age.\",\n  \"assessment\": \"Symptoms consistent with a threatened abortion, need to gather more information to be sure.\",\n  \"plan\": \"Bed rest and pelvic rest for 2 weeks, no sexual intercourse, progesterone supplement (Micronized progesterone 200 mg, oral, once daily for 2 weeks), follow-up in 1 week for reassessment.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"O99.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Threatened abortion\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"O99.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Threatened abortion\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"V37.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Threatened abortion\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"V37.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Threatened abortion\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"V37.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Threatened abortion\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 41,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "D500"
+        ],
+        "pred_codes": [
+          "J950",
+          "K209",
+          "R990",
+          "V450"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 13.37,
+      "output": "```\n{\n  \"subjective\": \"Patient reports fatigue, shortness of breath on exertion, dizziness, and pallor, which have been ongoing for 3 months and are impacting daily life.\",\n  \"objective\": \"Physical examination reveals patient appears pale and fatigued, with a regular heart rate and clear breath sounds bilaterally. Abdomen is soft and non-tender with normal bowel sounds. Musculoskeletal system is normal.\",\n  \"assessment\": \"Patient likely has Iron Deficiency Anemia Secondary to Chronic Blood Loss, with fatigue, dizziness, shortness of breath on exertion, and pallor consistent with anemia.\",\n  \"plan\": \"Order Complete Blood Count (CBC), Iron Studies including Serum Iron, Total Iron Binding Capacity, Ferritin, and Reticulocyte count. Prescribe Ferrous Sulfate 325 mg orally three times a day for 3 months. Refer patient to Gastroenterologist for possible endoscopy to identify source of chronic blood loss.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"R99.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Fatigue (unspecified)\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"J95.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Anemia, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K20.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Iron deficiency anemia\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"V45.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Anemia due to chronic blood loss\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 42,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I6789"
+        ],
+        "pred_codes": [
+          "80",
+          "G459",
+          "I489",
+          "K209",
+          "K219",
+          "V709"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 6,
+        "n_gold": 1
+      },
+      "latency_s": 15.25,
+      "output": "```\n{\n  \"subjective\": \"Patient reports mild to moderate headaches and slight confusion for the past 4 days, affecting concentration and daily routine.\",\n  \"objective\": \"Vitals: BP 140/85 mmHg, INR to be checked, liver function tests, CBC, comprehensive metabolic panel, and MRI brain. Physical examination: irregularly irregular heart rhythm consistent with atrial fibrillation, decreased cognition, and mild coordination issues.\",\n  \"assessment\": \"Patient likely has other cerebrovascular disease. Atrial fibrillation, peptic ulcer disease, and gastroesophageal reflux disease present. Mild to moderate headaches and slight confusion, affecting concentration and daily routine.\",\n  \"plan\": \"Warfarin 5 mg once daily to prevent blood clots, refer to physical therapist for mobility and coordination issues, and recommend Mediterranean diet, quitting smoking, and reducing alcohol intake.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"8.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Mild to moderate headache\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"G45.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Confusion\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"I48.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Atrial fibrillation\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K21.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Peptic ulcer disease\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"K20.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Gastroesophageal reflux disease\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"V70.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Warfarin therapy\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 43,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "L97522"
+        ],
+        "pred_codes": [
+          "A040",
+          "L450",
+          "N870",
+          "S820"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 13.58,
+      "output": "```\n{\n  \"subjective\": \"Patient reports severe pain in left foot, constant drainage, and redness around ulcer, affecting daily activities and sleep.\",\n  \"objective\": \"BP 135/88 mmHg, HR 85 bpm, RR 18 breaths per minute, temperature 98.7\u00b0F, oxygen saturation 97%, severe erythema and purulent drainage from ulcer, significant fat layer exposed, severe tenderness to palpation, grossly intact distal sensation in left foot.\",\n  \"assessment\": \"Chronic ulcer on left foot, likely infected, poorly controlled diabetes, and significant impact on daily activities and sleep.\",\n  \"plan\": \"Oral antibiotics (Amoxicillin-Clavulanate 875 mg/125 mg) BID for 7 days, daily saline dressings, wound vac therapy, bi-weekly wound assessments, referral to endocrinologist, infectious disease specialist, dietitian, and community-based exercise program.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"N87.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Chronic ulcer of the foot\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"A04.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Diabetes mellitus, not specified as to type\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"S82.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Infection of the skin and subcutaneous tissue\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"L45.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Chronic wound\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 44,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z87898"
+        ],
+        "pred_codes": [
+          "AMLODIPINE",
+          "ANXIETYDISORDER",
+          "HYPERTENSION"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 11.42,
+      "output": "```\n{\n  \"subjective\": \"Patient reports feeling anxious for the past three months, with worsening symptoms over the last few weeks. Anxiety episodes occur 2-3 times a week, causing chest palpitations and headaches. Symptoms affect daily life, leading to decreased productivity.\",\n  \"objective\": \"Vital signs: BP 145/90 mmHg, HR 78 bpm. Physical exam: normal heart sounds, clear lungs, soft and non-tender abdomen, alert and oriented neurologically.\",\n  \"assessment\": \"Patient diagnosed with hypertension and anxiety disorder. Current medications: none. Ordered blood tests (CBC, BMP) to monitor overall health and kidney function.\",\n  \"plan\": \"Start patient on Amlodipine 5mg orally once daily. Prescribe 30 tablets. Recommend low-sodium diet and daily physical exercise (30 minutes, most days). Refer patient to Dr. Emily Stephens for mental health counseling related to PTSD.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"Hypertension\",\n      \"system\": \"ICD-10\",\n      \"description\": \"High blood pressure\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Anxiety Disorder\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Anxiety disorder\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Amlodipine\",\n      \"system\": \"RxNorm\",\n      \"description\": \"Amlodipine\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 45,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "R404"
+        ],
+        "pred_codes": [
+          "G320",
+          "G400",
+          "R050"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 11.07,
+      "output": "```\n{\n  \"subjective\": \"Patient reports episodes of sudden loss of awareness for 1-2 minutes, 2-3 times a week, with mild headache afterward. Episodes interfere with daily activities, including work and social life. Patient is concerned about the impact on daily functioning.\",\n  \"objective\": \"Physical and neurological exams are unremarkable, with no focal deficits noted.\",\n  \"assessment\": \"Seizure disorder likely, given family history of epilepsy and lack of other potential causes.\",\n  \"plan\": \"Initiate Lamotrigine 25 mg once daily for 2 weeks, increase to 50 mg daily for next 2 weeks, and then 100 mg daily thereafter. Refer to epileptologist for specialized assessment and management. Order MRI of brain to rule out structural abnormalities. Patient to keep seizure diary and continue current lifestyle habits, avoiding driving or operating heavy machinery until better control.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"G32.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Sudden loss of consciousness\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"G40.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Epilepsy, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R05.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Anxiety disorder, unspecified\",\n      \"confidence\": \"Low\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 46,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "G7000"
+        ],
+        "pred_codes": [
+          "G933",
+          "R430"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 2,
+        "n_gold": 1
+      },
+      "latency_s": 15.18,
+      "output": "```\n{\n  \"subjective\": \"Patient reports mild muscle weakness and ptosis, especially in the evenings, affecting daily activities like driving and reading for long periods. Patient feels unrested despite 6-7 hours of sleep.\",\n  \"objective\": \"Vital signs: BP 130/85 mmHg, pulse 72 bpm, respiration 16 bpm, temperature 98.6\u00b0F. Physical exam shows ptosis on left eye and mild muscle weakness. Reflexes are normal, respiratory distress is absent, heart sounds are normal, lungs are clear to auscultation, and musculoskeletal exam shows normal range of motion with no tenderness.\",\n  \"assessment\": \"Myasthenia Gravis is stable without acute exacerbation. Patient's current medications, Pyridostigmine 60 mg every 6 hours and Prednisone 10 mg daily, are recommended to continue.\",\n  \"plan\": \"Continue Pyridostigmine 60 mg every 6 hours and Prednisone 10 mg daily. Schedule follow-up visit in 3 months for routine monitoring and reassessment. Refer patient to ophthalmologist Dr. Jane Smith for evaluation of ptosis. Order blood work, including biochemistry panel, to check electrolytes, liver function tests, and kidney function tests. Recommend maintaining a consistent sleep schedule and increasing mild exercises like walking to 4-5 times a week.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"G93.3\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Myasthenia Gravis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R43.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Ptosis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"G93.3\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Myasthenia Gravis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R43.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Ptosis\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 47,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M47814"
+        ],
+        "pred_codes": [
+          "L4059",
+          "M950",
+          "NAP500MG"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 3,
+        "n_gold": 1
+      },
+      "latency_s": 10.66,
+      "output": "```\n{\n  \"subjective\": \"Patient reports moderate to severe thoracic back pain that has been constant for the past three months, affecting sleep and daily activities.\",\n  \"objective\": \"Vital signs: BP 138/85 mmHg, HR 76 bpm, RR 16 breaths per minute, temperature 98.6\u00b0F. Physical exam: tenderness in mid-thoracic spine, restricted range of motion, normal reflexes and sensory function.\",\n  \"assessment\": \"Thoracic spondylosis without myelopathy or radiculopathy, likely confirmed by MRI of thoracic spine.\",\n  \"plan\": \"Prescribe Naproxen 500 mg twice a day for two weeks, recommend lifestyle changes (balanced diet, smoking cessation, low-impact exercises), and schedule follow-up appointment in four weeks.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"L4.0-5.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Thoracic spondylosis\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"M95.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Acute back pain\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"NAP 500mg\",\n      \"system\": \"RxNorm\",\n      \"description\": \"Naproxen 500mg\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 48,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M4727"
+        ],
+        "pred_codes": [
+          "EPIDURALSTEROIDINJECTION",
+          "GABAPENTIN",
+          "L5DERMATOME",
+          "PHYSICALTHERAPY",
+          "RADICULOPATHY",
+          "SPONDYLOSIS"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 6,
+        "n_gold": 1
+      },
+      "latency_s": 17.57,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports ongoing low back pain, worsened by sitting for long periods, and tingling/numbness in right leg, particularly in L5 dermatome. Pain intensity is usually 7-8 out of 10. Missed medications due to work pressures exacerbates pain.\",\n  \"objective\": \"Mild scoliosis noted during previous visit. Tender lower back upon palpation. Decreased strength in right leg (4/5). Decreased sensation in L5 dermatome. Reduced Achilles reflex. Normal vital signs.\",\n  \"assessment\": \"Spondylosis with radiculopathy in lumbosacral region, likely causing low back pain and right leg symptoms.\",\n  \"plan\": \"Gabapentin 300mg, 3 times daily. Physical therapy sessions twice a week, focusing on core strengthening and lumbar stabilization exercises. Follow-up appointment in 4 weeks to review MRI results. Referral to Pain Management Specialist, Dr. John Smith, for potential epidural steroid injections.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"L5 dermatome\",\n      \"system\": \"SNOMED\",\n      \"description\": \"Nerve root involvement in the L5 dermatome\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Spondylosis\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Degenerative disc disease\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Radiculopathy\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Nerve root compression\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Gabapentin\",\n      \"system\": \"RxNorm\",\n      \"description\": \"Anticonvulsant medication\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Physical therapy\",\n      \"system\": \"CPT\",\n      \"description\": \"Therapeutic exercise\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"Epidural steroid injection\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Injections for inflammation reduction\",\n      \"confidence\": \"High\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 49,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "R578"
+        ],
+        "pred_codes": [
+          "I109",
+          "N189",
+          "T810",
+          "T900X0A"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 13.4,
+      "output": "```json\n{\n  \"subjective\": \"Patient reports feeling weak, dizzy, and confused, with a history of high blood pressure and Stage 2 Chronic Kidney Disease.\",\n  \"objective\": \"Vital signs: BP 85/60 mmHg, HR 120 bpm, RR 24/min, O2 sat 96% on room air. Physical examination: low blood pressure, high heart rate, sweating, confusion, and decreased responsiveness. No abdominal tenderness or enlarged organs.\",\n  \"assessment\": \"The patient is experiencing symptoms of shock, likely due to low blood pressure and high heart rate. Further testing is needed to determine the exact cause.\",\n  \"plan\": \"Perform blood work to check electrolytes, kidney function, and look for signs of infection. Do chest X-ray to rule out lung or heart issues. Administer IV fluids to raise BP. Monitor vital signs continuously and urine output. Consider medication like norepinephrine if BP doesn't improve with fluids.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"T90.0X0A\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Shock, unspecified\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"I10.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hypertensive heart disease\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"N18.9\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Chronic kidney disease, unspecified\",\n      \"confidence\": \"Moderate\"\n    },\n    {\n      \"code\": \"T81.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Hypotension\",\n      \"confidence\": \"Moderate\"\n    }\n  ]\n}\n```"
+    },
+    {
+      "index": 50,
+      "valid": false,
+      "problems": [
+        "output_string_not_json"
+      ],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M1612"
+        ],
+        "pred_codes": [
+          "L450",
+          "L451",
+          "R950",
+          "R951"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 4,
+        "n_gold": 1
+      },
+      "latency_s": 13.36,
+      "output": "```\n{\n  \"subjective\": \"Patient reports moderate to severe pain in left hip, affecting sleep and daily activities, with stiffness and limited range of motion.\",\n  \"objective\": \"Vitals: BP 135/80 mmHg, HR 78 bpm, RR 16 breaths/min, Temp 98.6\u00b0F. Physical exam: limited range of motion in left hip with pain on palpation, no swelling or deformity. Right hip appears normal.\",\n  \"assessment\": \"Unilateral primary osteoarthritis of the left hip, with symptoms of pain, stiffness, and limited range of motion.\",\n  \"plan\": \"Prescribe Ibuprofen 800 mg orally 3 times a day for 4 weeks to manage pain. Refer to Dr. Claire Thompson for 12-week rehabilitation program focusing on strengthening exercises to improve joint function. Follow-up in 6 weeks for reassessment and review of X-ray findings.\",\n  \"suggested_codes\": [\n    {\n      \"code\": \"L45.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Unilateral primary osteoarthritis of left hip\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R95.0\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Limited range of motion of left hip\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"R95.1\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Pain in left hip\",\n      \"confidence\": \"High\"\n    },\n    {\n      \"code\": \"L45.1\",\n      \"system\": \"ICD-10\",\n      \"description\": \"Unilateral primary osteoarthritis of left hip, unspecified\",\n      \"confidence\": \"Medium\"\n    }\n  ]\n}\n```"
+    }
+  ]
+}

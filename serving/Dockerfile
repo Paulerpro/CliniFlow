@@ -1,7 +1,7 @@
 # Serving image for CliniFlow. Same image runs locally (docker run --gpus all)
 # and on the AWS GPU instance. The adapter is NOT baked in: it is mounted or
 # downloaded at start, so one image serves any adapter version.
-FROM vllm/vllm-openai:latest
+FROM vllm/vllm-openai:v0.32.0
 
 WORKDIR /serving
 COPY config.py start_server.sh client.py ./

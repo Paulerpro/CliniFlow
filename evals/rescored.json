@@ -1,0 +1,43 @@
+{
+  "base": {
+    "model": "base",
+    "rows_total": 50,
+    "rows_scored": 49,
+    "request_failures": 1,
+    "strict_valid": 0,
+    "lenient_valid": 48,
+    "code_exact_hit_rate": 0.0,
+    "code_category_hit_rate": 0.061,
+    "code_description_hit_rate": 0.061,
+    "avg_codes_predicted": 4.1,
+    "latency_mean_s": 18.0,
+    "latency_median_s": 14.1,
+    "latency_p90_s": 17.6,
+    "latency_max_s": 199.3,
+    "median_output_chars": 1552,
+    "median_s_per_1k_chars": 8.9
+  },
+  "finetuned": {
+    "model": "finetuned",
+    "rows_total": 50,
+    "rows_scored": 50,
+    "request_failures": 0,
+    "strict_valid": 50,
+    "lenient_valid": 50,
+    "code_exact_hit_rate": 0.0,
+    "code_category_hit_rate": 0.24,
+    "code_description_hit_rate": 0.12,
+    "avg_codes_predicted": 1,
+    "latency_mean_s": 57.0,
+    "latency_median_s": 51.2,
+    "latency_p90_s": 64.9,
+    "latency_max_s": 316.9,
+    "median_output_chars": 3061,
+    "median_s_per_1k_chars": 16.7
+  },
+  "gold_audit": {
+    "gold_codes": 50,
+    "distinct": 50,
+    "icd10_shaped": 50
+  }
+}
