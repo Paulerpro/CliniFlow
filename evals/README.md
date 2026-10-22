@@ -83,6 +83,29 @@ The adapter is intentionally served unmerged (see `serving/README.md`), so the f
 - n = 50, so differences of a few rows are not meaningful.
 - Gold codes are synthetic-dataset labels, not clinical ground truth. They are all ICD-10-CM shaped (dot-less, e.g. `Z20822` is Z20.822).
 
+## Hallucination checks
+
+Two complementary methods, both comparing each SOAP note to its source transcript. The gold notes are scored as a control, because they are themselves elaborated beyond the transcripts (27% of the numbers in the gold notes never appear in the transcript).
+
+- `hallucination_rules.py` (free, deterministic): numbers, drug+dose pairs and "Dr. Name" strings in the note must appear in the transcript. Output: `hallucination_rules.json`.
+- `hallucination_judge.py` (OpenAI `gpt-4.1-mini`, temperature 0, blind to the source): lists unsupported claims by type and severity, and lists key transcript facts the note omits. 149 calls, about 287k input / 34k output tokens (roughly $0.15 to $0.20). Output: `hallucination_judge.json`. The key is read from `OPENAI_API_KEY` or `.env`.
+
+| metric | gold (control) | base | fine-tuned |
+|---|---|---|---|
+| rules: share of numbers not in transcript | 16.7% | 0% | 12.8% |
+| rules: notes with ungrounded drug+dose | 1 | 0 | 1 |
+| judge: unsupported claims per note | 3.34 | 0.20 | 3.48 |
+| judge: notes with at least one major claim | 7 | 4 | 9 |
+| judge: notes with no unsupported claim | 2 | 41 | 2 |
+| judge: missing key facts per note | 5.0 | 6.7 | 5.1 |
+
+Reading it:
+- **The fine-tuned model fabricates like the gold data.** 49 of 50 fine-tuned notes and 48 of 50 gold notes invent demographics (age, ethnicity, name), usually a "45-year-old" patient not in the transcript. The model learned the dataset's habit of elaborating. The base model almost never does this.
+- **The base model is cleaner but thinner.** It misses more key facts (6.7 against 5.1) and wins on grounding partly by writing less.
+- **Major claims still occur in the fine-tuned notes**, such as "hypertension currently managed with Metformin", invented referral names, and a contradicted "denies jaundice" (9 of 50 notes). The base model has 4 of 49 notes with major claims, for example an ultrasound described as done when it was only planned.
+
+Caveats: one judge model, one pass, no human calibration (I read the 17 major flags and they were genuine). The judge ignored the "at most 8 missing facts" cap on some notes, so treat the missing-fact count as relative. The judge was not asked about ICD codes.
+
 ## Findings for later pillars
 
 **ICD-10 code numbers are the weak spot.** The fine-tuned model reliably produces valid JSON and often the right diagnosis *name*, but rarely the right code *number* (0/50 exact, 12% description hit, 24% category hit). Suggested handling in the gateway pillar (retry/repair), in priority order. None of this has been built or tested:
