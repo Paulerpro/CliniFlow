@@ -11,7 +11,7 @@ An ambient clinical documentation assistant: it turns a clinical encounter trans
 | 1 &mdash; Fine-tuning | QLoRA adapter (Llama 3.2 3B) on synthetic encounter data | ✅ Done &mdash; config A trained, pushed to a private Hugging Face repo |
 | 2 &mdash; AWS data & registry | SageMaker data validation + S3 adapter registry | ✅ Done &mdash; validated in the cloud, adapter registered with a manifest |
 | 3 &mdash; Serving (vLLM) | Base model + LoRA adapter served over an OpenAI-style API | ✅ Done &mdash; live on Modal (T4 GPU), returning schema-valid notes over the real API; AWS EC2 deployment also scripted |
-| 4 &mdash; Evaluation & telemetry | Base-vs-fine-tuned benchmark, Promptfoo/Ragas, Langfuse tracing | ⏳ Not started |
+| 4 &mdash; Evaluation & telemetry | Base-vs-fine-tuned benchmark, Promptfoo/Ragas, Langfuse tracing | 🟡 Benchmark + hallucination eval done ([`evals/BENCHMARK_REPORT.md`](evals/BENCHMARK_REPORT.md)); Promptfoo/Langfuse pending |
 | 5 &mdash; Software engineering | FastAPI gateway, validation + retry/repair, tests, CI | ⏳ Not started |
 | 6 &mdash; Agents & governance | MCP server, human-sign-off rules | ⏳ Not started |
 | 7 &mdash; Speech-to-text (optional) | Local Whisper transcription | ⏳ Not started |

@@ -7,6 +7,8 @@ Base model vs. fine-tuned adapter on the 50-row held-out test set
 
 | File | Purpose |
 |---|---|
+| `BENCHMARK_REPORT.md` | Summary of every result and what to do about it. Start here |
+| `hallucination_rules.py`, `hallucination_judge.py` | Rule-based and LLM-judge hallucination checks |
 | `run_eval.py` | Sends each test transcript to a served model, scores the reply, writes a results JSON |
 | `rescore.py` | Offline rescoring of two results files (no server calls); writes `rescored.json` |
 | `compare.py` | Side-by-side print of two raw results files |
