@@ -1,0 +1,42 @@
+# Live mode: sends real requests to the Modal endpoints (costs GPU time; the
+# containers cold-start on the first request). Deploy first:
+#   python -m modal deploy serving/modal_app.py
+#   python -m modal deploy serving/modal_app_base.py
+# Then: npx promptfoo eval -c promptfooconfig.live.yaml --env-file ../../.env -j 1
+# (-j 1 keeps requests sequential, like evals/run_eval.py.)
+description: CliniFlow base vs fine-tuned (live)
+
+prompts:
+  - file://prompt.json
+
+providers:
+  - id: openai:chat:base-model
+    label: base
+    config:
+      apiBaseUrl: https://paulsilas938--cliniflow-vllm-base-serve-base.us-east.modal.run/v1
+      apiKey: not-needed
+      temperature: 0
+      max_tokens: 1500
+  - id: openai:chat:clinical-json-extractor
+    label: fine-tuned
+    config:
+      apiBaseUrl: https://paulsilas938--cliniflow-vllm-serve.us-east.modal.run/v1
+      apiKey: not-needed
+      temperature: 0
+      max_tokens: 1500
+  # After the merge (docs/BACKLOG.md), add the merged model as a third provider here.
+
+tests: file://tests.js
+
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://assertions.js:strictValid
+      metric: strict_valid
+    - type: javascript
+      value: file://assertions.js:lenientValid
+      metric: lenient_valid
+    - type: javascript
+      value: file://assertions.js:codeCategoryHit
+      metric: code_category_hit
+    # No LLM rubric here (costs money): see promptfooconfig.hallucination.yaml.

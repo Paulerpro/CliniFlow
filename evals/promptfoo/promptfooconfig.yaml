@@ -1,0 +1,33 @@
+# Replay mode (default): scores the replies already saved by evals/run_eval.py,
+# so no GPU, model server or API key is needed. Deterministic checks only: free.
+# The LLM hallucination rubric is in promptfooconfig.hallucination.yaml (costs money).
+#   npx promptfoo eval -c promptfooconfig.yaml --env-file ../../.env
+# For live requests against the Modal endpoints, use promptfooconfig.live.yaml.
+description: CliniFlow base vs fine-tuned (replay)
+
+prompts:
+  - file://prompt.json
+
+providers:
+  - id: file://replay_provider.js
+    label: base
+    config:
+      resultsFile: results_base.json
+  - id: file://replay_provider.js
+    label: fine-tuned
+    config:
+      resultsFile: results_finetuned.json
+
+tests: file://tests.js
+
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://assertions.js:strictValid
+      metric: strict_valid
+    - type: javascript
+      value: file://assertions.js:lenientValid
+      metric: lenient_valid
+    - type: javascript
+      value: file://assertions.js:codeCategoryHit
+      metric: code_category_hit

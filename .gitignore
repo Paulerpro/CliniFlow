@@ -14,3 +14,7 @@ __pycache__/
 .pytest_cache/
 .venv/
 *.log
+
+# Promptfoo run outputs
+evals/promptfoo/replay_*.json
+evals/promptfoo/*_results.json

@@ -1,0 +1,50 @@
+# Hallucination rubric only, replay mode. COSTS MONEY: one gpt-5-mini grading call per
+# note (100 calls; about $0.35 measured at default reasoning effort, less at "low").
+# Run on demand, not routinely. High recall but over-flags: validate against
+# evals/hallucination_judge.json (the standalone judge) before trusting a row.
+#   npx promptfoo eval -c promptfooconfig.hallucination.yaml --env-file ../../.env
+description: CliniFlow hallucination rubric (replay, gpt-5-mini grader)
+
+prompts:
+  - file://prompt.json
+
+providers:
+  - id: file://replay_provider.js
+    label: base
+    config:
+      resultsFile: results_base.json
+  - id: file://replay_provider.js
+    label: fine-tuned
+    config:
+      resultsFile: results_finetuned.json
+
+tests: file://tests.js
+
+defaultTest:
+  options:
+    provider:
+      id: openai:gpt-5-mini
+      config:
+        reasoning_effort: low
+  assert:
+    - type: llm-rubric
+      metric: no_major_hallucination
+      value: |
+        You are auditing a SOAP clinical note (the reply) against the transcript below.
+        Check only claims that APPEAR IN THE NOTE and whether the transcript supports them.
+        Never fail the note for facts it leaves out: omissions are not hallucinations.
+        Work through this checklist and reason briefly about each item:
+        1. List every medication in the note with its dose, frequency and the condition it
+           is said to treat. Is each one stated in the transcript, with the same condition?
+        2. List every vital sign and lab/imaging value in the note. Is each in the transcript?
+        3. List every test ordered, referral and follow-up. Was each discussed in the transcript?
+        4. List every history item and every diagnosis. Is each stated or directly implied?
+        5. Does anything in the note contradict the transcript (for example "denies X" when the
+           patient reports X, or a test described as done when it was only planned)?
+        FAIL the reply if ANY item in 1 to 5 is unsupported or contradicted, and name it in
+        the reason. PASS only if every one checks out.
+        Ignore: invented patient age/ethnicity/name, generic boilerplate, formatting, markdown
+        fences, and ICD codes.
+
+        TRANSCRIPT:
+        {{transcript}}
