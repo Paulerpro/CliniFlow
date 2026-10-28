@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ENV_PREFIXES = ("VLLM_", "MODEL_", "SYSTEM_PROMPT_", "MAX_", "ALLOW_", "REPAIR_", "REQUEST_", "LANGFUSE_")
 
 
-def load_dotenv(path=ROOT / ".env"):
+def load_dotenv(path=ROOT / ".env", prefixes=ENV_PREFIXES):
     """Fill os.environ from KEY=VALUE lines. Real environment variables win."""
     try:
         lines = Path(path).read_text(encoding="utf-8").splitlines()
@@ -19,7 +19,7 @@ def load_dotenv(path=ROOT / ".env"):
     for line in lines:
         key, sep, value = line.strip().partition("=")
         key = key.strip()
-        if sep and not key.startswith("#") and key.startswith(ENV_PREFIXES):
+        if sep and not key.startswith("#") and key.startswith(prefixes):
             os.environ.setdefault(key, value.strip().strip('"').strip("'"))
 
 

@@ -1,10 +1,10 @@
-name: gateway-ci
+name: ci
 
 on:
   push:
-    paths: ["gateway/**", ".github/workflows/gateway-ci.yml"]
+    paths: ["gateway/**", "agents/**", ".github/workflows/gateway-ci.yml"]
   pull_request:
-    paths: ["gateway/**", ".github/workflows/gateway-ci.yml"]
+    paths: ["gateway/**", "agents/**", ".github/workflows/gateway-ci.yml"]
 
 jobs:
   test:
@@ -15,8 +15,10 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: gateway/requirements.txt
-      - run: pip install -r gateway/requirements.txt
-      - run: python -m ruff check gateway
-      # Tests use a fake model server and the committed ICD-10 table: no network, no GPU, no secrets.
-      - run: python -m pytest gateway -q
+          cache-dependency-path: |
+            gateway/requirements.txt
+            agents/requirements.txt
+      - run: pip install -r agents/requirements.txt
+      - run: python -m ruff check gateway agents
+      # Tests use fake model servers and the committed ICD-10 table: no network, no GPU, no secrets.
+      - run: python -m pytest gateway agents -q
