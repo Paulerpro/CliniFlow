@@ -5,7 +5,7 @@
       "notes_scored": 50,
       "mean_ungrounded_number_rate": 0.167,
       "mean_ungrounded_numbers_per_note": 1.9,
-      "mean_ungrounded_measured_values_per_note": 0.2,
+      "mean_ungrounded_measured_values_per_note": 0.24,
       "notes_with_ungrounded_medication": 1,
       "notes_with_ungrounded_person": 5
     },
@@ -34,7 +34,7 @@
         "numbers": {
           "total": 23,
           "ungrounded": 1,
-          "measured_total": 9,
+          "measured_total": 10,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -98,7 +98,7 @@
         "numbers": {
           "total": 13,
           "ungrounded": 3,
-          "measured_total": 5,
+          "measured_total": 6,
           "measured_ungrounded": 1,
           "examples": [
             "10",
@@ -207,7 +207,7 @@
         "numbers": {
           "total": 12,
           "ungrounded": 1,
-          "measured_total": 3,
+          "measured_total": 4,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -316,7 +316,7 @@
         "numbers": {
           "total": 14,
           "ungrounded": 1,
-          "measured_total": 4,
+          "measured_total": 6,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -359,7 +359,7 @@
         "numbers": {
           "total": 19,
           "ungrounded": 2,
-          "measured_total": 7,
+          "measured_total": 8,
           "measured_ungrounded": 0,
           "examples": [
             "10",
@@ -425,7 +425,7 @@
         "numbers": {
           "total": 17,
           "ungrounded": 1,
-          "measured_total": 6,
+          "measured_total": 7,
           "measured_ungrounded": 0,
           "examples": [
             "50"
@@ -491,7 +491,7 @@
         "numbers": {
           "total": 13,
           "ungrounded": 6,
-          "measured_total": 4,
+          "measured_total": 5,
           "measured_ungrounded": 4,
           "examples": [
             "120",
@@ -541,8 +541,8 @@
         "numbers": {
           "total": 16,
           "ungrounded": 2,
-          "measured_total": 3,
-          "measured_ungrounded": 0,
+          "measured_total": 4,
+          "measured_ungrounded": 1,
           "examples": [
             "20",
             "68"
@@ -627,7 +627,7 @@
         "numbers": {
           "total": 11,
           "ungrounded": 2,
-          "measured_total": 4,
+          "measured_total": 5,
           "measured_ungrounded": 0,
           "examples": [
             "4",
@@ -651,7 +651,7 @@
         "numbers": {
           "total": 13,
           "ungrounded": 1,
-          "measured_total": 5,
+          "measured_total": 6,
           "measured_ungrounded": 0,
           "examples": [
             "22"
@@ -693,7 +693,7 @@
         "numbers": {
           "total": 12,
           "ungrounded": 2,
-          "measured_total": 3,
+          "measured_total": 4,
           "measured_ungrounded": 1,
           "examples": [
             "10",
@@ -779,7 +779,7 @@
         "numbers": {
           "total": 13,
           "ungrounded": 1,
-          "measured_total": 6,
+          "measured_total": 7,
           "measured_ungrounded": 0,
           "examples": [
             "50"
@@ -822,7 +822,7 @@
         "numbers": {
           "total": 19,
           "ungrounded": 1,
-          "measured_total": 7,
+          "measured_total": 8,
           "measured_ungrounded": 0,
           "examples": [
             "58"
@@ -952,7 +952,7 @@
         "numbers": {
           "total": 13,
           "ungrounded": 1,
-          "measured_total": 6,
+          "measured_total": 7,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -1082,8 +1082,8 @@
         "numbers": {
           "total": 12,
           "ungrounded": 4,
-          "measured_total": 4,
-          "measured_ungrounded": 1,
+          "measured_total": 6,
+          "measured_ungrounded": 2,
           "examples": [
             "0.9",
             "10",
@@ -1133,7 +1133,7 @@
         "numbers": {
           "total": 11,
           "ungrounded": 0,
-          "measured_total": 5,
+          "measured_total": 6,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1190,7 +1190,7 @@
         "numbers": {
           "total": 7,
           "ungrounded": 0,
-          "measured_total": 4,
+          "measured_total": 5,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1266,7 +1266,7 @@
         "numbers": {
           "total": 6,
           "ungrounded": 0,
-          "measured_total": 3,
+          "measured_total": 4,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1361,7 +1361,7 @@
         "numbers": {
           "total": 3,
           "ungrounded": 0,
-          "measured_total": 0,
+          "measured_total": 1,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1399,7 +1399,7 @@
         "numbers": {
           "total": 10,
           "ungrounded": 0,
-          "measured_total": 7,
+          "measured_total": 8,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1513,7 +1513,7 @@
         "numbers": {
           "total": 3,
           "ungrounded": 0,
-          "measured_total": 1,
+          "measured_total": 2,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1627,7 +1627,7 @@
         "numbers": {
           "total": 4,
           "ungrounded": 0,
-          "measured_total": 0,
+          "measured_total": 1,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1646,7 +1646,7 @@
         "numbers": {
           "total": 10,
           "ungrounded": 0,
-          "measured_total": 5,
+          "measured_total": 6,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1684,7 +1684,7 @@
         "numbers": {
           "total": 7,
           "ungrounded": 0,
-          "measured_total": 2,
+          "measured_total": 3,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1760,7 +1760,7 @@
         "numbers": {
           "total": 9,
           "ungrounded": 0,
-          "measured_total": 4,
+          "measured_total": 5,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1798,7 +1798,7 @@
         "numbers": {
           "total": 10,
           "ungrounded": 0,
-          "measured_total": 5,
+          "measured_total": 6,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -1912,7 +1912,7 @@
         "numbers": {
           "total": 9,
           "ungrounded": 0,
-          "measured_total": 6,
+          "measured_total": 7,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -2026,7 +2026,7 @@
         "numbers": {
           "total": 6,
           "ungrounded": 0,
-          "measured_total": 3,
+          "measured_total": 4,
           "measured_ungrounded": 0,
           "examples": []
         },
@@ -2066,7 +2066,7 @@
         "numbers": {
           "total": 25,
           "ungrounded": 1,
-          "measured_total": 9,
+          "measured_total": 10,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -2129,7 +2129,7 @@
         "numbers": {
           "total": 11,
           "ungrounded": 1,
-          "measured_total": 4,
+          "measured_total": 5,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -2236,7 +2236,7 @@
         "numbers": {
           "total": 15,
           "ungrounded": 1,
-          "measured_total": 4,
+          "measured_total": 5,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -2350,7 +2350,7 @@
         "numbers": {
           "total": 12,
           "ungrounded": 1,
-          "measured_total": 3,
+          "measured_total": 5,
           "measured_ungrounded": 0,
           "examples": [
             "60"
@@ -2392,7 +2392,7 @@
         "numbers": {
           "total": 20,
           "ungrounded": 3,
-          "measured_total": 7,
+          "measured_total": 8,
           "measured_ungrounded": 0,
           "examples": [
             "60"
@@ -2455,7 +2455,7 @@
         "numbers": {
           "total": 17,
           "ungrounded": 1,
-          "measured_total": 5,
+          "measured_total": 6,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -2519,7 +2519,7 @@
         "numbers": {
           "total": 7,
           "ungrounded": 2,
-          "measured_total": 0,
+          "measured_total": 1,
           "measured_ungrounded": 0,
           "examples": [
             "10",
@@ -2647,7 +2647,7 @@
         "numbers": {
           "total": 14,
           "ungrounded": 1,
-          "measured_total": 4,
+          "measured_total": 5,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -2668,7 +2668,7 @@
         "numbers": {
           "total": 14,
           "ungrounded": 1,
-          "measured_total": 5,
+          "measured_total": 6,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -2710,7 +2710,7 @@
         "numbers": {
           "total": 11,
           "ungrounded": 1,
-          "measured_total": 2,
+          "measured_total": 3,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -2795,7 +2795,7 @@
         "numbers": {
           "total": 15,
           "ungrounded": 1,
-          "measured_total": 8,
+          "measured_total": 9,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -2838,7 +2838,7 @@
         "numbers": {
           "total": 25,
           "ungrounded": 1,
-          "measured_total": 7,
+          "measured_total": 8,
           "measured_ungrounded": 0,
           "examples": [
             "65"
@@ -2966,7 +2966,7 @@
         "numbers": {
           "total": 12,
           "ungrounded": 1,
-          "measured_total": 6,
+          "measured_total": 7,
           "measured_ungrounded": 0,
           "examples": [
             "45"
@@ -3096,7 +3096,7 @@
         "numbers": {
           "total": 9,
           "ungrounded": 1,
-          "measured_total": 3,
+          "measured_total": 4,
           "measured_ungrounded": 0,
           "examples": [
             "45"

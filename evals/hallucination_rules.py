@@ -38,8 +38,9 @@ NUMBER_WORDS = {
     "hundred": 100,
 }
 NUM_RE = re.compile(r"(?<![\w.])\d+(?:\.\d+)?")
-UNIT_RE = re.compile(r"\s*(mg|mcg|g|ml|units?|iu|bpm|mmhg|mmol|mg/dl|%|°|kg|lbs?|cm|breaths|/min)\b",
-                     re.IGNORECASE)
+UNIT_RE = re.compile(
+    r"\s*(?:(?:mg|mcg|g|ml|units?|iu|bpm|mmhg|mmol|mg/dl|kg|lbs?|cm|breaths|/min)\b|%|°)",
+    re.IGNORECASE)  # \b only after word-character units: it can never match after % or °
 MED_RE = re.compile(r"\b([A-Z][a-z]{3,})(?:\s+[a-z]+)?\s+(\d+(?:\.\d+)?)\s?(mg|mcg|g|ml|units?|iu)\b")
 DR_RE = re.compile(r"\bDr\.?\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)")
 # words that look like drug names to MED_RE but are not
