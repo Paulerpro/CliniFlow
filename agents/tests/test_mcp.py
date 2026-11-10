@@ -19,9 +19,10 @@ def fake_gateway(monkeypatch, response):
     monkeypatch.setattr(mcp_server, "request_note", request_note)
 
 
-def test_exactly_three_tools_and_no_way_to_approve():
+def test_exactly_five_tools_and_no_way_to_approve():
     names = {t.name for t in asyncio.run(mcp_server.mcp.list_tools())}
-    assert names == {"draft_note", "get_note", "request_signoff"}
+    assert names == {"draft_note", "get_note", "verify_note", "search_icd10", "request_signoff"}
+    assert not {n for n in names if "approve" in n or "reject" in n or "sign_off" in n}
 
 
 def test_draft_returns_flags_and_never_approved_status(monkeypatch):

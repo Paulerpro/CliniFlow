@@ -29,3 +29,10 @@ def store():
 def table():
     from gateway.icd10 import IcdTable
     return IcdTable.load()
+
+
+@pytest.fixture(autouse=True)
+def no_real_tracing(monkeypatch):
+    """Keys in .env must never make a test run send traces to a real Langfuse project."""
+    for key in ("LANGFUSE_PUBLIC_KEY", "LANGFUSE_SECRET_KEY", "LANGFUSE_HOST", "LANGFUSE_BASE_URL"):
+        monkeypatch.delenv(key, raising=False)

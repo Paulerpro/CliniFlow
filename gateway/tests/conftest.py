@@ -47,3 +47,10 @@ class FakeLLM:
     async def complete(self, messages):
         self.calls.append(messages)
         return self.replies.pop(0)
+
+
+@pytest.fixture(autouse=True)
+def no_real_tracing(monkeypatch):
+    """Keys in .env must never make a test run send traces to a real Langfuse project."""
+    for key in ("LANGFUSE_PUBLIC_KEY", "LANGFUSE_SECRET_KEY", "LANGFUSE_HOST", "LANGFUSE_BASE_URL"):
+        monkeypatch.delenv(key, raising=False)

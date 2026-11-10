@@ -4,6 +4,7 @@ Run:
     VLLM_URL=https://<modal-endpoint> uvicorn gateway.app:app --port 8080
 """
 import time
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
@@ -12,6 +13,7 @@ from .config import Settings
 from .icd10 import IcdTable
 from .llm import LLMClient, LLMError, VllmClient
 from .pipeline import PipelineError, generate_note
+from .tracing import make_tracer
 
 
 class NoteRequest(BaseModel):
@@ -50,7 +52,7 @@ class NoteResponse(BaseModel):
 
 
 def create_app(settings: Settings | None = None, llm: LLMClient | None = None,
-               table: IcdTable | None = None, system_prompt: str | None = None) -> FastAPI:
+               table: IcdTable | None = None, system_prompt: str | None = None, tracer=None) -> FastAPI:
     settings = settings or Settings()
     if system_prompt is None:
         system_prompt = settings.system_prompt_path.read_text(encoding="utf-8")
@@ -58,18 +60,25 @@ def create_app(settings: Settings | None = None, llm: LLMClient | None = None,
     llm = llm or VllmClient(settings.vllm_url, settings.model_name,
                             settings.max_tokens, settings.request_timeout_s)
 
-    app = FastAPI(title="CliniFlow gateway")
+    tracer = tracer or make_tracer()  # a no-op unless Langfuse keys are set
+
+    @asynccontextmanager
+    async def lifespan(app):
+        yield
+        tracer.flush()  # send any buffered traces before the process exits
+
+    app = FastAPI(title="CliniFlow gateway", lifespan=lifespan)
 
     @app.get("/health")
     def health():
         return {"status": "ok", "icd_codes": len(table), "model": settings.model_name,
-                "vllm_url": settings.vllm_url}  # shown so a wrong target is obvious
+                "vllm_url": settings.vllm_url, "tracing": tracer.enabled}  # shown so a wrong target is obvious
 
     @app.post("/v1/notes", response_model=NoteResponse)
     async def create_note(req: NoteRequest):
         start = time.perf_counter()
         try:
-            result = await generate_note(req.transcript, llm, table, system_prompt, settings)
+            result = await generate_note(req.transcript, llm, table, system_prompt, settings, tracer)
         except PipelineError as e:
             raise HTTPException(status_code=502, detail={
                 "message": "the model did not return a usable note",

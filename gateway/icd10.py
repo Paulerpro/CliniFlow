@@ -86,6 +86,22 @@ class IcdTable:
             tied.sort(key=lambda e: -_common_prefix(e.code, near))
         return DescriptionMatch(tied[0], round(best, 1), ambiguous=len(tied) > 1)
 
+    def search(self, query, limit=5, billable_only=True, min_score=70.0):
+        """Free-text search over descriptions: [(entry, score 0-100)], best first.
+
+        Works best with clinical diagnosis wording ("type 2 diabetes with kidney disease");
+        plain symptom words rank poorly. Scores below min_score are dropped as noise.
+        """
+        q = normalize_text(query)
+        if not q:
+            return []
+        hits = process.extract(q, self._norm_desc, scorer=fuzz.WRatio, limit=limit * 6 + 20)
+        ranked = [(self._entries[i], score) for _, score, i in hits
+                  if (self._entries[i].billable or not billable_only) and score >= min_score]
+        # equal scores: prefer the shorter (more general) description
+        ranked.sort(key=lambda t: (-t[1], len(t[0].description)))
+        return [(e, round(sc, 1)) for e, sc in ranked[:limit]]
+
     def description_similarity(self, entry, description):
         return fuzz.ratio(normalize_text(entry.description), normalize_text(description))
 

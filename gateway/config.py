@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # Only these prefixes are read from .env, so unrelated secrets in the file (AWS, OpenAI)
 # never enter the gateway process.
-ENV_PREFIXES = ("VLLM_", "MODEL_", "SYSTEM_PROMPT_", "MAX_", "ALLOW_", "REPAIR_", "REQUEST_", "LANGFUSE_")
+ENV_PREFIXES = ("VLLM_", "MODEL_", "SYSTEM_PROMPT_", "MAX_", "ALLOW_", "REPAIR_", "REQUEST_", "LANGFUSE_", "TRACE_")
 
 
 def load_dotenv(path=ROOT / ".env", prefixes=ENV_PREFIXES):

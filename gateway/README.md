@@ -34,6 +34,12 @@ Each code carries a `status`: `verified`, `verified_non_billable` (a real parent
 
 Errors: `502` if the model never returned a usable reply (with the attempt count and problems), `503` if the model server is unreachable or times out, `422` for an empty or oversized transcript.
 
+## Tracing (Langfuse, optional)
+
+Tracing is off until you set `LANGFUSE_PUBLIC_KEY` and `LANGFUSE_SECRET_KEY` (and `LANGFUSE_HOST` for a non-default region, e.g. `https://us.cloud.langfuse.com`), either as environment variables or in `.env`. `/health` shows `"tracing": true` when it is on. Each request becomes one trace: a root span `generate_note`, one `llm_call` generation per model attempt (retries show up separately, with the format problem), then `repair_codes` and `grounding`. Scores on the trace: `needs_review`, `code_review`, `content_review`, `attempts`, `codes_repaired`.
+
+By default **no note text is sent**: traces carry sizes, flags, statuses and scores only. Set `TRACE_CONTENT=true` to include transcripts and notes (synthetic data only). Tracing can never break a request: errors from the Langfuse client are logged and ignored, and the test suite clears the Langfuse keys so a test run cannot send traces to your real project.
+
 ## Settings (environment variables)
 
 | Variable | Default | Meaning |
@@ -45,6 +51,8 @@ Errors: `502` if the model never returned a usable reply (with the attempt count
 | `ALLOW_LENIENT_PARSE` | `false` | accept replies wrapped in a markdown fence (the benchmark found the fine-tuned model never needs this) |
 | `REPAIR_THRESHOLD` | `90` | minimum description similarity (0 to 100) to replace a code |
 | `REQUEST_TIMEOUT_S` | `600` | a cold Modal container can take minutes to answer |
+| `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_HOST` | unset | enable tracing (see above) |
+| `TRACE_CONTENT` | `false` | include note text in traces |
 
 ## Measured effect
 

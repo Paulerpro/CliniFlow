@@ -57,3 +57,16 @@ def test_empty_description_is_not_repaired(table):
 def test_tie_goes_to_code_nearest_the_models(table):
     match = table.match_description("Unspecified", near_code="N809")
     assert match is not None
+
+
+def test_search_ranks_clinical_phrases_first(table):
+    for query, expected in [("endometriosis unspecified", "N809"),
+                            ("type 2 diabetes with diabetic chronic kidney disease", "E1122"),
+                            ("ventral hernia with obstruction", "K436")]:
+        assert table.search(query)[0][0].code == expected
+
+
+def test_search_drops_junk_and_hides_non_billable_by_default(table):
+    assert table.search("zzz qqq") == []
+    assert table.search("") == []
+    assert all(e.billable for e, _ in table.search("other specified disorders of male genital organs"))
