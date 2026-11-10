@@ -102,6 +102,8 @@ def test_describe_never_returns_text():
     assert "hello" not in describe("hello")
     assert "hello" not in describe([{"role": "user", "content": "hello"}])
     assert describe(None) is None
+    assert describe([{"code": "N809"}, {"code": "N83"}]) == "<2 items, content hidden>"  # not chat messages
+    assert describe([]) == "<0 items, content hidden>"
 
 
 def test_exceptions_in_the_body_propagate_and_close_the_span():

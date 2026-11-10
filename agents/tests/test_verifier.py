@@ -178,6 +178,7 @@ def test_verify_note_is_traced_with_scores(monkeypatch):
         return verifier._clean(JUDGE_REPLY)
     monkeypatch.setattr(mcp_server.verifier, "verify", fake_verify)
     asyncio.run(mcp_server.verify_note(nid))
+    assert client.flushed  # sent immediately, not left to the background uploader
     start = next(e[2] for e in client.log if e[0] == "start")
     assert start["name"] == "verify_note" and start["as_type"] == "generation"
     assert scores(client) == {"verifier_major_claims": (1.0, "NUMERIC"), "verifier_missing_facts": (1.0, "NUMERIC")}

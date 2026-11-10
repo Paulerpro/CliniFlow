@@ -7,6 +7,8 @@ Five tools. There is deliberately NO approve tool: if the agent could approve it
 Run (stdio, for Claude Desktop or any MCP client):
     python -m agents.mcp_server
 """
+import asyncio
+
 from mcp.server.fastmcp import FastMCP
 
 from gateway.icd10 import IcdTable
@@ -117,6 +119,9 @@ async def verify_note(note_id: str) -> dict:
             span.score("verifier_missing_facts", len(result["missing_key_facts"]))
     except verifier.VerifierError as e:
         raise ValueError(str(e)) from e
+    # Send the trace now: the background uploader runs every few seconds and a short-lived
+    # server (a client that exits right after the call) would otherwise lose it.
+    await asyncio.to_thread(tracer().flush)
     try:
         return _view(signoff.record_verification(store(), note_id, result, config.VERIFIER_MODEL))
     except signoff.SignoffError as e:
@@ -145,4 +150,8 @@ def request_signoff(note_id: str) -> dict:
 
 
 if __name__ == "__main__":
-    mcp.run()
+    tracer()  # start tracing before serving: lazy SDK imports stall inside the stdio server
+    try:
+        mcp.run()
+    finally:
+        tracer().flush()  # the client closed stdin: send whatever is still buffered

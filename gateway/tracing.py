@@ -19,8 +19,10 @@ def describe(value):
         return None
     if isinstance(value, str):
         return f"<{len(value)} chars, content hidden>"
-    if isinstance(value, list) and all(isinstance(m, dict) for m in value):
+    if isinstance(value, list) and value and all(isinstance(m, dict) and "role" in m for m in value):
         return f"<{len(value)} messages, {sum(len(str(m.get('content', ''))) for m in value)} chars, content hidden>"
+    if isinstance(value, list):
+        return f"<{len(value)} items, content hidden>"
     return "<content hidden>"
 
 
@@ -96,6 +98,19 @@ class LangfuseTracer:
         self.safely(self._client.flush)
 
 
+def _preload_sdk():
+    """Import the SDK's lazily loaded serializer (it pulls in numpy) now, on this thread.
+
+    The SDK otherwise imports it on the first traced call. Inside the MCP stdio server that
+    import stalled forever and the tool call never answered (found in the live test), so do it
+    up front, before any server threads exist.
+    """
+    try:
+        import langfuse._utils.serializer  # noqa: F401
+    except Exception:
+        log.debug("could not preload the Langfuse serializer", exc_info=True)
+
+
 def make_tracer(env=None, client_cls=None):
     """A LangfuseTracer if keys are set and the SDK imports, else a NoopTracer."""
     env = os.environ if env is None else env
@@ -110,5 +125,6 @@ def make_tracer(env=None, client_cls=None):
     except Exception:
         log.warning("Langfuse keys are set but the client could not start; tracing is off", exc_info=True)
         return NoopTracer()
+    _preload_sdk()
     content = env.get("TRACE_CONTENT", "false").strip().lower() in ("1", "true", "yes")
     return LangfuseTracer(client, trace_content=content)
