@@ -1,0 +1,1553 @@
+{
+  "model": "gpt-4.1-mini",
+  "judgments": {
+    "finetuned:1": {
+      "unsupported_claims": [
+        {
+          "claim": "Mr. John Smith",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "45-year-old Caucasian male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Family Medical History: Father with Hypertension, Mother with Type 2 Diabetes",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Social History: lives in an urban area, moderate income, no tobacco or drug use",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Allergies: None reported",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Mild symptoms consistent with COVID-19, likely mild to moderate severity",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Referrals: None required at this time",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript's clinical content but includes several demographic and social history details, allergy status, and assessment severity that are not mentioned in the transcript."
+    },
+    "finetuned:2": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 28-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Primary Diagnosis: Endometriosis, unspecified",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Secondary Diagnoses: Dysmenorrhea, Chronic pelvic pain",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient understands and agrees with the recommended medical treatment plan",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "The patient reports that the pain significantly impacts her work and daily activities",
+        "The patient denies nausea, vomiting, or changes in bowel habits",
+        "The patient denies headaches or dizziness",
+        "The patient denies depression or anxiety but reports a significant impact on quality of life",
+        "Physical exam notes no palpable masses or unusual discharge",
+        "The doctor explained the likely diagnosis of endometriosis based on symptoms and exam",
+        "The doctor mentioned the patient's history of PCOS during the visit",
+        "The patient was advised to contact the clinic if pain worsens or new symptoms develop"
+      ],
+      "rationale": "The note mostly reflects the transcript but adds unsupported demographic details, formal diagnoses, and patient agreement statements not present in the transcript, while omitting several important symptom details and exam findings discussed during the visit."
+    },
+    "finetuned:3": {
+      "unsupported_claims": [
+        {
+          "claim": "Hispanic male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "denies dysuria or hematuria",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "The patient is cooperative and motivated to follow medical advice. Limited health literacy but understands the importance of adherence to treatment and follow-up appointments.",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient's name is Diego",
+        "Prostate is tender on digital rectal exam",
+        "No apparent external infection on scrotal exam",
+        "Recommendation to seek immediate emergency care if increased pain, high fever, or difficulty urinating",
+        "Explanation of tests ordered (ultrasound, CBC, urinalysis)",
+        "Number of tablets prescribed for Cefuroxime and Acetaminophen",
+        "Advice on smoking cessation and reducing alcohol consumption",
+        "Advice on improving sleep hygiene and dietary habits despite limited access in the community"
+      ],
+      "rationale": "The note accurately reflects the transcript except for a few unsupported demographic and clinical details and omits several important clinical facts and counseling points discussed in the transcript."
+    },
+    "finetuned:4": {
+      "unsupported_claims": [
+        {
+          "claim": "Secondary Diagnoses: Hypertension",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Discussed the potential complications of obesity and the benefits of weight loss",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Addressed concerns about the surgery and the expected outcomes",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient's age (45 years old)",
+        "Patient's occupation (factory worker)",
+        "Pain impact on sleep and job performance",
+        "No rebound tenderness on abdominal exam",
+        "No fever or chills",
+        "Patient smokes occasionally and drinks socially",
+        "Smoking cessation referral offered and patient agreed",
+        "Advice to limit alcohol consumption"
+      ],
+      "rationale": "The note mostly reflects the transcript accurately but includes hypertension as a secondary diagnosis without mention in the transcript, adds counseling details not explicitly stated, and omits some patient demographics and social history details present in the transcript."
+    },
+    "finetuned:5": {
+      "unsupported_claims": [
+        {
+          "claim": "patient is a 45-year-old African American male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports severe fatigue, night sweats, itching after shower, cognitive difficulties, and visual disturbances worsening over 6 months, worse in last month",
+        "Patient uses CPAP for sleep apnea but has poor and fragmented sleep",
+        "Patient denies illicit drug use and smoking, drinks alcohol moderately 3-4 times a week",
+        "Physical exam shows conjunctival injection and moderate splenomegaly",
+        "Doctor suspects secondary polycythemia possibly related to poor sleep and endocrine disorders",
+        "Lifestyle recommendations include increasing fiber intake and reducing fats",
+        "Encouraged minimal to moderate aerobic exercise",
+        "Follow-up planned in 4 weeks to monitor blood counts and treatment response"
+      ],
+      "rationale": "The note accurately reflects the transcript except for the unsupported specific demographic detail of the patient's age and race, which was not mentioned in the transcript."
+    },
+    "finetuned:6": {
+      "unsupported_claims": [
+        {
+          "claim": "patient is a 45-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "General exam: Alert, cooperative, appears fatigued",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Cardiovascular exam: Normal S1 and S2, no murmurs",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Respiratory exam: Clear to auscultation bilaterally",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Symptoms worsen after meals",
+        "Symptoms range from moderate to severe",
+        "Symptoms cause significant impact including missed work and inability to exercise",
+        "Patient reports poor appetite",
+        "Patient reports fatigue",
+        "Patient reports 5-6 hours of sleep per night",
+        "Physical exam notes no masses or organ enlargement",
+        "Skin exam notes no jaundice or rashes"
+      ],
+      "rationale": "The note includes specific demographic details and some physical exam findings not mentioned in the transcript, and it omits several important symptom details and impacts described by the patient."
+    },
+    "finetuned:7": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient is a 45-year-old African American male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Smoking cessation: Highly recommended",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports urinating 3 to 4 times per night",
+        "Patient is currently taking Hydrochlorothiazide for high blood pressure",
+        "Physical exam notes no cyanosis or clubbing",
+        "Doctor explained Lisinopril is an ACE inhibitor for renal protection",
+        "Doctor advised monitoring blood pressure regularly after starting Lisinopril",
+        "Doctor warned patient to seek immediate care if severe dizziness or swelling of face, lips, or throat occurs",
+        "Doctor recommended quitting smoking only if patient smokes; patient stated he does not smoke",
+        "Doctor advised starting moderate exercise for at least 30 minutes on most days"
+      ],
+      "rationale": "The note mostly reflects the transcript accurately but adds unsupported demographic detail and a generic smoking cessation recommendation despite the patient denying smoking; several specific details from the transcript are omitted in the note."
+    },
+    "finetuned:8": {
+      "unsupported_claims": [
+        {
+          "claim": "patient is a 28-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "explained the potential side effects of Levetiracetam",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "patient has a history of tension headaches treated with ibuprofen",
+        "patient denies dizziness, weakness, or changes in vision",
+        "patient reports feeling unrested despite 6-7 hours of sleep",
+        "patient occasionally has difficulty focusing during episodes",
+        "doctor performed a normal neurological physical exam including cranial nerves, strength, tone, reflexes, and coordination",
+        "doctor advised patient to keep a seizure diary tracking frequency, duration, and triggers",
+        "doctor will send referral to Dr. Susan Lee today",
+        "doctor instructed patient to follow up in one month"
+      ],
+      "rationale": "The note accurately reflects the patient's symptoms, exam, diagnosis, treatment, and plan except it adds unsupported demographic details and mentions counseling on medication side effects not present in the transcript."
+    },
+    "finetuned:9": {
+      "unsupported_claims": [
+        {
+          "claim": "45-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Geographical Location: Urban, suburban area with moderate pollution",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Referral to Dr. Emily Johnson, Nephrology, for evaluation of potential kidney disease",
+          "type": "fabricated_plan_item",
+          "severity": "major"
+        },
+        {
+          "claim": "Patient Education: Educated the patient on the importance of increased hydration and monitoring for signs of worsening infection",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan and follow-up recommendations",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient denies dysuria and hematuria explicitly",
+        "Patient denies fever, chills, significant fatigue, chest pain, palpitations, shortness of breath, cough, muscle weakness, joint pain",
+        "Patient denies headaches or dizziness",
+        "Physical exam notes no masses or significant findings on percussion",
+        "Bowel sounds are normal",
+        "Doctor advised to seek immediate medical attention if symptoms worsen (high fever, severe pain, blood in urine)",
+        "Doctor discussed continuing hypertension management with current medications and lifestyle modifications",
+        "Doctor explained significance of proteinuria and family history prompting blood tests for kidney function"
+      ],
+      "rationale": "The note includes demographic details, geographic location, referral, patient education, and agreement statements not mentioned in the transcript, and omits several important negative findings, physical exam details, and specific patient instructions conveyed during the visit."
+    },
+    "finetuned:10": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 62-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient has a history of hypertension, currently managed with Lisinopril 10 mg daily",
+          "type": "fabricated_medication",
+          "severity": "major"
+        },
+        {
+          "claim": "Referral to Cardiologist, Dr. Emily Carter, for echocardiogram to evaluate for pulmonary hypertension",
+          "type": "fabricated_plan_item",
+          "severity": "major"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports waking up at night due to inability to breathe properly",
+        "Patient needs help with almost all household chores and personal care",
+        "Physical exam finding of mild lower extremity edema",
+        "Heart sounds regular with no murmurs",
+        "Lung exam reveals bilateral crackles at lung bases",
+        "Abdomen is tender but not too bad",
+        "Explanation given to patient about Prednisone and Cyclophosphamide",
+        "Patient advised about potential side effects including increased risk of infection"
+      ],
+      "rationale": "The note includes specific demographic details, medication management, and referral information not mentioned in the transcript, and omits several important clinical findings and patient education discussed during the visit."
+    },
+    "finetuned:11": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient is a 65-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Right shoulder joint replacement surgery performed 2 months ago",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Inspection: Mild tenderness noted over the right shoulder joint",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Reviewed the potential side effects of NSAIDs and the importance of maintaining a balanced diet and regular exercise",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "The patient reports that the pain comes and goes, sometimes mild and sometimes moderate",
+        "The patient denies numbness or tingling in the right shoulder",
+        "The patient denies chest pain, palpitations, or shortness of breath",
+        "The patient has hypertension and type 2 diabetes, both currently well-controlled",
+        "The patient was advised to contact the clinic immediately if new symptoms such as increased pain or significant decrease in range of motion occur",
+        "The patient was prescribed Ibuprofen 400 mg every 6 hours as needed for pain, quantity 30 tablets",
+        "The patient was advised to do light exercise but avoid strenuous activities",
+        "The follow-up appointment was scheduled in 6 months to evaluate joint function and review X-ray results"
+      ],
+      "rationale": "The note includes several specific demographic and historical details not mentioned in the transcript, adds inspection findings not documented, and includes counseling details not discussed, while omitting multiple important clinical details and instructions clearly stated in the transcript."
+    },
+    "finetuned:12": {
+      "unsupported_claims": [
+        {
+          "claim": "Patient name Maria Gonzalez",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient is 28 years old",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient is Hispanic",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Sleep: Adequate, 7-8 hours per night",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Differential Diagnosis: chronic prostatitis",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports pelvic discomfort and pain when urinating (dysuria).",
+        "Patient reports moderate severity of symptoms.",
+        "Symptoms occur every 2 to 4 months.",
+        "Symptoms have significantly impacted daily activities, including inability to participate in sports and social activities.",
+        "Patient follows a low acidic diet and avoids spicy foods due to interstitial cystitis.",
+        "Patient takes hydroxyzine 25 mg daily.",
+        "Physical exam notes mild tenderness on palpation of bladder area and mild tenderness on pelvic exam around bladder.",
+        "Plan includes prescribing Ciprofloxacin 250 mg orally twice daily for 7 days."
+      ],
+      "rationale": "The note includes fabricated demographic details and some findings not mentioned in the transcript, while missing several important patient-reported symptoms and exam findings that are documented in the transcript."
+    },
+    "finetuned:13": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 45-year-old Asian male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Denies jaundice or changes in skin color",
+          "type": "contradiction",
+          "severity": "major"
+        },
+        {
+          "claim": "Depression: Patient reports significant impact on daily activities and work performance, likely contributing to fatigue and decreased motivation",
+          "type": "fabricated_assessment",
+          "severity": "major"
+        },
+        {
+          "claim": "Cardiovascular: Normal S1 and S2, no murmurs",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Respiratory: Clear to auscultation bilaterally",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Liver function tests (ALT, AST, Bilirubin)",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Education: Discussed the importance of medication adherence despite economic constraints. Explained the potential consequences of non-compliance and the benefits of regular follow-up.",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient's family mentioned that he looks a bit yellow, but he hasn't noticed it himself",
+        "Physical exam noted mild scleral icterus",
+        "Physical exam noted mild tenderness in the right upper quadrant of the abdomen",
+        "No palpable hepatomegaly or splenomegaly on abdominal exam",
+        "Patient has difficulty managing the cost of Entecavir",
+        "Doctor offered resources for economic assistance programs",
+        "Doctor advised to avoid alcohol and maintain a healthy, balanced diet",
+        "Doctor instructed patient to seek immediate care if jaundice worsens, fatigue increases, or abdominal pain becomes more severe"
+      ],
+      "rationale": "The note includes unsupported demographic details, denies jaundice contrary to the transcript, adds an unsupported depression assessment, and fabricates some physical exam details and patient education, while missing several important facts discussed in the transcript."
+    },
+    "finetuned:14": {
+      "unsupported_claims": [
+        {
+          "claim": "60-year-old Asian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the patient's symptoms, history, exam findings, diagnosis, treatment, and recommendations except for the patient's age and ethnicity, which are not mentioned in the transcript."
+    },
+    "finetuned:15": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient is a 28-year-old Caucasian male named John Doe",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the patient's symptoms, history, exam findings, and plan as stated in the transcript, except for the fabricated demographic details which were not mentioned."
+    },
+    "finetuned:16": {
+      "unsupported_claims": [],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects all relevant information from the transcript without adding unsupported claims or omitting key facts."
+    },
+    "finetuned:17": {
+      "unsupported_claims": [
+        {
+          "claim": "African American female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "initial consultation",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "anxiety exacerbation",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Hyperthyroidism (awaiting BMP results)",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Complete Blood Count (CBC) and Lipid Panel ordered",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Educate the patient on recognizing side effects of Tibolone",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Address concerns about the new medication and therapy, considering the patient's low health literacy and insurance constraints",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Provide information on accessible local support groups for menopausal women, considering the patient's low health literacy and rural location",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient's age (52 years old)",
+        "Patient's name (Ms. Angela Johnson)",
+        "Patient has been on ketogenic diet without benefit",
+        "Patient's anxiety disorder is managed with Sertraline 50 mg daily",
+        "Patient reports mood swings are new and severe",
+        "Physical exam notes no acute distress",
+        "Patient's vital signs: BP 125/85 mmHg, HR 80 bpm, Temp 98.4\u00b0F, RR 18",
+        "Plan to switch diet from ketogenic to Mediterranean diet"
+      ],
+      "rationale": "The note includes several demographic and assessment details not mentioned in the transcript and omits multiple important facts such as patient age, name, current medication dose, and specific lifestyle details discussed."
+    },
+    "finetuned:18": {
+      "unsupported_claims": [
+        {
+          "claim": "patient named Ethan Thompson",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript except for the fabricated patient name, which is not mentioned in the transcript."
+    },
+    "finetuned:19": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 45-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Reports fatigue",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Psychiatric: Reports poor sleep due to itching",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Discuss potential side effects of Ursodeoxycholic acid",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Educate the patient on the importance of medication adherence",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient has hyperlipidemia and is taking Atorvastatin 20 mg once daily",
+        "No allergies reported",
+        "Family history includes mother with breast cancer and sister with rheumatoid arthritis",
+        "Patient reports intense itching that has affected sleep (5-6 hours per night)",
+        "Patient has missed work due to symptoms",
+        "Physical exam notes excoriation marks from scratching",
+        "Differential diagnosis includes hepatobiliary obstruction, viral hepatitis, autoimmune hepatitis, drug-induced liver injury, or cholestatic liver disease",
+        "Patient advised to seek immediate medical attention if severe abdominal pain, confusion, or other concerning symptoms occur"
+      ],
+      "rationale": "The note mostly aligns with the transcript but adds unsupported demographic details, some findings, and education points not mentioned, while omitting several important history and exam details present in the transcript."
+    },
+    "finetuned:20": {
+      "unsupported_claims": [
+        {
+          "claim": "John Smith is a 45-year-old Caucasian male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Prescribed Tylenol 325 mg, oral, every 6 hours as needed for pain, 20 tablets",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Differential Diagnosis: Shoulder impingement, rotator cuff tear, osteoarthritis",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Recommended over-the-counter pain relief as needed",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Provided an informational handout on rotator cuff injuries and steps for shoulder care and pain management",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient's name is John",
+        "Pain is in the right shoulder",
+        "Pain is severe and constant with occasional sharp episodes",
+        "Pain started about 4 days ago",
+        "Pain affects sleep due to inability to find a comfortable position",
+        "Patient works as a mechanic",
+        "Positive supraspinatus and O'Brien's tests",
+        "MRI ordered to evaluate for soft tissue injury or possible tear"
+      ],
+      "rationale": "The note includes specific demographic details, differential diagnoses, medication quantity, and patient agreement not mentioned in the transcript, and it omits several important clinical details and findings explicitly stated in the transcript."
+    },
+    "finetuned:21": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 45-year-old Caucasian male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Endocrine: No polyuria or polydipsia",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "General: Patient appears well-nourished and in no acute distress",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Cardiovascular: no murmurs",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Diagnosis: Obsessive-Compulsive Disorder, unspecified (ICD-10: F63.2)",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Medical Reasoning: The patient's symptoms and history are consistent with OCD",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Education: Discussed the nature of OCD, the role of medication and therapy, and the importance of adherence to the treatment plan",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Education: Addressed concerns about side effects of Clomipramine and the benefits of behavioral therapy",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports occasional nightmares related to PTSD",
+        "Patient has a history of hypertension and is currently taking Lisinopril",
+        "Physical exam includes no organ enlargement and no deformities",
+        "Reflexes are normal with no focal neurological deficits",
+        "Doctor explained how Clomipramine works as a tricyclic antidepressant",
+        "Doctor mentioned common side effects of Clomipramine: dry mouth, dizziness, constipation",
+        "Doctor emphasized monitoring for side effects",
+        "Doctor advised patient to contact clinic if side effects or concerns arise"
+      ],
+      "rationale": "The note includes several demographic details, exam findings, and educational points not mentioned in the transcript, and omits important clinical details such as PTSD nightmares, hypertension history, medication explanation, and side effect counseling."
+    },
+    "finetuned:22": {
+      "unsupported_claims": [
+        {
+          "claim": "patient, a 35-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Diagnosis: Other specified skin disorders (ICD-10: L73.8)",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Differential Diagnosis: Atopic dermatitis, contact dermatitis, seborrheic dermatitis",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended treatment plan and follow-up schedule.",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "The patient reports that itching significantly impacts sleep and concentration at work",
+        "No signs of secondary infection on physical exam",
+        "Patient has not changed skin care products or dietary habits recently",
+        "Patient's asthma and allergic rhinitis have been stable with current medications",
+        "Prescribed 30 grams of Hydrocortisone 2.5% cream for two weeks",
+        "Provided written instructions on medication use",
+        "Advised to avoid known irritants and be mindful of environmental triggers",
+        "Follow-up appointment scheduled in 4 weeks"
+      ],
+      "rationale": "The note includes some demographic details, diagnosis codes, differential diagnoses, and patient agreement statements not mentioned in the transcript, and omits several important clinical details and instructions that were discussed."
+    },
+    "finetuned:23": {
+      "unsupported_claims": [
+        {
+          "claim": "patient is a 28-year-old Caucasian female named Emily Johnson",
+          "type": "fabricated_demographic",
+          "severity": "major"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the patient's symptoms, examination findings, diagnosis, medications, lifestyle advice, and follow-up plan, but the patient's name, age, and ethnicity are not mentioned in the transcript and thus are fabricated."
+    },
+    "finetuned:24": {
+      "unsupported_claims": [
+        {
+          "claim": "45-year-old African American male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "appears anxious",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "manages chronic conditions such as hypertension and diabetes",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "patient and family understand and agree with the recommended medical treatment plan",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports weakness and diminished reflexes specifically on the right side",
+        "Patient reports inability to perform any tasks independently and requires assistance with daily activities",
+        "Patient smokes about 10 cigarettes a day and consumes 2-3 alcoholic drinks per week",
+        "Patient has a sedentary lifestyle",
+        "Doctor explains Mannitol is given IV every six hours to reduce intracranial pressure",
+        "Doctor mentions Glasgow Coma Scale score of 13 indicating slight confusion but responsiveness",
+        "Doctor states blood pressure is 190/100 mmHg and heart rate is 88 bpm with regular rhythm",
+        "Doctor plans to involve family in care decisions"
+      ],
+      "rationale": "The note includes some demographic and clinical details not mentioned in the transcript and omits several specific patient-reported symptoms, examination details, medication administration specifics, and plans discussed in the transcript."
+    },
+    "finetuned:25": {
+      "unsupported_claims": [
+        {
+          "claim": "John Doe is a 45-year-old Caucasian male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Abdomen: Soft, non-tender, no organomegaly",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Neurological: Alert and oriented, no focal deficits",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript except for demographic details and some physical exam findings (abdomen and neurological) that were not mentioned in the transcript."
+    },
+    "finetuned:26": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient is a 28-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Prenatal Vitamins: Start prenatal vitamins if pregnancy confirmed",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Dietary Counseling: Discuss adopting a healthy diet",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Contraceptive Counseling: Discuss contraceptive options if pregnancy is not confirmed",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the patient's symptoms, exam findings, and plan discussed in the transcript, but includes the patient's age and ethnicity which were not mentioned, and the plan items were stated as conditional future steps rather than current orders."
+    },
+    "finetuned:27": {
+      "unsupported_claims": [
+        {
+          "claim": "Maria Gonzalez is a 32-year-old Hispanic female, G2P1",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "General: Well-nourished, cooperative female in no acute distress",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Neurological: Alert and oriented, no focal deficits",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Diagnosis: Gestational Diabetes Mellitus, not elsewhere classified (ICD-10: O24.9)",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports feeling tired and frustrated",
+        "Patient reports waking up frequently at night to urinate",
+        "Patient denies nausea and vomiting",
+        "Patient denies joint pain",
+        "Patient is currently taking metformin 500 mg twice daily",
+        "Urine dipstick test shows glucose present but no protein",
+        "Fundal height is consistent with gestational age",
+        "Baby's heart rate is 140 bpm"
+      ],
+      "rationale": "The note accurately reflects the clinical content of the transcript but adds some demographic details, exam findings, diagnosis coding, and patient agreement statements that are not explicitly stated in the transcript; it also omits some specific symptoms and exam details mentioned by the patient and doctor."
+    },
+    "finetuned:28": {
+      "unsupported_claims": [
+        {
+          "claim": "patient is a 45-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript except for the patient's age and race, which are not mentioned in the transcript."
+    },
+    "finetuned:29": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 45-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Well-nourished, well-developed female in no acute distress",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript except for the patient's age, race, and general appearance, which are not mentioned in the transcript."
+    },
+    "finetuned:30": {
+      "unsupported_claims": [
+        {
+          "claim": "John Smith is a 65-year-old Caucasian male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "No fever, fatigue, or weight loss",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "No nausea or vomiting",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "No edema",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "No sputum production",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript except for demographic details and some negative review of systems findings that were not explicitly mentioned in the transcript."
+    },
+    "finetuned:31": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 45-year-old Asian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Discussed the importance of medication adherence and the potential side effects of Brimonidine",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports vision changes lasting 4 months",
+        "Patient reports vision changes include blind spots and occasional blurred vision",
+        "Patient reports headaches are frequent, almost daily",
+        "Patient reports eye strain and tired eyes",
+        "Patient reports difficulty reading small print, using computer, and driving at night",
+        "MRI of brain and orbits ordered with and without contrast",
+        "Patient smokes and is interested in quitting; smoking cessation resources offered",
+        "Better sleep hygiene recommended"
+      ],
+      "rationale": "The note includes unsupported demographic details and mentions counseling on medication side effects not stated in the transcript; it also omits several important patient-reported symptoms, test details, and counseling points discussed during the visit."
+    },
+    "finetuned:32": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 62-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient appears in moderate distress due to pain",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Other joints: No significant abnormalities observed",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient understands and agrees with the recommended medical treatment plan",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note includes specific demographic details, general appearance, and statements about other joints and patient agreement that are not mentioned in the transcript, but all other clinical content is supported."
+    },
+    "finetuned:33": {
+      "unsupported_claims": [
+        {
+          "claim": "John Doe is a 12-year-old Caucasian male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript except for the patient's name, age, and ethnicity, which are not mentioned in the transcript."
+    },
+    "finetuned:34": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 75-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Depression managed with Quetiapine 12.5 mg at bedtime",
+          "type": "fabricated_assessment",
+          "severity": "major"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports increased falls and feeling very unsteady",
+        "Patient reports waking up a lot during the night",
+        "Physical exam notes mild cogwheel rigidity",
+        "Physical exam notes cardiovascular exam normal with no murmurs and regular heart rate and rhythm",
+        "Physical exam notes decreased muscle strength in lower limbs",
+        "Patient reports fatigue",
+        "Patient denies chest pain or palpitations",
+        "Plan includes educating patient and caregiver on medication side effects and adherence"
+      ],
+      "rationale": "The note includes unsupported demographic details and incorrectly states depression as a diagnosis managed by quetiapine, which was prescribed for agitation and hallucinations; several important clinical details from the transcript are omitted."
+    },
+    "finetuned:35": {
+      "unsupported_claims": [
+        {
+          "claim": "45-year-old African American male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Family Medical History: Father with hypertension, mother with PKD",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Medication History: Allopurinol 300 mg daily for PKD",
+          "type": "contradiction",
+          "severity": "major"
+        },
+        {
+          "claim": "Allergies: None",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Socio-economic Status: Middle class, stable income",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Health Literacy: High, patient is highly cooperative and adherent to medical advice",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Insurance: Private insurance, coverage for chronic conditions",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Differential Diagnosis: Pyelonephritis, Kidney stones, Urosepsis",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Instructions: Contact workplace to discuss potential accommodations for health-related absences",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports severe pain on right side described as dull and aching with episodes of exacerbation",
+        "Patient reports poor sleep due to pain",
+        "Patient denies allergies explicitly",
+        "Patient denies nausea, vomiting, diarrhea, chest pain, palpitations, cough, shortness of breath, joint pain, muscle weakness, headaches, dizziness, numbness, rashes, itching, anxiety, or depression",
+        "Patient is non-smoker and does not drink alcohol",
+        "Patient follows a low-protein diet for kidney health",
+        "Physical exam notes no rebound tenderness or guarding in abdomen",
+        "Plan includes monitoring vital signs and urine output closely with strict input and output chart"
+      ],
+      "rationale": "The note includes several demographic and family history details, allergy status, socioeconomic and insurance information, and differential diagnoses not mentioned in the transcript, and incorrectly states Allopurinol is for PKD rather than its actual indication; some minor plan details like workplace contact are also unsupported."
+    },
+    "finetuned:36": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 45-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Primary Diagnosis: Malnutrition due to celiac disease, unspecified",
+          "type": "fabricated_assessment",
+          "severity": "major"
+        }
+      ],
+      "missing_key_facts": [
+        "The patient has a limited gluten-free diet low in calories and protein",
+        "The patient has pallor noted on physical exam",
+        "The abdomen exam showed slight distension",
+        "The patient has been diagnosed with anemia",
+        "The patient is fatigued and unable to maintain work and daily activities",
+        "The patient agreed to start a daily multivitamin supplement",
+        "The patient was advised to maintain a detailed food diary",
+        "The patient was instructed to seek immediate medical attention if symptoms change"
+      ],
+      "rationale": "The note includes unsupported demographic details and a primary diagnosis not explicitly stated in the transcript, while omitting several important clinical details and patient agreements documented in the transcript."
+    },
+    "finetuned:37": {
+      "unsupported_claims": [
+        {
+          "claim": "patient is a 65-year-old Caucasian male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "patient is well-nourished, well-developed male in no acute distress",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript except for the patient's age, race, and general physical description, which are not mentioned in the transcript."
+    },
+    "finetuned:38": {
+      "unsupported_claims": [
+        {
+          "claim": "Ms. Gonza\u0301lez is a 52-year-old Hispanic female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Diagnosis: Other nevi, unspecified (ICD-10: L73.8)",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Advised to maintain a balanced diet and regular exercise routine",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "The mole has been enlarging over the past three months",
+        "The mole itches sometimes and causes minor discomfort",
+        "The mole has caused slight impact on sleep and concentration",
+        "Patient has Type 2 Diabetes managed with Metformin and diabetic meal plan",
+        "Patient has hypertension managed with medication",
+        "Patient smokes half a pack per day and drinks 2-3 glasses of wine per week",
+        "Physical exam findings of asymmetry, color variegation, and size (~7 mm) of the nevus",
+        "Referral to Dr. Jason White, dermatologic surgeon, for consultation regarding excision"
+      ],
+      "rationale": "The note includes fabricated demographic details and a diagnosis code not mentioned in the transcript, and adds a lifestyle recommendation not discussed; it also omits several important clinical details about symptoms, exam findings, and management discussed in the transcript."
+    },
+    "finetuned:39": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient is a 28-year-old Caucasian male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient appears in mild distress due to pain",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Vital Signs: Not documented during this visit",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended treatment plan and follow-up instructions",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "The doctor explained what a pilonidal cyst with abscess is and its cause",
+        "The doctor described the incision and drainage procedure including use of local anesthesia",
+        "The doctor advised maintaining proper hygiene to prevent future infections",
+        "The doctor advised avoiding prolonged sitting and using a cushion to reduce pressure",
+        "The doctor instructed the patient to watch for increased redness, swelling, or fever and to return immediately if these occur",
+        "The doctor confirmed no past medical issues or family history of significance",
+        "The doctor asked about other skin issues and systemic symptoms which the patient denied"
+      ],
+      "rationale": "The note includes some fabricated demographic and examination details not stated in the transcript and omits several important patient education and procedural explanations given by the doctor."
+    },
+    "finetuned:40": {
+      "unsupported_claims": [
+        {
+          "claim": "patient is a 28-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Differential Diagnosis: placenta previa",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient education included advice to monitor for fever",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript except for the patient's age and ethnicity, the inclusion of placenta previa in the differential diagnosis, and mention of fever in patient education, none of which were stated in the transcript."
+    },
+    "finetuned:41": {
+      "unsupported_claims": [
+        {
+          "claim": "patient is a 45-year-old Caucasian female named Emily Johnson",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "patient education on recognizing symptoms of internal bleeding and when to seek immediate medical attention",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "doctor noted the patient's heart rate was regular and no murmurs were heard",
+        "doctor explained the purpose of the endoscopy to the patient",
+        "doctor mentioned that iron supplements can cause constipation and advised increasing fluid intake and considering stool softeners",
+        "doctor stated the patient appears quite pale and fatigued during physical exam",
+        "doctor ordered specific lab tests: CBC, Iron Studies including Serum Iron, Total Iron Binding Capacity, Ferritin, and Reticulocyte count",
+        "doctor emphasized the importance of taking iron supplements as prescribed",
+        "doctor's explanation that the patient's symptoms are consistent with anemia due to iron deficiency",
+        "doctor's recommendation to follow up in 1 month to check hemoglobin levels and assess treatment response"
+      ],
+      "rationale": "The note mostly reflects the transcript accurately but includes fabricated patient demographics and an unsupported patient education detail not mentioned in the transcript, while omitting several important clinical details and explanations provided by the doctor."
+    },
+    "finetuned:42": {
+      "unsupported_claims": [
+        {
+          "claim": "Ms. Maria Lo\u0301pez is a 65-year-old Hispanic female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Denies fever or weight loss",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Diagnosis: Other cerebrovascular disease, unspecified",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Medical Reasoning: The patient's symptoms ... suggest a possible embolic or thrombotic etiology",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports waking up frequently at night but manages to get back to sleep",
+        "Patient reports that headaches come and go and interrupt activities",
+        "Patient reports mild trouble with coordination",
+        "Patient reports occasional smoking (1-2 cigarettes per week) and frequent alcohol use (1-2 drinks daily)",
+        "Physical exam notes irregularly irregular heart rhythm consistent with atrial fibrillation",
+        "Plan includes providing written materials in Spanish",
+        "Plan includes discussing potential assistance programs for medication costs",
+        "Plan includes ordering liver function tests, CBC, comprehensive metabolic panel, and MRI brain"
+      ],
+      "rationale": "The note mostly reflects the transcript but adds unsupported demographic details, denies symptoms not mentioned, and includes an unconfirmed diagnosis and medical reasoning not explicitly stated; it also omits several important patient-reported symptoms, exam findings, and parts of the plan discussed."
+    },
+    "finetuned:43": {
+      "unsupported_claims": [
+        {
+          "claim": "Referral to a physical therapist for a community-based exercise program tailored for individuals with mobility limitations.",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "The patient is a Hispanic female named Maria Gonzalez aged 45.",
+        "The ulcer has been present for about 5 months.",
+        "The pain is severe and constant, waking the patient frequently at night.",
+        "The ulcer has a foul odor.",
+        "The patient\u2019s diabetes is poorly controlled.",
+        "Physical exam notes significant fat layer exposed in the ulcer.",
+        "Distal sensation in the left foot is grossly intact.",
+        "The doctor ordered blood work including biochemistry and hematology, wound culture, and an X-ray to rule out osteomyelitis."
+      ],
+      "rationale": "The note accurately reflects the transcript except for the fabricated referral to a physical therapist, and it omits several important demographic details, symptom specifics, exam findings, and diagnostic tests ordered."
+    },
+    "finetuned:44": {
+      "unsupported_claims": [
+        {
+          "claim": "Ms. Jane Doe is a 45-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Well-nourished, well-developed female in no acute distress",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "No murmurs, no gallops",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "No hepatosplenomegaly",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Hypertension, unspecified",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Mild anxiety, likely secondary to PTSD",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Educate on the signs and symptoms of hypertension and when to seek immediate medical attention",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Ms. Doe is advised to follow up in 6 months or sooner if symptoms worsen or if there are any concerns about her blood pressure or overall health",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient discontinued Losartan due to dizziness and lightheadedness",
+        "Patient currently not on any antihypertensive medication",
+        "Physical exam states heart sounds are normal and lungs are clear",
+        "Blood tests ordered: CBC and Basic Metabolic Panel (BMP)",
+        "Referral to Dr. Emily Stephens for mental health counseling related to PTSD",
+        "Explanation of Amlodipine mechanism and prescription details",
+        "Recommendation for low-sodium diet and daily physical exercise",
+        "Follow-up planned twice a year to monitor blood pressure and overall health"
+      ],
+      "rationale": "The note includes several demographic and clinical details not mentioned in the transcript and omits important medication history, physical exam specifics, test orders, referrals, and patient education discussed in the transcript."
+    },
+    "finetuned:45": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient is a 28-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "No reported depression or anxiety",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "Well-nourished, well-developed female in no acute distress",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Differential Diagnosis: Consideration of other potential causes of transient loss of awareness, including migraines or other neurological conditions",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan",
+          "type": "fabricated_history",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "The patient is a high school teacher",
+        "Episodes come on suddenly without warning and have no specific trigger",
+        "No confusion or disorientation after episodes",
+        "No vertigo, weakness, or actual seizures reported",
+        "Patient sleeps about 7 hours per night but has occasional insomnia",
+        "Patient jogs and practices yoga 2-3 times a week",
+        "Patient does not smoke and drinks alcohol occasionally (1-2 drinks per week)",
+        "Patient advised to keep a seizure diary and avoid driving or operating heavy machinery until better control is achieved"
+      ],
+      "rationale": "The note includes some demographic and clinical details not mentioned in the transcript and omits several important patient-reported symptoms, lifestyle details, and specific instructions given during the visit."
+    },
+    "finetuned:46": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 45-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "Ptosis: Likely secondary to Myasthenia Gravis",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan",
+          "type": "fabricated_assessment",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [],
+      "rationale": "The note accurately reflects the transcript except for the patient's age and race, the explicit attribution of ptosis to Myasthenia Gravis, and the statement about patient agreement, none of which were mentioned in the transcript."
+    },
+    "finetuned:47": {
+      "unsupported_claims": [
+        {
+          "claim": "The patient, a 62-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "major"
+        },
+        {
+          "claim": "quantity: 28 tablets",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "General: Alert and oriented, in no acute distress",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "No visible deformities or abnormalities",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Education: Explained the nature of thoracic spondylosis and the expected course of treatment",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Education: Advised on the importance of adherence to prescribed medication and lifestyle modifications",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports no weakness or sensory deficits",
+        "Patient has concerns about long-term medication use",
+        "Doctor reassured patient about short-term safety of Naproxen",
+        "Doctor will reassess medication need at follow-up",
+        "Doctor checked reflexes and sensory function, found normal",
+        "Doctor noted pain and restriction on bending forward and backward",
+        "Doctor emphasized sustainable management of condition",
+        "Follow-up visit will review MRI results"
+      ],
+      "rationale": "The note includes fabricated demographic details and some fabricated examination and education details not mentioned in the transcript, and it omits several important patient concerns and examination findings discussed during the visit."
+    },
+    "finetuned:48": {
+      "unsupported_claims": [
+        {
+          "claim": "Maria Gonzalez is a 45-year-old Hispanic female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "history of spondylosis and radiculopathy",
+          "type": "fabricated_history",
+          "severity": "minor"
+        },
+        {
+          "claim": "30 tablets of Gabapentin prescribed",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Provided information on the importance of maintaining a healthy lifestyle, including regular exercise and balanced diet",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient reports mild anxiety due to chronic pain affecting daily activities",
+        "Right leg sometimes feels weaker than usual",
+        "MRI of lumbar spine is pending to assess extent of spondylosis and nerve root involvement",
+        "Physical exam noted mild scoliosis with no change in posture",
+        "Right Achilles reflex is reduced",
+        "Vital signs: BP 128/82, HR 72, RR 16, Temp 98.6\u00b0F",
+        "Doctor explained the meaning of spondylosis with radiculopathy to the patient",
+        "Encouraged use of ergonomic chair and frequent breaks to stand and walk during work"
+      ],
+      "rationale": "The note accurately reflects most clinical findings and plans discussed but adds unconfirmed demographic details, prior history, exact medication quantity, and lifestyle counseling not mentioned in the transcript, while omitting some relevant clinical details and explanations given during the visit."
+    },
+    "finetuned:49": {
+      "unsupported_claims": [
+        {
+          "claim": "45-year-old African American male",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "history of hypertension, currently managed with Metformin",
+          "type": "contradiction",
+          "severity": "major"
+        },
+        {
+          "claim": "Referral: Consult with a cardiologist (Dr. Emily Johnson) and nephrologist (Dr. Michael Thompson)",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Follow-up appointment scheduled in 1 week to review test results and discuss further management",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "Patient has Stage 2 Chronic Kidney Disease",
+        "Patient reports sweating a lot",
+        "Patient reports confusion and decreased responsiveness",
+        "Blood pressure is low at 85/60 mmHg",
+        "Heart rate is elevated at 120 bpm",
+        "Respiratory rate is 24 per minute",
+        "Oxygen saturation is 96% on room air",
+        "Plan to start IV fluids immediately to raise blood pressure"
+      ],
+      "rationale": "The note includes unsupported demographic details, incorrectly states hypertension management with Metformin, invents specific consultant names and a follow-up appointment, and omits key clinical findings and immediate treatment plans documented in the transcript."
+    },
+    "finetuned:50": {
+      "unsupported_claims": [
+        {
+          "claim": "62-year-old Caucasian female",
+          "type": "fabricated_demographic",
+          "severity": "minor"
+        },
+        {
+          "claim": "General: Alert, cooperative, in no acute distress",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Abdomen: Soft, non-tender, no organomegaly",
+          "type": "fabricated_finding",
+          "severity": "minor"
+        },
+        {
+          "claim": "Discussed the nature of osteoarthritis",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        },
+        {
+          "claim": "Patient Agreements: The patient understands and agrees with the recommended medical treatment plan",
+          "type": "fabricated_plan_item",
+          "severity": "minor"
+        }
+      ],
+      "missing_key_facts": [
+        "No mention of the patient's age or race",
+        "No statement about the patient being alert, cooperative, or in no acute distress",
+        "No mention of abdominal exam findings",
+        "No explicit statement that the patient understands and agrees with the treatment plan"
+      ],
+      "rationale": "The note mostly reflects the transcript accurately but includes some demographic details, general exam findings, and patient agreement statements not present in the transcript."
+    }
+  },
+  "usage": {
+    "prompt_tokens": 104703,
+    "completion_tokens": 13648
+  },
+  "summary": {
+    "finetuned": {
+      "notes_judged": 50,
+      "mean_unsupported_claims_per_note": 3.7,
+      "mean_major_claims_per_note": 0.22,
+      "notes_with_any_major_claim": 9,
+      "notes_with_no_unsupported_claim": 1,
+      "mean_missing_key_facts_per_note": 5.34,
+      "claims_by_type": {
+        "fabricated_demographic": 51,
+        "fabricated_history": 16,
+        "fabricated_assessment": 30,
+        "fabricated_plan_item": 47,
+        "fabricated_finding": 37,
+        "fabricated_medication": 1,
+        "contradiction": 3
+      }
+    }
+  }
+}

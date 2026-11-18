@@ -2,6 +2,7 @@
 # containers cold-start on the first request). Deploy first:
 #   python -m modal deploy serving/modal_app.py
 #   python -m modal deploy serving/modal_app_base.py
+#   python -m modal deploy serving/modal_app_merged.py
 # Then: npx promptfoo eval -c promptfooconfig.live.yaml --env-file ../../.env -j 1
 # (-j 1 keeps requests sequential, like evals/run_eval.py.)
 description: CliniFlow base vs fine-tuned (live)
@@ -24,7 +25,13 @@ providers:
       apiKey: not-needed
       temperature: 0
       max_tokens: 1500
-  # After the merge (docs/BACKLOG.md), add the merged model as a third provider here.
+  - id: openai:chat:clinical-json-extractor-merged
+    label: merged
+    config:
+      apiBaseUrl: https://paulsilas938--cliniflow-vllm-merged-serve-merged.us-east.modal.run/v1
+      apiKey: not-needed
+      temperature: 0
+      max_tokens: 1500
 
 tests: file://tests.js
 

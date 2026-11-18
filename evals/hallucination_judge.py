@@ -145,12 +145,14 @@ def main():
     ap.add_argument("--finetuned", default="evals/results_finetuned.json")
     ap.add_argument("--out", default="evals/hallucination_judge.json")
     ap.add_argument("--limit", type=int, default=None, help="notes per source (for a cheap trial)")
+    ap.add_argument("--only", nargs="+", choices=["gold", "base", "finetuned"],
+                    help="judge only these sources (e.g. a new results file passed as --finetuned)")
     ap.add_argument("--dry-run", action="store_true", help="build prompts, call nothing")
     args = ap.parse_args()
 
     rows, sources = collect_notes(args.test, args.base, args.finetuned)
     jobs = [(label, i) for label, notes in sources.items() for i in sorted(notes)
-            if args.limit is None or i < args.limit]
+            if (args.limit is None or i < args.limit) and (not args.only or label in args.only)]
 
     if args.dry_run:
         chars = sum(len(rows[i]["input"]) + len(note_text(sources[l][i])) + len(SYSTEM_PROMPT) for l, i in jobs)

@@ -33,11 +33,11 @@ Last cloud run: completed on `ml.t3.medium`, eu-north-1. All 901 train, 49 val, 
 
 ## Why the adapter is stored unmerged
 
-The LoRA adapter is stored as its own small artifact and is never merged into the base model. vLLM loads the base model once and attaches the adapter per request. Merging would mean re-uploading a multi-GB model for every training change and would lock each version to one base checkpoint. Keeping the two separate also lets several adapters share one running server later.
+The registry holds the LoRA adapter as its own small artifact (a few MB) and treats it as the source of truth. Serving uses a merged copy, but that copy is *derived*: `serving/modal_merge.py` combines the adapter with the fp16 base model and writes a `merge_manifest.json` recording the base model, the adapter's SHA-256, the LoRA scale and the library versions, so any merged model can be reproduced from, and traced back to, a registry entry. The merged weights (6.4 GB) live in a Modal Volume, not in the registry, so a training change still ships as a few-MB upload and the merge is re-run. Keeping the unmerged adapter also leaves the option of serving several adapters from one base model later.
 
 ## Why SageMaker stops at data and the registry
 
-SageMaker is used for the data validation job and for storing versioned artifacts. It does not host the model. Serving is handled by vLLM (Pillar 3), so there is one inference path, not two. Creating a SageMaker endpoint or merging weights was deliberately left out of scope.
+SageMaker is used for the data validation job and for storing versioned artifacts. It does not host the model. Serving is handled by vLLM (Pillar 3), so there is one inference path, not two. Creating a SageMaker endpoint was deliberately left out of scope. Merging happens in the serving layer (Modal), not in SageMaker.
 
 ## Adapter v1 (config A)
 

@@ -53,6 +53,7 @@ def main():
     ap.add_argument("--test", required=True)
     ap.add_argument("--results", required=True)
     ap.add_argument("--judge", default=None)
+    ap.add_argument("--judge-label", default="finetuned", help="which source in the judge file holds these results")
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
 
@@ -105,7 +106,7 @@ def main():
     if args.judge:
         with open(args.judge, encoding="utf-8") as f:
             judgments = json.load(f)["judgments"]
-        label = "finetuned" if "finetuned" in args.results else "base"
+        label = args.judge_label
         major = {int(k.split(":")[1]) for k, v in judgments.items() if k.startswith(label + ":")
                  and any(c["severity"] == "major" for c in v["unsupported_claims"])}
         summary["judge_major_notes"] = len(major)

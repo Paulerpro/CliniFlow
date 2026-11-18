@@ -45,7 +45,7 @@ By default **no note text is sent**: traces carry sizes, flags, statuses and sco
 | Variable | Default | Meaning |
 |---|---|---|
 | `VLLM_URL` | `http://localhost:8000` | OpenAI-compatible model server |
-| `MODEL_NAME` | `clinical-json-extractor` | `model` field sent to the server |
+| `MODEL_NAME` | `clinical-json-extractor-merged` | `model` field sent to the server (`clinical-json-extractor` for the unmerged adapter app) |
 | `SYSTEM_PROMPT_PATH` | `registry/adapters/config_A/system_prompt.txt` | must match the prompt the adapter was trained with |
 | `MAX_RETRIES` | `2` | re-asks after an unusable reply |
 | `ALLOW_LENIENT_PARSE` | `false` | accept replies wrapped in a markdown fence (the benchmark found the fine-tuned model never needs this) |

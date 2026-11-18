@@ -41,10 +41,15 @@ NUM_RE = re.compile(r"(?<![\w.])\d+(?:\.\d+)?")
 UNIT_RE = re.compile(
     r"\s*(?:(?:mg|mcg|g|ml|units?|iu|bpm|mmhg|mmol|mg/dl|kg|lbs?|cm|breaths|/min)\b|%|°)",
     re.IGNORECASE)  # \b only after word-character units: it can never match after % or °
-MED_RE = re.compile(r"\b([A-Z][a-z]{3,})(?:\s+[a-z]+)?\s+(\d+(?:\.\d+)?)\s?(mg|mcg|g|ml|units?|iu)\b")
+# The drug is the word right before the dose ("Start montelukast 10 mg" -> montelukast), so a
+# leading verb is never mistaken for it. Words that precede a dose but are not drugs are skipped.
+MED_RE = re.compile(r"\b([A-Za-z][A-Za-z-]{3,})\s+(\d+(?:\.\d+)?)\s?(mg|mcg|g|ml|units?|iu)\b")
 DR_RE = re.compile(r"\bDr\.?\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)")
 # words that look like drug names to MED_RE but are not
-MED_STOP = {"Blood", "Heart", "Temperature", "Weight", "Height", "Pressure", "Pain", "Oxygen", "Return"}
+MED_STOP = {"blood", "heart", "temperature", "weight", "height", "pressure", "pain", "oxygen", "return",
+            "dose", "total", "about", "approximately", "every", "over", "than", "daily", "twice", "once",
+            "with", "until", "each", "per", "reduce", "increase", "decrease", "maximum", "single", "give",
+            "given", "take", "taking", "under", "around", "least", "most", "exceed", "below", "above"}
 
 
 def note_text(note):
@@ -82,7 +87,7 @@ def medication_check(transcript, text):
     meds, bad = set(), []
     for m in MED_RE.finditer(text):
         drug, dose = m.group(1), m.group(2)
-        if drug in MED_STOP:
+        if drug.lower() in MED_STOP:
             continue
         meds.add((drug, dose))
         if drug.lower() not in low or dose not in transcript_numbers(transcript):

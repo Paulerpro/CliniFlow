@@ -65,9 +65,12 @@
           ]
         },
         "medications": {
-          "total": 1,
-          "ungrounded": 0,
-          "examples": []
+          "total": 3,
+          "ungrounded": 2,
+          "examples": [
+            "estradiol 35",
+            "norethindrone 1"
+          ]
         },
         "people": {
           "total": 1,
@@ -281,7 +284,7 @@
           ]
         },
         "medications": {
-          "total": 1,
+          "total": 2,
           "ungrounded": 0,
           "examples": []
         },
@@ -613,7 +616,7 @@
           ]
         },
         "medications": {
-          "total": 0,
+          "total": 1,
           "ungrounded": 0,
           "examples": []
         },
@@ -1002,11 +1005,9 @@
           ]
         },
         "medications": {
-          "total": 3,
-          "ungrounded": 1,
-          "examples": [
-            "Followed 100"
-          ]
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
         },
         "people": {
           "total": 1,
@@ -1955,7 +1956,7 @@
           "examples": []
         },
         "medications": {
-          "total": 1,
+          "total": 2,
           "ungrounded": 0,
           "examples": []
         },
@@ -2633,7 +2634,7 @@
           ]
         },
         "medications": {
-          "total": 0,
+          "total": 1,
           "ungrounded": 0,
           "examples": []
         },
@@ -3017,7 +3018,7 @@
           ]
         },
         "medications": {
-          "total": 1,
+          "total": 2,
           "ungrounded": 0,
           "examples": []
         },

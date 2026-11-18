@@ -56,7 +56,7 @@ Then:
 
 Both runs: vLLM 0.32.0, one T4, `--dtype half`, `--max-model-len 4096`, `temperature` 0, `max_tokens` 1500, one request at a time, same system prompt.
 The only server difference is the intended one: the adapter app adds `--enable-lora --max-lora-rank 16 --lora-modules ...`.
-The adapter is intentionally served unmerged (see `serving/README.md`), so the fine-tuned latency below includes LoRA overhead.
+The fine-tuned results below are the adapter served unmerged, so their latency includes LoRA overhead. The same adapter merged into the base weights was run separately (see "Merged model" below).
 
 ## Results (50 rows)
 
@@ -79,6 +79,24 @@ The adapter is intentionally served unmerged (see `serving/README.md`), so the f
 - **Format**: the fine-tuned model returned valid bare JSON on 50/50 rows. The base model wrapped every reply in markdown fences (0/50 strict) and was schema-valid on 48/49 once fences were stripped.
 - **Codes**: neither model got any exact code. The fine-tuned model often produces the right *description* with the wrong *code number* (6 of 50 rows, e.g. "ENDOMETRIOSIS, UNSPECIFIED" with N83 where the gold is N809), so it has learned the diagnosis names better than the code numbers. The base model emits about 4 codes per row, scattershot.
 - **Latency**: the fine-tuned model is about 3.6x slower at the median. About 2x of that is longer output; the rest (about 1.9x per 1k characters) is consistent with unmerged-LoRA overhead on a T4. The 199s and 316s maxima are probably cold-start or container events, so prefer the medians.
+
+## Merged model
+
+The adapter merged into the fp16 base (`serving/modal_merge.py`, served by `serving/modal_app_merged.py`) was run through the same 50 rows. Files: `results_merged.json`, `rescored_merged.json`, `hallucination_rules_merged.json`, `hallucination_judge_merged.json`, `gateway_replay_merged.json`, `merged_comparison.json`.
+
+    python evals/run_eval.py --transcripts-file training/colab/test.jsonl --adapter-dir registry/adapters/config_A         --model-name clinical-json-extractor-merged         --server-url https://paulsilas938--cliniflow-vllm-merged-serve-merged.us-east.modal.run --out evals/results_merged.json
+    python evals/compare_merged.py --adapter evals/results_finetuned.json --merged evals/results_merged.json --out evals/merged_comparison.json
+
+| | adapter (unmerged) | merged |
+|---|---|---|
+| median request (s) | 51.2 | **25.2** |
+| median s per 1k chars | 16.7 | **8.2** |
+| strict valid | 50/50 | 49/50 |
+| outputs byte-identical to the adapter's | n/a | 18/50 |
+| suggested codes identical to the adapter's | n/a | 45/50 |
+| judge: notes with a major claim | 9 | 9 |
+
+Merging is 2.0x faster with equivalent quality apart from one format failure (row 28: `assessment` returned as a nested object). Details and caveats: `BENCHMARK_REPORT.md` section 5.
 
 ## Caveats
 

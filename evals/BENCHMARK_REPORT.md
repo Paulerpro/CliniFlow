@@ -2,7 +2,7 @@
 
 **Question.** Does the QLoRA adapter (config A) make Llama-3.2-3B-Instruct better at turning a doctor-patient transcript into a SOAP JSON note with a suggested ICD-10 code?
 
-**Short answer.** It fixes output *format* completely, it does not fix ICD-10 *code accuracy*, and it makes the model reproduce the training data's habit of *inventing patient details*. It is also about 3.6x slower per request in this setup. Format reliability is the clear win; the rest is a to-do list for the gateway (Pillar 5) and the next training round.
+**Short answer.** It fixes output *format* completely, it does not fix ICD-10 *code accuracy*, and it makes the model reproduce the training data's habit of *inventing patient details*. The adapter served unmerged is also about 3.6x slower per request in this setup; merging it into the base weights roughly halves that (2.0x faster, with equivalent quality apart from one format failure in 50). Format reliability is the clear win; the rest is a to-do list for the gateway (Pillar 5) and the next training round.
 
 ## Setup
 
@@ -10,7 +10,7 @@
 |---|---|
 | Test set | 50 held-out transcripts (`training/colab/test.jsonl`), never seen in training |
 | Models | `unsloth/Llama-3.2-3B-Instruct` (base) vs. the same model with the config A LoRA adapter (r=16, 2 epochs) |
-| Serving | vLLM 0.32.0 on one T4 (Modal), `--dtype half`, `--max-model-len 4096`; the adapter is served unmerged by design |
+| Serving | vLLM 0.32.0 on one T4 (Modal), `--dtype half`, `--max-model-len 4096`; the adapter was measured both served unmerged and merged into the base weights (see section 5) |
 | Requests | `temperature` 0, `max_tokens` 1500, one at a time, identical system prompt for both models |
 | Only server difference | the adapter app adds `--enable-lora --max-lora-rank 16 --lora-modules ...` |
 | Reference notes | the dataset's own reference notes ("gold"), scored as a control wherever a check compares a note to its transcript |
@@ -64,7 +64,29 @@ Two methods, both comparing each note to its transcript: deterministic rules (nu
 | Median output (characters) | 1,552 | 3,061 |
 | Median seconds per 1,000 characters | 8.9 | 16.7 |
 
-The 3.6x gap at the median splits into roughly 2x from longer outputs (the adapter writes fuller notes) and roughly 1.9x from slower generation per character, which is consistent with serving an unmerged LoRA adapter on a T4. That overhead is the deliberate cost of the project's architecture (one base model, small swappable adapters; see `serving/README.md`). The maxima are probably cold-start events, so prefer the medians. Characters stand in for tokens because token counts were not recorded.
+The 3.6x gap at the median splits into roughly 2x from longer outputs (the adapter writes fuller notes) and roughly 1.9x from slower generation per character, which is consistent with serving an unmerged LoRA adapter on a T4. Merging removes that overhead (section 5). The maxima are probably cold-start events, so prefer the medians. Characters stand in for tokens because token counts were not recorded.
+
+### 5. Merging the adapter into the base weights
+
+The adapter was also merged into the fp16 base model (`serving/modal_merge.py`) and the same 50 rows were run through it on the same T4 setup, one request at a time. The merge was checked before it was saved: three weights recomputed by hand matched exactly in float32, and the merged and adapter-applied models' logits differed by at most 0.000045 with identical top tokens.
+
+| | base | fine-tuned (adapter) | fine-tuned (merged) |
+|---|---|---|---|
+| Median / mean request (s) | 14.1 / 18.0 | 51.2 / 57.0 | **25.2 / 28.7** |
+| p90 / max (s) | 17.6 / 199.3 | 64.9 / 316.9 | 33.0 / 182.0 |
+| Median seconds per 1,000 characters | 8.9 | 16.7 | **8.2** |
+| Strict valid | 0/49 | 50/50 | 49/50 |
+| Code category hit | 0.06 | 0.24 | 0.24 |
+| Exact code after gateway repair | n/a | 11/50 | 11/50 |
+| Code description hit | 0.06 | 0.12 | 0.12 |
+| Judge: unsupported claims per note | 0.20 | 3.48 | 3.70 |
+| Judge: notes with a major claim | 4 | 9 | 9 |
+| Judge: missing key facts per note | 6.7 | 5.06 | 5.34 |
+
+- **Speed:** merging removes the adapter's per-token cost. The merged model is 2.0x faster than the unmerged adapter at the median, and per character it is as fast as the plain base model (8.2s vs 8.9s per 1,000 characters). It writes the same amount (median 3,056 vs 3,061 characters).
+- **Quality:** equivalent within noise on codes, the judge's major-claim count and the rule-based checks. The judge's means are slightly worse (3.70 vs 3.48 unsupported claims), which at n = 50 is not distinguishable from the run-to-run variation described below.
+- **The outputs are not identical.** Only 18 of 50 are byte-identical to the unmerged adapter's, the suggested codes agree on 45 of 50, and the mean text similarity is 0.88. At `temperature` 0 a rounding difference in the fp16 weights can flip one token early, after which a long generation takes a different path. This is expected given the tiny numeric difference measured above, not a sign of a faulty merge, but it means the merged model is a *different* model to evaluate, not a transparent substitute.
+- **One real regression: 49/50 strict-valid.** On row 28 the merged model returned valid JSON with `assessment` as a nested object instead of a string (5,810 characters vs 3,450 for the adapter). The gateway's retry layer would re-ask on a failure like this; the replay in `gateway_replay_merged.json` does not retry, so it counts the row as unusable. With one failure in 50 this cannot be told apart from chance, so watch the gateway's `attempts` field.
 
 ## What to do about it
 
@@ -73,7 +95,7 @@ The 3.6x gap at the median splits into roughly 2x from longer outputs (the adapt
 | Wrong ICD code numbers, right names | **Gateway (Pillar 5):** validate each code against an ICD-10 table and check it matches the description; repair by description lookup, or retry. Measure the gain with `rescore.py`. |
 | Invented demographics and plan items | **Gateway:** flag any age, sex, name or referral in a note that the transcript does not state. **Training data:** strip invented demographics from the gold notes before the next training round. |
 | Major claims (wrong drug-condition pairings, contradictions) | **Gateway / sign-off (Pillars 5 and 6):** treat notes with unsupported medications or contradictions as needing human review. |
-| Latency | Faster GPU class; record token counts in future runs. Merging the adapter would remove the overhead but is ruled out by the design. |
+| Latency | Faster GPU class; record token counts in future runs. Merging the adapter removes the overhead (section 5, now the default). Still to do: a faster GPU class, and token counts in future runs. |
 | Format | Nothing to fix. Keep the strict parser; do not add fence-stripping for the adapter. |
 
 ## Limitations
@@ -83,6 +105,7 @@ The 3.6x gap at the median splits into roughly 2x from longer outputs (the adapt
 - One judge model, one pass, no human labels beyond the 17 major flags. Treat the judge's missing-fact count as a relative measure (it ignored its own cap of 8 on some notes). The judge did not assess ICD codes.
 - Rule-based checks only catch numbers, drug+dose pairs and doctor names; they miss invented findings and contradictions.
 - Latency used one T4 and sequential requests, and includes cold-start outliers.
+- The merged run is a single run of a model whose outputs differ from the adapter's (see section 5), so the 49/50 vs 50/50 format result and the small judge differences are within what one more run could change.
 - Configs B and C were never trained, so there is no comparison between adapter configurations.
 
 ## Reproducing

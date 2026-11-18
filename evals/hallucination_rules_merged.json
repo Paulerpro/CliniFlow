@@ -1,0 +1,3146 @@
+{
+  "summary": {
+    "gold": {
+      "model": "gold",
+      "notes_scored": 50,
+      "mean_ungrounded_number_rate": 0.167,
+      "mean_ungrounded_numbers_per_note": 1.9,
+      "mean_ungrounded_measured_values_per_note": 0.24,
+      "notes_with_ungrounded_medication": 1,
+      "notes_with_ungrounded_person": 5
+    },
+    "base": {
+      "model": "base",
+      "notes_scored": 49,
+      "mean_ungrounded_number_rate": 0.0,
+      "mean_ungrounded_numbers_per_note": 0,
+      "mean_ungrounded_measured_values_per_note": 0,
+      "notes_with_ungrounded_medication": 0,
+      "notes_with_ungrounded_person": 0
+    },
+    "finetuned": {
+      "model": "finetuned",
+      "notes_scored": 50,
+      "mean_ungrounded_number_rate": 0.126,
+      "mean_ungrounded_numbers_per_note": 1.52,
+      "mean_ungrounded_measured_values_per_note": 0.02,
+      "notes_with_ungrounded_medication": 1,
+      "notes_with_ungrounded_person": 3
+    }
+  },
+  "per_note": {
+    "gold": {
+      "1": {
+        "numbers": {
+          "total": 23,
+          "ungrounded": 1,
+          "measured_total": 10,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "2": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 4,
+          "measured_total": 7,
+          "measured_ungrounded": 2,
+          "examples": [
+            "1",
+            "30",
+            "33",
+            "35"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 2,
+          "examples": [
+            "estradiol 35",
+            "norethindrone 1"
+          ]
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "3": {
+        "numbers": {
+          "total": 16,
+          "ungrounded": 0,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "4": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 3,
+          "measured_total": 6,
+          "measured_ungrounded": 1,
+          "examples": [
+            "10",
+            "37",
+            "54"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "5": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 1,
+          "measured_total": 2,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "6": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 2,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "90"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "7": {
+        "numbers": {
+          "total": 19,
+          "ungrounded": 2,
+          "measured_total": 9,
+          "measured_ungrounded": 0,
+          "examples": [
+            "2",
+            "58"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "8": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 2,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": [
+            "37"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "9": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 1,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "10": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 3,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28",
+            "42",
+            "60"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "11": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 1,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "67"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "12": {
+        "numbers": {
+          "total": 16,
+          "ungrounded": 3,
+          "measured_total": 7,
+          "measured_ungrounded": 1,
+          "examples": [
+            "10",
+            "28",
+            "37"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "13": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 1,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "50"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "14": {
+        "numbers": {
+          "total": 14,
+          "ungrounded": 1,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "15": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 2,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "16": {
+        "numbers": {
+          "total": 19,
+          "ungrounded": 2,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "55"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "17": {
+        "numbers": {
+          "total": 14,
+          "ungrounded": 2,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "48"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "18": {
+        "numbers": {
+          "total": 4,
+          "ungrounded": 2,
+          "measured_total": 0,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "14"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "19": {
+        "numbers": {
+          "total": 17,
+          "ungrounded": 1,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "50"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "20": {
+        "numbers": {
+          "total": 17,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "58"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "21": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 4,
+          "measured_total": 2,
+          "measured_ungrounded": 0,
+          "examples": [
+            "1",
+            "10",
+            "30"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "22": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 6,
+          "measured_total": 5,
+          "measured_ungrounded": 4,
+          "examples": [
+            "120",
+            "16",
+            "28",
+            "75",
+            "80",
+            "98.6"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 1,
+          "examples": [
+            "Sarah Thompson"
+          ]
+        }
+      },
+      "23": {
+        "numbers": {
+          "total": 39,
+          "ungrounded": 2,
+          "measured_total": 12,
+          "measured_ungrounded": 0,
+          "examples": [
+            "32",
+            "9"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "24": {
+        "numbers": {
+          "total": 16,
+          "ungrounded": 2,
+          "measured_total": 4,
+          "measured_ungrounded": 1,
+          "examples": [
+            "20",
+            "68"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "25": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45",
+            "90"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "26": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 1,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": [
+            "26"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "27": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "32"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "28": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "4",
+            "70"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 1,
+          "examples": [
+            "Emily Carter"
+          ]
+        }
+      },
+      "29": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 1,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "22"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "30": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 1,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": [
+            "67"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "31": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 2,
+          "measured_total": 4,
+          "measured_ungrounded": 1,
+          "examples": [
+            "10",
+            "70"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "32": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 1,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "47"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 1,
+          "examples": [
+            "Emily Johnson"
+          ]
+        }
+      },
+      "33": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "34": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 3,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "2",
+            "78"
+          ]
+        },
+        "medications": {
+          "total": 4,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "35": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 1,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "50"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "36": {
+        "numbers": {
+          "total": 3,
+          "ungrounded": 2,
+          "measured_total": 0,
+          "measured_ungrounded": 0,
+          "examples": [
+            "12",
+            "52"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "37": {
+        "numbers": {
+          "total": 19,
+          "ungrounded": 1,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": [
+            "58"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "38": {
+        "numbers": {
+          "total": 21,
+          "ungrounded": 2,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": [
+            "4",
+            "58"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "39": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 2,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": [
+            "25"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "40": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 1,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "41": {
+        "numbers": {
+          "total": 8,
+          "ungrounded": 2,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": [
+            "42"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "42": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 3,
+          "measured_total": 2,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "65"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 1,
+          "examples": [
+            "John Smith"
+          ]
+        }
+      },
+      "43": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 1,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "44": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 1,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "45": {
+        "numbers": {
+          "total": 18,
+          "ungrounded": 2,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "35"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "46": {
+        "numbers": {
+          "total": 14,
+          "ungrounded": 1,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "47": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28",
+            "58"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "48": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "49": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 4,
+          "measured_total": 6,
+          "measured_ungrounded": 2,
+          "examples": [
+            "0.9",
+            "10",
+            "65",
+            "98.6"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 2,
+          "ungrounded": 2,
+          "examples": [
+            "Michael Lee",
+            "Sarah Thompson"
+          ]
+        }
+      },
+      "50": {
+        "numbers": {
+          "total": 14,
+          "ungrounded": 3,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "62",
+            "84"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      }
+    },
+    "base": {
+      "1": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 0,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "2": {
+        "numbers": {
+          "total": 8,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "3": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 0,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "4": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "6": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 0,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "7": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "8": {
+        "numbers": {
+          "total": 3,
+          "ungrounded": 0,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "9": {
+        "numbers": {
+          "total": 6,
+          "ungrounded": 0,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "10": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "11": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 0,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "12": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "13": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 0,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "14": {
+        "numbers": {
+          "total": 3,
+          "ungrounded": 0,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "15": {
+        "numbers": {
+          "total": 5,
+          "ungrounded": 0,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "16": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 0,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "17": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 0,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "18": {
+        "numbers": {
+          "total": 0,
+          "ungrounded": 0,
+          "measured_total": 0,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "19": {
+        "numbers": {
+          "total": 3,
+          "ungrounded": 0,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "20": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "21": {
+        "numbers": {
+          "total": 3,
+          "ungrounded": 0,
+          "measured_total": 2,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "22": {
+        "numbers": {
+          "total": 3,
+          "ungrounded": 0,
+          "measured_total": 2,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "23": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 0,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "24": {
+        "numbers": {
+          "total": 8,
+          "ungrounded": 0,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "25": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "26": {
+        "numbers": {
+          "total": 5,
+          "ungrounded": 0,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "27": {
+        "numbers": {
+          "total": 5,
+          "ungrounded": 0,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "28": {
+        "numbers": {
+          "total": 4,
+          "ungrounded": 0,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "29": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 0,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "30": {
+        "numbers": {
+          "total": 8,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "31": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 0,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "32": {
+        "numbers": {
+          "total": 8,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "33": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "34": {
+        "numbers": {
+          "total": 6,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 4,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "35": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "36": {
+        "numbers": {
+          "total": 1,
+          "ungrounded": 0,
+          "measured_total": 0,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "37": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 0,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "38": {
+        "numbers": {
+          "total": 6,
+          "ungrounded": 0,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "39": {
+        "numbers": {
+          "total": 2,
+          "ungrounded": 0,
+          "measured_total": 0,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "40": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "41": {
+        "numbers": {
+          "total": 3,
+          "ungrounded": 0,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "42": {
+        "numbers": {
+          "total": 4,
+          "ungrounded": 0,
+          "measured_total": 2,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "43": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 0,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "44": {
+        "numbers": {
+          "total": 8,
+          "ungrounded": 0,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "45": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 0,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "46": {
+        "numbers": {
+          "total": 16,
+          "ungrounded": 0,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "47": {
+        "numbers": {
+          "total": 6,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "48": {
+        "numbers": {
+          "total": 8,
+          "ungrounded": 0,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "49": {
+        "numbers": {
+          "total": 6,
+          "ungrounded": 0,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "50": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 0,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": []
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      }
+    },
+    "finetuned": {
+      "1": {
+        "numbers": {
+          "total": 27,
+          "ungrounded": 1,
+          "measured_total": 10,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "2": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 1,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "3": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 2,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "4": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 1,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "5": {
+        "numbers": {
+          "total": 8,
+          "ungrounded": 1,
+          "measured_total": 2,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "6": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 2,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "7": {
+        "numbers": {
+          "total": 17,
+          "ungrounded": 3,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "2",
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "8": {
+        "numbers": {
+          "total": 8,
+          "ungrounded": 1,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "9": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 1,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 1,
+          "examples": [
+            "Emily Johnson"
+          ]
+        }
+      },
+      "10": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 2,
+          "measured_total": 6,
+          "measured_ungrounded": 1,
+          "examples": [
+            "10",
+            "62"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 1,
+          "examples": [
+            "Lisinopril 10"
+          ]
+        },
+        "people": {
+          "total": 2,
+          "ungrounded": 1,
+          "examples": [
+            "Emily Carter"
+          ]
+        }
+      },
+      "11": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 1,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": [
+            "65"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "12": {
+        "numbers": {
+          "total": 18,
+          "ungrounded": 3,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "28",
+            "8"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "13": {
+        "numbers": {
+          "total": 14,
+          "ungrounded": 1,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "14": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 1,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "60"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "15": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 1,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "16": {
+        "numbers": {
+          "total": 20,
+          "ungrounded": 3,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": [
+            "60"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "17": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 1,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "52"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "18": {
+        "numbers": {
+          "total": 4,
+          "ungrounded": 1,
+          "measured_total": 0,
+          "measured_ungrounded": 0,
+          "examples": [
+            "14"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "19": {
+        "numbers": {
+          "total": 17,
+          "ungrounded": 1,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "20": {
+        "numbers": {
+          "total": 17,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "21": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 2,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "22": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 2,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "35"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "23": {
+        "numbers": {
+          "total": 27,
+          "ungrounded": 1,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "24": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 1,
+          "measured_total": 2,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "25": {
+        "numbers": {
+          "total": 14,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "26": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 1,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "27": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "32"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "28": {
+        "numbers": {
+          "total": 26,
+          "ungrounded": 3,
+          "measured_total": 10,
+          "measured_ungrounded": 0,
+          "examples": [
+            "4",
+            "45",
+            "5"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "29": {
+        "numbers": {
+          "total": 14,
+          "ungrounded": 1,
+          "measured_total": 6,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "30": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 1,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "65"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "31": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 1,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "32": {
+        "numbers": {
+          "total": 12,
+          "ungrounded": 1,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "62"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "33": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 1,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "12"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "34": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 2,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": [
+            "2",
+            "75"
+          ]
+        },
+        "medications": {
+          "total": 4,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "35": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 1,
+          "measured_total": 9,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "36": {
+        "numbers": {
+          "total": 2,
+          "ungrounded": 1,
+          "measured_total": 0,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "37": {
+        "numbers": {
+          "total": 25,
+          "ungrounded": 1,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": [
+            "65"
+          ]
+        },
+        "medications": {
+          "total": 3,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "38": {
+        "numbers": {
+          "total": 17,
+          "ungrounded": 2,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "52"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "39": {
+        "numbers": {
+          "total": 7,
+          "ungrounded": 1,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "40": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "41": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 2,
+          "measured_total": 1,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "42": {
+        "numbers": {
+          "total": 10,
+          "ungrounded": 1,
+          "measured_total": 2,
+          "measured_ungrounded": 0,
+          "examples": [
+            "65"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "43": {
+        "numbers": {
+          "total": 15,
+          "ungrounded": 1,
+          "measured_total": 7,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "44": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 2,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45",
+            "6"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "45": {
+        "numbers": {
+          "total": 20,
+          "ungrounded": 2,
+          "measured_total": 3,
+          "measured_ungrounded": 0,
+          "examples": [
+            "10",
+            "28"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "46": {
+        "numbers": {
+          "total": 18,
+          "ungrounded": 1,
+          "measured_total": 8,
+          "measured_ungrounded": 0,
+          "examples": [
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 2,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "47": {
+        "numbers": {
+          "total": 13,
+          "ungrounded": 2,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "28",
+            "62"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "48": {
+        "numbers": {
+          "total": 19,
+          "ungrounded": 3,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": [
+            "30",
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      },
+      "49": {
+        "numbers": {
+          "total": 9,
+          "ungrounded": 2,
+          "measured_total": 4,
+          "measured_ungrounded": 0,
+          "examples": [
+            "1",
+            "45"
+          ]
+        },
+        "medications": {
+          "total": 0,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 2,
+          "ungrounded": 2,
+          "examples": [
+            "Emily Johnson",
+            "Michael Thompson"
+          ]
+        }
+      },
+      "50": {
+        "numbers": {
+          "total": 11,
+          "ungrounded": 1,
+          "measured_total": 5,
+          "measured_ungrounded": 0,
+          "examples": [
+            "62"
+          ]
+        },
+        "medications": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        },
+        "people": {
+          "total": 1,
+          "ungrounded": 0,
+          "examples": []
+        }
+      }
+    }
+  }
+}

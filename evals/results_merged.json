@@ -1,0 +1,1120 @@
+{
+  "summary": {
+    "rows": 50,
+    "valid": 49,
+    "invalid": 1,
+    "lenient_valid": 49,
+    "code_hit_rate": 0.0,
+    "code_exact_rate": 0.0,
+    "code_precision": 0.0,
+    "code_recall": 0.0,
+    "code_f1": 0.0,
+    "avg_latency_s": 28.74
+  },
+  "results": [
+    {
+      "index": 1,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z20822"
+        ],
+        "pred_codes": [
+          "U070"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 182.04,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\n- Mild fever, dry cough, and fatigue.\\n\\n**History of Present Illness (HPI):**\\n- The patient, Mr. John Smith, is a 45-year-old Caucasian male presenting with a 2-day history of mild fever, dry cough, and fatigue. Symptoms have been persistent and have significantly impacted his daily activities.\\n\\n**Review of Systems (ROS):**\\n- Constitutional: Mild fever, fatigue.\\n- Respiratory: Dry cough, no shortness of breath or chest pain.\\n- Gastrointestinal: No nausea, vomiting, or diarrhea.\\n- Cardiovascular: No palpitations or edema.\\n- Genitourinary: No dysuria or hematuria.\\n- Musculoskeletal: No joint pain or muscle aches.\\n- Neurological: No headaches, dizziness, or changes in level of consciousness.\\n- Dermatological: No rashes or lesions.\\n\\n**Medical History:**\\n- Previous Diagnoses: Hypertension, Type 2 Diabetes Mellitus.\\n- Family Medical History: Father with Hypertension, Mother with Type 2 Diabetes.\\n- Medication History: Lisinopril 10mg daily for hypertension, Metformin 500mg twice daily for diabetes.\\n- Allergies: None reported.\\n- Chronic Conditions: Hypertension, Type 2 Diabetes Mellitus.\\n- Social History: Delivery driver, lives in an urban area, moderate income, no tobacco or drug use.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 130/80 mmHg\\n- Temperature: 99.5\u00b0F\\n- Heart Rate: 78 bpm\\n- Respiratory Rate: 18 breaths per minute\\n- Oxygen Saturation: 98% on room air\\n\\n**Physical Exam:**\\n- General: Alert and oriented, in no acute distress.\\n- Respiratory: Mild rhonchi bilaterally, no wheezing or rales.\\n- Cardiovascular: Normal S1 and S2, no murmurs.\\n- Abdomen: Soft, non-tender, no organomegaly.\\n- Extremities: No edema, normal range of motion.\\n- Neurological: Alert and oriented, no focal deficits.\\n\\n**Investigations:**\\n- Awaiting results of nasal swab PCR for COVID-19.\", \"assessment\": \"- Mild symptoms consistent with COVID-19, likely mild to moderate severity given the patient's job as a delivery driver and exposure risk.\\n- Hypertension, well-managed with Lisinopril.\\n- Type 2 Diabetes Mellitus, managed with Metformin.\", \"plan\": \"- **COVID-19 Testing:**\\n  - Nasal swab PCR test for COVID-19 ordered.\\n- **Medications:**\\n  - Prescribed Acetaminophen 500mg tablets, take 1 tablet orally every 6 hours as needed for fever.\\n- **Follow-up:**\\n  - Schedule a telemedicine follow-up in 1 week to review COVID-19 test results and reassess symptoms.\\n- **Lifestyle and Hygiene:**\\n  - Advised strict quarantine measures, including isolation, mask-wearing, and strict hand hygiene.\\n- **Patient Education:**\\n  - Discussed the importance of monitoring symptoms and contacting healthcare if they worsen.\\n- **Referrals:**\\n  - None required at this time.\\n- **Additional Recommendations:**\\n  - Continue current diabetes and hypertension management with Metformin 500mg twice daily and Lisinopril 10mg daily.\\n  - Self-isolate for 14 days to prevent spreading any potential infection.\\n\\n**Patient Agreements:**\\n- The patient understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\n- Contact the clinic if symptoms worsen or if there are any concerns about COVID-19 test results.\", \"suggested_codes\": [{\"code\": \"U070\", \"system\": \"ICD-10\", \"description\": \"COVID-19, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 2,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "N809"
+        ],
+        "pred_codes": [
+          "N83"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 24.05,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere chronic pelvic pain and dysmenorrhea.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 28-year-old Caucasian female, presents with a 6-month history of severe chronic pelvic pain and dysmenorrhea. The pain is constant but worsens during menstruation and is associated with heavy menstrual bleeding. The patient reports that the pain is severe enough to significantly impact her work and daily activities. She also experiences pain during intercourse and has noticed changes in her sleep patterns due to the pain.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports difficulty sleeping due to pain.\\n- **Gastrointestinal:** Denies nausea, vomiting, or changes in bowel habits.\\n- **Genitourinary:** Reports severe dysmenorrhea, heavy menstrual bleeding, and pain during intercourse.\\n- **Neurological:** Denies headaches or dizziness.\\n- **Psychiatric:** Denies depression or anxiety but reports a significant impact on quality of life.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 120/80 mmHg\\n- Heart Rate: 76 bpm\\n- Respiratory Rate: 16 breaths per minute\\n- Temperature: 98.6\u00b0F\\n- BMI: 23\\n\\n**Physical Examination:**\\n- **Abdominal Exam:** Tenderness in the lower quadrants.\\n- **Pelvic Exam:** Tenderness in the adnexa, nodularity in the posterior cul-de-sac, no palpable masses, no unusual discharge.\\n\\n**Investigations:**\\n- Awaiting results of pelvic ultrasound to evaluate for endometriotic lesions and ovarian cysts.\", \"assessment\": \"- **Primary Diagnosis:** Endometriosis, unspecified.\\n- **Secondary Diagnoses:**\\n  - Polycystic Ovary Syndrome (PCOS).\\n  - Dysmenorrhea.\\n  - Chronic pelvic pain.\", \"plan\": \"- **Medications:**\\n  - Prescribed Naproxen 500 mg, oral, twice daily for pain.\\n  - Prescribed combined oral contraceptives to help manage symptoms.\\n\\n- **Imaging:**\\n  - Ordered a pelvic ultrasound to evaluate for endometriotic lesions and ovarian cysts.\\n\\n- **Referrals:**\\n  - Referral to Dr. Susan Miller, a reproductive endocrinologist, for fertility counseling due to history of PCOS and current symptoms.\\n\\n- **Follow-up:**\\n  - Return in 3 months for reassessment of symptoms and to review ultrasound results.\\n\\n- **Patient Education and Counseling:**\\n  - Discussed the nature of endometriosis and the importance of maintaining a balanced diet and engaging in light exercises such as yoga twice a week.\\n  - Advised to limit alcohol consumption to occasional use.\\n  - Encouraged to maintain a pain diary to help with symptom assessment during the next visit.\\n\\n- **Patient Agreements:**\\n  - The patient understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\n- The patient is advised to return in 3 months for reassessment and to contact the clinic if the pain worsens or if there are any new symptoms.\", \"suggested_codes\": [{\"code\": \"N83\", \"system\": \"ICD-10\", \"description\": \"ENDOMETRIOSIS, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 3,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "N508"
+        ],
+        "pred_codes": [
+          "R931"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 27.26,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere scrotal pain and swelling.\\n\\n**History of Present Illness (HPI):**\\nDiego Martinez is a 28-year-old Hispanic male who presents to the urgent care center with severe scrotal pain and swelling that began 2 weeks ago. He reports associated symptoms of fever and nausea. The pain has progressively worsened, and he has been experiencing difficulty sleeping due to the discomfort and fever. He denies any recent trauma or injury to the scrotal area.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports fever and difficulty sleeping.\\n- **Gastrointestinal:** Reports nausea, denies vomiting.\\n- **Genitourinary:** Reports severe scrotal pain and swelling, denies dysuria or hematuria.\\n- **Musculoskeletal:** Reports scrotal discomfort, denies other musculoskeletal pain.\\n- **Neurological:** Denies headaches or dizziness.\", \"objective\": \"**Vital Signs:**\\n- Temperature: 101.1\u00b0F\\n- Blood Pressure: 130/85 mmHg\\n- Heart Rate: 95 bpm\\n- Respiratory Rate: 18 breaths per minute\\n\\n**Physical Exam:**\\n- **General:** Appears anxious and uncomfortable.\\n- **Abdomen:** Mild tenderness in the lower abdomen, no distention or organomegaly.\\n- **Scrotal Exam:** Severe swelling and tenderness in the right scrotal area with significant erythema. Testicular size is increased and highly sensitive to touch. No apparent external infection.\\n- **Digital Rectal Exam:** Prostate size is normal but tender. No abnormalities noted elsewhere.\\n\\n**Investigations:**\\n- **Scrotal Ultrasound:** Ordered to assess for abscess, torsion, or other conditions.\\n- **Complete Blood Count (CBC):** Ordered to identify signs of infection or inflammation.\\n- **Urinalysis:** Ordered to identify urinary tract infections.\", \"assessment\": \"Diego Martinez is a 28-year-old male presenting with severe scrotal pain and swelling, fever, and nausea. The differential diagnosis includes:\\n- **Epididymitis:** Likely given the scrotal pain, swelling, and fever.\\n- **Testicular Torsion:** Less likely given the absence of acute onset and no reported history of trauma.\\n- **Possible Abscess Formation:** Awaiting results from the scrotal ultrasound.\", \"plan\": \"**Medications:**\\n- **Cefuroxime 500 mg, oral, twice daily for 10 days:** 20 tablets\\n- **Acetaminophen 500 mg, oral, every 6 hours as needed for pain:** 30 tablets\\n\\n**Follow-Up:**\\n- **Follow-up appointment in 1 week:** To review the results of the scrotal ultrasound, CBC, and urinalysis.\\n\\n**Referral:**\\n- **Urology:** Referral to Dr. Juan Martinez for further evaluation and possible surgical intervention if needed.\\n\\n**Patient Education and Counseling:**\\n- Discussed the importance of completing the full course of antibiotics and using pain medication as prescribed.\\n- Advised on smoking cessation and reducing alcohol consumption.\\n- Recommended improving sleep hygiene and dietary habits despite limited access in the community.\\n\\n**Instructions:**\\n- Monitor symptoms closely and follow the prescribed medication regimen.\\n- Seek immediate medical attention if symptoms worsen or new symptoms develop.\\n\\n**Additional Notes:**\\n- The patient is cooperative and motivated to follow medical advice. Limited health literacy but understands the importance of adherence to treatment and follow-up appointments.\", \"suggested_codes\": [{\"code\": \"R931\", \"system\": \"ICD-10\", \"description\": \"SCROTAL ABSCESS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 4,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "K436"
+        ],
+        "pred_codes": [
+          "K4521"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 27.7,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nAbdominal pain.\\n\\n**History of Present Illness (HPI):**\\nJohn Doe is a 45-year-old male presenting with moderate to severe abdominal pain that has persisted for the past 3 days. The pain is constant and has significantly impacted his daily activities, including his ability to sleep and perform his job duties as a factory worker. He reports associated symptoms of nausea, vomiting, and bloating. The pain is moderate to severe and has been persistent, leading to poor sleep quality.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports moderate to severe abdominal pain, nausea, vomiting, and bloating. Denies fever or chills.\\n- **Cardiovascular:** Denies chest pain or palpitations.\\n- **Respiratory:** Denies shortness of breath or cough.\\n- **Gastrointestinal:** Reports abdominal pain, nausea, vomiting, and bloating. Denies changes in bowel movements or urination.\\n- **Musculoskeletal:** Denies joint pain or muscle weakness.\\n- **Neurological:** Denies headaches or dizziness.\\n- **Endocrine:** Manages diabetes with metformin, denies recent episodes of hypoglycemia or hyperglycemia.\\n- **Dermatological:** Denies any skin changes.\", \"objective\": \"**Vital Signs:**\\n- Temperature: 98.6\u00b0F\\n- Blood Pressure: 145/90 mmHg\\n- Heart Rate: 78 bpm\\n- Respiratory Rate: 16 breaths per minute\\n- Oxygen Saturation: 98% on room air\\n\\n**Physical Examination:**\\n- **General:** Alert and oriented, no acute distress.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs, gallops, or rubs.\\n- **Respiratory:** Clear to auscultation bilaterally, no wheezes, rales, or rhonchi.\\n- **Abdominal:** Tenderness in the central area, palpable mass, non-reducible, no rebound tenderness. Bowel sounds present but hypoactive.\\n- **Extremities:** No edema or cyanosis.\\n- **Neurological:** Alert and oriented, no focal deficits.\", \"assessment\": \"- **Primary Diagnosis:** Ventral hernia with obstruction.\\n- **Secondary Diagnoses:**\\n  - Type 2 Diabetes Mellitus\\n  - Hypertension\", \"plan\": \"- **Medical Treatment:**\\n  - Initiate surgical repair of the ventral hernia.\\n  - Referral to a dietitian, Dr. Emma Brown, for weight management.\\n  - Discuss a plan to reduce high carbohydrate and high-fat foods and increase physical activity.\\n  - Educate the patient on the importance of smoking cessation and refer to a smoking cessation program if interested.\\n  - Advise on limiting alcohol consumption.\\n\\n- **Follow-Up:**\\n  - Follow-up in 2 weeks post-surgery to assess recovery.\\n  - Blood work: Complete blood count (CBC) and comprehensive metabolic panel (CMP).\\n  - Imaging: Abdominal ultrasound to confirm the presence and nature of the hernia.\\n\\n- **Patient Education and Counseling:**\\n  - Discussed the importance of adhering to the prescribed diet and exercise plan.\\n  - Explained the potential complications of obesity and the benefits of weight loss.\\n  - Addressed concerns about the surgery and the expected outcomes.\\n\\n- **Patient Agreements:**\\n  - The patient understands and agrees with the recommended medical treatment plan.\\n\\n#####\", \"suggested_codes\": [{\"code\": \"K4521\", \"system\": \"ICD-10\", \"description\": \"VENTRAL HERNIA WITH OBSTRUCTION\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 5,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "D751"
+        ],
+        "pred_codes": [
+          "D61"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 21.96,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere fatigue, night sweats, itching after shower, cognitive difficulties, and visual disturbances.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old African American male, presents with a 6-month history of severe fatigue, night sweats, itching after shower, cognitive difficulties, and visual disturbances. These symptoms have progressively worsened over the last month. The patient reports that his symptoms have significantly impacted his daily activities, making it difficult to maintain his job and household chores. He uses a CPAP machine for sleep apnea but experiences poor and fragmented sleep. He denies any illicit drug use or smoking but consumes alcohol moderately (3-4 times a week). \\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Severe fatigue, night sweats.\\n- **Skin:** Pruritus after shower, diffuse erythema.\\n- **Neurological:** Cognitive difficulties, visual disturbances.\\n- **Cardiovascular:** No chest pain or palpitations.\\n- **Gastrointestinal:** No significant issues.\\n- **Musculoskeletal:** Minimal exercise, occasional light stretching.\", \"objective\": \"**Physical Exam:**\\n- **Vital Signs:** Blood pressure 145/90 mmHg, elevated.\\n- **General:** Conjunctival injection noted.\\n- **Cardiovascular:** Elevated blood pressure, moderate splenomegaly.\\n- **Skin:** Diffuse skin erythema.\", \"assessment\": \"- **Diagnosis:** Secondary polycythemia, unspecified.\\n- **Differential Diagnosis:**\\n  - Hyperviscosity syndrome\\n  - Chronic kidney disease\\n  - Endocrine disorders (e.g., hypothyroidism, Cushing's syndrome)\", \"plan\": \"- **Medications:**\\n  - Prescribed low-dose Aspirin 81 mg, oral, once daily.\\n- **Referrals:**\\n  - Referral to Endocrinologist, Dr. Michael Taylor, for evaluation of possible underlying endocrine disorders contributing to polycythemia.\\n- **Investigations:**\\n  - Complete Blood Count (CBC)\\n  - Erythropoietin level\\n  - Thyroid function tests (TSH, Free T4)\\n  - Serum Iron studies\\n- **Follow-up:**\\n  - Follow-up in 4 weeks to monitor blood counts and response to treatment.\\n- **Lifestyle Recommendations:**\\n  - Improve diet by increasing fiber intake and reducing fats.\\n  - Encourage minimal to moderate exercise, focusing on aerobic activities to improve overall health and fatigue levels.\\n  - Continue using CPAP machine as prescribed for sleep apnea and monitor any new or worsening symptoms.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan and lifestyle modifications.\", \"suggested_codes\": [{\"code\": \"D61\", \"system\": \"ICD-10\", \"description\": \"SECONDARY POLYCYTHEMIA, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 6,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "K868"
+        ],
+        "pred_codes": [
+          "K858"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 22.74,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere abdominal bloating, pale stools, and occasional sharp lower back pain.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old Caucasian female, presents with a 2-month history of severe abdominal bloating, pale stools, and occasional sharp lower back pain. These symptoms occur daily and are associated with worsening pain and discomfort after meals. The patient reports that the symptoms have significantly impacted her daily activities, causing her to miss work and reducing her ability to exercise.\\n\\n**Review of Systems (ROS):**\\n- **Gastrointestinal:** Severe abdominal bloating, pale stools, occasional sharp lower back pain.\\n- **General:** Fatigue, poor appetite.\\n- **Sleep:** 5-6 hours per night.\\n- **Past Medical History:** Diagnosed with Peptic Ulcer Disease and Hyperlipidemia.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 128/82 mmHg\\n- Heart Rate: 78 bpm\\n- Respiratory Rate: 16 bpm\\n- Temperature: 98.6\u00b0F\\n- BMI: 24.5 kg/m2\\n\\n**Physical Exam:**\\n- **General:** Alert, cooperative, appears fatigued.\\n- **Abdomen:** Mild tenderness in the mid-epigastric region, no masses or organomegaly.\\n- **Cardiovascular:** Normal S1 and S2, no murmurs.\\n- **Respiratory:** Clear to auscultation bilaterally.\\n- **Skin:** No jaundice or rashes.\", \"assessment\": \"- **Diagnosis:** Other specified diseases of pancreas (ICD-10 K85.8)\\n- **Differential Diagnosis:** Chronic pancreatitis, Exocrine pancreatic insufficiency\", \"plan\": \"- **Medications:**\\n  - Pancrelipase 40,000 units, oral, with each meal.\\n  - Omeprazole 20 mg, oral, once daily.\\n- **Further Investigations:**\\n  - CT scan of the abdomen with contrast to evaluate pancreatic morphology and rule out complications.\\n  - Blood work: Comprehensive Metabolic Panel, Complete Blood Count, Vitamin B12 levels.\\n- **Referrals:**\\n  - Referral to a nutritionist, Dr. Jane Wilson, for a tailored diet focusing on low-fat and high-protein intake.\\n- **Follow-up:**\\n  - Schedule a follow-up visit in 3 months to reassess symptoms and response to treatment.\\n- **Patient Education and Counseling:**\\n  - Discussed the nature of the diagnosis and the importance of adherence to medications and dietary changes.\\n  - Emphasized the need for a symptom diary to track symptom frequency and severity.\\n  - Advised on signs of worsening symptoms and when to seek immediate care.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"K858\", \"system\": \"ICD-10\", \"description\": \"OTHER SPECIFIED DISEASES OF PANCREAS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 7,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "E1122"
+        ],
+        "pred_codes": [
+          "E1130"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 30.06,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFatigue and mild dizziness.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old African American male, presents with a 3-month history of mild to moderate fatigue and mild dizziness. The fatigue is daily and has impacted his daily routine and work productivity. He reports increased urinary frequency, particularly at night, which has disturbed his sleep. He also notes mild swelling in his lower extremities.\\n\\n**Review of Systems (ROS):**\\n- **General:** Reports fatigue and mild dizziness.\\n- **Cardiovascular:** No chest pain or palpitations, but mild lower extremity edema.\\n- **Respiratory:** No shortness of breath or cough.\\n- **Gastrointestinal:** No nausea, vomiting, diarrhea, or constipation.\\n- **Neurological:** Mild dizziness.\\n- **Genitourinary:** Increased urinary frequency, particularly at night.\\n- **Psychiatric:** No depression or anxiety.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 142/85 mmHg\\n- Heart Rate: 78 beats per minute\\n- Respiratory Rate: 16 breaths per minute\\n- Temperature: 98.6\u00b0F\\n- Weight: 220 lbs\\n- Height: 5'10\\\"\\n- BMI: 31.5 kg/m2\\n\\n**Physical Examination:**\\n- **General:** Mild lower extremity edema, no acute distress.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs or extra sounds.\\n- **Respiratory:** Clear to auscultation bilaterally.\\n- **Abdomen:** Soft, non-tender, no organomegaly.\\n- **Extremities:** Mild pitting edema in lower limbs, no cyanosis or clubbing.\\n\\n**Investigations:**\\n- **Blood Work:** Awaiting results for comprehensive metabolic panel, HbA1c, urine microalbumin, and eGFR.\", \"assessment\": \"- **Diagnosis:** Type 2 Diabetes Mellitus with Chronic Kidney Disease.\\n- **Differential Diagnosis:** Hypertension, Obesity, Type 2 Diabetes Mellitus.\", \"plan\": \"- **Medications:**\\n  - Continue Metformin 500 mg twice daily.\\n  - Introduce Lisinopril 10 mg once daily for renal protection.\\n\\n- **Referrals:**\\n  - Referral to Nephrologist, Dr. Jane Smith, for assessment and monitoring of chronic kidney disease.\\n\\n- **Blood Work:**\\n  - Comprehensive metabolic panel (CMP)\\n  - HbA1c\\n  - Urine microalbumin\\n  - Estimated glomerular filtration rate (eGFR)\\n\\n- **Imaging:**\\n  - Renal ultrasound to evaluate kidney structure and detect any abnormalities.\\n\\n- **Lifestyle Modifications:**\\n  - Dietary recommendations: Include more low-carbohydrate foods and increase fiber intake.\\n  - Regular physical activity: Start with moderate exercise for at least 30 minutes on most days of the week.\\n  - Smoking cessation: Highly recommended.\\n\\n- **Follow-Up:**\\n  - Follow-up in 3 months to monitor blood glucose levels and kidney function.\\n\\n- **Patient Education:**\\n  - Discussed the importance of medication adherence, dietary changes, and regular exercise.\\n  - Explained the potential side effects of Lisinopril and the importance of monitoring blood pressure.\\n  - Advised on signs and symptoms of complications such as severe dizziness, swelling of the face, lips, or throat, or difficulty breathing, and instructed to seek medical attention if these occur.\\n\\nThe patient understands and agrees with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"E1130\", \"system\": \"ICD-10\", \"description\": \"TYPE 2 DIABETES MELLITUS WITH CHRONIC KIDNEY DISEASE\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 8,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "G40109"
+        ],
+        "pred_codes": [
+          "G409"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 16.85,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nMuscle twitches and occasional de\u0301ja\u0300 vu.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 28-year-old Caucasian female, presents with a 6-month history of muscle twitches and occasional de\u0301ja\u0300 vu. These episodes occur once or twice a week and occasionally disrupt her work and concentration. She reports no significant changes in lifestyle or recent stressors that could explain these symptoms. She denies any other neurological symptoms such as dizziness, weakness, or changes in vision.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports 6-7 hours of sleep per night, feeling unrested.\\n- **Neurological:** Occasional muscle twitches, occasional de\u0301ja\u0300 vu, no other neurological symptoms.\", \"objective\": \"**Physical Examination:**\\n- **Neurological:**\\n  - Cranial Nerves: Normal.\\n  - Strength and Tone: Normal.\\n  - Reflexes: Normal.\\n  - Coordination: Normal.\", \"assessment\": \"- **Diagnosis:** Localization-related epilepsy with simple partial seizures.\", \"plan\": \"- **Medication:**\\n  - Levetiracetam 500 mg, oral, twice daily, 1 month supply (60 tablets).\\n- **Follow-up Recommendations:**\\n  - Follow-up in 1 month to reassess symptoms and medication efficacy.\\n- **Referral:**\\n  - Referral to Dr. Susan Lee, Epilepsy Specialist, for evaluation and possible medication adjustment.\\n- **Imaging:**\\n  - MRI of the brain with and without contrast to rule out structural abnormalities.\\n\\n**Patient Education and Counseling:**\\n- Discussed the diagnosis and the importance of medication adherence.\\n- Advised the patient to keep a seizure diary to track the frequency, duration, and any possible triggers of the episodes.\\n- Explained the potential side effects of Levetiracetam and the importance of regular follow-up appointments.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"G409\", \"system\": \"ICD-10\", \"description\": \"LOCALIZATION-RELATED EPILEPSY WITH SIMPLE PARTIAL SEIZURES\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 9,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "R8290"
+        ],
+        "pred_codes": [
+          "N308"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 27.32,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFollow-up visit for recurrent UTIs and recent mild lower abdominal pain.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old Caucasian female, presents for a follow-up visit regarding recurrent UTIs and recent mild lower abdominal pain. She reports experiencing mild lower abdominal pain for the past two weeks, which is associated with cloudy urine and a strong urine odor. The pain is described as mild, with a severity of 3-4 on the pain scale, and is occasional, not significantly impacting her daily activities.\\n\\n**Review of Systems (ROS):**\\n- **General:** Reports a balanced diet, moderate exercise (3 times a week), and enjoys hiking on weekends. No tobacco or drug use. Social alcohol consumption, 2-3 times a month. Sleeps 7-8 hours per night.\\n- **Gastrointestinal:** No significant complaints.\\n- **Genitourinary:** Reports cloudy urine and a strong urine odor. No dysuria or hematuria.\\n- **Cardiovascular:** History of hypertension. No chest pain or palpitations.\\n- **Respiratory:** No shortness of breath or cough.\\n- **Musculoskeletal:** No muscle weakness or joint pain.\\n- **Neurological:** No headaches or dizziness.\\n- **Endocrine:** No significant complaints.\\n\\n**Medical History:**\\n- **Previous Diagnoses:** Recurrent UTIs\\n- **Family Medical History:** Mother with kidney disease\\n- **Current Medications:** Vitamin supplements\\n- **Allergies:** None\\n- **Chronic Conditions:** Hypertension\\n- **Socio-economic Status:** Middle-class, full-time office worker\\n- **Geographical Location:** Urban, suburban area with moderate pollution\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 130/85 mmHg\\n- Heart Rate: 75 bpm\\n- Respiratory Rate: 16 breaths/min\\n- Temperature: 98.6\u00b0F\\n- Oxygen Saturation: 99% on room air\\n\\n**Physical Exam:**\\n- **Abdomen:** Mild tenderness in the lower abdominal region. No masses or significant findings on percussion. Bowel sounds are normal.\\n- **Urinalysis:** Cloudy urine, positive for protein.\\n\\n**Investigations:**\\n- **Urinalysis:** Cloudy urine, positive for protein.\\n- **Blood Work:** Awaiting results for creatinine, BUN, and electrolytes.\", \"assessment\": \"- **Diagnosis:** Other specified UTIs (ICD-10: N30.8)\\n- **Differential Diagnosis:** Urinary tract infection, kidney disease (family history), hypertension\", \"plan\": \"- **Medical Treatment:**\\n  - Increase water intake.\\n  - Consider empirical antibiotic based on past sensitivity patterns if symptoms worsen before culture results are available.\\n- **Follow-up Recommendations:**\\n  - Schedule a follow-up visit to review test results and adjust treatment plan as necessary.\\n  - Monitor blood pressure and kidney function regularly.\\n- **Referral:**\\n  - Referral to Dr. Emily Johnson, Nephrology, for evaluation of potential kidney disease given family history and proteinuria.\\n- **Patient Education:**\\n  - Educated the patient on the importance of increased hydration and monitoring for signs of worsening infection.\\n  - Discussed the potential need for empirical antibiotic therapy if symptoms persist or worsen.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan and follow-up recommendations.\", \"suggested_codes\": [{\"code\": \"N308\", \"system\": \"ICD-10\", \"description\": \"OTHER SPECIFIED UTIS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 10,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M349"
+        ],
+        "pred_codes": [
+          "M95"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 31.74,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFollow-up for systemic sclerosis.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 62-year-old Caucasian female, presents for a follow-up visit regarding her systemic sclerosis. She reports a 8-month history of skin hardening and tightening on her hands and feet, severe fatigue, shortness of breath, and difficulty swallowing. These symptoms have progressively worsened, significantly impacting her daily activities, making her unable to perform household chores and personal care independently.\\n\\n**Review of Systems (ROS):**\\n- **General:** Severe fatigue, poor sleep due to shortness of breath.\\n- **Respiratory:** Shortness of breath, especially at rest.\\n- **Gastrointestinal:** Difficulty swallowing, mild abdominal pain.\\n- **Skin:** Hardening and tightening of skin on hands and feet, presence of digital ulcers.\\n- **Musculoskeletal:** Joint stiffness and tenderness, especially in the morning.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 140/90 mmHg\\n- Heart Rate: 78 beats per minute\\n- Respiratory Rate: 18 breaths per minute\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **General:** Patient appears fatigued, in mild distress due to shortness of breath.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs, mild lower extremity edema.\\n- **Respiratory:** Bilateral crackles at lung bases.\\n- **Abdomen:** Mild tenderness, no organomegaly.\\n- **Skin:** Severe tightening of skin on hands and feet, presence of digital ulcers.\\n- **Musculoskeletal:** Significant joint stiffness and tenderness, especially in the morning.\", \"assessment\": \"- **Systemic Sclerosis:**\\n  - **Medical Reasoning:** The patient's symptoms and physical examination findings are consistent with systemic sclerosis. The presence of digital ulcers, skin tightening, and joint stiffness are characteristic features.\\n  - **Differential Diagnosis:** None, given the clinical presentation.\\n\\n- **Osteoarthritis:**\\n  - **Medical Reasoning:** Patient reports joint stiffness and tenderness, consistent with osteoarthritis.\\n  - **Differential Diagnosis:** None, given the clinical presentation.\\n\\n- **Hypertension:**\\n  - **Medical Reasoning:** Patient has a history of hypertension, currently managed with Lisinopril 10 mg daily.\\n  - **Differential Diagnosis:** None, given the clinical presentation.\", \"plan\": \"- **Medications:**\\n  - Start Prednisone 15 mg orally once daily for 6 weeks.\\n  - Start Cyclophosphamide 100 mg orally once daily for 4 weeks.\\n  - Monitor for side effects and schedule follow-up in 2 weeks.\\n\\n- **Referrals:**\\n  - Referral to Pulmonologist, Dr. Samuel Green, for evaluation of potential interstitial lung disease.\\n  - Referral to Cardiologist, Dr. Emily Carter, for echocardiogram to evaluate for pulmonary hypertension.\\n\\n- **Investigations:**\\n  - Order blood work: Comprehensive Metabolic Panel, Complete Blood Count with Differential, ANA Panel, Anti-Scl-70 Antibody.\\n  - Order echocardiogram to evaluate heart function, especially given shortness of breath.\\n\\n- **Lifestyle Recommendations:**\\n  - Maintain a high-fiber diet.\\n  - Avoid caffeine and spicy foods to help with gastrointestinal symptoms.\\n  - Mild exercise as tolerated to manage joint stiffness.\\n  - Connect with community support services to assist with daily activities.\\n\\n- **Patient Education and Counseling:**\\n  - Discussed the importance of adherence to the treatment regimen and follow-up appointments.\\n  - Reviewed potential side effects of Prednisone and Cyclophosphamide, including increased risk of infection.\\n  - Encouraged to report any unusual symptoms or side effects promptly.\\n\\n- **Follow-Up:**\\n  - Schedule follow-up appointment in 2 weeks to monitor progress and adjust treatment as needed.\", \"suggested_codes\": [{\"code\": \"M95\", \"system\": \"ICD-10\", \"description\": \"SYSTEMIC SCLEROSIS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 11,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z96611"
+        ],
+        "pred_codes": [
+          "Z99812"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 22.39,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFollow-up for right shoulder joint replacement post-surgery.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 65-year-old Caucasian female, presents for a follow-up visit regarding her right shoulder joint replacement surgery performed 2 months ago due to osteoarthritis. She reports experiencing mild to moderate pain in the right shoulder for the past 2 weeks. The pain is intermittent and occurs several times a day, significantly impacting her ability to perform overhead activities.\\n\\n**Review of Systems (ROS):**\\n- **Musculoskeletal:** Reports mild to moderate pain in the right shoulder, intermittent, several times a day. Denies numbness or tingling.\\n- **Cardiovascular:** Denies chest pain, palpitations, or shortness of breath.\\n- **General:** No new symptoms reported.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 130/78 mmHg\\n- Heart Rate: 75 beats per minute\\n- Temperature: 98.4\u00b0F\\n- Respiratory Rate: 16 breaths per minute\\n\\n**Physical Exam:**\\n- **Right Shoulder:**\\n  - Inspection: Mild tenderness noted over the right shoulder joint.\\n  - Palpation: Mild tenderness upon palpation of the right shoulder joint.\\n  - Range of Motion: Limited range of motion in abduction and external rotation.\\n\\n**Investigations:**\\n- **Imaging:** Awaiting X-ray results of the right shoulder joint.\", \"assessment\": \"- **Primary Diagnosis:** Wear and tear of artificial joint and surrounding tissues post-right shoulder joint replacement.\\n- **Differential Diagnosis:**\\n  - Wear and tear of artificial joint and surrounding tissues.\\n  - Loosening or partial dislocation of joint components.\\n  - Inflammation of surrounding tissues.\", \"plan\": \"- **Medical Treatment:**\\n  - Prescribed NSAIDs (Ibuprofen 400 mg, oral, every 6 hours as needed for pain, quantity: 30 tablets).\\n  - Recommended light exercise to maintain joint mobility but avoid strenuous activities.\\n\\n- **Follow-Up Recommendations:**\\n  - Schedule a follow-up appointment in 6 months to evaluate joint function and review X-ray results.\\n\\n- **Patient Education and Counseling:**\\n  - Discussed the importance of adhering to the prescribed medication regimen and follow-up appointments.\\n  - Advised to monitor for any new symptoms such as increased pain or significant decrease in range of motion.\\n  - Reviewed the potential side effects of NSAIDs and the importance of maintaining a balanced diet and regular exercise.\\n\\n- **Additional Testing:**\\n  - Awaiting X-ray results of the right shoulder joint.\\n\\n- **Chronic Disease Management:**\\n  - Continue current management of hypertension and type 2 diabetes. Monitor blood pressure regularly and follow up with the primary care physician for diabetes control.\", \"suggested_codes\": [{\"code\": \"Z99812\", \"system\": \"ICD-10\", \"description\": \"WEAR AND TEAR OF ARTIFICIAL JOINT AND SURROUNDING TISSUES\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 12,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z87440"
+        ],
+        "pred_codes": [
+          "N308"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 25.24,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nRecurring urinary tract infections.\\n\\n**History of Present Illness (HPI):**\\nThe patient, Maria Gonzalez, is a 28-year-old Hispanic female presenting with a 2-year history of recurring urinary tract infections. She reports moderate severity of symptoms, which occur every 2-4 months. Symptoms include dysuria, urgency, and pelvic discomfort. These episodes have significantly impacted her daily activities, preventing her from participating in sports and social activities.\\n\\n**Review of Systems (ROS):**\\n- **General:** No fever, chills, or fatigue.\\n- **Genitourinary:** Reports dysuria, urgency, and pelvic discomfort. No hematuria or discharge.\\n- **Musculoskeletal:** No muscle pain or weakness.\\n- **Neurological:** No headaches, dizziness, or loss of consciousness.\\n\\n**Patient's Self-Reported Habits and Lifestyle:**\\n- **Diet:** Follows a low acidic diet and avoids spicy foods due to interstitial cystitis.\\n- **Medication History:** Hydroxyzine 25 mg daily.\\n- **Exercise:** Limited due to symptoms.\\n- **Sleep:** Adequate, 7-8 hours per night.\\n- **Recreational Activities:** Limited due to symptoms.\", \"objective\": \"**Vital Signs:**\\n- Temperature: 98.6\u00b0F\\n- Blood Pressure: 120/78 mmHg\\n- Heart Rate: 72 bpm\\n- Respiratory Rate: 16 breaths per minute\\n\\n**Physical Examination:**\\n- **General:** Alert and oriented, no acute distress.\\n- **Abdomen:** Mild tenderness on palpation of the bladder area.\\n- **Pelvic Exam:** Mild tenderness around the bladder, no discharge or lesions noted.\\n\\n**Investigations:**\\n- Awaiting results of urinalysis, culture, and sensitivity tests.\", \"assessment\": \"- **Diagnosis:** Other specified urinary tract infections (ICD-10: N30.8)\\n- **Differential Diagnosis:** Interstitial cystitis, chronic prostatitis, possible anatomical abnormalities contributing to recurrent UTIs.\", \"plan\": \"- **Medication:**\\n  - Ciprofloxacin 250 mg, oral, twice daily for 7 days, total of 14 tablets.\\n- **Lifestyle Recommendations:**\\n  - Increase water intake.\\n  - Urinate frequently and avoid holding urine.\\n- **Follow-Up:**\\n  - Schedule follow-up appointment in 2 weeks to assess response to treatment.\\n- **Referral:**\\n  - Referral to Gynecology, Dr. Laura Johnson, for evaluation of potential anatomical abnormalities contributing to recurrent UTIs.\\n- **Patient Education:**\\n  - Discussed the importance of adhering to prescribed antibiotics and dietary recommendations.\\n  - Explained the potential benefits of frequent urination in reducing the risk of future UTIs.\\n\\n**Instructions:**\\n- The patient was advised to follow up in 2 weeks to assess the response to treatment.\\n- She was also instructed to adhere strictly to the prescribed antibiotics and dietary restrictions.\\n- Frequent urination was emphasized as a key component of managing UTIs.\\n\\n**Language Assistance:**\\n- Utilized a Spanish-speaking medical interpreter to ensure the patient fully understood her patient education and follow-up instructions.\", \"suggested_codes\": [{\"code\": \"N308\", \"system\": \"ICD-10\", \"description\": \"OTHER SPECIFIED URINARY TRACT INFECTIONS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 13,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "B181"
+        ],
+        "pred_codes": [
+          "K720"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 27.71,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nModerate fatigue and occasional abdominal discomfort.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old Asian male, presents for a follow-up visit regarding his chronic hepatitis B. He reports moderate fatigue, rated 6/10, which has been ongoing for the past year. He also experiences occasional abdominal discomfort. The fatigue has significantly impacted his daily activities and work performance. He has been on Entecavir 0.5 mg daily for chronic hepatitis B management.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports moderate fatigue. Denies fever or chills.\\n- **Gastrointestinal:** Reports occasional abdominal discomfort. Denies jaundice or changes in skin color.\\n- **Cardiovascular:** Denies chest pain or palpitations.\\n- **Respiratory:** Denies shortness of breath or cough.\\n- **Musculoskeletal:** Denies joint pain or muscle weakness.\\n- **Neurological:** Denies headaches or dizziness.\\n- **Genitourinary:** Denies changes in urination or hematuria.\\n- **Skin:** Reports mild jaundice, no rashes or other skin issues.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 135/85 mmHg\\n- Heart Rate: 78 bpm\\n- Respiratory Rate: 16 breaths/min\\n- Temperature: 98.6\u00b0F\\n- BMI: 24.5 kg/m2 (within normal range)\\n\\n**Physical Examination:**\\n- **General:** Alert and oriented, appears tired.\\n- **HEENT:** Mild scleral icterus noted.\\n- **Abdomen:** Mild tenderness in the right upper quadrant, no hepatomegaly or splenomegaly.\\n- **Cardiovascular:** Normal S1 and S2, no murmurs.\\n- **Respiratory:** Clear to auscultation bilaterally.\\n- **Skin:** Mild jaundice noted.\", \"assessment\": \"- **Chronic Hepatitis B:** Moderate fatigue likely related to chronic hepatitis B, with mild jaundice and occasional abdominal discomfort consistent with this diagnosis.\\n- **Depression:** Patient reports significant impact on daily activities and work performance, likely contributing to fatigue and decreased motivation.\\n- **Economic constraints:** Patient struggles to afford medication, Entecavir 0.5 mg daily.\", \"plan\": \"- **Medication:** Continue Entecavir 0.5 mg daily.\\n- **Follow-up:**\\n  - Monitor liver function and hepatitis B viral load every 6 months.\\n  - Referral to Dr. Michael Green, Hepatologist, for specialized management of chronic hepatitis B.\\n- **Blood Work:**\\n  - Hepatitis B viral load\\n  - Liver function tests (ALT, AST, Bilirubin)\\n  - Alpha-fetoprotein (AFP)\\n  - Complete Blood Count (CBC)\\n- **Imaging:**\\n  - Liver MRI to monitor for hepatocellular carcinoma.\\n- **Lifestyle Recommendations:**\\n  - Avoid alcohol consumption.\\n  - Maintain a healthy, balanced diet.\\n- **Patient Education:**\\n  - Discussed the importance of medication adherence despite economic constraints.\\n  - Explained the potential consequences of non-compliance and the benefits of regular follow-up.\\n\\n**Instructions:**\\n- The patient will follow up in 6 months for monitoring and further evaluation.\\n- If there is any worsening of jaundice, increased fatigue, or more severe abdominal pain, the patient should reach out immediately.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"K720\", \"system\": \"ICD-10\", \"description\": \"CHRONIC HEPATITIS B\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 14,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "B372"
+        ],
+        "pred_codes": [
+          "B370"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 21.1,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nModerate itching, redness, and mild pain in skin and toenails.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 60-year-old Asian female, presents with a 3-week history of moderate itching, redness, and mild pain in her skin and toenails. The symptoms are primarily located in the intertriginous areas and have been persistent. She reports that her skin has appeared with erythematous plaques and scaling, and her toenails are thickened and discolored. The discomfort has made it difficult for her to perform household chores.\\n\\n**Review of Systems (ROS):**\\n- **Skin:** Reports erythematous plaques with central clearing and peripheral scaling in intertriginous areas.\\n- **Nails:** Thickened and discolored toenails.\\n- **General:** Moderate itching and mild pain.\\n- **Allergies:** No known drug allergies.\\n- **Chronic Conditions:** Type 2 Diabetes Mellitus.\\n- **Family History:** Mother with chronic skin infections.\", \"objective\": \"**Vitals:**\\n- Blood Pressure: 130/85 mmHg\\n- Heart Rate: 78 bpm\\n- SpO2: 98%\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Exam:**\\n- **Skin:** Erythematous plaques with central clearing and peripheral scaling in intertriginous areas.\\n- **Nails:** Thickened and discolored toenails.\\n- **General:** Mild discomfort upon palpation of the affected areas.\", \"assessment\": \"- **Diagnosis:** Candidiasis of the skin and nails.\\n- **Differential Diagnosis:** Tinea corporis, Psoriasis, Contact dermatitis.\", \"plan\": \"- **Medication:**\\n  - Topical Clotrimazole 1% cream, apply to affected areas twice daily for 2 weeks.\\n- **Lifestyle Recommendations:**\\n  - Keep affected areas dry.\\n  - Wear breathable fabrics to reduce moisture build-up.\\n  - Maintain good blood sugar control due to diabetes.\\n- **Follow-up:**\\n  - Return to the clinic in 4 weeks to assess treatment efficacy.\\n- **Patient Education:**\\n  - Educated the patient on the importance of maintaining good hygiene and keeping the affected areas dry.\\n  - Advised on the potential exacerbation of skin conditions due to poor diabetes management.\\n  - Discussed the importance of adhering to a balanced diet with reduced carbohydrate intake and engaging in moderate physical activity to improve overall health and manage diabetes.\\n\\n**Instructions:**\\nThe patient will follow up in 4 weeks or sooner if symptoms worsen or do not improve within the specified period.\", \"suggested_codes\": [{\"code\": \"B370\", \"system\": \"ICD-10\", \"description\": \"CANDIDIASIS OF SKIN AND NAILS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 15,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F1510"
+        ],
+        "pred_codes": [
+          "F1910"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 27.62,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFatigue, irritability, and sleep disturbances.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 28-year-old Caucasian male named John Doe, presents with complaints of fatigue, irritability, and sleep disturbances. These symptoms have been ongoing for the past 6 months and have significantly impacted his daily activities. He reports using amphetamines recreationally, mostly on weekends, for the past few months, using them 2-3 times per week. The last use was 3 days ago. He also mentions experiencing mild headaches and difficulty concentrating. The patient feels anxious but denies any severe symptoms.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports fatigue, irritability, and sleep disturbances. Denies fever or recent weight loss.\\n- **Neurological:** Reports mild headaches and difficulty concentrating. Denies seizures or focal neurological deficits.\\n- **Psychiatric:** Reports irritability and anxiety. Denies suicidal ideation or hallucinations.\\n- **Cardiovascular:** Denies chest pain, palpitations, or shortness of breath.\\n- **Respiratory:** Denies cough, shortness of breath, or chest pain.\\n- **Gastrointestinal:** Denies nausea, vomiting, or abdominal pain.\\n- **Genitourinary:** Denies dysuria or hematuria.\\n- **Skin:** Denies rashes or skin changes.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 122/78 mmHg\\n- Heart Rate: 72 bpm\\n- Respiratory Rate: 16\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Exam:**\\n- **General Appearance:** Well-nourished, appears tired.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs.\\n- **Respiratory:** Clear to auscultation bilaterally.\\n- **Neck:** No abnormalities.\\n- **Abdomen:** Soft, non-tender, no hepatosplenomegaly.\\n- **Neurological:** Alert and oriented, no focal deficits.\\n- **Psychiatric:** Cooperative, affect matches the situation.\", \"assessment\": \"The patient presents with symptoms of fatigue, irritability, and sleep disturbances, likely secondary to amphetamine use. The symptoms are consistent with stimulant abuse and its impact on sleep patterns and overall well-being.\", \"plan\": \"1. **Addiction Counseling:** Referral to addiction specialist, Dr. John Smith, for comprehensive evaluation and management.\\n2. **Blood Work:** Routine blood chemistry panel and complete blood count (CBC) to assess overall health and the impact of stimulant use.\\n3. **Lifestyle Modifications:**\\n   - **Sleep Hygiene:** Encourage maintaining a consistent sleep routine, avoiding screens before bed, and establishing a regular sleep schedule.\\n   - **Physical Activity:** Recommend engaging in regular physical exercise at least 3 times a week.\\n   - **Tobacco Cessation:** Advise gradual reduction in tobacco consumption with the goal of quitting altogether.\\n   - **Anxiety Management:** Suggest non-pharmacological methods such as cognitive-behavioral strategies and relaxation techniques.\\n4. **Follow-Up:** Schedule a follow-up appointment in 2 weeks to assess progress and make any necessary adjustments to the plan.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\nThe patient is advised to stop using amphetamines and to follow up with the addiction specialist. He is also encouraged to adhere to the lifestyle modifications and follow-up appointments to improve his overall health and well-being.\", \"suggested_codes\": [{\"code\": \"F1910\", \"system\": \"ICD-10\", \"description\": \"STIMULANT ABUSE\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 16,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I639"
+        ],
+        "pred_codes": [
+          "I630"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 36.29,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nNumbness on the right side, dizziness, and difficulty walking.\\n\\n**History of Present Illness (HPI):**\\nMr. Li Zhang, a 60-year-old Asian male, presents to the emergency room with a sudden onset of numbness on the right side, dizziness, and difficulty walking. These symptoms began approximately 4 hours ago while he was watching TV at home. He reports no previous episodes of such symptoms. He has a history of Major Depressive Disorder and Chronic Obstructive Pulmonary Disease (COPD). His family history includes a sister who had a stroke at age 50 and a mother with diabetes.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports numbness on the right side, dizziness, and difficulty walking. Denies chest pain, shortness of breath, or headaches.\\n- **Cardiovascular:** Denies new onset cough or chest pain, but reports chronic wheezing.\\n- **Neurological:** Reports numbness on the right side, dizziness, and difficulty walking. Denies joint pain or palpitations.\\n- **Respiratory:** Reports chronic wheezing, denies new cough.\\n- **Psychiatric:** Reports Major Depressive Disorder, denies any new psychiatric symptoms.\\n\\n**Social History:**\\n- **Tobacco Use:** Smokes 1 pack of cigarettes daily for the past 25 years.\\n- **Alcohol Consumption:** Drinks socially, 1-2 glasses of wine per month.\\n- **Physical Activity:** Minimal, sedentary lifestyle.\\n- **Diet:** Mediterranean diet, but limited access to fresh produce.\\n- **Education Level:** Completed high school, limited understanding of medical terms.\\n\\n**Demographics:**\\n- Age: 60\\n- Gender: Male\\n- Ethnicity: Asian\\n- Socio-economic Status: Lower-middle class\\n- Education Level: High school graduate\\n- Health Literacy: Limited\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 160/95 mmHg\\n- Heart Rate: 88 bpm\\n- Respiratory Rate: 20 breaths per minute\\n- Temperature: 98.6\u00b0F\\n- Oxygen Saturation: 92% on room air\\n\\n**Physical Exam:**\\n- **General:** Alert, cooperative, in no acute distress.\\n- **Neurological:** Right-sided hemiparesis, coordination issues, dizziness noted.\\n- **Respiratory:** Reduced breath sounds bilaterally, moderate wheezing.\\n- **Cardiovascular:** No murmurs, regular rate and rhythm.\\n\\n**Investigations:**\\n- Awaiting results of blood tests including CBC, renal function tests, and fasting glucose.\\n- CT Angiography of the brain to evaluate cerebral vessels.\", \"assessment\": \"Mr. Li Zhang is a 60-year-old male presenting with sudden onset of right-sided hemiparesis, dizziness, and difficulty walking. The patient has a history of Major Depressive Disorder and COPD. Given the acute presentation and family history of stroke, the primary concern is a possible stroke. Further imaging and blood work are pending to confirm the diagnosis.\", \"plan\": \"1. **Medications:**\\n   - Start Aspirin 325 mg once daily.\\n   - Start Simvastatin 40 mg once daily.\\n   - Start Labetalol 100 mg twice daily for blood pressure management.\\n\\n2. **Lifestyle Changes:**\\n   - Recommend a Mediterranean diet.\\n   - Advise smoking cessation.\\n   - Encourage physical therapy exercises.\\n\\n3. **Follow-up:**\\n   - Follow up with a neurologist in 3 weeks.\\n   - Referral to Dr. Jane Carter for psychological counseling to support depression management.\\n\\n4. **Imaging:**\\n   - CT Angiography of the brain to evaluate cerebral vessels.\\n\\n5. **Blood Work:**\\n   - Complete blood count (CBC)\\n   - Renal function tests (BUN, Creatinine)\\n   - Fasting glucose\\n\\n6. **Patient Education and Counseling:**\\n   - Discussed the importance of medication adherence, dietary changes, and smoking cessation.\\n   - Explained the potential consequences of not following these recommendations, including increased risk of another stroke.\\n   - Addressed concerns about affording medications and accessing healthy foods, and coordinated with social services for assistance.\\n\\n7. **Language Support:**\\n   - Provided discharge instructions in Mandarin to ensure understanding.\\n   - Arranged for a Mandarin translator to facilitate communication.\\n\\n**Instructions:**\\n- Follow up with the Neurology clinic in 3 weeks.\\n- Continue current medications.\\n- Adhere to lifestyle modifications discussed.\\n- Await results of CT Angiography and blood tests for further management.\", \"suggested_codes\": [{\"code\": \"I630\", \"system\": \"ICD-10\", \"description\": \"STROKE, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 17,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "N951"
+        ],
+        "pred_codes": [
+          "N939"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 25.34,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere hot flashes, heart palpitations, insomnia, mood swings, and fatigue.\\n\\n**History of Present Illness (HPI):**\\nMs. Angela Johnson is a 52-year-old African American female presenting for an initial consultation regarding severe menopausal symptoms. She reports experiencing hot flashes several times a day for the past 9 months. Associated symptoms include heart palpitations, insomnia, mood swings, and fatigue. These symptoms have significantly impacted her daily activities, including her job performance and social interactions.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports fatigue and decreased energy levels.\\n- **Cardiovascular:** Reports heart palpitations.\\n- **Neurological:** Reports severe insomnia.\\n- **Psychiatric:** Reports mood swings and anxiety exacerbation.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 125/85 mmHg\\n- Heart Rate: 80 bpm\\n- Temperature: 98.4\u00b0F\\n- Respiratory Rate: 18 breaths per minute\\n\\n**Physical Exam:**\\n- **General Appearance:** Mildly overweight, appears fatigued but cooperative.\\n- **Cardiovascular:** No acute distress, regular rate and rhythm.\\n- **Neurological:** No focal deficits, alert and oriented.\\n- **Psychiatric:** No acute distress, appears anxious but cooperative.\\n\\n**Investigation/Test Results:**\\n- Awaiting results of Basic Metabolic Panel (BMP) to rule out hyperthyroidism.\", \"assessment\": \"- **Primary Diagnosis:** Menopausal and female climacteric states.\\n- **Secondary Diagnoses:** Anxiety disorder exacerbation, Hyperthyroidism (awaiting BMP results).\", \"plan\": \"- **Medications:**\\n  - Prescribe Tibolone 2.5 mg oral tablet once daily for 6 months.\\n  - Continue Sertraline 50 mg daily for anxiety.\\n\\n- **Therapy:**\\n  - Recommend cognitive-behavioral therapy sessions once weekly for managing mood swings and insomnia.\\n\\n- **Lifestyle Modifications:**\\n  - Advise a Mediterranean diet rich in fruits, vegetables, and lean proteins.\\n  - Encourage regular physical activity, such as walking or returning to hiking as tolerated.\\n\\n- **Follow-Up:**\\n  - Schedule a follow-up appointment in 6 months to assess the response to medication and therapy.\\n  - Educate the patient on recognizing side effects of Tibolone and the importance of adherence to the treatment plan.\\n\\n- **Additional Testing:**\\n  - Await results of BMP, Complete Blood Count (CBC), and Lipid Panel.\\n\\n- **Patient Education:**\\n  - Discuss the nature of menopausal symptoms and the expected benefits of Tibolone.\\n  - Emphasize the importance of diet and exercise in managing menopausal symptoms.\\n  - Address concerns about the new medication and therapy, considering the patient's low health literacy and insurance constraints.\\n\\n- **Support Services:**\\n  - Provide information on accessible local support groups for menopausal women, considering the patient's low health literacy and rural location.\", \"suggested_codes\": [{\"code\": \"N939\", \"system\": \"ICD-10\", \"description\": \"MENOPAUSAL AND FEMALE CLIMACTERIC STATES\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 18,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F919"
+        ],
+        "pred_codes": [
+          "F91"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 21.52,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere behavioral issues including aggression, defiance, skipping school, and theft.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 14-year-old male named Ethan Thompson, presents with a 12-month history of severe behavioral issues. The parents report that the patient has been experiencing aggression, defiance, skipping school, and theft. These behaviors have escalated significantly over the past year and have had a profound impact on his social, academic, and family life. The patient has a history of Attention Deficit Hyperactivity Disorder (ADHD) and has been diagnosed with Conduct Disorder, Unspecified.\\n\\n**Review of Systems (ROS):**\\n- **General:** Reports staying up late playing video games, irregular sleep patterns.\\n- **Diet:** High in junk food, high in sugar.\\n- **Physical Activity:** Minimal.\\n- **Psychiatric:** No suicidal ideation, no hallucinations.\\n- **Neurological:** No seizures, no headaches.\", \"objective\": \"- **Behavioral Observations:** The patient appears uncooperative and reluctant to participate in the consultation. Minimal eye contact and disengaged.\\n- **Physical Examination:** Not performed during this consultation.\\n- **Vital Signs:** Not taken during this consultation.\\n- **Investigations:** Blood work ordered, including CBC and thyroid function tests.\", \"assessment\": \"- **Diagnosis:** Conduct Disorder, Unspecified.\\n- **History:** Previous diagnosis of ADHD.\\n- **Chronic Conditions:** None identified.\", \"plan\": \"- **Therapy:**\\n  - Cognitive Behavioral Therapy (CBT) with Dr. Jane Smith, a psychiatrist specializing in adolescent behavioral issues, weekly sessions.\\n- **Family Therapy:** Bi-weekly sessions to address family interactions and dynamics.\\n- **Follow-up:** Follow-up appointment in 1 month to assess progress and adjust the treatment plan if necessary.\\n- **Referrals:**\\n  - Referral to the school counselor for extra academic and social support.\\n  - Referral to a social worker to explore any family dynamics or external factors contributing to the behavior.\\n- **Medication:** Continue low-dose methylphenidate for ADHD.\\n- **Lifestyle Changes:**\\n  - Establish a structured daily routine, including after-school activities.\\n  - Limit video game time.\\n  - Improve sleep hygiene.\\n  - Dietary changes: Include healthier food options and reduce junk food and sugary drinks.\\n\\n**Patient Agreements:**\\nThe patient and parents are willing to try the recommended therapy and lifestyle changes.\\n\\n**Instructions:**\\n- Follow up in 1 month for assessment and adjustment of the treatment plan.\\n- Continue with current medication for ADHD.\\n- Implement the recommended lifestyle changes and seek support from the school counselor and social worker.\", \"suggested_codes\": [{\"code\": \"F91\", \"system\": \"ICD-10\", \"description\": \"CONDUCT DISORDER, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 19,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "R17"
+        ],
+        "pred_codes": [
+          "R73"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 26.98,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\n- Yellowing of skin and eyes.\\n\\n**History of Present Illness (HPI):**\\n- The patient, a 45-year-old Caucasian female, presents with a 2-week history of jaundice, rated 7/10 in severity. She reports associated symptoms of dark urine, light-colored stools, and intense itching. The itching has significantly impacted her sleep, averaging only 5-6 hours per night. She has missed work due to her symptoms.\\n\\n**Review of Systems (ROS):**\\n- Constitutional: Reports fatigue and poor sleep.\\n- Gastrointestinal: Reports jaundice, dark urine, light-colored stools, and intense itching.\\n- Dermatological: Reports itching.\\n- Psychiatric: Reports poor sleep due to itching.\\n\\n**Social History:**\\n- Diet: High in fatty foods, frequent eating out, low in vegetables.\\n- Exercise: Sedentary lifestyle, no regular exercise.\\n- Tobacco Use: Never smoked.\\n- Alcohol Consumption: Occasional, 1-2 drinks per month.\\n- Drug Use: Never used.\\n- Recreational Activities: Enjoys reading, no physical activities.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 130/85 mmHg\\n- Heart Rate: 72 bpm\\n- Respiratory Rate: 16 breaths/min\\n- Temperature: 98.6\u00b0F\\n- Oxygen Saturation: 98% on room air\\n\\n**Physical Exam:**\\n- General: Appears jaundiced, with excoriation marks from scratching.\\n- Abdomen: Mild tenderness in the right upper quadrant, no hepatosplenomegaly.\\n- Cardiovascular: Normal S1, S2, no murmurs, rubs, or gallops.\\n- Respiratory: Clear to auscultation bilaterally.\\n- Ocular: Scleral icterus present.\\n\\n**Investigations:**\\n- Awaiting results from CBC, LFTs, viral hepatitis panel, and autoimmune markers (ANA, AMA).\", \"assessment\": \"- Jaundice, unspecified.\\n- Differential diagnosis includes hepatobiliary obstruction, viral hepatitis, autoimmune hepatitis, drug-induced liver injury, or cholestatic liver disease.\", \"plan\": \"- **Medications:**\\n  - Start Ursodeoxycholic acid 250 mg, oral, twice daily.\\n- **Imaging:**\\n  - MRI of the liver to check for structural abnormalities.\\n- **Referral:**\\n  - Referral to Dr. Emily Thompson, Hepatologist, for further evaluation due to persistent jaundice and suspected liver pathology.\\n- **Follow-up:**\\n  - Follow-up in 2 weeks to assess response to treatment and further evaluation.\\n- **Lifestyle Modifications:**\\n  - Advise the patient to modify her diet to reduce fatty foods and incorporate more vegetables.\\n  - Discuss potential causes of jaundice and the need for further evaluation and testing to determine the underlying cause.\\n- **Patient Education:**\\n  - Educate the patient on the importance of medication adherence and lifestyle changes.\\n  - Discuss potential side effects of Ursodeoxycholic acid and the need for regular follow-up.\\n\\n**Instructions:**\\n- The patient is advised to monitor for any worsening of symptoms and to seek immediate medical attention if she experiences severe abdominal pain, confusion, or other concerning symptoms.\\n- The patient will follow up in 2 weeks for further evaluation and management.\", \"suggested_codes\": [{\"code\": \"R73\", \"system\": \"ICD-10\", \"description\": \"JAUNDICE, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 20,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "S46011A"
+        ],
+        "pred_codes": [
+          "M7562XA1A"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 26.42,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere shoulder pain.\\n\\n**History of Present Illness (HPI):**\\nJohn Smith is a 45-year-old Caucasian male presenting with severe shoulder pain that has been ongoing for the past 4 days. The pain is described as severe and constant, with occasional sharp pain episodes. The patient reports difficulty performing daily activities, including lifting his arm above his head, which significantly impacts his ability to work as a mechanic. He also experiences difficulty dressing and bathing due to the pain. The pain has been affecting his sleep, as he finds it difficult to find a comfortable position.\\n\\n**Review of Systems (ROS):**\\n- **Musculoskeletal:** Severe shoulder pain, difficulty lifting the arm above the head, difficulty dressing and bathing.\\n- **Neurological:** No numbness or tingling reported.\\n- **General:** No fever or unusual fatigue.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 130/80 mmHg\\n- Heart Rate: 72 bpm\\n- Respiratory Rate: 16 breaths per minute\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **Inspection:** No visible deformity, slight swelling noted in the right shoulder.\\n- **Palpation:** Tenderness over the supraspinatus muscle.\\n- **Range of Motion:** Severe limitation in abduction and external rotation.\\n- **Strength:** Weakness in shoulder abduction.\\n- **Special Tests:** Positive supraspinatus test and O'Brien's test.\", \"assessment\": \"- **Diagnosis:** Strain of muscles and tendons of the rotator cuff, right shoulder (ICD-10: M75.62X1A).\\n- **Differential Diagnosis:** Shoulder impingement, rotator cuff tear, osteoarthritis.\", \"plan\": \"- **Medical Treatment:**\\n  - Prescribed Tylenol 325 mg, oral, every 6 hours as needed for pain, 20 tablets.\\n  - Recommended home exercises to maintain flexibility and strength.\\n  - Advised the patient to apply ice to the shoulder for 20 minutes every 3-4 hours to reduce swelling and pain.\\n  - Recommended over-the-counter pain relief as needed.\\n\\n- **Follow-Up:**\\n  - Scheduled a follow-up appointment in 1 week to assess the progress.\\n  - If no improvement is seen in 4 weeks, referred to an orthopedic surgeon, Dr. Emily White, for surgical opinion.\\n\\n- **Imaging:**\\n  - Ordered an MRI of the right shoulder to evaluate for soft tissue injury or possible tear.\\n\\n- **Patient Education and Counseling:**\\n  - Discussed the importance of adhering to the exercise regimen and ice application.\\n  - Provided an informational handout on rotator cuff injuries and steps for shoulder care and pain management.\\n  - Advised the patient to monitor for any increase in pain or new symptoms and to report them immediately.\\n  - Discussed the potential need for surgical intervention if conservative measures do not provide relief.\\n\\n- **Patient Agreements:**\\n  - The patient understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\n- Await results of the MRI scan.\\n- Reassess in 1 week or sooner if there is no improvement.\\n- Monitor for any increase in pain or new symptoms and report them immediately.\", \"suggested_codes\": [{\"code\": \"M7562XA1A\", \"system\": \"ICD-10\", \"description\": \"STRAIN OF MUSCLES AND TENDONS OF ROTATOR CUFF, RIGHT SHOULDER\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 21,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F429"
+        ],
+        "pred_codes": [
+          "F632"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 25.37,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\n- The patient, a 45-year-old Caucasian male, presents with symptoms of obsessive-compulsive disorder (OCD) including checking locks and distressing thoughts.\\n\\n**History of Present Illness (HPI):**\\n- The patient reports experiencing symptoms of OCD for over a year, with daily occurrences of checking locks and distressing thoughts. These symptoms are mild but interfere with daily activities, causing frustration and anxiety.\\n- The patient notes that these symptoms are more pronounced in the evenings.\\n\\n**Review of Systems (ROS):**\\n- **Psychiatric:** Reports mild OCD symptoms, including checking locks and distressing thoughts. Denies any suicidal ideation or hopelessness.\\n- **General:** Reports 7-8 hours of sleep per night, stable weight, no significant weight changes.\\n- **Cardiovascular:** No chest pain, palpitations, or shortness of breath.\\n- **Gastrointestinal:** No nausea, vomiting, or abdominal pain.\\n- **Genitourinary:** No urinary issues.\\n- **Musculoskeletal:** No joint pain or muscle weakness.\\n- **Neurological:** No dizziness or headaches.\\n- **Endocrine:** No polyuria or polydipsia.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 120/80 mmHg\\n\\n**Physical Exam:**\\n- **General:** Patient appears well-nourished and in no acute distress.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs.\\n- **Respiratory:** Clear breath sounds bilaterally.\\n- **Abdomen:** Soft, non-tender, no organomegaly.\\n- **Musculoskeletal:** Full range of motion, no deformities.\\n- **Neurological:** Normal reflexes, no focal deficits.\", \"assessment\": \"- **Diagnosis:** Obsessive-Compulsive Disorder, unspecified (ICD-10: F63.2)\\n- **Medical Reasoning:** The patient's symptoms and history are consistent with OCD. The patient's daily checking behaviors and distressing thoughts are characteristic of the disorder.\", \"plan\": \"- **Medication:**\\n  - Start Clomipramine 25 mg, oral, once daily.\\n- **Therapy:**\\n  - Referral to Dr. Anna Roberts, Licensed Clinical Social Worker, for behavioral therapy sessions.\\n- **Follow-Up:**\\n  - Schedule a follow-up appointment in 2 weeks to evaluate medication response and therapy progress.\\n- **Lifestyle Recommendations:**\\n  - Encourage the patient to maintain a routine, engage in regular physical exercise, and continue community involvement.\\n- **Patient Education:**\\n  - Discussed the nature of OCD, the role of medication and therapy, and the importance of adherence to the treatment plan.\\n  - Addressed concerns about side effects of Clomipramine and the benefits of behavioral therapy.\\n\\n**Patient Agreements:**\\n- The patient understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\n- The patient will start Clomipramine 25 mg once daily and return in 2 weeks for evaluation. He is advised to contact the clinic if he experiences any side effects or concerns.\", \"suggested_codes\": [{\"code\": \"F632\", \"system\": \"ICD-10\", \"description\": \"OBSESSIVE-COMPULSIVE DISORDER, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 22,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "L208"
+        ],
+        "pred_codes": [
+          "L738"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 22.68,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nModerate to severe itching and redness on the skin.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 35-year-old Caucasian female, presents with a 3-month history of moderate to severe itching and redness on the skin. The symptoms have worsened over the past 2 weeks, with occasional oozing and crusting. The itching is primarily located on the flexor surfaces of the elbows and knees, and there are dry, scaly patches on the neck. The patient reports that the itching significantly impacts her daily activities, causing difficulty sleeping and concentrating at work.\\n\\n**Review of Systems (ROS):**\\n- **Skin:** Reports moderate to severe itching and redness, especially on the flexor surfaces of the elbows and knees. Dry, scaly patches on the neck. Occasional oozing and crusting.\\n- **Respiratory:** History of asthma, currently managed with an Albuterol inhaler as needed. No recent exacerbations.\\n- **Allergic/Immunologic:** History of allergic rhinitis, managed with Fluticasone nasal spray. No recent flare-ups.\", \"objective\": \"**Physical Exam:**\\n- **Skin:** Erythema and lichenification observed on the flexor surfaces of the elbows and knees. Dry, scaly patches noted on the neck. No signs of secondary infection.\\n\\n**Investigations:**\\n- **Blood Work:** Ordered to check Immunoglobulin E (IgE) levels to assess atopy.\", \"assessment\": \"- **Diagnosis:** Other specified skin disorders (ICD-10: L73.8)\\n- **Differential Diagnosis:** Atopic dermatitis, contact dermatitis, seborrheic dermatitis\", \"plan\": \"- **Medications:**\\n  - Topical corticosteroid: Hydrocortisone 2.5% cream, apply to affected areas twice daily for 2 weeks.\\n  - Moisturizer: CeraVe, apply once daily.\\n  - Albuterol inhaler as needed for asthma.\\n  - Fluticasone nasal spray for allergic rhinitis.\\n\\n- **Lifestyle Recommendations:**\\n  - Consistent moisturizing of the skin.\\n  - Avoid known skin irritants.\\n  - Consider reducing intake of processed foods.\\n  - Continue regular exercise, mindful of environmental triggers.\\n\\n- **Follow-Up:**\\n  - Schedule a follow-up appointment in 4 weeks to assess the response to treatment.\\n  - Referral to an Allergist or Immunologist if no improvement is noted.\\n\\n- **Patient Education:**\\n  - Discussed the importance of consistent skin care and avoiding known irritants.\\n  - Advised on dietary modifications to reduce processed foods.\\n  - Provided written instructions on medication use and follow-up.\\n\\n- **Patient Agreements:**\\n  - The patient understands and agrees with the recommended treatment plan and follow-up schedule.\", \"suggested_codes\": [{\"code\": \"L738\", \"system\": \"ICD-10\", \"description\": \"OTHER SPECIFIED SKIN DISORDERS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 23,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "G43009"
+        ],
+        "pred_codes": [
+          "G4311"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 24.43,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere headaches.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 28-year-old Caucasian female named Emily Johnson, presents with a history of severe headaches that occur 3-4 times per month. The headaches can last anywhere from 4 hours to 3 days and are associated with nausea, photophobia, and phonophobia. The patient reports that these symptoms significantly impact her daily activities, making it difficult for her to perform routine tasks.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports difficulty sleeping, averaging 4-5 hours per night.\\n- **Neurological:** Severe headaches, photophobia, phonophobia, nausea.\\n- **Musculoskeletal:** Neck muscle tenderness.\\n- **Psychiatric:** Reports stress exacerbating symptoms.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 120/80 mmHg\\n- Pulse: 72 bpm\\n- Respiratory Rate: 16/min\\n- Temperature: 98.6\u00b0F\\n- Height: 5\u20197\u201d\\n- Weight: 150 lbs\\n- BMI: 23.5\\n\\n**Physical Examination:**\\n- **General:** Well-appearing, in no acute distress.\\n- **HEENT:** No signs of infection or abnormalities.\\n- **Neck:** Tenderness in neck muscles, no lymphadenopathy.\\n- **Neurological:**\\n  - **Cranial Nerves:** II-XII normal.\\n  - **Muscle Strength and Tone:** Normal.\\n  - **Deep Tendon Reflexes:** Normal.\\n  - **Sensory Function:** Normal.\\n  - **Coordination and Gait:** Normal.\", \"assessment\": \"- **Diagnosis:** Migraine without aura, not intractable, not involving status migrainosus.\", \"plan\": \"- **Medications:**\\n  - **Acute Migraine:** Sumatriptan 50 mg tablets, take 1 tablet at the onset of a migraine, maximum 2 doses in 24 hours.\\n  - **Preventive Therapy:** Topiramate 25 mg tablets, take 1 tablet once daily in the evening, review effectiveness and tolerance in 1 month.\\n- **Lifestyle Modifications:**\\n  - **Sleep:** Establish a regular sleep routine, aiming for 7-8 hours per night.\\n  - **Diet:** Reduce intake of processed foods and caffeine, maintain a balanced diet rich in fruits, vegetables, and whole grains.\\n  - **Exercise:** Incorporate at least 30 minutes of moderate exercise, such as walking or cycling, three times a week.\\n- **Follow-Up:** Schedule a follow-up appointment in 4 weeks to evaluate the effectiveness of the treatment and make any necessary adjustments.\\n\\n**Patient Education and Counseling:**\\n- Discussed the nature of migraines and the importance of adherence to prescribed medications.\\n- Advised on lifestyle modifications to reduce migraine frequency and severity.\\n- Encouraged to monitor symptoms and report any changes or concerns.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan and lifestyle modifications.\", \"suggested_codes\": [{\"code\": \"G4311\", \"system\": \"ICD-10\", \"description\": \"MIGRAINE WITHOUT AURA, NOT INTRACTABLE, NOT INVOLVING STATUS MIGRAINOSUS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 24,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I619"
+        ],
+        "pred_codes": [
+          "G9110"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 23.11,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere headache, nausea, and right-sided weakness.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old African American male, presents with a sudden onset of severe headache, nausea, vomiting, and right-sided weakness that began approximately 2 hours ago. This is the first occurrence of such symptoms. The patient reports being unable to perform any tasks independently and requires assistance with daily activities.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports poor sleep, approximately 4-5 hours per night, and a diet high in processed foods with low fiber intake. Smokes 10 cigarettes per day and consumes 2-3 alcoholic drinks per week. Sedentary lifestyle.\\n- **Neurological:** Severe headache, nausea, vomiting, right-sided weakness, and diminished reflexes on the right side.\\n- **Cardiovascular:** Denies chest pain or palpitations.\\n- **Respiratory:** Denies shortness of breath or cough.\\n- **Gastrointestinal:** Reports nausea and vomiting.\\n- **Musculoskeletal:** Reports right-sided weakness.\", \"objective\": \"**Physical Examination:**\\n- **General:** Alert but in pain, appears anxious.\\n- **Neurological:** Right-sided hemiparesis, diminished reflexes on the right side, Glasgow Coma Scale (GCS) score of 13 (slightly confused but responsive).\\n- **Vital Signs:** Blood pressure 190/100 mmHg, heart rate 88 bpm with regular rhythm.\", \"assessment\": \"- **Primary Diagnosis:** Potential intracerebral hemorrhage.\\n- **Differential Diagnosis:** Ischemic stroke, brain tumor, other causes of acute neurological deterioration.\", \"plan\": \"- **Immediate Treatment:**\\n  - Admit to the Emergency Department for close monitoring.\\n  - Initiate Mannitol IV to reduce intracranial pressure.\\n- **Further Investigations:**\\n  - Order CT scan of the brain with and without contrast to evaluate for hemorrhage or other abnormalities.\\n  - Blood work: Hematology and coagulation profiles to assess for any underlying conditions contributing to the hemorrhage.\\n- **Referral:**\\n  - Consult with a neurosurgeon, Dr. John Smith, to determine if surgery is necessary.\\n- **Follow-Up:**\\n  - Re-evaluate the patient in 24 hours or sooner if there is any change in the clinical status.\\n- **Patient Education and Counseling:**\\n  - Discuss the importance of controlling blood pressure and managing chronic conditions such as hypertension and diabetes.\\n  - Educate the patient and family about the potential need for surgical intervention and the importance of adherence to the treatment plan.\\n  - Address lifestyle factors such as smoking, diet, and exercise to improve overall health and reduce the risk of further complications.\\n\\n**Patient Agreements:**\\nThe patient and family understand and agree with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"G9110\", \"system\": \"ICD-10\", \"description\": \"INTRACEREBRAL HEMORRHAGE\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 25,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I82401"
+        ],
+        "pred_codes": [
+          "I8240"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 28.06,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere pain and swelling in the right leg.\\n\\n**History of Present Illness (HPI):**\\nJohn Doe is a 45-year-old Caucasian male who presents to the clinic with severe pain and swelling in his right leg. The symptoms began approximately 3 days ago and have been constant. He reports that the pain is severe enough to prevent him from walking and performing daily activities. The right leg is swollen, red, and warm to the touch. He denies any recent trauma or immobility.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Denies fever or chills.\\n- **Cardiovascular:** Denies chest pain, palpitations, or shortness of breath.\\n- **Respiratory:** Denies cough or difficulty breathing.\\n- **Gastrointestinal:** Denies nausea, vomiting, or abdominal pain.\\n- **Genitourinary:** Denies dysuria or hematuria.\\n- **Musculoskeletal:** Reports severe pain and swelling in the right leg.\\n- **Neurological:** Denies headaches, dizziness, or numbness.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 135/85 mmHg\\n- Heart Rate: 82 bpm\\n- Respiratory Rate: 16 breaths/min\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **General:** Patient appears in mild distress due to pain.\\n- **Right Lower Extremity:**\\n  - Swelling, erythema, and warmth noted.\\n  - Positive Homan's sign.\\n  - No pulses distal to the swelling.\\n- **Cardiovascular:** Normal S1 and S2, no murmurs, rubs, or gallops.\\n- **Respiratory:** Clear to auscultation bilaterally.\\n- **Abdomen:** Soft, non-tender, no organomegaly.\\n- **Neurological:** Alert and oriented, no focal deficits.\", \"assessment\": \"John Doe is a 45-year-old male presenting with acute embolism and thrombosis of unspecified deep veins of the right lower extremity. The patient's symptoms and physical examination findings are consistent with this diagnosis.\", \"plan\": \"- **Medications:**\\n  - Prescribed Warfarin 5 mg orally once daily for 3 months.\\n  - Advised to wear prescribed compression stockings.\\n- **Follow-up Recommendations:**\\n  - Return to the clinic in 1 week for INR monitoring and possible medication adjustment.\\n  - Schedule an appointment with Hematologist, Dr. Susan Lee, within the next 2 weeks for hypercoagulability workup.\\n  - Obtain duplex ultrasound of the right lower extremity as soon as possible.\\n- **Patient Education and Counseling:**\\n  - Discussed the importance of adhering to prescribed anticoagulant therapy and wearing compression stockings.\\n  - Advised on signs and symptoms of potential complications such as pulmonary embolism and the need to seek immediate medical attention if they occur.\\n  - Provided information on lifestyle modifications to reduce the risk of clotting, including smoking cessation strategies, increased physical activity, and dietary salt reduction.\\n\\n**Instructions:**\\n- Return to the clinic in 1 week for INR monitoring and possible medication adjustment.\\n- Schedule an appointment with Hematologist, Dr. Susan Lee, within the next 2 weeks.\\n- Obtain duplex ultrasound of the right lower extremity as soon as possible.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"I8240\", \"system\": \"ICD-10\", \"description\": \"EMBOLISM AND THROMBOSIS OF UNSPECIFIED DEEP VEINS OF RIGHT LOWER EXTREMITY\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 26,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z3200"
+        ],
+        "pred_codes": [
+          "Z3A"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 18.18,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nMissed period for 2 weeks.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 28-year-old Caucasian female, presents with a 2-week history of missed period, nausea, and breast tenderness. She reports that these symptoms have been occurring daily and have impacted her daily productivity due to fatigue. This is the first occurrence of these symptoms for her. She denies any previous history of irregular periods and is currently not using any form of contraception. She has not taken any home pregnancy tests prior to this visit.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports fatigue.\\n- **Gastrointestinal:** Reports nausea, no vomiting.\\n- **Breasts:** Reports tenderness, no lumps.\\n- **General:** No other systemic symptoms reported.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 120/80 mmHg\\n- Heart Rate: 72 beats per minute\\n- Respiratory Rate: 16 breaths per minute\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **General:** Appears anxious but cooperative.\\n- **Abdomen:** Unremarkable, no tenderness or masses.\\n- **Breasts:** Tenderness noted, no lumps.\\n- **Cardiovascular:** Normal heart sounds, no murmurs.\\n- **Respiratory:** Clear to auscultation bilaterally.\\n- **Neurological:** Alert and oriented, no focal deficits.\", \"assessment\": \"- **Pregnancy Status:** Pending confirmation.\\n- **Other Diagnoses:** N/A\", \"plan\": \"- **Pregnancy Confirmation:** Blood test for Beta-HCG ordered to confirm pregnancy status.\\n- **Prenatal Vitamins:** Start prenatal vitamins if pregnancy confirmed.\\n- **Dietary Counseling:** Discuss adopting a healthy diet.\\n- **Contraceptive Counseling:** Discuss contraceptive options if pregnancy is not confirmed.\\n- **Follow-Up:** Schedule a follow-up appointment in 2 days to review test results and discuss next steps.\\n\\n**Instructions:**\\n- The patient will return in 2 days for follow-up and to review the results of the Beta-HCG test.\\n- If the patient experiences any worsening symptoms or new concerns, she should contact the clinic or return for immediate evaluation.\", \"suggested_codes\": [{\"code\": \"Z3A\", \"system\": \"ICD-10\", \"description\": \"ENCOUNTER FOR PREGNANCY STATUS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 27,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z3403"
+        ],
+        "pred_codes": [
+          "O249"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 24.12,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFollow-up for gestational diabetes management.\\n\\n**History of Present Illness (HPI):**\\nMaria Gonzalez is a 32-year-old Hispanic female, G2P1, presenting for a follow-up visit regarding her newly diagnosed gestational diabetes. She reports moderate symptoms over the past two weeks, including increased thirst, frequent urination, dizziness, blurred vision, and fatigue. She has been experiencing these symptoms daily and has been taking metformin 500 mg twice daily as prescribed. She has been struggling with dietary changes due to limited access to fresh produce in her low-income neighborhood.\\n\\n**Review of Systems (ROS):**\\n- **General:** Reports fatigue, difficulty sleeping (5-6 hours per night due to frequent urination).\\n- **Gastrointestinal:** Denies nausea or vomiting.\\n- **Neurological:** Reports dizziness and blurred vision.\\n- **Endocrine:** Reports increased thirst and frequent urination.\\n- **Musculoskeletal:** Denies joint pain.\\n- **Psychiatric:** Reports frustration with dietary restrictions.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 130/85 mmHg\\n- Weight: 170 lbs\\n\\n**Physical Exam:**\\n- **General:** Well-nourished, cooperative female in no acute distress.\\n- **Abdomen:** Fundal height consistent with gestational age.\\n- **Cardiovascular:** Fetal heart rate 140 bpm.\\n- **Neurological:** Alert and oriented, no focal deficits.\\n- **Endocrine:** Urine dipstick test shows glucose present, no protein.\\n- **Other systems:** Unremarkable on physical exam.\", \"assessment\": \"- **Diagnosis:** Gestational Diabetes Mellitus, not elsewhere classified (ICD-10: O24.9).\\n- **Medical Reasoning:** The patient presents with classic symptoms of gestational diabetes, including polyuria, polydipsia, and dizziness. Her limited access to fresh produce and dietary challenges are noted, which may contribute to her difficulty in adhering to dietary recommendations.\", \"plan\": \"- **Medication:** Prescribe insulin therapy, 5 units as a subcutaneous injection before bedtime.\\n- **Referral:** Refer to a nutritionist, Dr. Susan Lee, for meal planning and dietary management focusing on low-carbohydrate, balanced meals.\\n- **Follow-up:** Schedule a follow-up appointment in 2 weeks to reassess glucose control and review HbA1c results.\\n- **Blood Work:** Await HbA1c results to assess glucose control over the past 2 weeks.\\n- **Lifestyle Recommendations:** Encourage light physical activities such as walking as tolerated to aid in glucose control and overall well-being.\\n- **Education:** Provide educational materials in Spanish about managing gestational diabetes, emphasizing the importance of consistent prenatal care and glucose monitoring.\\n- **Support Services:** Recommend reaching out to local community resources to help access fresh produce and dietary support.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\n- Follow up in 2 weeks for reassessment.\\n- Continue monitoring blood glucose levels at home.\\n- Ensure consistent prenatal care and glucose monitoring.\", \"suggested_codes\": [{\"code\": \"O249\", \"system\": \"ICD-10\", \"description\": \"GESTATIONAL DIABETES MELLITUS, NOT ELSEWHERE CLASSIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 28,
+      "valid": false,
+      "problems": [
+        "soap_assessment_not_string"
+      ],
+      "lenient_valid": false,
+      "lenient_problems": [
+        "soap_assessment_not_string"
+      ],
+      "codes": {
+        "gold_codes": [
+          "M2012"
+        ],
+        "pred_codes": [
+          "M1920"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 47.67,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nLeft foot pain and swelling around the big toe.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old Caucasian female, presents with a 3-month history of moderate pain and swelling around the big toe of her left foot. She describes the pain as constant with intermittent exacerbations, particularly when wearing tight shoes or after long walks. The pain is rated at 6/10 and is associated with occasional numbness in the toe. The patient reports that the pain has significantly impacted her ability to participate in exercise classes and walk her dog.\\n\\n**Review of Systems (ROS):**\\n- **Musculoskeletal:** Reports pain and swelling around the big toe of the left foot.\\n- **Neurological:** Occasional numbness in the toe.\\n- **General:** Balanced diet, no tobacco use, social alcohol consumption (2-3 drinks per week), no drug use, regular participation in low-impact exercise classes.\\n- **Allergies:** No known allergies.\\n- **Family History:** Father had bunions, mother had chronic bronchitis.\\n- **Previous Diagnoses:** Hyperlipidemia, Asthma.\\n- **Medication History:** Statins for hyperlipidemia, Inhaled corticosteroid for asthma.\\n\\n**2. Objective:**\\n\\n**Vital Signs:**\\n- Blood Pressure: 128/78 mmHg\\n- Heart Rate: 72 bpm\\n- Respiratory Rate: 16 breaths/min\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **Left Foot:**\\n  - Inspection: Enlarged bony prominence on the medial aspect of the big toe.\\n  - Palpation: Tenderness over the medial aspect of the big toe.\\n  - Range of Motion: Reduced range of motion in the toe joint.\\n\\n**3. Assessment:**\\n- **Diagnosis:** Hallux Valgus, Left Foot.\\n- **Medical Reasoning:** The patient's symptoms and physical examination findings are consistent with hallux valgus. The diagnosis is confirmed by the physical examination and the patient's history of intermittent pain and swelling.\\n\\n**4. Plan:**\\n- **Medical Treatment:**\\n  - Prescribed custom orthotics to alleviate pressure and improve foot alignment.\\n  - Recommended a regimen of stretching exercises to improve flexibility and reduce pain.\\n  - Prescribed Diclofenac 1% gel to be applied to the affected area three times daily to help with pain and inflammation.\\n\\n- **Lifestyle Modifications:**\\n  - Advised to wear wide, supportive footwear and avoid tight, high-heeled shoes.\\n  - Recommended limiting high-impact activities to prevent exacerbation of symptoms.\\n\\n- **Referral:**\\n  - Referral to a physical therapist for gait training and strengthening exercises specifically tailored to address hallux valgus.\\n\\n- **Follow-Up:**\\n  - Scheduled a follow-up appointment in 6 weeks to assess improvement with orthotics and exercise regimen.\\n\\n- **Patient Education:**\\n  - Discussed the importance of proper footwear and lifestyle modifications to manage symptoms and prevent complications.\\n  - Advised to continue current medications for hyperlipidemia and asthma, maintain a balanced diet, and engage in low-impact exercises.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan and lifestyle modifications.\\n\\n**Instructions:**\\n- Continue current medications for hyperlipidemia and asthma.\\n- Maintain a balanced diet.\\n- Engage in low-impact exercises.\\n- Wear wide, supportive footwear.\\n- Avoid tight, high-heeled shoes.\\n- Limit high-impact activities.\\n- Follow up in 6 weeks for reassessment.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 128/78 mmHg\\n- Heart Rate: 72 bpm\\n- Respiratory Rate: 16 breaths/min\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **Left Foot:**\\n  - Inspection: Enlarged bony prominence on the medial aspect of the big toe.\\n  - Palpation: Tenderness over the medial aspect of the big toe.\\n  - Range of Motion: Reduced range of motion in the toe joint.\\n\\n**5. Assessment:**\\n- **Diagnosis:** Hallux Valgus, Left Foot.\\n- **Medical Reasoning:** The patient's symptoms and physical examination findings are consistent with hallux valgus. The diagnosis is confirmed by the physical examination and the patient's history of intermittent pain and swelling.\", \"plan\": \"- **Medical Treatment:**\\n  - Prescribed custom orthotics to alleviate pressure and improve foot alignment.\\n  - Recommended a regimen of stretching exercises to improve flexibility and reduce pain.\\n  - Prescribed Diclofenac 1% gel to be applied to the affected area three times daily to help with pain and inflammation.\\n\\n- **Lifestyle Modifications:**\\n  - Advised to wear wide, supportive footwear and avoid tight, high-heeled shoes.\\n  - Recommended limiting high-impact activities to prevent exacerbation of symptoms.\\n\\n- **Referral:**\\n  - Referral to a physical therapist for gait training and strengthening exercises specifically tailored to address hallux valgus.\\n\\n- **Follow-Up:**\\n  - Scheduled a follow-up appointment in 6 weeks to assess improvement with orthotics and exercise regimen.\\n\\n- **Patient Education:**\\n  - Discussed the importance of proper footwear and lifestyle modifications to manage symptoms and prevent complications.\\n  - Advised to continue current medications for hyperlipidemia and asthma, maintain a balanced diet, and engage in low-impact exercises.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan and lifestyle modifications.\\n\\n**Instructions:**\\n- Continue current medications for hyperlipidemia and asthma.\\n- Maintain a balanced diet.\\n- Engage in low-impact exercises.\\n- Wear wide, supportive footwear.\\n- Avoid tight, high-heeled shoes.\\n- Limit high-impact activities.\\n- Follow up in 6 weeks for reassessment.\", \"suggested_codes\": [{\"code\": \"M1920\", \"system\": \"ICD-10\", \"description\": \"HALLUX VALGUS, LEFT FOOT\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 29,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "T1490"
+        ],
+        "pred_codes": [
+          "S8320XA"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 20.99,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nLeft wrist pain.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old Caucasian female, presents with a chief complaint of left wrist pain that has been ongoing for the past 5 days. She rates the pain severity at 5/10 and notes that it is intermittent but bothersome. The pain is exacerbated by movement, especially when carrying heavy objects. She also reports mild swelling and bruising over the left wrist. The pain has mildly limited her daily activities, such as carrying heavy objects and performing routine tasks.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Denies fever or weight loss.\\n- **Respiratory:** Denies shortness of breath or cough. History of mild asthma, controlled with Albuterol as needed.\\n- **Musculoskeletal:** Reports left wrist pain, mild swelling, and bruising. Denies other joint pain.\\n- **Neurological:** Denies numbness or tingling in extremities.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 118/72 mmHg\\n- Heart Rate: 76 bpm\\n- Respiratory Rate: 16 breaths/min\\n- Temperature: 98.6\u00b0F\\n- Oxygen Saturation: 99% on room air\\n\\n**Physical Examination:**\\n- **General:** Well-nourished, well-developed female in no acute distress.\\n- **Musculoskeletal:**\\n  - **Left Wrist:** Slight bruising noted over the distal radius. Tenderness upon palpation. Mild swelling present. Limited range of motion due to pain. No deformity observed.\\n- **Respiratory:** Lungs clear to auscultation bilaterally.\\n- **Neurological:** Sensory and motor functions intact in the left upper limb.\", \"assessment\": \"The patient presents with symptoms and physical examination findings consistent with a distal radius injury. Awaiting X-ray results to confirm the diagnosis.\", \"plan\": \"- **Medical Treatment:**\\n  - Prescribed Ibuprofen 400 mg, oral, every 6 hours as needed for pain, quantity: 30 tablets.\\n  - Continue using the wrist splint to immobilize the wrist.\\n- **Lifestyle Recommendations:**\\n  - Avoid activities that exacerbate the pain.\\n  - Rest the wrist as much as possible.\\n  - Use ice packs to reduce swelling.\\n- **Follow-Up:**\\n  - Follow-up in 1 week to review X-ray results and reassess wrist function.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"S8320XA\", \"system\": \"ICD-10\", \"description\": \"FRACTURE OF DISTAL RADIUS, INITIAL ENCOUNTER\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 30,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "N400"
+        ],
+        "pred_codes": [
+          "N38"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 25.22,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nRoutine check-up.\\n\\n**History of Present Illness (HPI):**\\nJohn Smith is a 65-year-old Caucasian male who presents for a routine check-up. He reports no current symptoms or concerns. He has a history of hypertension, which is well-managed with Lisinopril 10 mg daily. He has a balanced diet and engages in moderate exercise, including daily walking for 20 minutes. He sleeps well, getting 7-8 hours of restful sleep each night. He denies any urinary symptoms, chest pain, or shortness of breath.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** No fever, fatigue, or weight loss.\\n- **Cardiovascular:** No chest pain, palpitations, or edema.\\n- **Respiratory:** No shortness of breath, cough, or sputum production.\\n- **Gastrointestinal:** No abdominal pain, nausea, vomiting, or changes in bowel habits.\\n- **Genitourinary:** No urinary frequency, urgency, or nocturia.\\n- **Musculoskeletal:** No joint pain or stiffness.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 126/78 mmHg\\n- Heart Rate: 72 bpm\\n- Respiratory Rate: 16\\n- Temperature: 98.4\u00b0F\\n\\n**Physical Exam:**\\n- **General:** Well-nourished, well-developed male in no apparent distress.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs, gallops, or rubs.\\n- **Respiratory:** Normal breath sounds bilaterally, no wheezing or rales.\\n- **Abdomen:** Soft, non-tender, no organomegaly.\\n- **Genitourinary:** Digital Rectal Exam (DRE) revealed an enlarged prostate, smooth, and non-tender.\", \"assessment\": \"- **Benign Prostatic Hyperplasia (BPH):**\\n  - The patient's enlarged prostate on DRE is consistent with BPH, which is common in men of his age.\\n- **Hypertension:**\\n  - Well-managed with Lisinopril 10 mg daily, blood pressure within normal limits.\", \"plan\": \"- **Imaging:**\\n  - Transrectal Ultrasound (TRUS) for detailed assessment of prostate size.\\n- **Follow-up:**\\n  - Follow up in 6 months for progression assessment and to review TRUS results.\\n- **Medication:**\\n  - Continue Lisinopril 10 mg daily for hypertension management.\\n- **Patient Education:**\\n  - Explained the benign nature of BPH and potential future symptoms such as difficulty urinating or a weak stream.\\n  - Advised to maintain a balanced diet and continue moderate exercise, such as daily walking.\\n- **Lifestyle Recommendations:**\\n  - Limit red meat intake and maintain a heart-healthy diet.\\n- **New Medications:**\\n  - None needed at this time.\\n\\n**Instructions:**\\n- The patient will follow up in 6 months for a progression assessment and to review the TRUS results.\\n- If any new urinary symptoms develop, the patient should call the office.\\n- Continue current hypertension management with Lisinopril 10 mg daily.\\n#####\", \"suggested_codes\": [{\"code\": \"N38\", \"system\": \"ICD-10\", \"description\": \"BENIGN PROSTATIC HYPERPLASIA\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 31,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "H40003"
+        ],
+        "pred_codes": [
+          "H4011"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 20.2,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFollow-up visit for vision changes and headaches.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old Asian female, presents for a follow-up visit due to recent changes in her vision. She reports noticing blind spots and occasional blurred vision over the past 4 months. These symptoms have been persistent and have led to frequent headaches. The patient also mentions eye strain, which has impacted her ability to read small print, use the computer, and drive at night.\\n\\n**Review of Systems (ROS):**\\n- **Ocular:** Reports blind spots, slight vision loss, eye strain, and occasional blurred vision.\\n- **Neurological:** Frequent headaches.\", \"objective\": \"**Physical Exam:**\\n- **Visual Acuity Test:** 20/30 in the right eye, 20/40 in the left eye.\\n- **Intraocular Pressure (IOP) Measurement:** 23 mmHg in the right eye, 24 mmHg in the left eye.\\n- **Confrontation Visual Field Test:** Marked reduction in peripheral vision in both eyes.\\n\\n**Investigation/Test Results:**\\n- **Optical Coherence Tomography (OCT):** Thin retinal nerve fiber layer in both eyes.\\n- **MRI of Brain and Orbits:** Awaiting results to rule out neurological causes.\", \"assessment\": \"- **Primary Diagnosis:** Primary Open-Angle Glaucoma\\n- **Differential Diagnosis:** Neurological causes (awaiting MRI results)\", \"plan\": \"- **Medications:**\\n  - Brimonidine 0.15% eye drops, 1 drop in each eye twice daily.\\n- **Referrals:**\\n  - Referral to Dr. Amelia Chang, Glaucoma Specialist, for further management.\\n- **Imaging:**\\n  - MRI of the brain and orbits with and without contrast to rule out neurological causes.\\n- **Follow-up:**\\n  - Return in 2 months for re-evaluation and intraocular pressure measurement.\\n- **Patient Education and Counseling:**\\n  - Discussed the importance of medication adherence and the potential side effects of Brimonidine.\\n  - Advised on lifestyle modifications, including healthy dietary choices and increased physical activity.\\n  - Addressed smoking cessation and provided resources for support.\\n  - Recommended better sleep hygiene practices.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan. She is motivated to follow the prescribed medication regimen and has expressed willingness to schedule the appointment with Dr. Amelia Chang.\", \"suggested_codes\": [{\"code\": \"H4011\", \"system\": \"ICD-10\", \"description\": \"PRIMARY OPEN-ANGLE GLAUCOMA\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 32,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M1710"
+        ],
+        "pred_codes": [
+          "M1720"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 23.18,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere pain in the right knee.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 62-year-old Caucasian female, presents with severe pain in her right knee that has been ongoing for the past 9 months. The pain is described as moderate to severe and is associated with joint stiffness and a clicking sound when moving the knee. The patient reports that the pain is constant but worsens after prolonged sitting. She experiences difficulty standing for long periods and has found it challenging to engage in activities such as gardening.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports difficulty sleeping due to knee pain. Denies fever or significant weight loss.\\n- **Musculoskeletal:** Reports severe pain, stiffness, and a clicking sound in the right knee. Denies any numbness or tingling in the extremities.\\n- **Gastrointestinal:** Denies any changes in bowel or bladder habits.\\n- **Cardiovascular:** Denies chest pain or palpitations.\\n- **Respiratory:** Denies shortness of breath or cough.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 128/82 mmHg\\n- Heart Rate: 76 beats per minute\\n- Respiratory Rate: 14 breaths per minute\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **General:** Patient appears in moderate distress due to pain.\\n- **Musculoskeletal:**\\n  - **Right Knee:** Moderate swelling, significant tenderness on palpation, limited range of motion, crepitus noted on movement.\\n  - **Other joints:** No significant abnormalities observed.\", \"assessment\": \"- **Diagnosis:** Unilateral primary osteoarthritis of the right knee.\\n- **Differential Diagnosis:**\\n  - Patellofemoral pain syndrome\\n  - Meniscal tear\\n  - Ligament injury\", \"plan\": \"- **Medications:**\\n  - Prescribed Tramadol 50 mg tablets, oral, every 4-6 hours as needed for severe pain, maximum 400 mg/day.\\n- **Therapy:**\\n  - Recommended aquatic therapy to help relieve stress on the knee.\\n- **Referrals:**\\n  - Referral to a pain management specialist for further evaluation and potential corticosteroid injection.\\n- **Investigations:**\\n  - Ordered biochemistry profile to check kidney and liver function before starting new medication.\\n- **Patient Education:**\\n  - Discussed the importance of staying active within pain limits and the potential benefits of aquatic therapy.\\n  - Advised the patient on the potential side effects of Tramadol and the importance of adhering to the prescribed dose.\\n- **Follow-up:**\\n  - Scheduled a follow-up appointment in 6 weeks to assess the patient's response to treatment and adjust the management plan as necessary.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"M1720\", \"system\": \"ICD-10\", \"description\": \"UNILATERAL PRIMARY OSTEOARTHRITIS OF RIGHT KNEE\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 33,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F902"
+        ],
+        "pred_codes": [
+          "F90"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 19.77,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFollow-up for ADHD management.\\n\\n**History of Present Illness (HPI):**\\nJohn Doe is a 12-year-old Caucasian male presenting for a follow-up visit regarding his Attention Deficit Hyperactivity Disorder (ADHD). He reports moderate to severe ADHD symptoms that have been persistent for the past 3 years. Symptoms include inattention, hyperactivity, and impulsivity, which have been occurring daily and are impacting his ability to focus in school, complete homework, and maintain relationships with peers. He was previously diagnosed with ADHD one year ago and was on atomoxetine, but the medication was discontinued due to side effects. \\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports difficulty falling asleep and staying asleep. \\n- **Psychiatric:** Reports irritability and restlessness. No motor issues observed but is hyperactive and restless.\\n- **Neurological:** No motor deficits observed.\", \"objective\": \"**Vitals:**\\n- Blood Pressure: 105/70 mmHg\\n- Heart Rate: 88 bpm\\n- Respiratory Rate: 18 breaths/min\\n- Temperature: 36.7\u00b0C\\n\\n**Physical Exam:**\\n- **General:** Appears anxious and restless.\\n- **Neurological:** No motor deficits observed. Hyperactive and restless during the exam.\", \"assessment\": \"- **Primary Diagnosis:** Attention Deficit Hyperactivity Disorder (ADHD)\\n- **Severity:** Moderate to severe\\n- **Impact on Daily Life:** Significant impact on school performance and social relationships.\", \"plan\": \"- **Medication:**\\n  - Prescribe Methylphenidate 10 mg, oral, twice daily, 1-month supply.\\n- **Behavioral Therapy:**\\n  - Referral to Dr. Rachel Green, Psychologist, for behavioral therapy.\\n- **Follow-Up:**\\n  - Schedule a follow-up appointment in 1 month to reassess symptoms and medication efficacy.\\n- **Lifestyle Recommendations:**\\n  - Discuss sleep hygiene techniques to improve sleep quality.\\n  - Encourage a balanced diet, reduce sugary snacks, and increase physical activity.\\n  - Continue supportive measures at home, such as structured routines and positive reinforcement strategies.\\n- **Monitoring:**\\n  - Monitor the patient's response to the medication and report any side effects immediately.\\n  - Maintain open communication with the psychologist to tailor therapy to the patient's needs.\\n\\n**Patient Agreements:**\\nThe patient's parents understand and agree with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"F90\", \"system\": \"ICD-10\", \"description\": \"ATTENTION DEFICIT HYPERACTIVITY DISORDER\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 34,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "F0281"
+        ],
+        "pred_codes": [
+          "G282"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 26.0,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFollow-up for Lewy Body Dementia.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 75-year-old Caucasian female, presents for a follow-up visit regarding her Lewy Body Dementia. She reports moderate to severe symptoms over the past 3 years, including increased confusion, forgetfulness, visual hallucinations, and difficulty with daily activities. These symptoms occur daily and have progressively worsened. The patient requires assistance with daily activities such as bathing, dressing, and eating. She also experiences frequent nighttime awakenings and has a poor appetite. \\n\\n**Review of Systems (ROS):**\\n- **General:** Reports fatigue.\\n- **Neurological:** Increased confusion, forgetfulness, visual hallucinations, agitation during episodes of confusion.\\n- **Cardiovascular:** No chest pain or palpitations.\\n- **Gastrointestinal:** Poor appetite, frequent nighttime awakenings.\\n- **Musculoskeletal:** Decreased muscle strength in lower limbs, unsteady gait.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 140/85 mmHg\\n\\n**Physical Exam:**\\n- **Neurological Exam:**\\n  - Memory Impairment\\n  - Visual Hallucinations\\n  - Mild cogwheel rigidity\\n- **Cardiovascular Exam:**\\n  - No murmurs\\n  - Regular heart rate and rhythm\\n- **Musculoskeletal Exam:**\\n  - Decreased muscle strength in lower limbs\\n  - Unsteady gait\\n\\n**Investigations:**\\n- Awaiting routine blood work for basic metabolic panel, vitamin B12, and thyroid function test.\", \"assessment\": \"- Lewy Body Dementia\\n  - Symptoms include increased confusion, forgetfulness, visual hallucinations, and agitation.\\n- Type 2 Diabetes Mellitus\\n  - Managed with Metformin 500 mg twice daily.\\n- Hypertension\\n  - Managed with Lisinopril 20 mg once daily.\\n- Depression\\n  - Managed with Quetiapine 12.5 mg at bedtime.\", \"plan\": \"- **Medications:**\\n  - Add Quetiapine 12.5 mg at bedtime to manage agitation and hallucinations.\\n  - Continue Donepezil 10 mg once daily.\\n  - Continue Metformin 500 mg twice daily.\\n  - Continue Lisinopril 20 mg once daily.\\n\\n- **Lifestyle Recommendations:**\\n  - Encourage a consistent daily routine to reduce agitation.\\n  - Engage in simple, familiar activities to enhance cognitive function and reduce agitation.\\n\\n- **Follow-up:**\\n  - Follow up in 4 weeks to assess the efficacy of the new medication and review blood work results.\\n\\n- **Referrals:**\\n  - Referral to physical therapy to improve mobility and reduce the risk of falls.\\n  - Referral to a geriatrician, Dr. Emily Hughes, for a comprehensive assessment and multidisciplinary care approach.\\n\\n- **Patient Education:**\\n  - Educate the patient and her caregiver on the importance of medication adherence and lifestyle changes.\\n  - Discuss potential side effects of the new medication and ensure the caregiver is aware of any concerns.\\n\\n- **Instructions:**\\n  - The patient and her caregiver are advised to monitor for any side effects from the new medication and report any concerns.\\n  - Ensure the patient sticks to the medication regimen and lifestyle recommendations.\", \"suggested_codes\": [{\"code\": \"G282\", \"system\": \"ICD-10\", \"description\": \"LEWY BODY DEMENTIA\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 35,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "A419"
+        ],
+        "pred_codes": [
+          "A4180"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 36.41,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFever and severe flank pain.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old African American male, presents with a 2-day history of intermittent fever and severe flank pain. The pain is described as dull and aching, with episodes of exacerbation. He reports increased urinary frequency and fatigue. The pain has been persistent, causing him to have poor sleep due to discomfort.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports fever, fatigue.\\n- **Gastrointestinal:** Denies nausea, vomiting, or diarrhea.\\n- **Genitourinary:** Reports flank pain, increased urinary frequency, no hematuria.\\n- **Cardiovascular:** Denies chest pain or palpitations.\\n- **Respiratory:** Denies cough or shortness of breath.\\n- **Musculoskeletal:** Denies joint pain or muscle weakness.\\n- **Neurological:** Denies headaches, dizziness, or numbness.\\n- **Skin:** Denies rashes or itching.\\n- **Psychiatric:** Denies anxiety or depression.\\n\\n**Medical History:**\\n- **Previous Diagnoses:** Hypertension, Polycystic Kidney Disease (PKD).\\n- **Family Medical History:** Father with hypertension, mother with PKD.\\n- **Medication History:** Amlodipine 5 mg daily for hypertension, Allopurinol 300 mg daily for PKD.\\n- **Allergies:** None.\\n- **Chronic Conditions:** Hypertension, PKD.\\n- **Lifestyle:** Non-smoker, no alcohol consumption, follows a low-protein diet for kidney health.\\n- **Recreational Activities:** Enjoys gardening.\\n- **Work:** Full-time software engineer.\\n- **Health Literacy:** High, patient is highly cooperative and adherent to medical advice.\\n- **Socio-economic Status:** Middle class, stable income.\\n- **Health Literacy:** High, patient is highly cooperative and adherent to medical advice.\\n- **Insurance:** Private insurance, coverage for chronic conditions.\\n- **Follow-up:** Occasionally misses appointments due to work commitments.\", \"objective\": \"**Vitals:**\\n- Temperature: 101\u00b0F\\n- Blood Pressure: 140/85 mmHg\\n- Heart Rate: 110 bpm\\n- Respiratory Rate: 18\\n- Oxygen Saturation: 98% on room air\\n\\n**Physical Examination:**\\n- **General:** Patient appears moderately ill and febrile.\\n- **Cardiovascular:** Regular rhythm, tachycardia noted.\\n- **Respiratory:** Clear breath sounds bilaterally.\\n- **Abdomen:** Tenderness in the right flank, no rebound tenderness or guarding.\\n- **Extremities:** Warm, no edema, normal capillary refill.\\n\\n**Investigations:**\\n- Awaiting results for:\\n  - Blood cultures\\n  - Complete blood count (CBC)\\n  - Kidney function tests (BUN and Creatinine)\\n  - Lactic acid levels\", \"assessment\": \"- **Diagnosis:** Sepsis due to Escherichia coli, likely secondary to recurrent urinary tract infections.\\n- **Differential Diagnosis:** Pyelonephritis, Kidney stones, Urosepsis.\", \"plan\": \"- **Treatment:**\\n  - Initiate IV antibiotics: Meropenem 1g every 8 hours for 14 days.\\n  - Monitor vital signs and urine output closely.\\n  - Continue current medications: Amlodipine 5 mg daily for hypertension, Allopurinol 300 mg daily for PKD.\\n- **Referrals:**\\n  - Referral to Urology for evaluation of recurrent urinary tract infections: Dr. Michael Brown.\\n- **Follow-up:**\\n  - Follow up bi-weekly with blood cultures and renal function tests to monitor progress.\\n- **Patient Education:**\\n  - Discussed the importance of completing the full course of antibiotics.\\n  - Advised on the need for regular follow-up appointments to monitor infection control and kidney function.\\n  - Encouraged compliance with dietary restrictions and engaging in regular light exercise as tolerated.\\n- **Instructions:**\\n  - Patient to report any worsening symptoms, such as increased pain, higher fever, or changes in urine output.\\n  - Await lab results to adjust the treatment plan accordingly.\\n  - Contact workplace to discuss potential accommodations for health-related absences.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"A4180\", \"system\": \"ICD-10\", \"description\": \"SEPSIS DUE TO ESCHERICHIA COLI\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 36,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "E43"
+        ],
+        "pred_codes": [
+          "K580"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 21.41,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere weight loss and muscle wasting.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old Caucasian female, presents with severe weight loss and muscle wasting over the past year. She reports chronic diarrhea and abdominal pain daily, along with persistent fatigue and anemia. The weight loss has been significant, and she has been unable to maintain her work and daily activities due to the associated symptoms. She follows a gluten-free diet due to her celiac disease but notes that her diet is low in calories and protein.\\n\\n**Review of Systems (ROS):**\\n- **General:** Severe weight loss, fatigue.\\n- **Gastrointestinal:** Chronic diarrhea, abdominal pain.\\n- **Hematologic:** Anemia.\", \"objective\": \"**Physical Exam:**\\n- **General:** Cachectic appearance with significant muscle wasting and pallor.\\n- **Abdomen:** Soft, non-tender, with normal bowel sounds, slight distension noted.\", \"assessment\": \"- **Primary Diagnosis:** Malnutrition due to celiac disease, unspecified.\\n- **Secondary Diagnoses:** Anemia, chronic diarrhea, abdominal pain.\", \"plan\": \"- **Initiate Nutritional Supplementation:**\\n  - Start a high-protein, high-calorie diet plan.\\n  - Prescribe a daily multivitamin supplement.\\n\\n- **Follow-Up:**\\n  - Schedule a follow-up appointment in 4 weeks to assess weight gain and nutritional status.\\n\\n- **Referral:**\\n  - Refer to a dietitian for detailed nutritional counseling and meal planning.\\n\\n- **Blood Work:**\\n  - Order a comprehensive metabolic panel, complete blood count (CBC), and serum albumin/protein levels.\\n\\n- **Imaging:**\\n  - Order an abdominal CT scan to identify any underlying causes or complications.\\n\\n- **Patient Education and Counseling:**\\n  - Discuss the importance of a balanced gluten-free diet.\\n  - Encourage the patient to maintain a detailed food diary.\\n  - Address any difficulties in following the diet plan and provide support for adherence.\\n\\n- **Instructions:**\\n  - The patient is advised to seek immediate medical attention if she notices any new symptoms or changes in her current symptoms.\\n  - She is to follow up with the dietitian and the medical team as scheduled.\", \"suggested_codes\": [{\"code\": \"K580\", \"system\": \"ICD-10\", \"description\": \"MALNUTRITION DUE TO CELIAC DISEASE, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 37,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I491"
+        ],
+        "pred_codes": [
+          "I480"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 32.97,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nIntermittent palpitations and mild dizziness.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 65-year-old Caucasian male, presents with a 2-week history of intermittent palpitations and mild dizziness. The symptoms are moderate in severity and occur multiple times a day, particularly during physical activities. The patient reports that these symptoms have been disruptive to his daily activities, including jogging. He also mentions that his sleep has been interrupted due to palpitations, averaging 6-7 hours per night. He maintains a balanced diet but has a high sodium intake. He exercises by jogging for 30 minutes three times a week.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** No fevers, weight loss, or chills.\\n- **Cardiovascular:** Reports intermittent palpitations and mild dizziness. No chest pain or edema.\\n- **Respiratory:** No shortness of breath or cough.\\n- **Neurological:** No headaches or syncope.\\n- **Gastrointestinal:** No nausea, vomiting, or abdominal pain.\\n\\n**Social History:**\\n- **Sleep:** Interrupted sleep due to palpitations, averaging 6-7 hours per night.\\n- **Diet:** Balanced diet with high sodium intake.\\n- **Exercise:** Jogging for 30 minutes three times a week.\\n- **Alcohol Consumption:** 1-2 glasses of wine per week.\\n- **Tobacco Use:** None.\\n- **Drug Use:** None.\\n- **Recreational Activities:** Enjoys gardening and reading.\\n- **Location:** Lives in an affluent urban area with moderate pollution risk.\\n\\n**Family History:**\\n- Father had a history of Ischemic Heart Disease.\\n\\n**Medication History:**\\n- Currently on Atorvastatin 20 mg once daily and Lisinopril 10 mg once daily.\\n- No known drug allergies.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 138/82 mmHg\\n- Heart Rate: Irregular at 85 bpm\\n- Respiratory Rate: 16 breaths per minute\\n- Temperature: 98.6\u00b0F\\n- Oxygen Saturation: 98% on room air\\n\\n**Physical Examination:**\\n- **Cardiovascular:** Irregular heart rhythm noted. No murmurs, S3, or S4 gallops. Peripheral pulses are 2+ and symmetrical. No jugular venous distention or peripheral edema.\\n- **General:** Well-nourished, well-developed male in no acute distress.\\n\\n**Results:**\\n- Awaiting results from the 24-hour Holter monitor.\", \"assessment\": \"- **Diagnosis:** Atrial Premature Depolarizations (APD)\\n- **Medical Reasoning:** The patient's symptoms of intermittent palpitations and mild dizziness, along with the irregular heart rhythm observed, are consistent with Atrial Premature Depolarizations. Given the patient's history of hypertension and hyperlipidemia, careful management is required.\", \"plan\": \"- **Medication:**\\n  - Start Metoprolol 25 mg, oral, once daily for 30 days.\\n- **Further Tests:**\\n  - Arrange for a 24-hour Holter monitor to assess the frequency of APD and identify any associated arrhythmias.\\n- **Follow-Up:**\\n  - Schedule a follow-up appointment in 4 weeks to evaluate the response to medication and review the results of the Holter monitor.\\n- **Patient Education and Counseling:**\\n  - Discussed the nature of Atrial Premature Depolarizations and the importance of adherence to the prescribed medication regimen.\\n  - Advised the patient to reduce sodium intake, as high sodium can contribute to palpitations.\\n  - Encouraged continued regular exercise but to monitor symptoms and reduce intensity if palpitations or dizziness occur.\\n  - Reviewed potential side effects of Metoprolol, including fatigue and dizziness, and advised to report any such symptoms.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\n- The patient will follow up in 4 weeks for evaluation of the Holter monitor results and medication efficacy.\\n- The patient is advised to monitor his symptoms and report any changes or concerns before the follow-up appointment.\", \"suggested_codes\": [{\"code\": \"I480\", \"system\": \"ICD-10\", \"description\": \"ATRIAL PREMATURE DEPOLARIZATIONS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 38,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "D229"
+        ],
+        "pred_codes": [
+          "L738"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 26.62,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\n- Concerns about a mole on the back.\\n\\n**History of Present Illness (HPI):**\\n- Ms. Gonza\u0301lez is a 52-year-old Hispanic female presenting with concerns about a mole on her back. She reports that the mole has been enlarging over the past 3 months. The mole is one of several she has had for over a decade and has been moderately concerned about its changes. She experiences occasional itching and minor discomfort, but the mole has not caused significant distress.\\n\\n**Review of Systems (ROS):**\\n- **General:** Reports adequate sleep, but recent sleep has been disrupted by worry.\\n- **Skin:** Multiple nevi, one of which is enlarging and showing asymmetry, color variegation, and is approximately 7 mm in diameter.\\n- **Endocrine:** History of Type 2 Diabetes, managed with Metformin and a diabetic meal plan.\\n- **Cardiovascular:** Hypertension, managed with medication.\\n- **Lifestyle:** Smokes half a pack per day, drinks 2-3 glasses of wine per week, engages in walking and light yoga, enjoys reading and gardening.\", \"objective\": \"**Physical Examination:**\\n- **General Appearance:** Well-nourished, alert, and oriented.\\n- **Skin:** Multiple nevi, some regular and some irregular. The nevus on the back shows asymmetry, color variegation, and is approximately 7 mm in diameter.\\n- **Vital Signs:**\\n  - Blood Pressure: 130/85 mmHg\\n  - Heart Rate: 72 bpm\\n  - Respiratory Rate: 16 breaths per minute\\n  - Temperature: 36.8\u00b0C\\n\\n**Investigations:**\\n- Dermatoscopic images of all moles, particularly focusing on the enlarging nevus on the back.\\n- Awaiting biopsy results for the enlarging nevus.\", \"assessment\": \"- **Diagnosis:** Other nevi, unspecified (ICD-10: L73.8)\\n  - **Medical Reasoning:** The enlarging nevus on the back, showing asymmetry and color variegation, warrants further investigation due to potential malignant transformation.\\n- **Type 2 Diabetes:** Well-managed with Metformin and a diabetic meal plan.\\n- **Hypertension:** Managed with medication.\\n- **Smoking:** Half a pack per day, strongly encouraged to quit.\\n- **Alcohol Consumption:** 2-3 glasses of wine per week, no excessive use reported.\", \"plan\": \"- **Follow-up Recommendations:** Routine skin checks every 12 months, immediate return once biopsy results are available.\\n- **Referral:** Referral to Dr. Jason White, a dermatologic surgeon, for consultation regarding the excision of the enlarging nevus on the back.\\n- **Patient Education:** Discussed the ABCDEs of melanoma and the importance of monitoring for any changes in the mole. Advised to avoid excessive sun exposure and use sunscreen regularly. Emphasized the importance of quitting smoking due to its adverse effects on skin and overall health.\\n- **Lifestyle Modifications:** Encouraged to continue managing diabetes and hypertension as prescribed. Advised to maintain a balanced diet and regular exercise routine.\\n- **Additional Instructions:** Continue monitoring blood sugar levels regularly and set reminders to ensure medication adherence.\\n\\n**Patient Agreements:**\\n- Ms. Gonza\u0301lez understands and agrees with the recommended medical treatment plan and follow-up recommendations.\", \"suggested_codes\": [{\"code\": \"L738\", \"system\": \"ICD-10\", \"description\": \"OTHER NEOVI, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 39,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "L0501"
+        ],
+        "pred_codes": [
+          "L730"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 18.59,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere pain, swelling, and redness at the base of the spine.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 28-year-old Caucasian male, presents with severe pain, swelling, and redness at the base of the spine, which has persisted for the past 3 days. The pain is constant and has significantly impacted his ability to sit and walk. This is the first episode of such symptoms for the patient.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Denies fever, chills, or weight loss.\\n- **Skin:** Reports erythema and edema at the sacrococcygeal region. No other skin issues.\\n- **Musculoskeletal:** Reports severe pain at the base of the spine, impacting ability to sit and walk.\", \"objective\": \"**Physical Examination:**\\n- **General:** Patient appears in mild distress due to pain.\\n- **Skin:** Erythema and edema noted at the sacrococcygeal region.\\n- **Palpation:** Tenderness and fluctuance present at the sacrococcygeal region, indicating the presence of an abscess.\\n- **Vital Signs:** Not documented during this visit.\", \"assessment\": \"Pilonidal cyst with abscess, sacrococcygeal region.\", \"plan\": \"- **Treatment:**\\n  - Incision and drainage of the abscess via minor surgical procedure.\\n  - Prescribed antibiotic: Cephalexin 500 mg, oral, every 6 hours for 7 days.\\n- **Follow-up Recommendations:**\\n  - Follow-up in 1 week for wound check.\\n- **Patient Education:**\\n  - Discussed the importance of maintaining proper hygiene of the affected area to prevent future infections.\\n  - Advised to avoid prolonged sitting and to use a cushion if sitting to reduce pressure on the affected area.\\n- **Patient Agreements:**\\n  - The patient understands and agrees with the recommended treatment plan and follow-up instructions.\\n\\n**Instructions:**\\n- The patient will return in 1 week for a wound check to ensure proper healing.\\n- The patient is advised to monitor the wound for any signs of increased redness, swelling, or fever, and to return immediately if these occur.\", \"suggested_codes\": [{\"code\": \"L730\", \"system\": \"ICD-10\", \"description\": \"PILONIDAL CYST WITH ABSCESS, SACROCOCCYGEAL REGION\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 40,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "O200"
+        ],
+        "pred_codes": [
+          "O230"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 26.28,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nModerate vaginal bleeding and mild lower abdominal cramping.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 28-year-old Caucasian female, presents with moderate vaginal bleeding and mild lower abdominal cramping that started 2 days ago. She reports constant spotting with occasional heavier bleeding episodes. The cramping is constant but not severe. She has been mostly resting in bed and avoiding physical activities due to discomfort, currently on sick leave from her office job. Her sleep has been interrupted due to anxiety and stress. She feels generally well, aside from the anxiety and stress related to her current condition.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports interrupted sleep due to anxiety and stress. No other systemic symptoms.\\n- **Gastrointestinal:** No nausea, vomiting, or changes in bowel movements.\\n- **Genitourinary:** Moderate vaginal bleeding, mild lower abdominal cramping.\\n- **Endocrine:** Hypothyroidism, on stable dose of Levothyroxine.\\n- **Musculoskeletal:** No joint pain or muscle aches.\\n\\n**Social History:**\\n- **Sleep:** 6-7 hours per night, disrupted due to anxiety.\\n- **Diet:** Balanced diet with high intake of fruits, vegetables, and prenatal vitamins.\\n- **Exercise:** Sedentary due to symptoms.\\n- **Tobacco, Alcohol, and Drug Use:** None.\\n- **Recreational Activities:** Limited due to pregnancy and current symptoms.\\n\\n**Family History:**\\n- Mother had a history of miscarriages.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 110/70 mmHg\\n- Heart Rate: 80 bpm\\n- Respiratory Rate: 14 breaths/min\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Exam:**\\n- **Abdominal Exam:** Mild tenderness in the lower abdomen, no rebound tenderness.\\n- **Speculum Exam:** Cervical os closed, mild vaginal bleeding noted.\\n- **Bimanual Exam:** Uterus feels appropriate for gestational age, no adnexal masses or tenderness.\", \"assessment\": \"- **Diagnosis:** Threatened abortion (ICD-10: O23.0)\\n- **Differential Diagnosis:** Ectopic pregnancy, miscarriage, placenta previa\", \"plan\": \"- **Imaging:** Transvaginal ultrasound to assess the viability of the pregnancy and rule out ectopic pregnancy.\\n- **Blood Work:** Quantitative beta-hCG levels, complete blood count (CBC).\\n- **Medical Treatment:**\\n  - Bed rest and pelvic rest (no sexual intercourse) for 2 weeks.\\n  - Progesterone supplement: Micronized progesterone 200 mg, oral, once daily for 2 weeks.\\n- **Follow-Up:** Reassessment in 1 week for evaluation of ultrasound and blood work results.\\n- **Patient Education:** Discussed the importance of bed rest, pelvic rest, and adherence to the prescribed medication regimen. Advised to stay hydrated and monitor for any concerning symptoms such as increased bleeding, severe pain, or fever.\\n\\n**Instructions:**\\nThe patient is to return in 1 week for reassessment. She is advised to seek immediate medical attention if she experiences increased bleeding, severe pain, or any other concerning symptoms.\", \"suggested_codes\": [{\"code\": \"O230\", \"system\": \"ICD-10\", \"description\": \"THREATENED ABORTION\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 41,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "D500"
+        ],
+        "pred_codes": [
+          "D50"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 23.29,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFatigue and shortness of breath on exertion.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old Caucasian female named Emily Johnson, presents with a 3-month history of moderate fatigue, shortness of breath on exertion, dizziness, and pallor. These symptoms occur daily and have significantly impacted her ability to teach and manage household chores. She reports feeling unrested despite sleeping 6-7 hours per night.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports fatigue, dizziness, and pallor.\\n- **Cardiovascular:** No chest pain or palpitations.\\n- **Respiratory:** Shortness of breath on exertion.\\n- **Gastrointestinal:** No changes in appetite, predominantly vegetarian diet.\\n- **Musculoskeletal:** No muscle or joint pain.\\n- **Neurological:** No headaches, tingling, or numbness.\\n- **Psychiatric:** No depression or anxiety.\", \"objective\": \"**Physical Examination:**\\n- **General:** Pale, appears fatigued.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs.\\n- **Respiratory:** Clear breath sounds bilaterally.\\n- **Abdomen:** Soft, non-tender, normal bowel sounds.\\n- **Musculoskeletal:** No edema, normal range of motion.\", \"assessment\": \"The patient is a 45-year-old female presenting with symptoms consistent with Iron Deficiency Anemia Secondary to Chronic Blood Loss. Her fatigue, dizziness, shortness of breath on exertion, and pallor are indicative of anemia. Her predominantly vegetarian diet may contribute to her iron deficiency. Further evaluation is needed to confirm the diagnosis and identify the source of chronic blood loss.\", \"plan\": \"- **Medical Treatment:**\\n  - Prescribed Ferrous Sulfate 325 mg, oral, three times a day for 3 months.\\n- **Dietary Recommendations:**\\n  - Increase intake of high iron foods such as red meat, beans, and leafy greens.\\n- **Referral:**\\n  - Referral to Gastroenterologist, Dr. Julia Reed, for possible endoscopy to identify the source of chronic blood loss.\\n- **Follow-up:**\\n  - Follow-up in 1 month to check hemoglobin levels and assess response to treatment.\\n- **Patient Education:**\\n  - Discussed the importance of taking iron supplements as prescribed.\\n  - Advised on potential side effects of iron supplements, including constipation, and recommended increasing fluid intake and considering stool softeners if needed.\\n\\n**Instructions:**\\n- The patient will follow up in 1 month for hemoglobin levels and to assess the effectiveness of the treatment plan.\\n- The patient will be advised to maintain a balanced diet and increase intake of high iron foods.\\n- The patient will be educated on recognizing symptoms of internal bleeding and when to seek immediate medical attention.\", \"suggested_codes\": [{\"code\": \"D50\", \"system\": \"ICD-10\", \"description\": \"IRON DEFICIENCY ANEMIA SECONDARY TO CHRONIC BLOOD LOSS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 42,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "I6789"
+        ],
+        "pred_codes": [
+          "I630"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 22.69,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nMild to moderate headaches and slight confusion.\\n\\n**History of Present Illness (HPI):**\\nMs. Maria Lo\u0301pez is a 65-year-old Hispanic female who presents to the clinic today with a 4-day history of mild to moderate headaches and slight confusion. The headaches are described as intermittent, with occasional episodes of mild to moderate severity, and have been impacting her concentration and daily routine. She reports frequent nocturnal awakenings but manages to return to sleep. Her diet is high in fat content, and she enjoys rich foods. She smokes occasionally (1-2 cigarettes per week) and drinks alcohol frequently (1-2 drinks daily). She enjoys painting and gardening and works part-time in retail.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports mild headaches and slight confusion. Denies fever or weight loss.\\n- **Neurological:** Reports mild headaches and slight confusion. Denies dizziness, numbness, or focal neurological deficits.\\n- **Cardiovascular:** Reports irregular heartbeat. Denies chest pain or shortness of breath.\\n- **Gastrointestinal:** Denies stomach pain or changes in bowel habits. Reports managing peptic ulcer disease and gastroesophageal reflux disease with medications.\", \"objective\": \"**Physical Examination:**\\n- **Vitals:** Blood pressure 140/85 mmHg.\\n- **Cardiovascular:** Irregularly irregular rhythm consistent with atrial fibrillation.\\n- **Neurological:** Slightly decreased cognition, mild coordination issues noted.\", \"assessment\": \"- **Diagnosis:** Other cerebrovascular disease, unspecified.\\n- **Medical Reasoning:** The patient's symptoms of mild to moderate headaches and slight confusion, along with her history of atrial fibrillation, suggest a possible embolic or thrombotic etiology. The physical examination findings of an irregularly irregular rhythm and mild coordination issues further support this diagnosis.\", \"plan\": \"- **Medications:**\\n  - Start Warfarin 5 mg once daily, adjust dosage based on INR levels.\\n- **Follow-up Recommendations:**\\n  - Follow-up in 1 week to check INR levels.\\n  - Referral to a physical therapist for mobility and coordination issues.\\n- **Lifestyle Recommendations:**\\n  - Strongly recommend a Mediterranean diet.\\n  - Address smoking and alcohol habits; advise quitting smoking completely and reducing alcohol intake.\\n  - Encourage regular moderate exercise, such as daily walks.\\n- **Patient Education:**\\n  - Provide simplified explanations about the importance of medication adherence and lifestyle changes.\\n  - Discuss potential assistance programs if concerned about the financial aspect of medication.\\n- **Additional Testing:**\\n  - INR levels to monitor and adjust Warfarin dosage.\\n  - Liver function tests, complete blood count, comprehensive metabolic panel, and MRI brain to rule out chronic infarcts or other abnormalities.\", \"suggested_codes\": [{\"code\": \"I630\", \"system\": \"ICD-10\", \"description\": \"OTHER CEREBROVASCULAR DISEASE, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 43,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "L97522"
+        ],
+        "pred_codes": [
+          "L990"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 33.17,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nSevere pain and drainage from a chronic ulcer on the left foot.\\n\\n**History of Present Illness (HPI):**\\nMaria Gonzalez is a 45-year-old Hispanic female who presents with a chronic ulcer on her left foot, which has been present for 5 months. The ulcer is severe and has significantly impacted her daily activities, making it difficult for her to stand or walk, which has affected her job as a part-time retail worker. She reports constant pain and significant drainage from the ulcer, which is accompanied by redness and a foul odor. The pain is severe enough to wake her up frequently at night, significantly affecting her sleep.\\n\\n**Review of Systems (ROS):**\\n- **General:** Reports poor sleep due to pain.\\n- **Cardiovascular:** No chest pain or palpitations.\\n- **Respiratory:** No cough or shortness of breath.\\n- **Gastrointestinal:** No nausea or vomiting.\\n- **Neurological:** No numbness or tingling.\\n- **Endocrine:** History of Type 2 Diabetes Mellitus, poorly controlled.\\n- **Integumentary:** Severe pain, drainage, redness, and foul odor from the ulcer.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 135/88 mmHg\\n- Heart Rate: 85 bpm\\n- Respiratory Rate: 18 breaths/min\\n- Temperature: 98.7\u00b0F\\n- Oxygen Saturation: 97%\\n\\n**Physical Exam:**\\n- **General:** Alert, in mild distress due to pain.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs.\\n- **Respiratory:** Clear to auscultation bilaterally.\\n- **Abdomen:** Soft, non-tender, no hepatomegaly.\\n- **Integumentary:**\\n  - **Left Foot:** Severe erythema, purulent drainage from the ulcer, significant fat layer exposed, no overt swelling, severe tenderness to palpation, distal sensation in the left foot grossly intact.\", \"assessment\": \"- **Chronic Ulcer of the Left Foot:**\\n  - **Medical Reasoning:** The patient presents with a chronic ulcer on the left foot, severe pain, and significant drainage, which is consistent with a chronic wound. The presence of purulent drainage and severe tenderness suggests the possibility of infection.\\n  - **Differential Diagnosis:** Chronic venous insufficiency, arterial insufficiency, or a possible underlying infection.\\n- **Type 2 Diabetes Mellitus:**\\n  - **Medical Reasoning:** The patient has a history of poorly controlled Type 2 Diabetes Mellitus, which can complicate wound healing.\\n  - **Differential Diagnosis:** Hyperglycemia, hypoglycemia, medication non-adherence.\", \"plan\": \"- **Medical Treatment:**\\n  - Start oral antibiotics: Amoxicillin-Clavulanate 875 mg/125 mg, BID for 7 days.\\n  - Continue daily saline dressings.\\n  - Initiate wound vac therapy.\\n- **Follow-Up Recommendations:**\\n  - Bi-weekly wound assessments in the clinic.\\n- **Referrals:**\\n  - Referral to an endocrinologist, Dr. Maria Sanchez, for better diabetes management.\\n  - Referral to an infectious disease specialist, Dr. Mark Johnson, for potential chronic infection.\\n  - Referral to a dietitian for dietary counseling to improve diabetes management.\\n  - Referral to a physical therapist for a community-based exercise program tailored for individuals with mobility limitations.\\n- **Patient Education and Counseling:**\\n  - Educate the patient on diabetes management, including blood sugar monitoring and medication adherence.\\n  - Discuss the importance of wound care and the potential complications of poor wound management.\\n  - Encourage the patient to follow up regularly and to contact the clinic if she notices any worsening of symptoms, increased pain, fever, or if the drainage from the wound becomes significantly worse.\\n\\n**Instructions:**\\n- Follow up in 2 weeks for reassessment of the wound and review of blood work results.\\n- Contact the clinic if there is any worsening of symptoms or if the patient experiences any complications.\\n- If the condition does not improve, consider hospitalization for intravenous antibiotics and further wound care.\", \"suggested_codes\": [{\"code\": \"L990\", \"system\": \"ICD-10\", \"description\": \"CHRONIC ULCER OF LEFT FOOT\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 44,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "Z87898"
+        ],
+        "pred_codes": [
+          "I109"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 22.58,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nAnxiety symptoms.\\n\\n**History of Present Illness (HPI):**\\nMs. Jane Doe is a 45-year-old Caucasian female presenting for an initial consultation for hypertension. She reports experiencing mild to moderate anxiety symptoms over the past 3 months, with episodes occurring 2-3 times per week. She also notes occasional chest palpitations and headaches. These symptoms have impacted her ability to concentrate at work, leading to a decrease in overall productivity.\\n\\n**Review of Systems (ROS):**\\n- **General:** No weight changes, occasional insomnia.\\n- **Cardiovascular:** Mild chest palpitations, no chest pain or edema.\\n- **Respiratory:** No shortness of breath or cough.\\n- **Gastrointestinal:** No nausea, vomiting, or diarrhea.\\n- **Neurological:** No dizziness, syncope, or seizures.\\n- **Psychiatric:** Mild anxiety, difficulty concentrating, no suicidal ideation.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 145/90 mmHg\\n- Heart Rate: 78 bpm, regular\\n\\n**Physical Exam:**\\n- **General:** Well-nourished, well-developed female in no acute distress.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs, no gallops.\\n- **Respiratory:** Clear to auscultation bilaterally.\\n- **Abdomen:** Soft, non-tender, no hepatosplenomegaly.\\n- **Neurological:** Alert and oriented, no focal deficits.\\n\\n**Investigations:**\\n- Awaiting results of CBC and BMP.\", \"assessment\": \"- Hypertension, unspecified.\\n- Mild anxiety, likely secondary to PTSD.\\n- No acute cardiovascular or neurological conditions detected.\", \"plan\": \"- **Medications:**\\n  - Start Amlodipine 5 mg orally once daily, 30 tablets.\\n- **Lifestyle Modifications:**\\n  - Recommend a low-sodium diet.\\n  - Encourage daily physical exercise, aiming for at least 30 minutes most days of the week.\\n- **Follow-up:**\\n  - Schedule bi-annual follow-ups to monitor blood pressure and overall health.\\n  - Review blood test results and treatment effectiveness during follow-ups.\\n- **Referrals:**\\n  - Refer to Dr. Emily Stephens, a psychologist, for mental health counseling related to PTSD.\\n- **Patient Education:**\\n  - Discuss the importance of medication adherence and lifestyle changes.\\n  - Educate on the signs and symptoms of hypertension and when to seek immediate medical attention.\\n\\n**Instructions:**\\n- Ms. Doe is advised to follow up in 6 months or sooner if symptoms worsen or if there are any concerns about her blood pressure or overall health.\\n- She is to return to the clinic for blood work at the next visit to monitor her kidney function and overall health.\", \"suggested_codes\": [{\"code\": \"I109\", \"system\": \"ICD-10\", \"description\": \"HYPERTENSION, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 45,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "R404"
+        ],
+        "pred_codes": [
+          "G4089"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 21.63,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nEpisodic loss of awareness.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 28-year-old Caucasian female, presents with a 2-month history of intermittent episodes of sudden loss of awareness lasting 1-2 minutes. These episodes occur 2-3 times per week and are associated with mild headaches but no other neurological symptoms. The patient reports that these episodes have started to interfere with her daily activities, including her job as a high school teacher and social interactions.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports good sleep quality, averaging 7 hours per night, with occasional insomnia.\\n- **Neurological:** Reports episodic loss of awareness, no focal neurological deficits, mild headaches post-episode.\\n- **Psychiatric:** No reported depression or anxiety.\\n- **Sleep:** Reports good sleep quality, averaging 7 hours per night, with occasional insomnia.\\n- **Exercise:** Regular exercise, jogging and yoga 2-3 times per week.\\n- **Diet:** Balanced diet, no known food allergies.\\n- **Substance Use:** Non-smoker, occasional alcohol use (1-2 drinks per week), no illicit drug use.\\n\\n**Family Medical History:**\\n- **Epilepsy:** Younger brother with a history of epilepsy.\", \"objective\": \"**Physical Examination:**\\n- **General:** Well-nourished, well-developed female in no acute distress.\\n- **Neurological:** Unremarkable, no focal deficits noted.\", \"assessment\": \"- **Diagnosis:** Other specified seizure disorders (ICD-10: G40.89)\\n- **Differential Diagnosis:** Consideration of other potential causes of transient loss of awareness, including migraines or other neurological conditions.\", \"plan\": \"- **Medication:** Initiate Lamotrigine 25 mg once daily for 2 weeks, increase to 50 mg daily for the next 2 weeks, and then 100 mg daily thereafter. Dispense 30 tablets.\\n- **Follow-up:** Schedule a follow-up appointment in 1 month to assess efficacy and side effects.\\n- **Referral:** Refer to an epileptologist, Dr. John Smith, for specialized assessment and management.\\n- **Imaging:** Order MRI of the brain to rule out any structural abnormalities.\\n- **Patient Education:** Educate the patient on the potential side effects of Lamotrigine and the importance of adherence to the prescribed medication regimen.\\n- **Lifestyle Recommendations:** Continue current lifestyle habits, including sleep hygiene and exercise. Advise against driving or operating heavy machinery until better control is achieved.\\n- **Instructions:** The patient is advised to contact the clinic promptly if there is any worsening of symptoms or if new symptoms develop.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\\n#####\", \"suggested_codes\": [{\"code\": \"G4089\", \"system\": \"ICD-10\", \"description\": \"OTHER SPECIFIED SEIZURE DISORDERS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 46,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "G7000"
+        ],
+        "pred_codes": [
+          "G551"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 23.73,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nMild muscle weakness and ptosis.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 45-year-old Caucasian female, presents for a follow-up visit regarding her Myasthenia Gravis. She reports mild muscle weakness and ptosis that have been present intermittently over the last four weeks. These symptoms are more pronounced in the evenings and have been affecting her daily activities, such as driving and reading for extended periods. She continues to take Pyridostigmine 60 mg every 6 hours and Prednisone 10 mg daily as prescribed.\\n\\n**Review of Systems (ROS):**\\n- **General:** Reports feeling unrested despite getting 6-7 hours of sleep per night.\\n- **Musculoskeletal:** Reports generalized muscle weakness and occasional ptosis.\\n- **Neurological:** Reports mild muscle weakness and ptosis.\\n- **Cardiovascular:** Denies chest pain or palpitations.\\n- **Respiratory:** Denies shortness of breath.\\n- **Gastrointestinal:** Denies nausea or abdominal pain.\\n- **Genitourinary:** Denies any changes in urinary habits.\\n- **Endocrine:** Denies symptoms of thyroid dysfunction.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 130/85 mmHg\\n- Pulse: 72 bpm\\n- Respiration: 16 bpm\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **General:** Alert and oriented, in no acute distress.\\n- **Eyes:** Ptosis present on the left eye.\\n- **Neurological:** Mild generalized muscle weakness noted, reflexes are normal.\\n- **Respiratory:** No respiratory distress, clear to auscultation.\\n- **Cardiovascular:** Normal heart sounds, no murmurs.\\n- **Musculoskeletal:** Normal range of motion, no tenderness.\", \"assessment\": \"- **Myasthenia Gravis:** Stable without acute exacerbation.\\n- **Ptosis:** Likely secondary to Myasthenia Gravis.\", \"plan\": \"- **Medications:** Continue Pyridostigmine 60 mg every 6 hours and Prednisone 10 mg daily.\\n- **Follow-up:** Return for a follow-up visit in 3 months for routine monitoring and reassessment.\\n- **Referral:** Referral to an ophthalmologist, Dr. Jane Smith, for evaluation of ptosis.\\n- **Blood Work:** Ordered biochemistry panel including electrolytes, liver function tests, and kidney function tests.\\n- **Lifestyle Recommendations:** Suggest maintaining a consistent sleep schedule and increasing mild exercises like walking to 4-5 times a week.\\n- **Patient Education:** Discussed the importance of adhering to prescribed medications and follow-up appointments. Advised to contact the clinic if symptoms worsen or any new symptoms develop.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\n- Follow up in 3 months for routine monitoring.\\n- Contact the clinic if symptoms worsen or new symptoms develop.\\n- Schedule an appointment with the ophthalmologist for ptosis evaluation.\", \"suggested_codes\": [{\"code\": \"G551\", \"system\": \"ICD-10\", \"description\": \"MYASTHENIA GRAVIS\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 47,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M47814"
+        ],
+        "pred_codes": [
+          "M480"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 19.79,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nModerate to severe thoracic back pain.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 62-year-old Caucasian female, presents with a 3-month history of moderate to severe thoracic back pain. The pain is described as constant and has been progressively worsening. It is associated with occasional stiffness and significantly impacts her ability to sit for long periods and sleep, resulting in less than 5 hours of sleep per night. The patient reports no radiating pain or numbness. Her daily activities have been limited due to the pain, including her enjoyment of gardening.\\n\\n**Review of Systems (ROS):**\\n- **Musculoskeletal:** Reports moderate to severe thoracic back pain, occasional stiffness.\\n- **Neurological:** No radiating pain or numbness.\\n- **General:** Reports difficulty sleeping, less than 5 hours per night.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 138/85 mmHg\\n- Heart Rate: 76 bpm\\n- Respiratory Rate: 16 breaths per minute\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **General:** Alert and oriented, in no acute distress.\\n- **Musculoskeletal:** Tenderness noted in the mid-thoracic spine. Restricted range of motion in the thoracic spine. No visible deformities or abnormalities.\\n- **Neurological:** Reflexes normal, no sensory or motor impairment.\", \"assessment\": \"- **Diagnosis:** Thoracic spondylosis without myelopathy or radiculopathy.\", \"plan\": \"- **Medical Treatment:**\\n  - Prescribed Naproxen 500 mg, oral, twice a day for 2 weeks, quantity: 28 tablets.\\n  - Recommended lifestyle modifications including a balanced diet, smoking cessation, and low-impact exercises such as swimming or physical therapy.\\n\\n- **Imaging:**\\n  - Ordered MRI of the thoracic spine to confirm the diagnosis and assess the extent of the condition.\\n\\n- **Follow-Up:**\\n  - Scheduled follow-up appointment in 4 weeks to assess pain and functionality.\\n  - Discussed concerns about long-term medication use and the importance of managing the condition in a sustainable manner.\\n\\n- **Patient Education:**\\n  - Explained the nature of thoracic spondylosis and the expected course of treatment.\\n  - Advised on the importance of adherence to prescribed medication and lifestyle modifications.\\n  - Encouraged to explore smoking cessation options and to maintain a balanced diet.\", \"suggested_codes\": [{\"code\": \"M480\", \"system\": \"ICD-10\", \"description\": \"THORACIC SPONDYLOSIS WITHOUT MYELOPATHY OR RADICULOPATHY\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 48,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M4727"
+        ],
+        "pred_codes": [
+          "M4951"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 29.72,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nFollow-up for ongoing low back pain and associated symptoms.\\n\\n**History of Present Illness (HPI):**\\nMaria Gonzalez is a 45-year-old Hispanic female who presents for a follow-up visit regarding her chronic low back pain. She reports that the pain has been persistent for the past 3 months and is exacerbated by prolonged sitting at her desk job. The pain is rated at 7-8 out of 10 in intensity and is associated with tingling and numbness in the right leg, particularly in the L5 dermatome. She has noticed that missing her medications due to work pressures occasionally worsens her symptoms.\\n\\n**Review of Systems (ROS):**\\n- **Musculoskeletal:** Reports low back pain, tingling and numbness in the right leg, particularly in the L5 dermatome.\\n- **Neurological:** Reports tingling and numbness in the right leg, decreased sensation in the L5 dermatome.\\n- **General:** No fever, chills, or weight loss.\\n- **Cardiovascular:** No chest pain or palpitations.\\n- **Respiratory:** No shortness of breath.\\n- **Gastrointestinal:** No nausea or vomiting.\\n- **Psychiatric:** Mild anxiety due to chronic pain affecting daily activities.\", \"objective\": \"**Physical Examination:**\\n- **Posture:** Mild scoliosis noted during the last visit.\\n- **Lower Back:** Tenderness upon palpation.\\n- **Neurological:**\\n  - **Muscle Strength:** Right leg strength 4/5.\\n  - **Sensation:** Decreased sensation in the L5 dermatome.\\n  - **Reflexes:** Reduced Achilles reflex on the right side.\\n\\n**Vital Signs:**\\n- Blood Pressure: 128/82 mmHg\\n- Heart Rate: 72 bpm\\n- Respiratory Rate: 16\\n- Temperature: 98.6\u00b0F\", \"assessment\": \"Maria Gonzalez is a 45-year-old female with a history of spondylosis and radiculopathy in the lumbosacral region. She presents with chronic low back pain, tingling and numbness in the right leg, and decreased sensation in the L5 dermatome. The pain is rated at 7-8 out of 10 in intensity and is exacerbated by prolonged sitting.\\n\\n**Diagnosis:**\\n- Spondylosis with radiculopathy, lumbosacral region.\", \"plan\": \"- **Medications:**\\n  - Start Gabapentin 300 mg, oral, three times daily, 30 tablets.\\n- **Physical Therapy:**\\n  - Recommend physical therapy sessions twice a week, focusing on core strengthening and lumbar stabilization exercises.\\n- **Follow-Up:**\\n  - Schedule a follow-up appointment in 4 weeks to review MRI results and adjust the treatment plan if necessary.\\n- **Referral:**\\n  - Refer to Pain Management Specialist, Dr. John Smith, for potential epidural steroid injections.\\n- **Lifestyle Modifications:**\\n  - Encourage daily stretching exercises.\\n  - Advise the use of an ergonomic chair and frequent breaks to stand and walk around during work.\\n\\n**Patient Education and Counseling:**\\n- Discussed the nature of spondylosis and the importance of adherence to the prescribed medication and physical therapy regimen.\\n- Addressed concerns about the potential side effects of Gabapentin and the benefits of epidural steroid injections.\\n- Provided information on the importance of maintaining a healthy lifestyle, including regular exercise and balanced diet, to manage chronic pain effectively.\\n\\n**Patient Agreements:**\\n- Maria understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\n- Contact the clinic if there are any issues or if symptoms worsen.\", \"suggested_codes\": [{\"code\": \"M4951\", \"system\": \"ICD-10\", \"description\": \"SPONDYLOSIS WITH RADICULOPATHY, LUMBOSACRAL REGION\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 49,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "R578"
+        ],
+        "pred_codes": [
+          "I500"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 30.02,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\n- Sudden onset of weakness, dizziness, and confusion.\\n\\n**History of Present Illness (HPI):**\\n- Mr. John Doe is a 45-year-old African American male who presents to the emergency department with a sudden onset of weakness, dizziness, and confusion. The symptoms began approximately 2 hours ago and have been persistent since. He reports sweating and a feeling of being unwell. This is the first episode of such symptoms.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** Reports feeling weak and dizzy. No fever or recent illnesses.\\n- **Neurological:** Reports confusion and decreased responsiveness. No recent headaches or dizziness.\\n- **Cardiovascular:** Reports history of hypertension, currently managed with Metformin. No chest pain or shortness of breath.\\n- **Respiratory:** No wheezing or crackles. No cough or sputum production.\\n- **Endocrine:** History of Type 2 Diabetes Mellitus, managed with Metformin. No recent changes in blood sugar levels.\\n- **Gastrointestinal:** No abdominal pain or changes in bowel habits.\\n- **Genitourinary:** No dysuria or hematuria.\\n- **Musculoskeletal:** No joint pain or swelling.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 85/60 mmHg\\n- Heart Rate: 120 bpm\\n- Respiratory Rate: 24/min\\n- Temperature: Not measured\\n- Oxygen Saturation: 96% on room air\\n\\n**Physical Examination:**\\n- **General:** Appears ill, sweating, tachycardic, hypotensive.\\n- **Cardiovascular:** Tachycardia, hypotension, no murmurs, gallops, or rubs.\\n- **Respiratory:** Clear to auscultation bilaterally, no wheezing or crackles.\\n- **Neurological:** Confusion, decreased responsiveness, no focal deficits.\\n- **Abdomen:** No tenderness, no hepatosplenomegaly.\\n\\n**Investigations:**\\n- **Blood Work:** Awaiting results for biochemistry (electrolytes, kidney function), hematology (CBC), and biochemistry (glucose, liver function tests).\\n- **Imaging:** Awaiting results of chest X-ray.\", \"assessment\": \"- **Diagnosis:** Shock, unspecified.\\n- **Differential Diagnosis:**\\n  - Hypovolemic shock\\n  - Cardiogenic shock\\n  - Septic shock\\n  - Anaphylactic shock\\n  - Neurogenic shock\", \"plan\": \"- **Treatment:**\\n  - Initiate IV fluids to raise blood pressure.\\n  - Consider medication to raise blood pressure if IV fluids are ineffective.\\n  - Monitor vital signs continuously and urine output.\\n  - Blood work: Complete biochemistry panel including electrolytes, kidney function tests, glucose, and liver function tests.\\n  - Imaging: Chest X-ray to rule out any pulmonary or cardiac issues.\\n  - Referral: Consult with a cardiologist (Dr. Emily Johnson) and nephrologist (Dr. Michael Thompson) for further management of underlying conditions and this episode of shock.\\n  - Education and Counseling: Discuss diabetes and blood pressure management, emphasizing compliance with medications and regular monitoring to prevent such episodes.\\n  - Lifestyle Modifications: Encourage dietary changes and increased physical activity to better manage diabetes and hypertension.\\n\\n**Follow-up:**\\n- Follow-up appointment scheduled in 1 week to review test results and discuss further management.\\n- Patient to return to the emergency department if symptoms worsen or if there are any concerns about medication side effects.\\n\\n**Patient Agreements:**\\n- The patient understands and agrees with the recommended medical treatment plan.\\n\\n**Instructions:**\\n- The patient will be monitored closely in the emergency department and will likely require admission to a higher level of care, possibly the ICU, for close monitoring and further management.\", \"suggested_codes\": [{\"code\": \"I500\", \"system\": \"ICD-10\", \"description\": \"SHOCK, UNSPECIFIED\", \"confidence\": \"high\"}]}"
+    },
+    {
+      "index": 50,
+      "valid": true,
+      "problems": [],
+      "lenient_valid": true,
+      "lenient_problems": [],
+      "codes": {
+        "gold_codes": [
+          "M1612"
+        ],
+        "pred_codes": [
+          "M1760"
+        ],
+        "code_hit": false,
+        "code_exact": false,
+        "tp": 0,
+        "n_pred": 1,
+        "n_gold": 1
+      },
+      "latency_s": 26.8,
+      "output": "{\"subjective\": \"**Chief Complaint (CC):**\\nModerate to severe pain in the left hip.\\n\\n**History of Present Illness (HPI):**\\nThe patient, a 62-year-old Caucasian female, presents with a 6-month history of moderate to severe pain in her left hip. The pain is daily and worsens with physical activity, significantly impacting her ability to walk, climb stairs, and put on shoes. She reports stiffness and limited range of motion in the left hip. The pain has also affected her sleep quality. She has a history of hypertension, managed with Lisinopril, and is generally healthy otherwise.\\n\\n**Review of Systems (ROS):**\\n- **Constitutional:** No fever, weight loss, or general malaise.\\n- **Musculoskeletal:** Moderate to severe pain in the left hip, stiffness, limited range of motion.\\n- **Cardiovascular:** Hypertension, managed with Lisinopril.\\n- **Respiratory:** No shortness of breath or cough.\\n- **Gastrointestinal:** No nausea, vomiting, or diarrhea.\\n- **Genitourinary:** No dysuria or hematuria.\\n- **Neurological:** No headaches, dizziness, or weakness.\\n\\n**Social History:**\\n- **Diet:** Balanced diet, no specific restrictions.\\n- **Tobacco Use:** None.\\n- **Alcohol Consumption:** Occasional wine consumption.\\n- **Drug Use:** None.\\n- **Exercise:** Previously enjoyed hiking, but stopped due to hip pain.\\n- **Sleep:** Poor quality due to hip pain.\", \"objective\": \"**Vital Signs:**\\n- Blood Pressure: 135/80 mmHg\\n- Heart Rate: 78 bpm\\n- Respiratory Rate: 16 breaths/min\\n- Temperature: 98.6\u00b0F\\n\\n**Physical Examination:**\\n- **General:** Alert, cooperative, in no acute distress.\\n- **Cardiovascular:** Regular rate and rhythm, no murmurs, gallops, or rubs.\\n- **Respiratory:** Clear to auscultation bilaterally.\\n- **Abdomen:** Soft, non-tender, no organomegaly.\\n- **Musculoskeletal:**\\n  - **Left Hip:** Limited range of motion, pain on palpation, no swelling or deformity.\\n  - **Right Hip:** Normal range of motion, no abnormalities.\", \"assessment\": \"Unilateral primary osteoarthritis of the left hip.\", \"plan\": \"- **Medications:**\\n  - Prescribed Ibuprofen 800 mg, oral, three times a day for 4 weeks.\\n- **Referrals:**\\n  - Referral to Physical Therapist Dr. Claire Thompson for a 12-week rehabilitation program focusing on strengthening exercises to improve joint function.\\n- **Imaging:**\\n  - Ordered X-ray of the left hip to evaluate the severity.\\n- **Follow-up:**\\n  - Follow-up in 6 weeks for reassessment and review of X-ray findings.\\n- **Patient Education and Counseling:**\\n  - Discussed the nature of osteoarthritis, the importance of medication adherence, and the benefits of physical therapy.\\n  - Advised on lifestyle modifications to manage pain, including the use of heat or ice packs, avoiding activities that exacerbate pain, and maintaining a balanced diet.\\n\\n**Patient Agreements:**\\nThe patient understands and agrees with the recommended medical treatment plan.\", \"suggested_codes\": [{\"code\": \"M1760\", \"system\": \"ICD-10\", \"description\": \"UNILATERAL PRIMARY OSTEOARTHRITIS OF LEFT HIP\", \"confidence\": \"high\"}]}"
+    }
+  ]
+}

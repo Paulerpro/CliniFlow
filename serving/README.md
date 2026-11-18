@@ -1,6 +1,6 @@
 # Serving with vLLM (Pillar 3)
 
-Serves the fine-tuned LoRA adapter behind an OpenAI-compatible HTTP API, using vLLM's native multi-LoRA support: the base model loads once, and the adapter attaches per request.
+Serves the fine-tuned model behind an OpenAI-compatible HTTP API with vLLM. Two ways of serving the same fine-tune exist side by side: the **merged** model (the default; plain vLLM on weights that already include the adapter) and the **unmerged** adapter (vLLM's native multi-LoRA: the base model loads once and the adapter attaches per request). See the next section for why merged is the default.
 
 ## What vLLM does
 
@@ -11,12 +11,27 @@ vLLM runs a language model efficiently behind an HTTP API, built around two tech
 
 It exposes an OpenAI-compatible `/v1/chat/completions` endpoint, so any existing OpenAI-style client can point at it unchanged.
 
-## Why the adapter is served, not merged
+## Merged vs. adapter-at-serve-time
 
-| Approach | Result |
+| Approach | Trade-off |
 |---|---|
-| Merge the adapter into the base model, then serve | A full model file per adapter version; re-upload several GB on every training change |
-| **LoRA attached at serve time (used here)** | One base model loaded once; the adapter is a few MB, swapped per request; multiple adapters can share one GPU |
+| **Merged (default)** | Plain vLLM on one set of weights. No per-token adapter work. A full 6.4 GB model per adapter version, rebuilt by `modal_merge.py` after each training change |
+| Adapter attached at serve time (`modal_app.py`) | One base model loaded once, the adapter is a few MB and swapped per request, several adapters can share one GPU. The adapter is applied on every generated token |
+
+The project first served the adapter unmerged, expecting to add more adapters. With a single adapter that flexibility was unused, so merging was tried. Measured on the same 50 test rows, T4, `temperature` 0: median request 51.2s unmerged vs **25.2s merged** (2.0x), and 16.7s vs 8.2s per 1,000 output characters, about the plain base model's speed (8.9s). Quality is equivalent within noise; see `evals/BENCHMARK_REPORT.md`, including the one format failure the merged model had.
+
+### The deployments
+
+| File | App | What it serves |
+|---|---|---|
+| `modal_merge.py` | `cliniflow-merge` (a job, not a server) | Builds the merged model into the Volume `cliniflow-merged`; checks it before saving |
+| `modal_app_merged.py` | `cliniflow-vllm-merged` | The merged model, as `clinical-json-extractor-merged` |
+| `modal_app.py` | `cliniflow-vllm` | The unmerged adapter, as `clinical-json-extractor` (kept for comparison) |
+| `modal_app_base.py` | `cliniflow-vllm-base` | The plain base model, as `base-model` |
+
+Rebuild after retraining: `python -m modal run serving/modal_merge.py`, then `python -m modal deploy serving/modal_app_merged.py`. The merge runs on Modal because it needs about 13 GB of RAM; it recomputes three weights by hand and compares the merged and adapter-applied logits, and writes nothing if either check fails (last run: max logit difference 0.000045, identical top tokens).
+
+### How the unmerged path works
 
 ```
             one running vLLM server

@@ -1,0 +1,69 @@
+{
+  "rows_compared": 50,
+  "outputs_byte_identical": 18,
+  "soap_text_identical": 18,
+  "suggested_codes_identical": 45,
+  "mean_text_similarity": 0.882,
+  "first_divergence_examples": [
+    {
+      "row": 1,
+      "diverges_at_char": 186,
+      "of": 3252
+    },
+    {
+      "row": 2,
+      "diverges_at_char": 1639,
+      "of": 3065
+    },
+    {
+      "row": 3,
+      "diverges_at_char": 2002,
+      "of": 3404
+    },
+    {
+      "row": 4,
+      "diverges_at_char": 132,
+      "of": 3241
+    },
+    {
+      "row": 6,
+      "diverges_at_char": 321,
+      "of": 2585
+    },
+    {
+      "row": 7,
+      "diverges_at_char": 518,
+      "of": 3324
+    },
+    {
+      "row": 9,
+      "diverges_at_char": 89,
+      "of": 3361
+    },
+    {
+      "row": 14,
+      "diverges_at_char": 409,
+      "of": 2519
+    }
+  ],
+  "adapter_latency": {
+    "n": 50,
+    "median_s": 51.2,
+    "mean_s": 57.0,
+    "p90_s": 64.9,
+    "max_s": 316.9,
+    "median_s_per_1k_chars": 16.7,
+    "median_output_chars": 3061
+  },
+  "merged_latency": {
+    "n": 50,
+    "median_s": 25.2,
+    "mean_s": 28.7,
+    "p90_s": 33.0,
+    "max_s": 182.0,
+    "median_s_per_1k_chars": 8.2,
+    "median_output_chars": 3056
+  },
+  "speedup_median_latency": 2.03,
+  "speedup_per_1k_chars": 2.04
+}

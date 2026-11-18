@@ -23,13 +23,18 @@ NUM_RE = re.compile(r"(?<![\w.])\d+(?:\.\d+)?")
 UNIT_RE = re.compile(
     r"\s*(?:(?:mg|mcg|g|ml|units?|iu|bpm|mmhg|mmol|mg/dl|kg|lbs?|cm|breaths|/min)\b|%|°)",
     re.IGNORECASE)  # \b only after word-character units: it can never match after % or °
-MED_RE = re.compile(r"\b([A-Z][a-z]{3,})(?:\s+[a-z]+)?\s+(\d+(?:\.\d+)?)\s?(mg|mcg|g|ml|units?|iu)\b")
+# The drug is the word right before the dose ("Start montelukast 10 mg" -> montelukast), so a
+# leading verb is never mistaken for it. Words that precede a dose but are not drugs are skipped.
+MED_RE = re.compile(r"\b([A-Za-z][A-Za-z-]{3,})\s+(\d+(?:\.\d+)?)\s?(mg|mcg|g|ml|units?|iu)\b")
 DR_RE = re.compile(r"\bDr\.?\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)")
 AGE_RE = re.compile(r"\b(\d{1,3})[- ]year[- ]old\b", re.IGNORECASE)
 TITLE_RE = re.compile(r"\b(?:Mr|Mrs|Ms|Miss)\.?\s+([A-Z][a-z]+)")
 ETHNICITIES = ["Caucasian", "African American", "Hispanic", "Latino", "Latina", "Asian",
                "Native American", "Pacific Islander", "Middle Eastern"]
-MED_STOP = {"Blood", "Heart", "Temperature", "Weight", "Height", "Pressure", "Pain", "Oxygen", "Return"}
+MED_STOP = {"blood", "heart", "temperature", "weight", "height", "pressure", "pain", "oxygen", "return",
+            "dose", "total", "about", "approximately", "every", "over", "than", "daily", "twice", "once",
+            "with", "until", "each", "per", "reduce", "increase", "decrease", "maximum", "single", "give",
+            "given", "take", "taking", "under", "around", "least", "most", "exceed", "below", "above"}
 
 
 @dataclass(frozen=True)
@@ -67,7 +72,7 @@ def check_grounding(transcript, note):
                            "values not in the transcript: " + ", ".join(values[:8])))
 
     meds = sorted({f"{m.group(1)} {m.group(2)}" for m in MED_RE.finditer(text)
-                   if m.group(1) not in MED_STOP
+                   if m.group(1).lower() not in MED_STOP
                    and (m.group(1).lower() not in low or m.group(2) not in have)})
     if meds:
         out.append(GatewayWarning("ungrounded_medication", "review",

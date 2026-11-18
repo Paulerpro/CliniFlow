@@ -1,0 +1,37 @@
+{
+  "notes_scored": 49,
+  "unusable_replies": [
+    [
+      28,
+      [
+        "assessment_not_a_string"
+      ]
+    ]
+  ],
+  "code_hits_before_gateway": {
+    "exact": 0,
+    "category": 12,
+    "description": 6
+  },
+  "code_hits_after_gateway": {
+    "exact": 11,
+    "category": 26,
+    "description": 11
+  },
+  "needs_review": 46,
+  "code_review": 46,
+  "content_review": 3,
+  "warning_counts": {
+    "code_description_mismatch (review)": 19,
+    "invented_demographic (info)": 49,
+    "code_repaired (review)": 20,
+    "code_not_found (review)": 7,
+    "ungrounded_person (review)": 3,
+    "ungrounded_measured_value (review)": 1,
+    "ungrounded_medication (review)": 1,
+    "code_not_billable (info)": 3
+  },
+  "judge_major_notes": 9,
+  "content_review_on_judge_major": 3,
+  "content_review_not_judge_major": 0
+}

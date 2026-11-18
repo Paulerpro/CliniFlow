@@ -27,13 +27,13 @@ See each pillar's own README for the real detail: [`dataset/`](dataset), [`train
 [Transcript]
         |
         v
-[Pillar 1: QLoRA-tuned LoRA adapter]  -- NOT merged into the base model
+[Pillar 1: QLoRA-tuned LoRA adapter]  -- kept unmerged in the registry; merged into the base weights for serving
         |
         v
 [Pillar 5: FastAPI gateway]  (validation + repair layer)
         |
         v
-[Pillar 3: vLLM]  -- one base model loaded once, adapter attached per request
+[Pillar 3: vLLM]  -- serves the merged model (the unmerged adapter deployment is kept for comparison)
         |
         v
 [Pillar 6: MCP server + governance]  (human sign-off required)
@@ -44,7 +44,7 @@ See each pillar's own README for the real detail: [`dataset/`](dataset), [`train
 [Pillar 2: SageMaker]  -- offline side path: dataset prep + adapter registry (S3) only
 ```
 
-Each pillar owns one responsibility and nothing else &mdash; SageMaker never hosts inference, vLLM never trains, and the adapter is never merged into the base model. The full reasoning behind every one of these choices lives in the project's design document (kept locally in `docs/`, not published in this repo).
+Each pillar owns one responsibility and nothing else &mdash; SageMaker never hosts inference, vLLM never trains, and the registry keeps the adapter unmerged as the source of truth (the merged serving copy is derived from it). The full reasoning behind every one of these choices lives in the project's design document (kept locally in `docs/`, not published in this repo).
 
 ## What's actually working right now
 
@@ -89,7 +89,7 @@ Each of these has its own README with full setup steps, since getting a GPU serv
 ## Why these specific choices
 
 - **3B model, not 8B/7B:** fits a 16GB T4 in full precision with headroom for the KV cache; an 8B model would not.
-- **LoRA adapter, never merged:** vLLM loads the base model once and attaches the adapter per request, so iterating on training doesn't mean re-uploading a multi-GB model each time.
+- **LoRA adapter merged for serving:** training and the registry deal in the small adapter, but serving uses a merged copy (`serving/modal_merge.py`). The original design served the adapter unmerged so several adapters could share one base model; with a single adapter that flexibility went unused while costing about 2x slower generation (measured: median 51s unmerged vs 25s merged, `evals/BENCHMARK_REPORT.md`).
 - **SageMaker for data and registry only, vLLM for serving:** one inference path, not two competing ones.
 - **No quantization by default:** keeps the fine-tune's accuracy gains intact; available later as a separately-evaluated experiment.
 

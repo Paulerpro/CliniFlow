@@ -17,6 +17,10 @@ providers:
     label: fine-tuned
     config:
       resultsFile: results_finetuned.json
+  - id: file://replay_provider.js
+    label: merged
+    config:
+      resultsFile: results_merged.json
 
 tests: file://tests.js
 
