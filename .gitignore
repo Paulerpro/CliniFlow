@@ -21,3 +21,10 @@ evals/promptfoo/*_results.json
 
 # Sign-off database (local, may hold transcripts)
 agents/data/
+
+# MedSynth-derived data. The dataset card states no license, so it is not redistributed:
+# regenerate it with the scripts in dataset/ (see dataset/README.md and NOTICE).
+dataset/*.jsonl
+dataset/raw/*.jsonl
+dataset/train_judgments.json
+training/colab/*.jsonl

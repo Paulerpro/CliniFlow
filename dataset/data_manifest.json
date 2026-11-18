@@ -1,0 +1,26 @@
+{
+  "dataset/raw/medsynth_soap.jsonl": {
+    "rows": 10240,
+    "sha256": "7c04a82345b1ea13cf81d68fc7fa15a7f72025a2b5b1f3bb5f3c82732706100d"
+  },
+  "dataset/raw/medsynth_1k_soap.jsonl": {
+    "rows": 1000,
+    "sha256": "455f044a880b0f5c7c3b155a93e083d585b68410e3aa0b6f50cddd15e5730e4f"
+  },
+  "dataset/medsynth_1k_noisy.jsonl": {
+    "rows": 1000,
+    "sha256": "d99bbf8ad4f3cb6cb9750cf7399ebebd131be08e36bc2b526013ab7c420d96d0"
+  },
+  "training/colab/train.jsonl": {
+    "rows": 901,
+    "sha256": "8c94e48df4d2119dace3a2eafba10f870af4a8490c141404b2c67fe93ed8332b"
+  },
+  "training/colab/val.jsonl": {
+    "rows": 49,
+    "sha256": "3124a64326b0051640e3a659a8214e9a9d3f16d1dc2f9e512ff5822b5940a680"
+  },
+  "training/colab/test.jsonl": {
+    "rows": 50,
+    "sha256": "91a26061bb2676fe0b3fd3d5d1b8b867db6e80a51f8ff6772e07c705e9366ee1"
+  }
+}

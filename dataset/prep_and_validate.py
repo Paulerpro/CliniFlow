@@ -69,6 +69,61 @@ INPUT_FILE = "medsynth_1k_soap.jsonl"
 OUTPUT_CLEAN_FILE = "medsynth_1k_schema_valid.jsonl"
 OUTPUT_DROPPED_FILE = "medsynth_1k_dropped.jsonl"
 
+# One source row (line 309, a COPD note) has an empty "Objective" section, so validation rejects it and
+# it is still listed in the dropped file. The dataset used for training and evaluation kept that row,
+# with the objective written as below, appended as the last row. The repair is recorded here so the data
+# can be regenerated exactly: without it the row count, the shuffle and the whole test split change.
+MANUAL_REPAIRS = {
+    309: {
+        "sections": {"objective": "Not documented — encounter conducted via telemedicine; no in-person vitals or physical exam performed."},
+        "strip_trailing_spaces": ["subjective"],
+        # MedSynth's own label for this row is an HPV-screening code, which does not fit a COPD note.
+        "confidence": "low",
+    },
+}
+
+
+def build_sample(row: dict, repair: dict | None = None) -> dict:
+    """Convert one raw MedSynth row into an {input, output} pair; raises ValueError if it is unusable."""
+    cleaned_dialogue = clean_text(row.get("Dialogue", ""))
+    if not cleaned_dialogue:
+        raise ValueError("EMPTY_DIALOGUE")
+
+    raw_note = row.get(" Note", row.get("Note", ""))  # source has leading space in key
+    parsed_soap = parse_markdown_soap(raw_note)
+    repair = repair or {}
+    parsed_soap.update(repair.get("sections", {}))
+    for name in repair.get("strip_trailing_spaces", []):
+        parsed_soap[name] = re.sub(r" +\n", "\n", parsed_soap[name])
+
+    missing_sections = [k for k, v in parsed_soap.items() if not v]
+    if missing_sections:
+        raise ValueError(f"MISSING_SECTIONS:{','.join(missing_sections)}")
+
+    icd_code = str(row.get("ICD10", "")).strip()
+    icd_desc = str(row.get("ICD10_desc", "")).strip()
+
+    suggested_codes = []
+    if icd_code:
+        suggested_codes.append({
+            "code": icd_code,
+            "system": "ICD-10",
+            "description": icd_desc,
+            "confidence": repair.get("confidence", "high")
+        })
+
+    formatted_target = {
+        "subjective": parsed_soap["subjective"],
+        "objective": parsed_soap["objective"],
+        "assessment": parsed_soap["assessment"],
+        "plan": parsed_soap["plan"],
+        "suggested_codes": suggested_codes
+    }
+
+    validated_soap = TargetSoapSchema(**formatted_target)
+    return {"input": cleaned_dialogue, "output": validated_soap.model_dump()}
+
+
 valid_count = 0
 dropped_count = 0
 drop_reasons = Counter()
@@ -82,47 +137,7 @@ with open(INPUT_FILE, "r", encoding="utf-8") as infile, \
             continue
 
         try:
-            row = json.loads(line)
-
-            raw_dialogue = row.get("Dialogue", "")
-            cleaned_dialogue = clean_text(raw_dialogue)
-            if not cleaned_dialogue:
-                raise ValueError("EMPTY_DIALOGUE")
-
-            raw_note = row.get(" Note", row.get("Note", ""))  # source has leading space in key
-            parsed_soap = parse_markdown_soap(raw_note)
-
-            missing_sections = [k for k, v in parsed_soap.items() if not v]
-            if missing_sections:
-                raise ValueError(f"MISSING_SECTIONS:{','.join(missing_sections)}")
-
-            icd_code = str(row.get("ICD10", "")).strip()
-            icd_desc = str(row.get("ICD10_desc", "")).strip()
-
-            suggested_codes = []
-            if icd_code:
-                suggested_codes.append({
-                    "code": icd_code,
-                    "system": "ICD-10",
-                    "description": icd_desc,
-                    "confidence": "high"
-                })
-
-            formatted_target = {
-                "subjective": parsed_soap["subjective"],
-                "objective": parsed_soap["objective"],
-                "assessment": parsed_soap["assessment"],
-                "plan": parsed_soap["plan"],
-                "suggested_codes": suggested_codes
-            }
-
-            validated_soap = TargetSoapSchema(**formatted_target)
-
-            final_sample = {
-                "input": cleaned_dialogue,
-                "output": validated_soap.model_dump()
-            }
-
+            final_sample = build_sample(json.loads(line))
             outfile.write(json.dumps(final_sample, ensure_ascii=False) + "\n")
             valid_count += 1
 
@@ -136,6 +151,17 @@ with open(INPUT_FILE, "r", encoding="utf-8") as infile, \
                 "raw_data_snippet": line[:200]
             }
             dropfile.write(json.dumps(error_record, ensure_ascii=False) + "\n")
+
+# Hand-repaired rows go last, in line order (see MANUAL_REPAIRS).
+if MANUAL_REPAIRS:
+    with open(INPUT_FILE, "r", encoding="utf-8") as infile, \
+         open(OUTPUT_CLEAN_FILE, "a", encoding="utf-8") as outfile:
+        source_lines = {i: text for i, text in enumerate(infile, 1) if i in MANUAL_REPAIRS}
+        for line_no, repair in sorted(MANUAL_REPAIRS.items()):
+            outfile.write(json.dumps(build_sample(json.loads(source_lines[line_no]), repair),
+                                     ensure_ascii=False) + "\n")
+            valid_count += 1
+            print(f"Applied manual repair to source line {line_no}")
 
 print("--- CONVERSION COMPLETE ---")
 print(f"Valid & Converted: {valid_count}")

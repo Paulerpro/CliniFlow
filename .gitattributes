@@ -1,0 +1,5 @@
+# One line-ending policy for every platform: LF in the repo and in checkouts.
+# Shell scripts and the Dockerfile are built into Linux images, where CRLF breaks them.
+* text=auto eol=lf
+*.sh text eol=lf
+Dockerfile text eol=lf
