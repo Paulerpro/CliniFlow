@@ -14,12 +14,13 @@ class LLMClient(Protocol):
 
 
 class VllmClient:
-    def __init__(self, base_url, model, max_tokens=1500, timeout_s=600.0, transport=None):
+    def __init__(self, base_url, model, max_tokens=1500, timeout_s=600.0, transport=None, headers=None):
         self._url = base_url.rstrip("/") + "/v1/chat/completions"
         self._model = model
         self._max_tokens = max_tokens
         self._timeout = timeout_s
         self._transport = transport  # tests inject a fake transport
+        self._headers = headers or {}  # e.g. Modal proxy-auth token headers
 
     async def complete(self, messages):
         body = {"model": self._model, "messages": messages,
@@ -29,7 +30,7 @@ class VllmClient:
         # Error text below deliberately omits URLs: the redirect URL carries a token.
         try:
             async with httpx.AsyncClient(timeout=self._timeout, follow_redirects=True,
-                                         transport=self._transport) as client:
+                                         transport=self._transport, headers=self._headers) as client:
                 resp = await client.post(self._url, json=body)
             resp.raise_for_status()
             return resp.json()["choices"][0]["message"]["content"]

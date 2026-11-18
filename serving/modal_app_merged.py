@@ -30,7 +30,9 @@ volume = modal.Volume.from_name("cliniflow-merged")
     volumes={"/merged": volume},
 )
 @modal.concurrent(max_inputs=10)  # same as modal_app.py: lets vLLM's batching see concurrent requests
-@modal.web_server(port=8000, startup_timeout=600)
+# Callers must send the Modal-Key / Modal-Secret headers of a proxy-auth token (serving/README.md),
+# so the GPU endpoint is not open to anyone who learns the URL.
+@modal.web_server(port=8000, startup_timeout=600, requires_proxy_auth=True)
 def serve_merged():
     # Same flags as modal_app_base.py: the only difference is the weights.
     cmd = (

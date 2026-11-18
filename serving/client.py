@@ -42,7 +42,7 @@ def generate(transcript, system_prompt, server_url=config.SERVER_URL, timeout=60
     req = urllib.request.Request(
         f"{server_url}/v1/chat/completions",
         data=body,
-        headers={"Content-Type": "application/json"},
+        headers={"Content-Type": "application/json", **config.auth_headers()},
     )
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         payload = json.loads(resp.read().decode("utf-8"))

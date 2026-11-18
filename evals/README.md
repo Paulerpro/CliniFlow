@@ -28,12 +28,12 @@ Run the eval against each. `--adapter-dir` is only used to load `system_prompt.t
 
     python evals/run_eval.py --transcripts-file training/colab/test.jsonl \
         --adapter-dir registry/adapters/config_A --model-name base-model \
-        --server-url https://paulsilas938--cliniflow-vllm-base-serve-base.us-east.modal.run \
+        --server-url https://<your-workspace>--cliniflow-vllm-base-serve-base.us-east.modal.run \
         --out evals/results_base.json
 
     python evals/run_eval.py --transcripts-file training/colab/test.jsonl \
         --adapter-dir registry/adapters/config_A \
-        --server-url https://paulsilas938--cliniflow-vllm-serve.us-east.modal.run \
+        --server-url https://<your-workspace>--cliniflow-vllm-serve.us-east.modal.run \
         --out evals/results_finetuned.json
 
 Then:
@@ -84,7 +84,7 @@ The fine-tuned results below are the adapter served unmerged, so their latency i
 
 The adapter merged into the fp16 base (`serving/modal_merge.py`, served by `serving/modal_app_merged.py`) was run through the same 50 rows. Files: `results_merged.json`, `rescored_merged.json`, `hallucination_rules_merged.json`, `hallucination_judge_merged.json`, `gateway_replay_merged.json`, `merged_comparison.json`.
 
-    python evals/run_eval.py --transcripts-file training/colab/test.jsonl --adapter-dir registry/adapters/config_A         --model-name clinical-json-extractor-merged         --server-url https://paulsilas938--cliniflow-vllm-merged-serve-merged.us-east.modal.run --out evals/results_merged.json
+    python evals/run_eval.py --transcripts-file training/colab/test.jsonl --adapter-dir registry/adapters/config_A         --model-name clinical-json-extractor-merged         --server-url https://<your-workspace>--cliniflow-vllm-merged-serve-merged.us-east.modal.run --out evals/results_merged.json
     python evals/compare_merged.py --adapter evals/results_finetuned.json --merged evals/results_merged.json --out evals/merged_comparison.json
 
 | | adapter (unmerged) | merged |

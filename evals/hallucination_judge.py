@@ -22,6 +22,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -147,6 +148,7 @@ def main():
     ap.add_argument("--limit", type=int, default=None, help="notes per source (for a cheap trial)")
     ap.add_argument("--only", nargs="+", choices=["gold", "base", "finetuned"],
                     help="judge only these sources (e.g. a new results file passed as --finetuned)")
+    ap.add_argument("--workers", type=int, default=1, help="parallel judge calls (default 1)")
     ap.add_argument("--dry-run", action="store_true", help="build prompts, call nothing")
     args = ap.parse_args()
 
@@ -170,22 +172,38 @@ def main():
             state = prev  # resume
     done = state["judgments"]
 
-    for n, (label, i) in enumerate(jobs, 1):
-        k = f"{label}:{i + 1}"
-        if k in done:
-            continue
-        try:
-            verdict, usage = call_judge(key, args.model, build_messages(rows[i]["input"], sources[label][i]))
-        except Exception as e:
-            print(f"[{n}/{len(jobs)}] {k} FAILED: {e}")
-            continue
-        done[k] = verdict
-        for u in ("prompt_tokens", "completion_tokens"):
-            state["usage"][u] += usage.get(u, 0)
-        print(f"[{n}/{len(jobs)}] {k} unsupported={len(verdict.get('unsupported_claims', []))} "
-              f"missing={len(verdict.get('missing_key_facts', []))}")
+    def save():
         with open(args.out, "w", encoding="utf-8") as f:
             json.dump(state, f, indent=2)
+
+    def judge_one(job):
+        label, i = job
+        return call_judge(key, args.model, build_messages(rows[i]["input"], sources[label][i]))
+
+    todo = [job for job in jobs if f"{job[0]}:{job[1] + 1}" not in done]
+    print(f"{len(todo)} to judge ({len(jobs) - len(todo)} already done), {args.workers} worker(s)")
+    failed = 0
+    with ThreadPoolExecutor(max_workers=args.workers) as pool:
+        futures = {pool.submit(judge_one, job): job for job in todo}
+        for n, fut in enumerate(as_completed(futures), 1):
+            label, i = futures[fut]
+            k = f"{label}:{i + 1}"
+            try:
+                verdict, usage = fut.result()
+            except Exception as e:
+                failed += 1
+                print(f"[{n}/{len(todo)}] {k} FAILED: {e}")
+                continue
+            done[k] = verdict
+            for u in ("prompt_tokens", "completion_tokens"):
+                state["usage"][u] += usage.get(u, 0)
+            if n % 25 == 0 or args.workers == 1:
+                print(f"[{n}/{len(todo)}] {k} unsupported={len(verdict.get('unsupported_claims', []))} "
+                      f"missing={len(verdict.get('missing_key_facts', []))}", flush=True)
+            if n % 25 == 0 or args.workers == 1:
+                save()
+    if failed:
+        print(f"{failed} call(s) failed; rerun the same command to retry only those")
 
     state["summary"] = {
         label: summarise([v for k, v in done.items() if k.startswith(label + ":")])

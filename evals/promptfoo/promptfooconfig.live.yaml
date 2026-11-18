@@ -3,7 +3,9 @@
 #   python -m modal deploy serving/modal_app.py
 #   python -m modal deploy serving/modal_app_base.py
 #   python -m modal deploy serving/modal_app_merged.py
-# Then: npx promptfoo eval -c promptfooconfig.live.yaml --env-file ../../.env -j 1
+# Set CLINIFLOW_BASE_URL, CLINIFLOW_ADAPTER_URL, CLINIFLOW_MERGED_URL (e.g. https://<workspace>--cliniflow-vllm-merged-serve-merged.us-east.modal.run)
+# and the proxy-auth token MODAL_PROXY_TOKEN_ID / MODAL_PROXY_TOKEN_SECRET in .env, then:
+# npx promptfoo eval -c promptfooconfig.live.yaml --env-file ../../.env -j 1
 # (-j 1 keeps requests sequential, like evals/run_eval.py.)
 description: CliniFlow base vs fine-tuned (live)
 
@@ -14,22 +16,31 @@ providers:
   - id: openai:chat:base-model
     label: base
     config:
-      apiBaseUrl: https://paulsilas938--cliniflow-vllm-base-serve-base.us-east.modal.run/v1
+      apiBaseUrl: "{{env.CLINIFLOW_BASE_URL}}/v1"
       apiKey: not-needed
+      headers:
+        Modal-Key: "{{env.MODAL_PROXY_TOKEN_ID}}"
+        Modal-Secret: "{{env.MODAL_PROXY_TOKEN_SECRET}}"
       temperature: 0
       max_tokens: 1500
   - id: openai:chat:clinical-json-extractor
     label: fine-tuned
     config:
-      apiBaseUrl: https://paulsilas938--cliniflow-vllm-serve.us-east.modal.run/v1
+      apiBaseUrl: "{{env.CLINIFLOW_ADAPTER_URL}}/v1"
       apiKey: not-needed
+      headers:
+        Modal-Key: "{{env.MODAL_PROXY_TOKEN_ID}}"
+        Modal-Secret: "{{env.MODAL_PROXY_TOKEN_SECRET}}"
       temperature: 0
       max_tokens: 1500
   - id: openai:chat:clinical-json-extractor-merged
     label: merged
     config:
-      apiBaseUrl: https://paulsilas938--cliniflow-vllm-merged-serve-merged.us-east.modal.run/v1
+      apiBaseUrl: "{{env.CLINIFLOW_MERGED_URL}}/v1"
       apiKey: not-needed
+      headers:
+        Modal-Key: "{{env.MODAL_PROXY_TOKEN_ID}}"
+        Modal-Secret: "{{env.MODAL_PROXY_TOKEN_SECRET}}"
       temperature: 0
       max_tokens: 1500
 

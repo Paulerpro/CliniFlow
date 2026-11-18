@@ -1,96 +1,99 @@
 # CliniFlow
 
-An ambient clinical documentation assistant: it turns a clinical encounter transcript into a structured SOAP note (Subjective, Objective, Assessment, Plan) plus a suggested, non-authoritative ICD-10 code, using a fine-tuned LoRA adapter served with vLLM.
+An ambient clinical documentation assistant. It turns a doctor-patient transcript into a structured SOAP note (Subjective, Objective, Assessment, Plan) plus a suggested ICD-10 code. A validation gateway checks and repairs the model's output, and **a human has to sign off before a note counts**.
+
+> **Built with Llama.** Fine-tuned from Llama 3.2 3B Instruct; see [NOTICE](NOTICE) for the license and data attributions.
 
 **Scope honesty statement:** this is a portfolio project built on synthetic data, for engineering demonstration. It is **not** clinically validated, **not** a certified medical device, and **not** HIPAA-compliant infrastructure. No real patient data is used or stored anywhere in this repo. Suggested codes are never auto-submitted and require human sign-off.
 
-## Status
+The interesting part is not the model, it is the engineering around a model that is imperfect: measuring exactly where it fails, putting a checking layer in front of it, and keeping a person in charge.
+
+## Results
+
+Measured on 50 held-out transcripts, one T4 GPU, `temperature` 0. Full method, caveats and examples: [`evals/BENCHMARK_REPORT.md`](evals/BENCHMARK_REPORT.md) (new to the terms? read [`evals/GLOSSARY.md`](evals/GLOSSARY.md)).
+
+| | base model | fine-tuned (adapter) | fine-tuned (merged) |
+|---|---|---|---|
+| Output is bare, schema-valid JSON | 0/49 (wraps it in markdown fences) | **50/50** | 49/50 |
+| Exact ICD-10 code, raw | 0/49 | 0/50 | 0/50 |
+| Exact ICD-10 code after the gateway's repair | n/a | **11/50** | 11/50 |
+| Notes with a major unsupported claim (LLM judge) | 4/49 | 9/50 | 9/50 |
+| Median request time | 14.1 s | 51.2 s | **25.2 s** |
+
+What the numbers say:
+- **Fine-tuning fixed the format** (0 to 50 of 50), which is what it was for.
+- **ICD-10 code numbers stayed wrong.** The model learns diagnosis *names* much better than code numbers, so the gateway looks the code up from the model's own description (0 to 11 of 50 exact). Every repair is flagged for review, because half of them are still wrong.
+- **Hallucination copies the training data.** The model invents patient details at the same rate as the reference notes. Judging all 901 training notes showed 19% contain a major claim the conversation does not support, and only 5.5% are fully supported. The cause is how the source dataset was built: notes were written first and dialogues generated *from* them, so training on dialogue to note asks the model to recover details that were never said.
+- **Merging the adapter into the base weights** made serving 2.0x faster with equivalent quality (one format failure in 50, row 28, which the gateway's retry would catch). The original design kept the adapter unmerged to share one base between several adapters; with a single adapter that bought nothing.
+
+## How it fits together
+
+```
+ AI agent (MCP client)            human reviewer
+   draft_note · get_note            python -m agents.cli
+   verify_note · search_icd10         list · show · approve · reject
+   request_signoff                    audit · export-feedback
+        │                                   │
+        ▼                                   ▼
+ ┌─────────────────────────┐     SQLite: drafts, checks, append-only audit log
+ │ Gateway (FastAPI)       │
+ │  strict JSON + retry    │──► Langfuse traces (optional)
+ │  ICD-10 table repair    │
+ │  grounding flags        │
+ └───────────┬─────────────┘
+             ▼
+ vLLM on Modal (T4): the merged model ◄── built from the adapter by serving/modal_merge.py
+
+ Offline:  MedSynth data ─► prep, noise, split ─► QLoRA training (Colab) ─► adapter registry (S3)
+           evals/: Python scripts + Promptfoo, LLM judge, gateway replay
+```
+
+Each piece owns one job. The gateway never edits note text and never invents a code; it flags. The agent tools cannot approve anything. The registry keeps the small unmerged adapter as the source of truth, and the merged serving copy is derived from it.
 
 | Pillar | What it is | Status |
 |---|---|---|
-| 1 &mdash; Fine-tuning | QLoRA adapter (Llama 3.2 3B) on synthetic encounter data | ✅ Done &mdash; config A trained, pushed to a private Hugging Face repo |
-| 2 &mdash; AWS data & registry | SageMaker data validation + S3 adapter registry | ✅ Done &mdash; validated in the cloud, adapter registered with a manifest |
-| 3 &mdash; Serving (vLLM) | Base model + LoRA adapter served over an OpenAI-style API | ✅ Done &mdash; live on Modal (T4 GPU), returning schema-valid notes over the real API; AWS EC2 deployment also scripted |
-| 4 &mdash; Evaluation & telemetry | Base-vs-fine-tuned benchmark, Promptfoo/Ragas, Langfuse tracing | 🟡 Benchmark + hallucination eval done ([`evals/BENCHMARK_REPORT.md`](evals/BENCHMARK_REPORT.md)); Promptfoo/Langfuse pending |
-| 5 &mdash; Software engineering | FastAPI gateway, validation + retry/repair, tests, CI | ⏳ Not started |
-| 6 &mdash; Agents & governance | MCP server, human-sign-off rules | ⏳ Not started |
-| 7 &mdash; Speech-to-text (optional) | Local Whisper transcription | ⏳ Not started |
+| 1 Fine-tuning | QLoRA adapter (Llama 3.2 3B) on synthetic encounters, 89 minutes on a T4 | Done: [`training/`](training) |
+| 2 Data and registry | SageMaker validation job, S3 adapter registry with a manifest | Done: [`registry/`](registry) |
+| 3 Serving | vLLM on Modal: merged model, plus the unmerged adapter and base for comparison | Done: [`serving/`](serving) |
+| 4 Evaluation | Benchmark, hallucination checks (rules and LLM judge), Promptfoo, Langfuse | Done: [`evals/`](evals) |
+| 5 Gateway | FastAPI: format retry, ICD-10 repair, grounding flags. A CI workflow is written but has not run yet | Done: [`gateway/`](gateway) |
+| 6 Agents and governance | MCP server, human-only approval, audit log, feedback export | Done: [`agents/`](agents) |
+| 7 Speech-to-text | Local Whisper (optional) | Not started |
 
-See each pillar's own README for the real detail: [`dataset/`](dataset), [`training/colab/`](training/colab), [`registry/`](registry), [`serving/`](serving).
+## Try it
 
-## Architecture
+You can run the whole test suite without any accounts or GPU. The model is replaced by a fake in the tests.
 
-```
-[Text input] or [Audio -> Whisper STT (optional)]
-        |
-        v
-[Transcript]
-        |
-        v
-[Pillar 1: QLoRA-tuned LoRA adapter]  -- kept unmerged in the registry; merged into the base weights for serving
-        |
-        v
-[Pillar 5: FastAPI gateway]  (validation + repair layer)
-        |
-        v
-[Pillar 3: vLLM]  -- serves the merged model (the unmerged adapter deployment is kept for comparison)
-        |
-        v
-[Pillar 6: MCP server + governance]  (human sign-off required)
-        |
-        v
-[Pillar 4: Evals/telemetry]
-
-[Pillar 2: SageMaker]  -- offline side path: dataset prep + adapter registry (S3) only
+```bash
+pip install -r agents/requirements.txt
+python -m pytest gateway agents          # 127 tests
+python -m ruff check gateway agents
 ```
 
-Each pillar owns one responsibility and nothing else &mdash; SageMaker never hosts inference, vLLM never trains, and the registry keeps the adapter unmerged as the source of truth (the merged serving copy is derived from it). The full reasoning behind every one of these choices lives in the project's design document (kept locally in `docs/`, not published in this repo).
+Running the real models needs a Modal account and a trained adapter, neither of which is in this repo. Setup, the deployment files and the cost notes are in [`serving/README.md`](serving/README.md), the gateway in [`gateway/README.md`](gateway/README.md) and the agent tools in [`agents/README.md`](agents/README.md). The Modal apps are configured to require proxy-auth tokens (see `serving/README.md`), and no endpoint URLs are published in this repo.
 
-## What's actually working right now
+## Limitations
 
-- A 1,000-row synthetic dataset (train/val/test split), schema-validated twice: once locally and once as a real SageMaker Processing job in the cloud.
-- A trained LoRA adapter (rank 16) that reliably produces schema-valid SOAP JSON: **20/20** on a held-out check.
-- The same adapter served live through vLLM with LoRA enabled, on a real GPU (Colab T4) &mdash; a transcript in, a structured note out, over a normal HTTP API.
-- A versioned adapter registry in S3, with a manifest recording the training config and eval scores.
-
-## Known limitation
-
-The trained adapter matches the output **format** perfectly (20/20 valid JSON, 20/20 schema-valid) but does not yet predict the correct ICD-10 code (0/20 on a held-out check). It is reliable at structuring a note; it is not yet reliable at suggesting the right billing code. This is flagged here deliberately rather than left to be discovered &mdash; see `registry/README.md` for the full numbers.
+- **Synthetic data only.** Not clinically validated, and the dataset itself is not a source of reliable medical information.
+- **Small evaluation.** 50 test rows, one run per model, one LLM judge model with a human spot-check of the major flags only. Differences of a few rows are within noise.
+- **Codes remain the weak spot.** 11 of 50 exact after repair.
+- **The training data teaches the model to embellish.** Measured and understood (see Results); not yet fixed. A cleaning and retraining experiment is the planned next step.
+- **Slow.** 25 seconds per note on a T4, and cold starts take minutes.
+- **The gateway has no authentication or rate limiting,** and the approval step's terminal check guards against accidents, not against a determined user.
+- **Licensing.** The MedSynth dataset card states no license, so no rights to the data are granted here; see [NOTICE](NOTICE).
 
 ## Repo layout
 
 ```
-dataset/    raw data + validation + noise injection + train/val/test split
-training/   Colab QLoRA fine-tuning notebook and its generator script
-registry/   AWS: dataset validation (SageMaker), S3 adapter registry, IAM policies
-serving/    vLLM serving: config, client, load test, Docker, Modal + EC2 deployment scripts
-agents/     (planned) MCP server + governance
-evals/      (planned) benchmark suite
-gateway/    (planned) FastAPI gateway
-stt/        (planned, optional) speech-to-text
+dataset/    MedSynth download, validation, noise injection, seeded train/val/test split
+training/   Colab QLoRA notebook and its generator script
+registry/   SageMaker validation job, S3 adapter registry, IAM policies
+serving/    vLLM on Modal (merged, adapter, base), the merge job, Docker, EC2 scripts, client and load test
+evals/      benchmark, hallucination checks, Promptfoo, glossary and the written report
+gateway/    FastAPI gateway, ICD-10 table, tracing, tests
+agents/     MCP server, sign-off rules, review CLI, tests
 ```
 
-## Running what exists today
+## License
 
-```bash
-# Validate the dataset locally
-python registry/validate_dataset.py --input-dir training/colab --output-dir registry/report
-
-# Send a transcript to a running vLLM server (local, Colab, Modal, or EC2)
-export SERVER_URL=http://<server-ip>:8000
-python serving/client.py --transcript-file path/to/transcript.txt
-
-# Load-test a running server
-python serving/load_test.py --transcripts-file training/colab/val.jsonl --n 20 --concurrency 5
-```
-
-Each of these has its own README with full setup steps, since getting a GPU server running is the part with real prerequisites (quota, IAM, Docker).
-
-## Why these specific choices
-
-- **3B model, not 8B/7B:** fits a 16GB T4 in full precision with headroom for the KV cache; an 8B model would not.
-- **LoRA adapter merged for serving:** training and the registry deal in the small adapter, but serving uses a merged copy (`serving/modal_merge.py`). The original design served the adapter unmerged so several adapters could share one base model; with a single adapter that flexibility went unused while costing about 2x slower generation (measured: median 51s unmerged vs 25s merged, `evals/BENCHMARK_REPORT.md`).
-- **SageMaker for data and registry only, vLLM for serving:** one inference path, not two competing ones.
-- **No quantization by default:** keeps the fine-tune's accuracy gains intact; available later as a separately-evaluated experiment.
-
-The full decision log, with alternatives considered and why they were rejected, is kept in the project's design document.
+Code and documentation: MIT ([LICENSE](LICENSE)). The Llama model, the MedSynth data and dependencies keep their own terms ([NOTICE](NOTICE)).

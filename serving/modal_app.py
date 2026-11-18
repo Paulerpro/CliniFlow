@@ -41,7 +41,9 @@ app = modal.App("cliniflow-vllm", image=image)
 # than one request, no matter the client's concurrency. 10 is within the measured KV
 # cache headroom (~11x concurrent full-length requests at max_model_len=4096).
 @modal.concurrent(max_inputs=10)
-@modal.web_server(port=8000, startup_timeout=600)
+# Callers must send the Modal-Key / Modal-Secret headers of a proxy-auth token (serving/README.md),
+# so the GPU endpoint is not open to anyone who learns the URL.
+@modal.web_server(port=8000, startup_timeout=600, requires_proxy_auth=True)
 def serve():
     # PATH prepended so `python3` resolves to the base image's interpreter (has vllm installed),
     # not the one `add_python` injected at /usr/local/bin (needed only so Modal can detect a

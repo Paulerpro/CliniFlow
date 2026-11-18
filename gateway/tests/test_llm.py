@@ -66,3 +66,39 @@ def test_connect_error_names_the_host_to_check():
     with pytest.raises(LLMError) as e:
         complete(client(handler))
     assert "model.test" in str(e.value) and "VLLM_URL" in str(e.value)
+
+
+def test_proxy_auth_headers_are_sent_when_configured():
+    seen = {}
+
+    def handler(request):
+        seen.update(request.headers)
+        return httpx.Response(200, json=REPLY)
+
+    c = VllmClient("http://model.test", "m", transport=httpx.MockTransport(handler),
+                   headers={"Modal-Key": "wk-123", "Modal-Secret": "ws-456"})
+    assert complete(c) == "hello"
+    assert seen["modal-key"] == "wk-123" and seen["modal-secret"] == "ws-456"
+
+
+def test_no_auth_headers_by_default():
+    seen = {}
+
+    def handler(request):
+        seen.update(request.headers)
+        return httpx.Response(200, json=REPLY)
+
+    complete(client(handler))
+    assert "modal-key" not in seen and "modal-secret" not in seen
+
+
+def test_rejected_credentials_do_not_leak_into_the_error():
+    def handler(request):
+        return httpx.Response(401)
+
+    c = VllmClient("http://model.test", "m", transport=httpx.MockTransport(handler),
+                   headers={"Modal-Key": "wk-123", "Modal-Secret": "ws-456"})
+    with pytest.raises(LLMError) as e:
+        complete(c)
+    assert str(e.value) == "model server returned HTTP 401"
+    assert "wk-123" not in str(e.value) and "ws-456" not in str(e.value)

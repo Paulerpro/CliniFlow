@@ -1,0 +1,42 @@
+CliniFlow
+Copyright (c) 2026 Paulerpro. The code and documentation written for this project
+are licensed under the MIT License (see LICENSE). The materials below are NOT covered
+by that license.
+
+Built with Llama
+----------------
+This project fine-tunes and serves Meta's Llama 3.2 3B Instruct model.
+
+Llama 3.2 is licensed under the Llama 3.2 Community License, Copyright (c) Meta Platforms, Inc. All Rights Reserved.
+License text: https://www.llama.com/llama3_2/license/ (Llama 3.2 Version Release Date: September 25, 2024).
+
+No Llama weights (base, adapter or merged) are distributed in this repository. Anyone who
+distributes or makes available the weights, or a model derived from them, takes on the
+license's obligations: including a copy of the agreement, displaying "Built with Llama",
+and beginning the name of a distributed derived model with "Llama". The license text
+governs; read it before distributing anything.
+
+MedSynth dataset
+----------------
+The training and evaluation data is derived from MedSynth: A. Rezaie Mianroodi et al.,
+"MedSynth: Realistic, Synthetic Medical Dialogue-Note Pairs" (arXiv:2508.01401),
+https://huggingface.co/datasets/Ahmad0067/MedSynth (code: https://github.com/ahmadrezarm/MedSynth).
+The dataset card states no license, so this repository's license grants no rights to
+the data, and files derived from it are included only to reproduce the experiments here.
+The dataset's card says it is not a source of reliable medical information and is
+intended for improving dialogue-to-note models; this project treats it the same way.
+To regenerate the data files from the source: dataset/dataset_gen.py, then
+dataset/prep_and_validate.py, dataset/inject_noise.py and dataset/split_dataset.py
+(the split is seeded).
+
+ICD-10-CM code list
+-------------------
+gateway/data/icd10cm_fy2026.tsv.gz is built from the FY2026 ICD-10-CM order file
+published by the U.S. Centers for Disease Control and Prevention, National Center
+for Health Statistics (https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/ICD10CM/2026/).
+
+Open-source libraries
+---------------------
+vLLM, Unsloth, Hugging Face Transformers and PEFT, FastAPI, Pydantic, httpx, RapidFuzz,
+the MCP Python SDK, the Langfuse SDK and Promptfoo are used as dependencies and remain
+under their own licenses.

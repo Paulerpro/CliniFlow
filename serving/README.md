@@ -31,6 +31,17 @@ The project first served the adapter unmerged, expecting to add more adapters. W
 
 Rebuild after retraining: `python -m modal run serving/modal_merge.py`, then `python -m modal deploy serving/modal_app_merged.py`. The merge runs on Modal because it needs about 13 GB of RAM; it recomputes three weights by hand and compares the merged and adapter-applied logits, and writes nothing if either check fails (last run: max logit difference 0.000045, identical top tokens).
 
+### Protecting the endpoints
+
+All three apps are declared with `requires_proxy_auth=True`. Once deployed that way, Modal rejects (HTTP 401) any request that does not carry a valid proxy-auth token, so someone who learns an endpoint URL cannot run GPU time on your account.
+
+1. Create a token in the Modal dashboard (Settings, Proxy Auth Tokens) and put it in `.env`, which is gitignored:
+   `MODAL_PROXY_TOKEN_ID=wk-...` and `MODAL_PROXY_TOKEN_SECRET=ws-...`. These are not your Modal CLI credentials (`MODAL_TOKEN_ID` and `MODAL_TOKEN_SECRET`).
+2. **Redeploy each app.** Deployments made before this change stay open until redeployed.
+3. The clients send the two headers (`Modal-Key`, `Modal-Secret`) automatically when both variables are set: the gateway (it reads `.env`), `serving/client.py`, `serving/load_test.py` and `evals/run_eval.py` (these three read the process environment, so `export` the variables first), and the Promptfoo live config. With curl, add `-H "Modal-Key: $MODAL_PROXY_TOKEN_ID" -H "Modal-Secret: $MODAL_PROXY_TOKEN_SECRET"`.
+
+The header handling is covered by tests (`gateway/tests/test_llm.py`, `test_config.py`). The authenticated deployment itself has not been exercised end to end yet.
+
 ### How the unmerged path works
 
 ```

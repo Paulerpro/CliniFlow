@@ -9,7 +9,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from .config import Settings
+from .config import Settings, proxy_auth_headers
 from .icd10 import IcdTable
 from .llm import LLMClient, LLMError, VllmClient
 from .pipeline import PipelineError, generate_note
@@ -58,7 +58,8 @@ def create_app(settings: Settings | None = None, llm: LLMClient | None = None,
         system_prompt = settings.system_prompt_path.read_text(encoding="utf-8")
     table = table or IcdTable.load()
     llm = llm or VllmClient(settings.vllm_url, settings.model_name,
-                            settings.max_tokens, settings.request_timeout_s)
+                            settings.max_tokens, settings.request_timeout_s,
+                            headers=proxy_auth_headers())
 
     tracer = tracer or make_tracer()  # a no-op unless Langfuse keys are set
 

@@ -4,7 +4,7 @@ Reuses the schema check from registry/validate_dataset.py rather than
 duplicating it, so Pillar 2 and Pillar 4 agree on what "valid" means.
 
 Usage:
-    export SERVER_URL=https://paulsilas938--cliniflow-vllm-serve.us-east.modal.run
+    export SERVER_URL=https://<your-workspace>--cliniflow-vllm-serve.us-east.modal.run
     python evals/run_eval.py --transcripts-file training/colab/test.jsonl \
         --adapter-dir registry/adapters/config_A --out evals/results_finetuned.json
 
@@ -79,6 +79,12 @@ def score_codes(pred_obj, gold_obj):
     }
 
 
+def auth_headers():
+    """Modal proxy-auth token headers, if set (see gateway/config.py proxy_auth_headers)."""
+    key, secret = os.environ.get("MODAL_PROXY_TOKEN_ID"), os.environ.get("MODAL_PROXY_TOKEN_SECRET")
+    return {"Modal-Key": key, "Modal-Secret": secret} if key and secret else {}
+
+
 def call_model(server_url, model_name, system_prompt, transcript, timeout=600):
     body = json.dumps({
         "model": model_name,
@@ -91,7 +97,7 @@ def call_model(server_url, model_name, system_prompt, transcript, timeout=600):
     }).encode("utf-8")
     req = urllib.request.Request(
         f"{server_url}/v1/chat/completions", data=body,
-        headers={"Content-Type": "application/json"},
+        headers={"Content-Type": "application/json", **auth_headers()},
     )
     start = time.perf_counter()
     with urllib.request.urlopen(req, timeout=timeout) as resp:

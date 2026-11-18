@@ -30,3 +30,9 @@ PORT = int(os.environ.get("PORT", "8000"))
 
 # Where clients send requests.
 SERVER_URL = os.environ.get("SERVER_URL", f"http://localhost:{PORT}")
+
+
+def auth_headers():
+    """Modal proxy-auth token headers, if the endpoint was deployed with requires_proxy_auth=True."""
+    key, secret = os.environ.get("MODAL_PROXY_TOKEN_ID"), os.environ.get("MODAL_PROXY_TOKEN_SECRET")
+    return {"Modal-Key": key, "Modal-Secret": secret} if key and secret else {}

@@ -7,7 +7,8 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # Only these prefixes are read from .env, so unrelated secrets in the file (AWS, OpenAI)
 # never enter the gateway process.
-ENV_PREFIXES = ("VLLM_", "MODEL_", "SYSTEM_PROMPT_", "MAX_", "ALLOW_", "REPAIR_", "REQUEST_", "LANGFUSE_", "TRACE_")
+ENV_PREFIXES = ("VLLM_", "MODEL_", "SYSTEM_PROMPT_", "MAX_", "ALLOW_", "REPAIR_", "REQUEST_", "LANGFUSE_", "TRACE_",
+                "MODAL_PROXY_")
 
 
 def load_dotenv(path=ROOT / ".env", prefixes=ENV_PREFIXES):
@@ -24,6 +25,17 @@ def load_dotenv(path=ROOT / ".env", prefixes=ENV_PREFIXES):
 
 
 load_dotenv()
+
+
+def proxy_auth_headers(env=None):
+    """Headers for a Modal endpoint deployed with requires_proxy_auth=True (empty if not configured).
+
+    The tokens are created in the Modal dashboard (Settings, Proxy Auth Tokens). They are not the
+    Modal CLI credentials (MODAL_TOKEN_ID / MODAL_TOKEN_SECRET), hence the different names.
+    """
+    env = os.environ if env is None else env
+    key, secret = env.get("MODAL_PROXY_TOKEN_ID"), env.get("MODAL_PROXY_TOKEN_SECRET")
+    return {"Modal-Key": key, "Modal-Secret": secret} if key and secret else {}
 
 
 def _flag(name, default):

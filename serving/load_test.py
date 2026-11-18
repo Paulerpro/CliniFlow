@@ -30,7 +30,7 @@ def stream_one(transcript, system_prompt):
     req = urllib.request.Request(
         f"{config.SERVER_URL}/v1/chat/completions",
         data=body,
-        headers={"Content-Type": "application/json"},
+        headers={"Content-Type": "application/json", **config.auth_headers()},
     )
     start = time.perf_counter()
     ttft = None

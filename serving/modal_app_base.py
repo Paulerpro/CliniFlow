@@ -26,7 +26,9 @@ app = modal.App("cliniflow-vllm-base", image=image)
     scaledown_window=60 * 10,
     max_containers=1,
 )
-@modal.web_server(port=8000, startup_timeout=600)
+# Callers must send the Modal-Key / Modal-Secret headers of a proxy-auth token (serving/README.md),
+# so the GPU endpoint is not open to anyone who learns the URL.
+@modal.web_server(port=8000, startup_timeout=600, requires_proxy_auth=True)
 def serve_base():
     # Runs vLLM directly, bypassing start_server.sh entirely: no adapter, no
     # --enable-lora, nothing for it to check or attach. --served-model-name
