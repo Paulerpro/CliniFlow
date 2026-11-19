@@ -1,26 +1,27 @@
 # Replay mode (default): scores the replies already saved by evals/run_eval.py,
 # so no GPU, model server or API key is needed. Deterministic checks only: free.
+# The first provider is the product (the merged model); the other two are the benchmark's reference points.
 # The LLM hallucination rubric is in promptfooconfig.hallucination.yaml (costs money).
 #   npx promptfoo eval -c promptfooconfig.yaml --env-file ../../.env
 # For live requests against the Modal endpoints, use promptfooconfig.live.yaml.
-description: CliniFlow base vs fine-tuned (replay)
+description: CliniFlow model vs. reference points (replay)
 
 prompts:
   - file://prompt.json
 
 providers:
   - id: file://replay_provider.js
+    label: cliniflow
+    config:
+      resultsFile: results_merged.json
+  - id: file://replay_provider.js
     label: base
     config:
       resultsFile: results_base.json
   - id: file://replay_provider.js
-    label: fine-tuned
+    label: adapter
     config:
       resultsFile: results_finetuned.json
-  - id: file://replay_provider.js
-    label: merged
-    config:
-      resultsFile: results_merged.json
 
 tests: file://tests.js
 

@@ -27,7 +27,7 @@ def load_system_prompt(adapter_dir=config.ADAPTER_DIR):
 
 def build_request(transcript, system_prompt):
     return {
-        "model": config.ADAPTER_NAME,
+        "model": config.MODEL_NAME,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": transcript},

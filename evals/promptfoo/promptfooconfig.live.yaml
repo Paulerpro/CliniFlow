@@ -1,18 +1,30 @@
-# Live mode: sends real requests to the Modal endpoints (costs GPU time; the
-# containers cold-start on the first request). Deploy first:
-#   python -m modal deploy serving/modal_app.py
-#   python -m modal deploy serving/modal_app_base.py
-#   python -m modal deploy serving/modal_app_merged.py
-# Set CLINIFLOW_BASE_URL, CLINIFLOW_ADAPTER_URL, CLINIFLOW_MERGED_URL (e.g. https://<workspace>--cliniflow-vllm-merged-serve-merged.us-east.modal.run)
-# and the proxy-auth token MODAL_PROXY_TOKEN_ID / MODAL_PROXY_TOKEN_SECRET in .env, then:
-# npx promptfoo eval -c promptfooconfig.live.yaml --env-file ../../.env -j 1
+# Live mode: sends real requests to the Modal endpoints (costs GPU time; the containers cold-start on
+# the first request). The product is the first provider; the other two are the benchmark's reference points.
+# Deploy first:
+#   python -m modal deploy serving/modal_app.py                       # the CliniFlow model
+#   python -m modal deploy serving/experiments/modal_app_base.py      # reference: plain base model
+#   python -m modal deploy serving/experiments/modal_app_adapter.py   # reference: adapter, unmerged
+# Then set the three URLs in .env (e.g. https://<workspace>--cliniflow-soap-serve.us-east.modal.run):
+#   CLINIFLOW_SOAP_URL, CLINIFLOW_BASE_URL, CLINIFLOW_ADAPTER_URL
+# and, only if you deployed with CLINIFLOW_PROXY_AUTH=1, MODAL_PROXY_TOKEN_ID / MODAL_PROXY_TOKEN_SECRET. Then:
+#   npx promptfoo eval -c promptfooconfig.live.yaml --env-file ../../.env -j 1
 # (-j 1 keeps requests sequential, like evals/run_eval.py.)
-description: CliniFlow base vs fine-tuned (live)
+description: CliniFlow model vs. reference points (live)
 
 prompts:
   - file://prompt.json
 
 providers:
+  - id: openai:chat:cliniflow-soap
+    label: cliniflow
+    config:
+      apiBaseUrl: "{{env.CLINIFLOW_SOAP_URL}}/v1"
+      apiKey: not-needed
+      headers:
+        Modal-Key: "{{env.MODAL_PROXY_TOKEN_ID}}"
+        Modal-Secret: "{{env.MODAL_PROXY_TOKEN_SECRET}}"
+      temperature: 0
+      max_tokens: 1500
   - id: openai:chat:base-model
     label: base
     config:
@@ -24,19 +36,9 @@ providers:
       temperature: 0
       max_tokens: 1500
   - id: openai:chat:clinical-json-extractor
-    label: fine-tuned
+    label: adapter
     config:
       apiBaseUrl: "{{env.CLINIFLOW_ADAPTER_URL}}/v1"
-      apiKey: not-needed
-      headers:
-        Modal-Key: "{{env.MODAL_PROXY_TOKEN_ID}}"
-        Modal-Secret: "{{env.MODAL_PROXY_TOKEN_SECRET}}"
-      temperature: 0
-      max_tokens: 1500
-  - id: openai:chat:clinical-json-extractor-merged
-    label: merged
-    config:
-      apiBaseUrl: "{{env.CLINIFLOW_MERGED_URL}}/v1"
       apiKey: not-needed
       headers:
         Modal-Key: "{{env.MODAL_PROXY_TOKEN_ID}}"

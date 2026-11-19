@@ -1,21 +1,23 @@
 """Deploys the plain base model (no LoRA adapter) on Modal, for the Pillar 4
-base-vs-fine-tuned comparison. Fully separate from modal_app.py: its own app
+base-vs-fine-tuned comparison. Fully separate from the product app (serving/modal_app.py): its own app
 name, its own function, its own URL. Redeploying or breaking this file
 cannot affect the working fine-tuned deployment in any way.
 
 Usage:
-    python -m modal deploy serving/modal_app_base.py
+    python -m modal deploy serving/experiments/modal_app_base.py
 """
+import os
 import pathlib
 import subprocess
 
 import modal
 
-HERE = pathlib.Path(__file__).parent  # serving/
+HERE = pathlib.Path(__file__).resolve().parent.parent  # serving/ (this file lives in serving/experiments/)
+PROXY_AUTH = os.environ.get("CLINIFLOW_PROXY_AUTH") == "1"
 
 image = modal.Image.from_dockerfile(
     str(HERE / "Dockerfile"), context_dir=HERE, add_python="3.12"
-).entrypoint([])  # see modal_app.py for why this is needed
+).entrypoint([])  # see modal_app_adapter.py for why this is needed
 
 app = modal.App("cliniflow-vllm-base", image=image)
 
@@ -26,9 +28,8 @@ app = modal.App("cliniflow-vllm-base", image=image)
     scaledown_window=60 * 10,
     max_containers=1,
 )
-# Callers must send the Modal-Key / Modal-Secret headers of a proxy-auth token (serving/README.md),
-# so the GPU endpoint is not open to anyone who learns the URL.
-@modal.web_server(port=8000, startup_timeout=600, requires_proxy_auth=True)
+# Optional: deploy with CLINIFLOW_PROXY_AUTH=1 to require a Modal proxy-auth token (see serving/README.md).
+@modal.web_server(port=8000, startup_timeout=600, requires_proxy_auth=PROXY_AUTH)
 def serve_base():
     # Runs vLLM directly, bypassing start_server.sh entirely: no adapter, no
     # --enable-lora, nothing for it to check or attach. --served-model-name

@@ -1,6 +1,8 @@
 # Serving with vLLM (Pillar 3)
 
-Serves the fine-tuned model behind an OpenAI-compatible HTTP API with vLLM. Two ways of serving the same fine-tune exist side by side: the **merged** model (the default; plain vLLM on weights that already include the adapter) and the **unmerged** adapter (vLLM's native multi-LoRA: the base model loads once and the adapter attaches per request). See the next section for why merged is the default.
+Serves the CliniFlow model, the fine-tuned SOAP-note model, behind an OpenAI-compatible HTTP API with vLLM. There is one deployment that everything else (the gateway, the agent tools, the evals) talks to: `serving/modal_app.py`, which serves the fine-tuned adapter **merged into the base weights** under the model name `cliniflow-soap`.
+
+The plain base model and the adapter served unmerged also exist, in [`experiments/`](experiments), but only so the benchmark can be reproduced. They are not alternative ways to use the project.
 
 ## What vLLM does
 
@@ -11,45 +13,58 @@ vLLM runs a language model efficiently behind an HTTP API, built around two tech
 
 It exposes an OpenAI-compatible `/v1/chat/completions` endpoint, so any existing OpenAI-style client can point at it unchanged.
 
-## Merged vs. adapter-at-serve-time
+## Deploy the CliniFlow model (Modal)
 
-| Approach | Trade-off |
-|---|---|
-| **Merged (default)** | Plain vLLM on one set of weights. No per-token adapter work. A full 6.4 GB model per adapter version, rebuilt by `modal_merge.py` after each training change |
-| Adapter attached at serve time (`modal_app.py`) | One base model loaded once, the adapter is a few MB and swapped per request, several adapters can share one GPU. The adapter is applied on every generated token |
+```bash
+pip install modal
+python -m modal setup
 
-The project first served the adapter unmerged, expecting to add more adapters. With a single adapter that flexibility was unused, so merging was tried. Measured on the same 50 test rows, T4, `temperature` 0: median request 51.2s unmerged vs **25.2s merged** (2.0x), and 16.7s vs 8.2s per 1,000 output characters, about the plain base model's speed (8.9s). Quality is equivalent within noise; see `evals/BENCHMARK_REPORT.md`, including the one format failure the merged model had.
+python -m modal run serving/modal_merge.py     # once, and again after each retrain: builds the merged weights
+python -m modal deploy serving/modal_app.py    # serves them; prints the URL
+```
 
-### The deployments
+- **`modal_merge.py`** merges the adapter in `registry/adapters/config_A` into the fp16 base model on Modal (it needs about 13 GB of RAM, so not on a laptop) and writes the result, 6.4 GB, to the Volume `cliniflow-merged`. It recomputes three weights by hand and compares the merged and adapter-applied logits, and writes nothing if either check fails (last run: maximum logit difference 0.000045, identical top tokens). A `merge_manifest.json` beside the weights records the base model, the adapter's SHA-256, the LoRA scale and the library versions.
+- **`modal_app.py`** builds `serving/Dockerfile` as the container image, mounts that Volume, asks for a T4 GPU on demand and exposes the vLLM server through Modal's `web_server`. The app is `cliniflow-soap`, and the model name clients send is `cliniflow-soap`. Two details specific to building from a custom Dockerfile on Modal:
+  - The Dockerfile's own `ENTRYPOINT` is cleared (`.entrypoint([])`) so Modal's function invocation controls startup, not the image auto-launching the server.
+  - `PATH` is set explicitly in the launch command so `python3` resolves to the base image's interpreter (the one with vLLM), not the separate one `add_python` provisions for Modal's runtime.
+- A cold container takes several minutes to answer its first request; after that it stays warm for 10 minutes.
 
-| File | App | What it serves |
-|---|---|---|
-| `modal_merge.py` | `cliniflow-merge` (a job, not a server) | Builds the merged model into the Volume `cliniflow-merged`; checks it before saving |
-| `modal_app_merged.py` | `cliniflow-vllm-merged` | The merged model, as `clinical-json-extractor-merged` |
-| `modal_app.py` | `cliniflow-vllm` | The unmerged adapter, as `clinical-json-extractor` (kept for comparison) |
-| `modal_app_base.py` | `cliniflow-vllm-base` | The plain base model, as `base-model` |
+### Why the adapter is merged
 
-Rebuild after retraining: `python -m modal run serving/modal_merge.py`, then `python -m modal deploy serving/modal_app_merged.py`. The merge runs on Modal because it needs about 13 GB of RAM; it recomputes three weights by hand and compares the merged and adapter-applied logits, and writes nothing if either check fails (last run: max logit difference 0.000045, identical top tokens).
+Training and the registry deal in the small adapter (a few MB, the source of truth), but serving uses a merged copy. The project first served the adapter unmerged, expecting to add more adapters later. With a single adapter that flexibility went unused while the adapter was applied on every generated token. Measured on the same 50 test rows, T4, `temperature` 0: median request **51.2 s unmerged vs 25.2 s merged** (2.0x), and 16.7 s vs 8.2 s per 1,000 output characters, about the plain base model's speed. Quality is equivalent within noise; see [`../evals/BENCHMARK_REPORT.md`](../evals/BENCHMARK_REPORT.md), including the one format failure the merged model had.
 
-### Protecting the endpoints
+### Optional: require a token on the endpoint
 
-All three apps are declared with `requires_proxy_auth=True`. Once deployed that way, Modal rejects (HTTP 401) any request that does not carry a valid proxy-auth token, so someone who learns an endpoint URL cannot run GPU time on your account.
+By default the deployed URL accepts any request. To require a Modal proxy-auth token, deploy with `CLINIFLOW_PROXY_AUTH=1`; Modal then answers HTTP 401 to requests without a valid token.
 
-1. Create a token in the Modal dashboard (Settings, Proxy Auth Tokens) and put it in `.env`, which is gitignored:
-   `MODAL_PROXY_TOKEN_ID=wk-...` and `MODAL_PROXY_TOKEN_SECRET=ws-...`. These are not your Modal CLI credentials (`MODAL_TOKEN_ID` and `MODAL_TOKEN_SECRET`).
-2. **Redeploy each app.** Deployments made before this change stay open until redeployed.
-3. The clients send the two headers (`Modal-Key`, `Modal-Secret`) automatically when both variables are set: the gateway (it reads `.env`), `serving/client.py`, `serving/load_test.py` and `evals/run_eval.py` (these three read the process environment, so `export` the variables first), and the Promptfoo live config. With curl, add `-H "Modal-Key: $MODAL_PROXY_TOKEN_ID" -H "Modal-Secret: $MODAL_PROXY_TOKEN_SECRET"`.
+1. Create a token in the Modal dashboard (Settings, Proxy Auth Tokens) and put it in `.env` (gitignored): `MODAL_PROXY_TOKEN_ID=wk-...` and `MODAL_PROXY_TOKEN_SECRET=ws-...`. These are not your Modal CLI credentials (`MODAL_TOKEN_ID` and `MODAL_TOKEN_SECRET`).
+2. Deploy with the variable set: `CLINIFLOW_PROXY_AUTH=1 python -m modal deploy serving/modal_app.py`.
+3. The clients send the `Modal-Key` and `Modal-Secret` headers automatically when both variables are set: the gateway (it reads `.env`), `serving/client.py`, `serving/load_test.py` and `evals/run_eval.py` (these three read the process environment, so `export` them first), and the Promptfoo live config. With curl, add `-H "Modal-Key: $MODAL_PROXY_TOKEN_ID" -H "Modal-Secret: $MODAL_PROXY_TOKEN_SECRET"`.
 
-The header handling is covered by tests (`gateway/tests/test_llm.py`, `test_config.py`). The authenticated deployment itself has not been exercised end to end yet.
+The header handling is covered by tests (`gateway/tests/test_llm.py`, `test_config.py`); an authenticated deployment has not been exercised end to end.
 
-### How the unmerged path works
+## Experiments: the comparison deployments
+
+`experiments/` holds the two other deployments the benchmark needs. Each has its own app name and URL and cannot affect the product deployment.
+
+| File | App | Serves | Used for |
+|---|---|---|---|
+| `experiments/modal_app_base.py` | `cliniflow-vllm-base` | the plain base model, as `base-model` | the "before fine-tuning" reference |
+| `experiments/modal_app_adapter.py` | `cliniflow-vllm` | the adapter attached at serve time (vLLM multi-LoRA), as `clinical-json-extractor` | the "before merging" reference |
+
+```bash
+python -m modal deploy serving/experiments/modal_app_base.py
+python -m modal deploy serving/experiments/modal_app_adapter.py
+```
+
+How the adapter path works:
 
 ```
             one running vLLM server
   ┌──────────────────────────────────────────┐
   │  base model (Llama 3.2 3B, fp16)  ~6 GB  │  loaded once
   │  ┌─────────────────────────────────────┐ │
-  │  │ adapter: clinical-json-extractor    │ │  swapped per request
+  │  │ adapter: clinical-json-extractor    │ │  attached per request
   │  └─────────────────────────────────────┘ │
   └──────────────────────────────────────────┘
         ▲                         │
@@ -57,31 +72,48 @@ The header handling is covered by tests (`gateway/tests/test_llm.py`, `test_conf
    json-extractor", transcript
 ```
 
-The `model` field in the request selects the adapter, so a second task-specific adapter (e.g. `patient-summarizer`) could be added to the same server without a second GPU.
+The `model` field selects the adapter, which is how several task-specific adapters could share one GPU. This project has one, which is why it is merged for serving.
 
 ## Hardware requirements
 
-- **Minimum:** an NVIDIA GPU with 16GB VRAM. The 3B model is ~6GB in fp16; the rest covers the KV cache and the adapter.
-- **Precision:** `--dtype half` (fp16). Confirmed working on a T4 (fp16-only, no bf16); also valid on Ampere-class cards with bf16 support.
-- **Validated on:** a free-tier T4 (Colab) and a T4 on Modal, both serving the trained adapter end-to-end over the real API (request in, schema-valid SOAP JSON out).
+- **Minimum:** an NVIDIA GPU with 16 GB VRAM. The 3B model is about 6 GB in fp16; the rest covers the KV cache (and the adapter, if served unmerged).
+- **Precision:** `--dtype half` (fp16). Confirmed working on a T4 (fp16 only, no bf16); also valid on Ampere-class cards with bf16 support.
+- **Validated on:** a free-tier T4 (Colab) and a T4 on Modal, end to end over the real API (request in, schema-valid SOAP JSON out).
 
-## Deployment targets
+## The server command
 
-The serving layer is packaged as a single Docker image (`serving/Dockerfile`), so it's portable across hosts without code changes.
-
-### Modal (primary, live)
+The product deployment runs plain vLLM on the merged weights:
 
 ```bash
-pip install modal
-python -m modal setup
-python -m modal deploy serving/modal_app.py
+python3 -m vllm.entrypoints.openai.api_server \
+  --model /merged/config_A_merged \
+  --served-model-name cliniflow-soap \
+  --dtype half \                              # fp16; required on T4
+  --max-model-len 4096 \                      # matches training's max_seq_length
+  --host 0.0.0.0 --port 8000
 ```
 
-`serving/modal_app.py` builds `serving/Dockerfile` as the container image, bundles the trained adapter directly into the deployment, requests a T4 GPU on demand, and exposes the vLLM server over Modal's `web_server` networking. Deploy prints the public URL.
+The unmerged adapter server (`start_server.sh`, used by the experiments, the Docker image and the EC2 and Colab paths below) adds `--enable-lora --max-lora-rank 16 --lora-modules clinical-json-extractor=<adapter-dir>`, with `--model` set to the base model.
 
-Confirmed working end-to-end: a transcript sent to the deployed URL returns a schema-valid SOAP note with a suggested ICD code. Two details specific to building from a custom Dockerfile on Modal, both handled in `modal_app.py`:
-- The Dockerfile's own `ENTRYPOINT` is cleared (`.entrypoint([])`) so Modal's function invocation controls container startup instead of the image auto-launching the server on boot.
-- `PATH` is set explicitly in the launch command so `python3` resolves to the base image's interpreter (with vLLM installed), not the separate one `add_python` provisions for Modal's own runtime.
+The system prompt is not a server setting. The client sends it with every request, read from `system_prompt.txt` saved alongside the adapter; it must match training exactly.
+
+## Calling the server
+
+```bash
+export SERVER_URL=https://<your-workspace>--cliniflow-soap-serve.us-east.modal.run   # or http://<host>:8000
+
+# one request, validated against the SOAP schema
+python serving/client.py --transcript-file path/to/transcript.txt
+
+# concurrent requests; reports TTFT, latency, throughput
+python serving/load_test.py --transcripts-file training/colab/val.jsonl --n 20 --concurrency 5
+```
+
+Both scripts are host-agnostic: only `SERVER_URL` changes between hosts. They send the model name `cliniflow-soap`; set `MODEL_NAME=clinical-json-extractor` to talk to the unmerged adapter server.
+
+## Other deployment targets (the unmerged adapter server)
+
+The serving layer is also packaged as a single Docker image (`serving/Dockerfile`), which runs the unmerged adapter server (`start_server.sh`) on any GPU host.
 
 ### AWS EC2 (alternate)
 
@@ -106,40 +138,13 @@ docker run --gpus all -p 8000:8000 -v $(pwd)/adapter:/adapter -e ADAPTER_DIR=/ad
 
 ### Colab (validation)
 
-`serving/colab_serve_test.ipynb` runs the server directly (no Docker) on a free T4, used to validate the model, adapter, and client end-to-end before any paid deployment.
-
-## The server command
-
-```bash
-python3 -m vllm.entrypoints.openai.api_server \
-  --model <base-model-repo> \
-  --dtype half \                              # fp16; required on T4
-  --max-model-len 4096 \                      # matches training's max_seq_length
-  --enable-lora \
-  --max-lora-rank 16 \                        # must be >= the adapter's rank (16)
-  --lora-modules clinical-json-extractor=<adapter-dir> \
-  --host 0.0.0.0 --port 8000
-```
-
-The system prompt is not a server setting — it's sent by the client with every request, read from `system_prompt.txt` saved alongside the adapter (it must match training exactly).
-
-## Calling the server
-
-```bash
-export SERVER_URL=http://<host>:8000
-
-# one request, validated against the SOAP schema
-python serving/client.py --transcript-file path/to/transcript.txt
-
-# concurrent requests; reports TTFT, latency, throughput
-python serving/load_test.py --transcripts-file training/colab/val.jsonl --n 20 --concurrency 5
-```
-
-Both scripts are host-agnostic — only `SERVER_URL` changes between Colab, Modal, and EC2.
+`serving/colab_serve_test.ipynb` runs the server directly (no Docker) on a free T4, used to validate the model, adapter and client end to end before any paid deployment.
 
 ## Benchmark (Modal, T4, 20 requests, concurrency 5)
 
-**The bug, and the fix.** The first load test measured a wall time of 1231.9s (TTFT median 197.5s, throughput 11.7 tokens/s) despite `concurrency=5` on the client. vLLM's own engine logs showed `Running: 1 reqs, Waiting: 0 reqs` throughout — the engine never received more than one request at a time. Cause: by default, a single Modal container handles one input at a time; everything else queues externally at Modal's gateway, invisible to the server's own batching. Fix: `@modal.concurrent(max_inputs=10)` on the function (`serving/modal_app.py`), which lets Modal actually forward concurrent requests into the container so vLLM's continuous batching can do its job.
+Measured on the unmerged adapter deployment, before the model was merged; the concurrency fix applies to every deployment.
+
+**The bug, and the fix.** The first load test measured a wall time of 1231.9s (TTFT median 197.5s, throughput 11.7 tokens/s) despite `concurrency=5` on the client. vLLM's own engine logs showed `Running: 1 reqs, Waiting: 0 reqs` throughout: the engine never received more than one request at a time. Cause: by default, a single Modal container handles one input at a time; everything else queues externally at Modal's gateway, invisible to the server's own batching. Fix: `@modal.concurrent(max_inputs=10)` on the function (in `modal_app.py` and the experiment apps), which lets Modal actually forward concurrent requests into the container so vLLM's continuous batching can do its job.
 
 **Post-fix, two scenarios** (both clean, fully-completed 20/20 runs; a third post-fix run was discarded as unverified after the result queue was cleared mid-run before it finished):
 
@@ -152,12 +157,12 @@ Both scripts are host-agnostic — only `SERVER_URL` changes between Colab, Moda
 | Full-request latency, p95 | 329.95s | 80.22s |
 | Aggregate throughput | ~27.1 tokens/s | ~55.2 tokens/s |
 
-Median TTFT lands in the same 1-2.3s range either way — that's the real, consistent effect of the fix. The large cold-start p95 isn't a regression: with zero active containers beforehand, one or more of the first concurrent requests arrive while the model is still loading, giving those specific requests a very long TTFT while the rest (once warm) go fast. A real user hitting a cold container will see this; a warm one won't. Worth keeping in mind for anything latency-sensitive built on top of this later.
+Median TTFT lands in the same 1-2.3s range either way, and that is the real, consistent effect of the fix. The large cold-start p95 isn't a regression: with zero active containers beforehand, one or more of the first concurrent requests arrive while the model is still loading, giving those specific requests a very long TTFT while the rest (once warm) go fast. A real user hitting a cold container will see this; a warm one won't. Worth keeping in mind for anything latency-sensitive built on top of this later.
 
 ## Gotchas
 
-- `--max-lora-rank` must be at least the adapter's rank (16 here).
 - The system prompt must be byte-identical between training and serving.
 - fp16 (`--dtype half`) is required on T4-class GPUs; bf16 will not run.
 - If the server runs out of memory, lower `--max-model-len` or `--gpu-memory-utilization`.
+- `--max-lora-rank` (unmerged adapter server only) must be at least the adapter's rank (16 here).
 - The adapter was trained against a 4-bit Unsloth build of the base model; serving uses the full-precision release of the same model. LoRA adapters are generally portable across these, verified by testing rather than assumed.

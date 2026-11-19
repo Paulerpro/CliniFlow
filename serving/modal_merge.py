@@ -1,11 +1,11 @@
 """Merges the config A LoRA adapter into the fp16 base model, on Modal, and stores the result
-in a Modal Volume for serving/modal_app_merged.py.
+in a Modal Volume for serving/modal_app.py (the CliniFlow model deployment).
 
 Why on Modal: merging a 3B model needs about 13 GB of RAM in float32. Running it there needs no
 GPU, no Colab session and no 6 GB upload from a laptop; only the 49 MB adapter travels.
 
 The merge is done in float32 (the base weights are bfloat16, which float32 holds exactly) and
-cast to float16 once at the end: the same fp16 base that serving/modal_app.py applies the adapter
+cast to float16 once at the end: the same fp16 base that serving/experiments/modal_app_adapter.py applies the adapter
 to at runtime. Before anything is saved it checks the result two independent ways:
   1. three sampled weights are recomputed by hand as W + (alpha/r) * B @ A and compared;
   2. the logits of the adapter-applied model and the merged model agree on a sample prompt.

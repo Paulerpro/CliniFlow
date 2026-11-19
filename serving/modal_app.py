@@ -1,56 +1,48 @@
-"""Deploys the CliniFlow vLLM server on Modal's on-demand GPUs, reusing
-serving/Dockerfile unchanged. The image is portable by design: the same
-Dockerfile also runs under plain `docker run --gpus all` on any other GPU host.
+"""The CliniFlow model: the fine-tuned SOAP-note model, served with vLLM on Modal.
+
+This is the one deployment the gateway, the agent tools and the evals use. It serves the fine-tuned
+adapter already merged into the base weights (built by serving/modal_merge.py), so vLLM runs a plain
+model with no per-token adapter overhead. The comparison deployments (the plain base model and the
+adapter served unmerged) live in serving/experiments/ and exist only to reproduce the benchmark.
+
+Needs the Volume written by serving/modal_merge.py.
 
 Usage:
     python -m modal deploy serving/modal_app.py
 """
+import os
 import pathlib
 import subprocess
 
 import modal
 
 HERE = pathlib.Path(__file__).parent  # serving/
-ADAPTER_DIR_LOCAL = HERE.parent / "registry" / "adapters" / "config_A"
+# Optional: deploy with CLINIFLOW_PROXY_AUTH=1 to require a Modal proxy-auth token (see serving/README.md).
+PROXY_AUTH = os.environ.get("CLINIFLOW_PROXY_AUTH") == "1"
 
-image = (
-    modal.Image.from_dockerfile(str(HERE / "Dockerfile"), context_dir=HERE, add_python="3.12")
-    # The Dockerfile's own ENTRYPOINT (correct for `docker run`) would otherwise auto-launch
-    # start_server.sh the instant the container starts, before this module's serve() ever
-    # runs - bypassing the adapter/env setup below entirely. Clear it so Modal's function
-    # invocation is what actually controls startup here.
-    .entrypoint([])
-    .add_local_dir(
-        str(ADAPTER_DIR_LOCAL),
-        remote_path="/adapter",
-        ignore=[".cache", ".gitattributes", ".git"],
-    )
-)
+image = modal.Image.from_dockerfile(
+    str(HERE / "Dockerfile"), context_dir=HERE, add_python="3.12"
+).entrypoint([])  # the Dockerfile's own ENTRYPOINT is for `docker run`; clear it so Modal controls startup
 
-app = modal.App("cliniflow-vllm", image=image)
+app = modal.App("cliniflow-soap", image=image)
+volume = modal.Volume.from_name("cliniflow-merged")
 
 
 @app.function(
-    gpu="T4",  # same GPU class already proven to work, on Colab
-    timeout=60 * 30,       # 30 min: a rehearsal/demo session, not an always-on service
-    scaledown_window=60 * 10,  # shut the container down 10 min after the last request
-    max_containers=1,  # single demo instance; avoids accumulating GPU allocations
+    gpu="T4",  # the same GPU class as the comparison deployments, so latencies are comparable
+    timeout=60 * 30,
+    scaledown_window=60 * 10,
+    max_containers=1,
+    volumes={"/merged": volume},
 )
-# Without this, Modal forwards only 1 request at a time to the container and queues
-# the rest externally at its own gateway - vLLM's continuous batching never sees more
-# than one request, no matter the client's concurrency. 10 is within the measured KV
-# cache headroom (~11x concurrent full-length requests at max_model_len=4096).
-@modal.concurrent(max_inputs=10)
-# Callers must send the Modal-Key / Modal-Secret headers of a proxy-auth token (serving/README.md),
-# so the GPU endpoint is not open to anyone who learns the URL.
-@modal.web_server(port=8000, startup_timeout=600, requires_proxy_auth=True)
+@modal.concurrent(max_inputs=10)  # without this Modal forwards one request at a time and vLLM cannot batch
+@modal.web_server(port=8000, startup_timeout=600, requires_proxy_auth=PROXY_AUTH)
 def serve():
-    # PATH prepended so `python3` resolves to the base image's interpreter (has vllm installed),
-    # not the one `add_python` injected at /usr/local/bin (needed only so Modal can detect a
-    # Python version for its own runtime, otherwise unused).
     cmd = (
-        "PATH=/usr/bin:/bin:$PATH "
-        "ADAPTER_DIR=/adapter BASE_MODEL=unsloth/Llama-3.2-3B-Instruct bash start_server.sh"
+        "PATH=/usr/bin:/bin:$PATH python3 -m vllm.entrypoints.openai.api_server "
+        "--model /merged/config_A_merged "
+        "--served-model-name cliniflow-soap "
+        "--dtype half --max-model-len 4096 "
+        "--host 0.0.0.0 --port 8000"
     )
-    # non-blocking: the web_server decorator waits for port 8000 to answer, then proxies to it
     subprocess.Popen(cmd, shell=True, cwd="/serving")

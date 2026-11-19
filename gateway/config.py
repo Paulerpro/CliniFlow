@@ -46,7 +46,7 @@ def _flag(name, default):
 class Settings:
     # OpenAI-compatible vLLM server (the Modal endpoint, or http://localhost:8000).
     vllm_url: str = field(default_factory=lambda: os.environ.get("VLLM_URL", "http://localhost:8000"))
-    model_name: str = field(default_factory=lambda: os.environ.get("MODEL_NAME", "clinical-json-extractor-merged"))
+    model_name: str = field(default_factory=lambda: os.environ.get("MODEL_NAME", "cliniflow-soap"))
     # Must be the exact prompt the adapter was trained with (saved beside the adapter).
     system_prompt_path: Path = field(default_factory=lambda: Path(os.environ.get(
         "SYSTEM_PROMPT_PATH", ROOT / "registry" / "adapters" / "config_A" / "system_prompt.txt")))

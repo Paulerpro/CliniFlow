@@ -1,8 +1,10 @@
-# CliniFlow benchmark: base model vs. fine-tuned adapter
+# CliniFlow benchmark: the fine-tuned model vs. its reference points
 
 **Question.** Does the QLoRA adapter (config A) make Llama-3.2-3B-Instruct better at turning a doctor-patient transcript into a SOAP JSON note with a suggested ICD-10 code?
 
 **Short answer.** It fixes output *format* completely, it does not fix ICD-10 *code accuracy*, and it makes the model reproduce the training data's habit of *inventing patient details*. The adapter served unmerged is also about 3.6x slower per request in this setup; merging it into the base weights roughly halves that (2.0x faster, with equivalent quality apart from one format failure in 50). Format reliability is the clear win; the rest is a to-do list for the gateway (Pillar 5) and the next training round.
+
+**Naming.** *The CliniFlow model* is the fine-tuned Llama-3.2-3B with its adapter merged into the weights: the one model the project serves and uses. Two other runs are reference points, not alternatives: *base* is the same model before fine-tuning, and *adapter* is the same fine-tune served unmerged (the project's original design, kept to measure what merging buys). Section 5 compares the CliniFlow model with the adapter; sections 1 to 4 compare the adapter with the base, because that is the order the experiments were run in.
 
 ## Setup
 

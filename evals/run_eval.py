@@ -3,14 +3,15 @@
 Reuses the schema check from registry/validate_dataset.py rather than
 duplicating it, so Pillar 2 and Pillar 4 agree on what "valid" means.
 
-Usage:
-    export SERVER_URL=https://<your-workspace>--cliniflow-vllm-serve.us-east.modal.run
+Usage (the CliniFlow model, the default):
+    export SERVER_URL=https://<your-workspace>--cliniflow-soap-serve.us-east.modal.run
     python evals/run_eval.py --transcripts-file training/colab/test.jsonl \
-        --adapter-dir registry/adapters/config_A --out evals/results_finetuned.json
+        --adapter-dir registry/adapters/config_A --out evals/results_merged.json
 
-For the base model, point --server-url at the cliniflow-vllm-base deployment
-and pass --model-name base-model (--adapter-dir is still used, only to load the
-same system_prompt.txt so both models get an identical prompt).
+The benchmark's two reference points run the same way against their own deployments
+(serving/experiments/): --model-name base-model for the plain base model, and
+--model-name clinical-json-extractor for the adapter served unmerged. --adapter-dir is
+still used, only to load the same system_prompt.txt so every model gets an identical prompt.
 
 Scoring: "valid" is strict (reply must be bare JSON); "lenient_valid" first strips
 markdown fences / surrounding prose. Code metrics compare suggested_codes to the
@@ -110,7 +111,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--transcripts-file", required=True)
     parser.add_argument("--server-url", default=os.environ.get("SERVER_URL", "http://localhost:8000"))
-    parser.add_argument("--model-name", default="clinical-json-extractor")
+    parser.add_argument("--model-name", default="cliniflow-soap")
     parser.add_argument("--adapter-dir", required=True, help="for system_prompt.txt")
     parser.add_argument("--out", required=True)
     args = parser.parse_args()

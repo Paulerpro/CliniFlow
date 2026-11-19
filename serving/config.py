@@ -12,7 +12,11 @@ BASE_MODEL = os.environ.get("BASE_MODEL", "unsloth/Llama-3.2-3B-Instruct")
 # Folder holding adapter_model.safetensors, adapter_config.json and system_prompt.txt.
 ADAPTER_DIR = os.environ.get("ADAPTER_DIR", "./adapter")
 
-# The name clients send in the "model" field to select this adapter.
+# The name clients send in the "model" field. The CliniFlow deployment (modal_app.py) serves "cliniflow-soap";
+# for the unmerged adapter server (start_server.sh, experiments/) set MODEL_NAME to the adapter name below.
+MODEL_NAME = os.environ.get("MODEL_NAME", "cliniflow-soap")
+
+# The name the unmerged adapter server (start_server.sh) registers its LoRA adapter under.
 ADAPTER_NAME = os.environ.get("ADAPTER_NAME", "clinical-json-extractor")
 
 # Must be >= the adapter rank (16 for config A).

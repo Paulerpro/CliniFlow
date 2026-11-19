@@ -19,12 +19,19 @@ Base model vs. fine-tuned adapter on the 50-row held-out test set
 
 ## Reproducing
 
-Deploy both servers (on Windows, set `PYTHONUTF8=1` or `modal deploy` crashes on a checkmark character):
+Three deployments take part (on Windows, set `PYTHONUTF8=1` or `modal deploy` crashes on a checkmark character). The first is the product; the other two are reference points for the benchmark:
 
-    python -m modal deploy serving/modal_app.py        # fine-tuned (adapter)
-    python -m modal deploy serving/modal_app_base.py   # base model, no adapter
+    python -m modal run serving/modal_merge.py                          # builds the merged weights (once)
+    python -m modal deploy serving/modal_app.py                         # the CliniFlow model (merged)
+    python -m modal deploy serving/experiments/modal_app_base.py        # reference: base model, no adapter
+    python -m modal deploy serving/experiments/modal_app_adapter.py     # reference: the adapter, unmerged
 
-Run the eval against each. `--adapter-dir` is only used to load `system_prompt.txt`, so both models get the identical prompt:
+Run the eval against each. `--adapter-dir` is only used to load `system_prompt.txt`, so every model gets the identical prompt. The result files keep the names they were first produced under: `results_merged.json` is the CliniFlow model, `results_finetuned.json` is the unmerged adapter.
+
+    python evals/run_eval.py --transcripts-file training/colab/test.jsonl \
+        --adapter-dir registry/adapters/config_A --model-name cliniflow-soap \
+        --server-url https://<your-workspace>--cliniflow-soap-serve.us-east.modal.run \
+        --out evals/results_merged.json
 
     python evals/run_eval.py --transcripts-file training/colab/test.jsonl \
         --adapter-dir registry/adapters/config_A --model-name base-model \
@@ -32,15 +39,17 @@ Run the eval against each. `--adapter-dir` is only used to load `system_prompt.t
         --out evals/results_base.json
 
     python evals/run_eval.py --transcripts-file training/colab/test.jsonl \
-        --adapter-dir registry/adapters/config_A \
+        --adapter-dir registry/adapters/config_A --model-name clinical-json-extractor \
         --server-url https://<your-workspace>--cliniflow-vllm-serve.us-east.modal.run \
         --out evals/results_finetuned.json
 
 Then:
 
     python evals/rescore.py --test training/colab/test.jsonl \
-        --base evals/results_base.json --finetuned evals/results_finetuned.json \
-        --out evals/rescored.json
+        --base evals/results_base.json --finetuned evals/results_merged.json \
+        --out evals/rescored_merged.json
+
+(`rescore.py` names its two inputs `--base` and `--finetuned`; pass the CliniFlow model's results as `--finetuned`, or the unmerged adapter's for the reference numbers.)
 
 ## How scoring works
 
@@ -80,14 +89,14 @@ The fine-tuned results below are the adapter served unmerged, so their latency i
 - **Codes**: neither model got any exact code. The fine-tuned model often produces the right *description* with the wrong *code number* (6 of 50 rows, e.g. "ENDOMETRIOSIS, UNSPECIFIED" with N83 where the gold is N809), so it has learned the diagnosis names better than the code numbers. The base model emits about 4 codes per row, scattershot.
 - **Latency**: the fine-tuned model is about 3.6x slower at the median. About 2x of that is longer output; the rest (about 1.9x per 1k characters) is consistent with unmerged-LoRA overhead on a T4. The 199s and 316s maxima are probably cold-start or container events, so prefer the medians.
 
-## Merged model
+## The CliniFlow model (merged) vs. the unmerged adapter
 
-The adapter merged into the fp16 base (`serving/modal_merge.py`, served by `serving/modal_app_merged.py`) was run through the same 50 rows. Files: `results_merged.json`, `rescored_merged.json`, `hallucination_rules_merged.json`, `hallucination_judge_merged.json`, `gateway_replay_merged.json`, `merged_comparison.json`.
+The product serves the fine-tuned adapter merged into the fp16 base (`serving/modal_merge.py`, deployed by `serving/modal_app.py`). The unmerged adapter is kept as a reference point. Files for the CliniFlow model: `results_merged.json`, `rescored_merged.json`, `hallucination_rules_merged.json`, `hallucination_judge_merged.json`, `gateway_replay_merged.json`, `merged_comparison.json`.
 
-    python evals/run_eval.py --transcripts-file training/colab/test.jsonl --adapter-dir registry/adapters/config_A         --model-name clinical-json-extractor-merged         --server-url https://<your-workspace>--cliniflow-vllm-merged-serve-merged.us-east.modal.run --out evals/results_merged.json
-    python evals/compare_merged.py --adapter evals/results_finetuned.json --merged evals/results_merged.json --out evals/merged_comparison.json
+    python evals/compare_merged.py --adapter evals/results_finetuned.json \
+        --merged evals/results_merged.json --out evals/merged_comparison.json
 
-| | adapter (unmerged) | merged |
+| | unmerged adapter (reference) | CliniFlow model (merged) |
 |---|---|---|
 | median request (s) | 51.2 | **25.2** |
 | median s per 1k chars | 16.7 | **8.2** |
