@@ -63,3 +63,10 @@ def test_info_warnings_alone_do_not_need_review(table, settings):
     result = run(FakeLLM([reply]), table, settings)
     assert not result.needs_review and not result.code_review and not result.content_review
     assert any(w.type == "invented_demographic" for w in result.warnings)
+
+
+def test_repair_onto_a_parent_code_adds_a_not_billable_note(table, settings):
+    result = run(FakeLLM([make_reply(code="N78", description="ENDOMETRIOSIS")]), table, settings)
+    types = {(w.type, w.severity) for w in result.warnings}
+    assert ("code_repaired", "review") in types and ("code_not_billable", "info") in types
+    assert result.needs_review and result.code_review

@@ -1,0 +1,29 @@
+[doctor] Hello. Tell me what's been going on with your son.
+
+[patient] He's been coughing and wheezing since yesterday, especially at night, and he's using his inhaler a lot.
+
+[doctor] How old is he, and how often has he needed the inhaler?
+
+[patient] He's seven. Every four hours or so since last night.
+
+[doctor] Any fever or runny nose?
+
+[patient] A runny nose for two days, no fever.
+
+[doctor] Has he been short of breath playing, or is he able to talk in full sentences?
+
+[patient] He gets winded walking up the stairs, but he can talk fine.
+
+[doctor] Any triggers, like pets, smoke, or exercise?
+
+[patient] His cousin visited with a cat last weekend.
+
+[doctor] His oxygen saturation is 96 percent, his respiratory rate is 24, and I hear wheezing on both sides but good air movement. This is a mild asthma flare-up.
+
+[patient] Does he need the hospital?
+
+[doctor] No. We'll give an albuterol treatment here, then continue albuterol two puffs every four to six hours for the next few days, and start a short course of prednisolone, 20 milligrams once a day for three days.
+
+[patient] Anything else?
+
+[doctor] Keep him away from the cat, and see me in a week. Go to the emergency room if he can't speak in full sentences or his lips turn blue.

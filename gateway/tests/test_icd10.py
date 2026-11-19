@@ -70,3 +70,36 @@ def test_search_drops_junk_and_hides_non_billable_by_default(table):
     assert table.search("zzz qqq") == []
     assert table.search("") == []
     assert all(e.billable for e, _ in table.search("other specified disorders of male genital organs"))
+
+
+def test_female_is_never_repaired_into_male(table):
+    # Found while recording the demo: the model wrote N798, "...FEMALE GENITAL ORGANS", and fuzzy matching
+    # "repaired" it to N508, "...MALE GENITAL ORGANS". Sex, side and acuity words must agree.
+    r = resolve_code(table, "N798", "OTHER SPECIFIED DISORDERS OF FEMALE GENITAL ORGANS")
+    assert r.code != "N508" and r.status != "repaired"
+    assert r.status in ("unresolved_mismatch", "unresolved_not_found")
+
+
+def test_with_and_without_are_not_interchangeable(table):
+    assert resolve_code(table, "Q9999", "Acute cystitis with hematuria").code == "N3001"
+    assert resolve_code(table, "Q9999", "Acute cystitis without hematuria").code == "N3000"
+
+
+def test_a_code_whose_description_names_the_other_sex_is_not_verified(table):
+    r = resolve_code(table, "N508", "OTHER SPECIFIED DISORDERS OF FEMALE GENITAL ORGANS")
+    assert r.status not in ("verified", "verified_non_billable")
+
+
+def test_critical_word_disagreement():
+    from gateway.icd10 import disagrees_on_critical
+    assert disagrees_on_critical("pain in the right knee", "pain in the left knee")
+    assert disagrees_on_critical("male genital organs", "female genital organs")
+    assert not disagrees_on_critical("Endometriosis, unspecified", "ENDOMETRIOSIS UNSPECIFIED")
+    assert not disagrees_on_critical("type 2 diabetes with diabetic kidney disease",
+                                     "TYPE 2 DIABETES MELLITUS WITH DIABETIC KIDNEY DISEASE")
+
+
+def test_a_repair_onto_a_category_says_it_is_not_billable(table):
+    r = resolve_code(table, "N78", "ENDOMETRIOSIS")
+    assert r.status == "repaired" and r.code == "N80" and r.billable is False
+    assert resolve_code(table, "N83", "ENDOMETRIOSIS, UNSPECIFIED").billable is True

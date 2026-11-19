@@ -1,0 +1,29 @@
+[doctor] Thanks for coming in. What's been troubling you?
+
+[patient] I've had pain low in my belly for about eight months, and it gets much worse during my period.
+
+[doctor] How would you describe the pain, and how bad does it get?
+
+[patient] It's a deep cramping ache. On the worst days of my period it's an eight out of ten and I can't go to work.
+
+[doctor] Is the pain only around your period, or is it there at other times too?
+
+[patient] It's mostly during my period, but I get a duller ache in between, and sex has become painful.
+
+[doctor] Are your periods heavy or irregular?
+
+[patient] They're heavy, about seven days, and I pass clots on the second and third day.
+
+[doctor] Any problems with your bowels or bladder, like pain when you go?
+
+[patient] Sometimes it hurts to have a bowel movement during my period. Urinating is fine.
+
+[doctor] Have you tried anything for the pain, and are you hoping to get pregnant?
+
+[patient] Ibuprofen helps a little. We aren't trying for a baby right now, but we might want one in a couple of years.
+
+[doctor] On exam your abdomen is soft with mild tenderness low on both sides. On the pelvic exam there is tenderness behind the uterus and the uterus doesn't move as freely as it should. This pattern of symptoms and findings is typical of endometriosis, and that is the diagnosis I'm giving you.
+
+[patient] What happens next?
+
+[doctor] I'm ordering a pelvic ultrasound to look for cysts. For now, take ibuprofen 600 milligrams with food three times a day during your period, and we'll start a hormonal treatment to reduce the bleeding and pain. I'll also refer you to a gynecologist to talk about a laparoscopy to confirm it. Come back in six weeks.

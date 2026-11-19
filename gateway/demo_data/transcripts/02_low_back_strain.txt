@@ -1,0 +1,29 @@
+[doctor] What brings you in today?
+
+[patient] My lower back has been killing me since Saturday. I was moving a couch.
+
+[doctor] Where exactly is the pain, and does it go down your legs?
+
+[patient] Right across the lower back, mostly on the left. It doesn't go down my leg, but it's worse when I bend forward.
+
+[doctor] Any numbness, weakness in your legs, or trouble controlling your bladder or bowels?
+
+[patient] No, none of that.
+
+[doctor] Any fever, weight loss, or history of back problems?
+
+[patient] No fever. I had a similar episode about two years ago that went away on its own.
+
+[doctor] On a scale of one to ten, how bad is it?
+
+[patient] About a six when I move, a three when I rest.
+
+[doctor] On exam you have tenderness over the left lower back muscles, full strength in both legs, normal reflexes, and a negative straight leg raise test. This looks like a muscle strain, not a nerve problem.
+
+[patient] Do I need an X-ray?
+
+[doctor] Not right now, since there are no warning signs. I recommend ibuprofen 400 milligrams three times a day with food for one week, heat packs, and gentle walking. Avoid heavy lifting for two weeks.
+
+[patient] And if it doesn't improve?
+
+[doctor] Come back in two weeks, and we'll consider physical therapy and imaging.

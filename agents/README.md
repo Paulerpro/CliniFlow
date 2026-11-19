@@ -54,6 +54,10 @@ Be aware of what it does **not** fix: reviewers correct codes and accept or reje
 
 Settings come from environment variables or the repo's `.env`: `GATEWAY_URL` (default `http://localhost:8080`), `GATEWAY_TIMEOUT_S` (default 600), `AGENTS_DB` (default `agents/data/signoff.db`, gitignored because it holds transcripts), `OPENAI_API_KEY` and `VERIFIER_MODEL` (default `gpt-4.1-mini`) for `verify_note`. Langfuse tracing uses the gateway's settings (see `gateway/README.md`); `verify_note` is traced too. The gateway must be running (`python -m uvicorn gateway.app:app --port 8080`) and pointed at a model.
 
+### Try it without a GPU
+
+The agent layer only needs a gateway to talk to, and the gateway has a demo mode. In one terminal run `python -m gateway.demo`; in another, use the tools from any MCP client, or run the review side yourself with the CLI below. `verify_note` is the one tool that needs an OpenAI key (it calls a second model); the others work as they are.
+
 ### Connect an MCP client
 
 Claude Code, from the repo root:

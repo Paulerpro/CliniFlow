@@ -1,0 +1,25 @@
+[doctor] Hi there. What's going on?
+
+[patient] I've had a really sore throat for three days, and it hurts to swallow.
+
+[doctor] Any fever, cough, or runny nose?
+
+[patient] I felt feverish last night, but no cough and no runny nose.
+
+[doctor] Any swollen glands, rash, or trouble breathing?
+
+[patient] My neck feels tender on both sides. No rash, and I can breathe fine.
+
+[doctor] Has anyone at home been sick?
+
+[patient] My daughter had strep throat last week.
+
+[doctor] Your temperature is 100.9, your throat is red with white patches on both tonsils, and the glands in your neck are tender. The rapid strep test in the office is positive.
+
+[patient] So it is strep?
+
+[doctor] Yes. I'll start you on amoxicillin 500 milligrams twice a day for ten days. Take acetaminophen for the pain and fever, and drink plenty of fluids.
+
+[patient] When can I go back to work?
+
+[doctor] After you've been on the antibiotic for 24 hours and you have no fever. Call me if you aren't better in two days.

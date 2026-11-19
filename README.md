@@ -6,7 +6,7 @@ A model that turns a doctor-patient conversation into a structured SOAP note (Su
 
 **Scope honesty statement:** this is a portfolio project built on synthetic data, for engineering demonstration. It is **not** clinically validated, **not** a certified medical device, and **not** HIPAA-compliant infrastructure. No real patient data is used or stored anywhere in this repo. Suggested codes are never auto-submitted and require human sign-off.
 
-The interesting part is not the model, it is the engineering around a model that is imperfect: measuring exactly where it fails, putting a checking layer in front of it, and keeping a person in charge.
+The interesting part is not the model, it is the engineering around a model that is imperfect: measuring exactly where it fails, putting a checking layer in front of it, and keeping a person in charge. [`ARCHITECTURE.md`](ARCHITECTURE.md) explains how the pieces fit and why each exists; the demo below runs it on a laptop.
 
 ## The model
 
@@ -69,11 +69,22 @@ Each piece owns one job. The gateway never edits note text and never invents a c
 
 ## Try it
 
+### See it work, with no GPU or accounts
+
+```bash
+pip install -r agents/requirements.txt
+python -m gateway.demo          # the real gateway, answering from recorded model replies
+```
+
+Open http://127.0.0.1:8080/docs. `GET /demo/samples` lists six sample conversations to paste into `POST /v1/notes`. You will see the gateway repair an ICD-10 code, raise its review flags (including the model inventing a doctor), keep and flag codes it cannot fix, and, for one scripted sample, retry. Several samples show what it gets wrong, on purpose. The recorded replies are exactly what the real model returned for those conversations; only the model is replaced, and the gateway is unchanged. The agent tools and the review CLI work against it too ([`agents/README.md`](agents/README.md)).
+
+### Run the tests
+
 You can run the whole test suite without any accounts or GPU. The model is replaced by a fake in the tests.
 
 ```bash
 pip install -r agents/requirements.txt
-python -m pytest gateway agents          # 127 tests
+python -m pytest gateway agents          # 141 tests
 python -m ruff check gateway agents
 ```
 

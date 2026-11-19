@@ -20,6 +20,12 @@ Point it at a model server with `VLLM_URL`, either as an environment variable or
 
 Tests (offline, fake model): `python -m pytest gateway` · Lint: `python -m ruff check gateway`
 
+## Demo mode (no GPU, no keys)
+
+    python -m gateway.demo
+
+Runs this same gateway with the model replaced by recorded replies (`gateway/demo_data/samples.json`). For each of six original sample conversations it answers with exactly what the real model returned when they were recorded, so the ICD-10 repair, the flags and the response format are all the real ones. Any other transcript gets a 503 that says so. `GET /demo/samples` lists the samples; the agent tools and review CLI work against it unchanged. One sample is marked `scripted`: its first reply is wrapped in a markdown fence (added by the recording script, not produced by the model) so you can watch the retry happen. To rerecord against your own deployment: `python -m gateway.record_demo`.
+
 ## Response
 
 `POST /v1/notes` returns the four SOAP fields, `suggested_codes`, and:
@@ -64,11 +70,12 @@ Replaying the 50 saved fine-tuned outputs through the real pipeline (`python eva
 | Same 3-character category | 12/50 | **26/50** |
 | Diagnosis description match | 6/50 | 11/50 |
 
-Review flags on the same 50 notes: `code_review` 47, `content_review` 2. Both `content_review` notes are ones the LLM judge also marked as containing a major unsupported claim, but the content check catches only 2 of the judge's 9 such notes. It finds invented numbers, drugs, doses and doctor names; it cannot see a wrong drug-condition pairing such as "hypertension managed with Metformin".
+Review flags on the same 50 notes: `code_review` 48, `content_review` 2. Both `content_review` notes are ones the LLM judge also marked as containing a major unsupported claim, but the content check catches only 2 of the judge's 9 such notes. It finds invented numbers, drugs, doses and doctor names; it cannot see a wrong drug-condition pairing such as "hypertension managed with Metformin".
 
 ## Limits
 
-- `code_review` is true for almost every note (47/50): the model's code and description almost never agree with the table, and a repaired code is still only the table entry for the model's own description. Repairs are right 11 times out of 20 at the default threshold, so they are flagged, never trusted silently.
+- `code_review` is true for almost every note (48/50): the model's code and description almost never agree with the table, and a repaired code is still only the table entry for the model's own description. Repairs are right 11 times out of 20 at the default threshold, so they are flagged, never trusted silently.
+- **A repair is refused when the descriptions disagree on a word that flips the diagnosis** (male/female, left/right, with/without, acute/chronic, initial/subsequent, and similar). Plain string similarity treats "FEMALE" and "MALE" as nearly identical, and recording the demo caught it turning a woman's diagnosis into a man's; the guard and its tests came from that case. The same rule stops a code whose description names the other sex from counting as verified. It is deliberately conservative: when it blocks a repair the code is kept and flagged.
 - The content check is precise but low-recall (2 of 9). Human sign-off (Pillar 6) is still required; the flags only say where to look first.
 - The gateway checks every code in `suggested_codes` independently; it does not choose among them or limit how many are returned.
 - The ICD-10-CM table is the CDC/NCHS FY2026 order file (public domain; 98,186 entries, 74,719 billable) in `data/icd10cm_fy2026.tsv.gz`. FY2027 was not yet published at the time of writing; update the file each October.

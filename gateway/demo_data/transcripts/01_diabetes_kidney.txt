@@ -1,0 +1,29 @@
+[doctor] Good morning. How have you been since your last visit?
+
+[patient] Pretty tired, honestly. And I've been getting up at night to pee two or three times.
+
+[doctor] Okay. Let's go through your diabetes first. Have you been taking the metformin, 1000 milligrams twice a day?
+
+[patient] Most days. I miss the evening one sometimes.
+
+[doctor] Any low blood sugars, shakiness, or sweating?
+
+[patient] No, nothing like that. My morning readings are usually around 160 to 180.
+
+[doctor] That's higher than we want. Any numbness or tingling in your feet?
+
+[patient] A little tingling in my toes, mostly at night.
+
+[doctor] Any swelling in your legs or foamy urine?
+
+[patient] My ankles swell by the end of the day. And yes, the urine has looked foamy lately.
+
+[doctor] Your blood pressure today is 148 over 90 and your weight is up two kilograms. Your last lab showed your kidney function has dropped, with an eGFR of 52, so this is stage 3 chronic kidney disease from the diabetes.
+
+[patient] Is that serious?
+
+[doctor] It's manageable if we act now. I want to add lisinopril 10 milligrams once a day to protect your kidneys and lower your pressure, and I'm ordering a urine albumin test and repeat blood work in four weeks.
+
+[patient] Should I change my diet?
+
+[doctor] Yes, less salt and fewer refined carbohydrates. I'll refer you to the dietitian. Come back in one month.

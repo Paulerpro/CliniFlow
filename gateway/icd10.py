@@ -15,6 +15,14 @@ from rapidfuzz import fuzz, process
 DATA_PATH = Path(__file__).parent / "data" / "icd10cm_fy2026.tsv.gz"
 VERIFIED_SIMILARITY = 85.0  # table description vs. the model's description
 
+# Words that flip a diagnosis while barely changing its text: "FEMALE" contains "MALE", and "with" / "without"
+# or "acute" / "chronic" differ by little. A table entry that disagrees with the model's description on any of
+# them is a different diagnosis, not a correction of the same one, so it is never accepted as a repair (and a
+# code whose own description disagrees on one is not "verified").
+CRITICAL_WORDS = frozenset({
+    "male", "female", "left", "right", "bilateral", "unilateral", "acute", "chronic", "initial",
+    "subsequent", "sequela", "with", "without", "benign", "malignant", "primary", "secondary"})
+
 
 def normalize_code(code):
     return re.sub(r"[^A-Z0-9]", "", str(code).upper())
@@ -22,6 +30,12 @@ def normalize_code(code):
 
 def normalize_text(text):
     return re.sub(r"\s+", " ", re.sub(r"[^A-Z0-9 ]", " ", str(text).upper())).strip()
+
+
+def disagrees_on_critical(a, b):
+    """True if two descriptions differ on a word that changes the diagnosis (sex, side, acuity, ...)."""
+    words = {w.lower() for w in set(normalize_text(a).split()) ^ set(normalize_text(b).split())}
+    return bool(words & CRITICAL_WORDS)
 
 
 @dataclass(frozen=True)
@@ -47,6 +61,7 @@ class ResolvedCode:
     original_code: str
     score: float | None = None
     ambiguous: bool = False
+    billable: bool | None = None  # False for a parent ("header") code that cannot be billed
 
 
 class IcdTable:
@@ -77,6 +92,7 @@ class IcdTable:
         if not query:
             return None
         hits = process.extract(query, self._norm_desc, scorer=fuzz.ratio, limit=10, score_cutoff=cutoff)
+        hits = [h for h in hits if not disagrees_on_critical(query, self._norm_desc[h[2]])]
         if not hits:
             return None
         best = hits[0][1]
@@ -126,13 +142,13 @@ def resolve_code(table, code, description, threshold=90.0):
     entry = table.lookup(code)
     if entry:
         sim = table.description_similarity(entry, description)
-        if sim >= VERIFIED_SIMILARITY:
+        if sim >= VERIFIED_SIMILARITY and not disagrees_on_critical(entry.description, description):
             status = "verified" if entry.billable else "verified_non_billable"
-            return ResolvedCode(entry.code, entry.description, status, original, sim)
+            return ResolvedCode(entry.code, entry.description, status, original, sim, billable=entry.billable)
     match = table.match_description(description, near_code=code, cutoff=threshold)
     if match and (entry is None or match.entry.code != entry.code):
         return ResolvedCode(match.entry.code, match.entry.description, "repaired", original,
-                            match.score, match.ambiguous)
+                            match.score, match.ambiguous, billable=match.entry.billable)
     if entry:
-        return ResolvedCode(entry.code, str(description), "unresolved_mismatch", original)
+        return ResolvedCode(entry.code, str(description), "unresolved_mismatch", original, billable=entry.billable)
     return ResolvedCode(original, str(description), "unresolved_not_found", original)

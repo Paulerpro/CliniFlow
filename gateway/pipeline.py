@@ -102,8 +102,14 @@ async def generate_note(transcript, llm, table: IcdTable, system_prompt, setting
 def _code_warnings(r):
     if r.status == "repaired":
         extra = " (several equally close matches; the nearest to the model's code was used)" if r.ambiguous else ""
-        return [GatewayWarning("code_repaired", "review",
-                        f"model gave {r.original_code}; replaced with {r.code} from its description{extra}", category="code")]
+        found = [GatewayWarning("code_repaired", "review",
+                                f"model gave {r.original_code}; replaced with {r.code} from its description{extra}",
+                                category="code")]
+        if r.billable is False:  # the description matched a category, not a billable code
+            found.append(GatewayWarning("code_not_billable", "info",
+                                        f"{r.code} is a parent code and is not billable; a more specific code is needed",
+                                        category="code"))
+        return found
     if r.status == "verified_non_billable":
         return [GatewayWarning("code_not_billable", "info", f"{r.code} is a parent code and is not billable", category="code")]
     if r.status == "unresolved_mismatch":

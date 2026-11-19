@@ -1,0 +1,29 @@
+[doctor] What can I help you with today?
+
+[patient] It burns when I pee and I feel like I have to go every few minutes. It started two days ago.
+
+[doctor] Any blood in the urine, fever, chills, or pain in your sides?
+
+[patient] No blood and no fever. Just some pressure low in my belly.
+
+[doctor] Any nausea or vomiting, or vaginal discharge?
+
+[patient] No to all of that.
+
+[doctor] Have you had urinary infections before?
+
+[patient] Once, about a year ago.
+
+[doctor] Are you pregnant or could you be, and do you have any drug allergies?
+
+[patient] No chance of being pregnant. I'm allergic to sulfa drugs.
+
+[doctor] Your temperature is 98.4 and there's mild tenderness above the pubic bone, but no tenderness in your back. Your urine dipstick shows leukocytes and nitrites, so this is an uncomplicated bladder infection.
+
+[patient] What do I take?
+
+[doctor] Since you're allergic to sulfa, I'll prescribe nitrofurantoin 100 milligrams twice a day for five days. Drink plenty of water and avoid caffeine.
+
+[patient] When should I worry?
+
+[doctor] If you get fever, back pain, or vomiting, or if it isn't better in three days, call us right away.
